@@ -40,6 +40,29 @@ itinerary.md  ──(assets/sync.js)──▶  assets/trip.js  ──▶  index.
 | Map rendering / styling | `assets/app.js` / `assets/style.css` |
 | Driving/train route geometry | `assets/routes.js` — regenerate with `python3 assets/fetchroutes.py` (OSRM) |
 
+### Photo galleries — every place must be browsable
+The app shows an in-page **photo gallery modal** (📷) for every town and attraction:
+on the base bands, on the map pins/★ popups, and on any place name that appears in a
+day bullet. Photos are fetched live from **two sources merged** (no API key,
+neighbours preloaded, each source's own thumbnail URL used for grid + lightbox):
+- **Openverse** — searched by place *name* (aggregates Flickr, museums, Wikimedia);
+  gives scenic, relevant shots. This is the primary source.
+- **Wikimedia Commons** — geosearch by the place's *coordinate*; on-location shots.
+
+Never rewrite a Commons thumbnail URL to a different width — unrendered sizes 400.
+
+**Requirement: any new place you add MUST carry a coordinate so it gets a gallery.**
+- **New base (stop):** its `META` entry needs `coord: [lat, lon]` (same coord that
+  places its map pin).
+- **New attraction:** add it to that base's `highlights: [{ name, coord, note }]` in
+  `META` — the name then also auto-links wherever it appears in the day text.
+- The 📷 trigger itself (band chip, map pin/★ popup, linkified day-text name) only
+  appears for places that have a coordinate — so a coordinate-less place gets no
+  gallery entry point at all. Don't ship one without coords.
+
+No `assets/app.js` change is needed to make a new place browsable — the gallery is
+driven entirely by the name + coordinate in `META`.
+
 ## The web app (GitHub Pages)
 Served from the **repo root** (Pages → main branch → `/`). Self-contained except
 Leaflet (CDN) + OpenStreetMap tiles (need internet).
