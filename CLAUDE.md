@@ -77,6 +77,9 @@ Preview locally: `python3 -m http.server` then open `http://localhost:8000`
 
 ## Conventions
 - **Commit directly to `main`** — no feature branches for this project.
+- **Don't launch/screenshot the page to verify.** After editing, just run `node assets/sync.js`
+  (or let the hook run it) and confirm it prints without error. No need to start a server or
+  open the page in a browser — trust the sync output.
 - `.claude/skills/airbnb-search/` is a bundled 3rd-party skill (MIT) used to search stays.
 
 ## Original brief
