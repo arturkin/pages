@@ -50,6 +50,8 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .baseband .book{font-size:12px;font-weight:600;text-decoration:none;color:#3a322c;background:rgba(255,255,255,.9);
   padding:4px 10px;border-radius:999px;white-space:nowrap;transition:background .12s}
 .baseband .book:hover{background:#fff}
+.baseband .book.airbnb{color:#c1395b}
+.baseband .book.booking{color:#1a4a8a}
 .days{border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:var(--card);overflow:hidden}
 .day{padding:13px 15px;border-top:1px dashed var(--line)}
 .day:first-child{border-top:none}

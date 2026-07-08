@@ -8,6 +8,12 @@
 
   var MODE = { car: { color: "#c07a2b" }, train: { color: "#2b5f8c" } };
 
+  // booking sites -> chip label + icon (add more here to support new sites)
+  var SITES = {
+    airbnb:  { label: "Airbnb",      icon: "🔎" },
+    booking: { label: "Booking.com", icon: "🏨" }
+  };
+
   /* ---------- header ---------- */
   var m = TRIP.meta;
   document.getElementById("top").innerHTML =
@@ -21,9 +27,11 @@
   TRIP.bases.forEach(function (b) {
     var nights = b.nights ? (b.nights + " night" + (b.nights > 1 ? "s" : "")) : "fly out";
     var tag = b.carFree ? '<span class="tag">Car-free</span>' : '';
-    var book = b.book
-      ? '<a class="book" href="' + esc(b.book.url) + '" target="_blank" rel="noopener">🔎 ' + esc(b.book.label) + '</a>'
-      : '';
+    var book = (b.book || []).map(function (x) {
+      var s = SITES[x.site] || { label: x.site, icon: "🔗" };
+      return '<a class="book ' + x.site + '" href="' + esc(x.url) + '" target="_blank" rel="noopener">' +
+        s.icon + ' ' + esc(s.label) + '</a>';
+    }).join("");
     var right = (book || tag) ? '<span class="bandright">' + book + tag + '</span>' : '';
     var stay = b.stay ? esc(b.stay) + " · " : "";
     var card = document.createElement("div");
