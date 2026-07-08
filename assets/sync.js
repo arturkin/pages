@@ -36,10 +36,9 @@ const HOTEL = {
 const BOOKING = {
   florence:    "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-03&checkout=2026-10-04&group_adults=2&no_rooms=1&group_children=0",
   sangimignano:"https://www.booking.com/searchresults.html?ss=San+Gimignano%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0",
-  valdorcia:   "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-12&group_adults=2&no_rooms=1&group_children=0",
-  argentario:  "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-12&checkout=2026-10-16&group_adults=2&no_rooms=1&group_children=0",
-  florence2:   "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-16&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0",
-  milan:       "https://www.booking.com/searchresults.html?ss=Milano+Centrale%2C+Milan%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
+  valdorcia:   "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0",
+  argentario:  "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0",
+  florence2:   "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
 };
 const META = [
   { key: "florence", name: "Florence", color: "#5b6b8c", pin: 1, coord: [43.776, 11.248],
@@ -60,7 +59,8 @@ const META = [
       { name: "Pienza", coord: [43.0766, 11.6787], note: "pecorino, the 'ideal city'" },
       { name: "Montepulciano", coord: [43.0989, 11.7869], note: "Vino Nobile cellars under the town" },
       { name: "Bagno Vignoni", coord: [43.0280, 11.6170], note: "thermal square + free pools" },
-      { name: "Abbey of Sant'Antimo", coord: [43.0170, 11.5120], note: "Romanesque abbey" }
+      { name: "Abbey of Sant'Antimo", coord: [43.0170, 11.5120], note: "Romanesque abbey" },
+      { name: "Monte Oliveto Maggiore", coord: [43.1719, 11.5478], note: "abbey in the Crete Senesi moonscape" }
     ] },
   { key: "argentario", name: "Argentario / Maremma", color: "#2f8f8a", pin: 4, coord: [42.3924, 11.2064],
     book: [{ site: "airbnb", url: AIRBNB.argentario }, { site: "booking", url: BOOKING.argentario }],
@@ -77,16 +77,10 @@ const META = [
       { name: "Ponte Vecchio", coord: [43.7680, 11.2531], note: "goldsmiths' bridge" },
       { name: "Piazzale Michelangelo", coord: [43.7629, 11.2650], note: "the classic city view" }
     ] },
-  { key: "milan", name: "Milan", color: "#9a9186", pin: 6, coord: [45.4642, 9.1900],
-    book: [{ site: "booking", url: BOOKING.milan }],
-    highlights: [
-      { name: "Duomo di Milano", coord: [45.4642, 9.1919], note: "the cathedral + rooftop" },
-      { name: "Galleria Vittorio Emanuele II", coord: [45.4659, 9.1899], note: "grand 19th-c. arcade" }
-    ] },
   { key: "home", name: "Home", color: "#9a9186", pin: "✈", coord: null, book: [], highlights: [] }
 ];
 // travel-mode for each transfer day (doc's ">>" line gives the text, not the mode)
-const LEG_MODE = { 2: "car", 6: "car", 10: "car", 14: "car", 15: "train", 16: "train" };
+const LEG_MODE = { 2: "car", 6: "car", 11: "car", 15: "car", 16: "train" };
 
 // ---- parse itinerary.md --------------------------------------------------
 function parseBanner(t) {

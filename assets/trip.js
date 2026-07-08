@@ -4,7 +4,7 @@ window.TRIP = {
   "meta": {
     "title": "ITALY — TWO WEEKS: TUSCANY, DEEP",
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 15 nights",
-    "route": "Florence → San Gimignano (Chianti) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence → Milan",
+    "route": "Florence → San Gimignano (Chianti) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
     "flyBack": "Wizz Air MXP 16:00 → KEF 18:20"
   },
@@ -175,8 +175,8 @@ window.TRIP = {
       "emoji": "🍷",
       "name": "Val d'Orcia",
       "stay": "vineyard hotel (Podere Brizio)",
-      "nights": 4,
-      "dates": "Thu 8 – Mon 12 Oct",
+      "nights": 5,
+      "dates": "Thu 8 – Tue 13 Oct",
       "color": "#8e3b46",
       "coord": [
         43.0272,
@@ -190,7 +190,7 @@ window.TRIP = {
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-12&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
@@ -233,6 +233,14 @@ window.TRIP = {
             11.512
           ],
           "note": "Romanesque abbey"
+        },
+        {
+          "name": "Monte Oliveto Maggiore",
+          "coord": [
+            43.1719,
+            11.5478
+          ],
+          "note": "abbey in the Crete Senesi moonscape"
         }
       ],
       "days": [
@@ -278,6 +286,16 @@ window.TRIP = {
           "items": [
             "Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi",
             "OR Romanesque Abbey of Sant'Antimo near Montalcino + Bagni San Filippo white travertine springs",
+            "Dinner back at the estate"
+          ]
+        },
+        {
+          "d": 10,
+          "date": "Mon 12 Oct",
+          "title": "Estate day + the Crete Senesi",
+          "items": [
+            "Nothing morning: pool, spa, the vineyard — this is the anchor, so actually enjoy it",
+            "Afternoon scenic loop north into the Crete Senesi: the clay moonscape hills around Asciano and the Abbey of Monte Oliveto Maggiore",
             "Last Val d'Orcia dinner; buy/ship wine + oil; pack for the coast"
           ]
         }
@@ -290,7 +308,7 @@ window.TRIP = {
       "name": "Argentario / Maremma",
       "stay": "coast hotel",
       "nights": 4,
-      "dates": "Mon 12 – Fri 16 Oct",
+      "dates": "Tue 13 – Sat 17 Oct",
       "color": "#2f8f8a",
       "coord": [
         42.3924,
@@ -304,7 +322,7 @@ window.TRIP = {
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-12&checkout=2026-10-16&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
@@ -351,8 +369,8 @@ window.TRIP = {
       ],
       "days": [
         {
-          "d": 10,
-          "date": "Mon 12 Oct",
+          "d": 11,
+          "date": "Tue 13 Oct",
           "title": "Val d'Orcia → Argentario",
           "arrive": true,
           "items": [
@@ -365,8 +383,8 @@ window.TRIP = {
           }
         },
         {
-          "d": 11,
-          "date": "Tue 13 Oct",
+          "d": 12,
+          "date": "Wed 14 Oct",
           "title": "Feniglia beach + the Tarocchi (before it closes)",
           "items": [
             "Spiaggia della Feniglia: long pine-backed beach; walk or bike the Duna Feniglia reserve",
@@ -375,8 +393,8 @@ window.TRIP = {
           ]
         },
         {
-          "d": 12,
-          "date": "Wed 14 Oct",
+          "d": 13,
+          "date": "Thu 15 Oct",
           "title": "Parco della Maremma",
           "items": [
             "Parco della Maremma (Alberese): coastal trails to the towers and the wild beach, Maremmana cattle",
@@ -384,8 +402,8 @@ window.TRIP = {
           ]
         },
         {
-          "d": 13,
-          "date": "Thu 15 Oct",
+          "d": 14,
+          "date": "Fri 16 Oct",
           "title": "Boat, coves, or the lagoon",
           "items": [
             "Boat around the Argentario coves, or the footpath down to Cala del Gesso",
@@ -402,7 +420,7 @@ window.TRIP = {
       "name": "Florence",
       "stay": "shopping",
       "nights": 1,
-      "dates": "Fri 16 Oct",
+      "dates": "Sat 17 Oct",
       "color": "#7a6b9c",
       "coord": [
         43.7696,
@@ -412,7 +430,7 @@ window.TRIP = {
       "book": [
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-16&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
@@ -435,8 +453,8 @@ window.TRIP = {
       ],
       "days": [
         {
-          "d": 14,
-          "date": "Fri 16 Oct",
+          "d": 15,
+          "date": "Sat 17 Oct",
           "title": "Argentario → Florence, drop the car",
           "arrive": true,
           "items": [
@@ -445,62 +463,7 @@ window.TRIP = {
           ],
           "leg": {
             "mode": "car",
-            "text": "Porto Ercole → Florence · ~2 h 30 / 200 km · car dropped here, trains from now on"
-          }
-        }
-      ]
-    },
-    {
-      "key": "milan",
-      "pin": 6,
-      "emoji": "🚆",
-      "name": "Milan",
-      "stay": "overnight before the flight",
-      "nights": 1,
-      "dates": "Sat 17 Oct",
-      "color": "#9a9186",
-      "coord": [
-        45.4642,
-        9.19
-      ],
-      "carFree": false,
-      "book": [
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Milano+Centrale%2C+Milan%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
-        }
-      ],
-      "highlights": [
-        {
-          "name": "Duomo di Milano",
-          "coord": [
-            45.4642,
-            9.1919
-          ],
-          "note": "the cathedral + rooftop"
-        },
-        {
-          "name": "Galleria Vittorio Emanuele II",
-          "coord": [
-            45.4659,
-            9.1899
-          ],
-          "note": "grand 19th-c. arcade"
-        }
-      ],
-      "days": [
-        {
-          "d": 15,
-          "date": "Sat 17 Oct",
-          "title": "Florence → Milan",
-          "arrive": true,
-          "items": [
-            "Morning in Florence (San Lorenzo market, last espresso); Frecciarossa to Milano Centrale (~2 h, direct)",
-            "Check in near Centrale; optional Duomo + Galleria stroll, or just rest before tomorrow's flight"
-          ],
-          "leg": {
-            "mode": "train",
-            "text": "Florence → Milan · ~2 h by train"
+            "text": "Porto Ercole → Florence · ~2 h 30 / 200 km · car dropped here, train from now on"
           }
         }
       ]
@@ -522,14 +485,15 @@ window.TRIP = {
         {
           "d": 16,
           "date": "Sun 18 Oct",
-          "title": "Milan → Malpensa, fly home",
+          "title": "Florence → Malpensa, fly home",
           "items": [
+            "Frecciarossa Firenze SMN → Milano Centrale (~2 h); leave by ~09:30 to be safe",
             "Malpensa Express Milano Centrale → MXP (~50 min); Wizz Air departs Terminal 2",
             "16:00 MXP → 18:20 KEF; be at the terminal by ~13:30"
           ],
           "leg": {
             "mode": "train",
-            "text": "Milano Centrale → Malpensa · ~50 min"
+            "text": "Florence → Malpensa · ~3 h 15 door-to-door by train"
           }
         }
       ]
