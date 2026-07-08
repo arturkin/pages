@@ -1,0 +1,64 @@
+:root{
+  --paper:#f6f1e7; --ink:#2b2622; --muted:#7a7167; --line:#e0d7c6;
+  --card:#fffdf8; --shadow:0 1px 2px rgba(60,50,40,.06),0 6px 20px rgba(60,50,40,.06);
+  --car:#c07a2b; --train:#2b5f8c; --hub:#9a9186;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased}
+
+header.top{padding:26px 24px 18px;border-bottom:1px solid var(--line);background:var(--card)}
+header.top h1{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.4vw,32px);margin:0;letter-spacing:.2px}
+header.top .sub{color:var(--muted);margin-top:6px;font-size:15px}
+header.top .fly{margin-top:10px;font-size:13px;color:var(--muted)}
+header.top .fly b{color:var(--ink);font-weight:600}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:900px){.layout{grid-template-columns:1fr}}
+
+/* MAP */
+.mapwrap{position:sticky;top:0;height:100vh;border-right:1px solid var(--line)}
+@media (max-width:900px){.mapwrap{position:relative;height:56vh;border-right:none;border-bottom:1px solid var(--line)}}
+#map{width:100%;height:100%;background:#dfe6e8}
+.legend{position:absolute;z-index:1000;left:12px;bottom:12px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);font-size:12px}
+.legend .row{display:flex;align-items:center;gap:8px;margin:3px 0}
+.legend .seg{width:26px;border-top-width:3px;border-top-style:solid}
+.legend .seg.train{border-color:var(--train);border-top-style:dashed}
+.legend .seg.car{border-color:var(--car)}
+.legend .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.legend .star{color:#b5651d;font-size:13px;width:14px;text-align:center}
+
+/* map pins (vector-only; no external image assets) */
+.pin{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50% 50% 50% 0;
+  transform:rotate(-45deg);color:#fff;font-weight:700;font-size:13px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.pin span{transform:rotate(45deg)}
+.pin.hub{width:15px;height:15px;border-radius:50%;transform:none;background:var(--hub)}
+.pin.way{width:12px;height:12px;border-radius:50%;transform:none;background:var(--car)}
+.hl{font-size:16px;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+
+/* ITINERARY */
+.itin{padding:8px 22px 60px}
+.basecard{margin:26px 0 8px}
+.baseband{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;padding:12px 14px;border-radius:14px 14px 0 0;color:#fff;font-family:var(--serif)}
+.baseband .name{font-size:19px;font-weight:600}
+.baseband .meta{font-size:13px;opacity:.92;font-family:var(--font)}
+.baseband .tag{margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 8px;border-radius:999px;font-family:var(--font)}
+.days{border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:var(--card);overflow:hidden}
+.day{padding:13px 15px;border-top:1px dashed var(--line)}
+.day:first-child{border-top:none}
+.day .dhead{display:flex;gap:10px;align-items:baseline;margin-bottom:5px;flex-wrap:wrap}
+.day .dno{flex:0 0 auto;font-weight:700;font-size:11px;color:#fff;padding:2px 7px;border-radius:6px}
+.day .ddate{font-size:12px;color:var(--muted)}
+.day .dtitle{font-weight:600;font-size:14.5px}
+.day .arrivetag{font-weight:600;font-size:11px;color:var(--muted);letter-spacing:.03em}
+.day ul{margin:4px 0 0;padding-left:18px}
+.day li{font-size:13.5px;color:#3f382f;margin:2px 0}
+.leg{margin-top:7px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
+.leg .mode{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;color:#fff}
+.leg .mode.car{background:var(--car)}
+.leg .mode.train{background:var(--train)}
+.foot{color:var(--muted);font-size:12px;text-align:center;padding:22px}
+.leaflet-popup-content{font-family:var(--font);font-size:13px;line-height:1.4}
