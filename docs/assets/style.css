@@ -45,7 +45,11 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .baseband{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;padding:12px 14px;border-radius:14px 14px 0 0;color:#fff;font-family:var(--serif)}
 .baseband .name{font-size:19px;font-weight:600}
 .baseband .meta{font-size:13px;opacity:.92;font-family:var(--font)}
-.baseband .tag{margin-left:auto;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 8px;border-radius:999px;font-family:var(--font)}
+.baseband .bandright{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--font)}
+.baseband .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 8px;border-radius:999px}
+.baseband .book{font-size:12px;font-weight:600;text-decoration:none;color:#3a322c;background:rgba(255,255,255,.9);
+  padding:4px 10px;border-radius:999px;white-space:nowrap;transition:background .12s}
+.baseband .book:hover{background:#fff}
 .days{border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:var(--card);overflow:hidden}
 .day{padding:13px 15px;border-top:1px dashed var(--line)}
 .day:first-child{border-top:none}

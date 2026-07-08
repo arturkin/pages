@@ -21,6 +21,10 @@
   TRIP.bases.forEach(function (b) {
     var nights = b.nights ? (b.nights + " night" + (b.nights > 1 ? "s" : "")) : "fly out";
     var tag = b.carFree ? '<span class="tag">Car-free</span>' : '';
+    var book = b.book
+      ? '<a class="book" href="' + esc(b.book.url) + '" target="_blank" rel="noopener">🔎 ' + esc(b.book.label) + '</a>'
+      : '';
+    var right = (book || tag) ? '<span class="bandright">' + book + tag + '</span>' : '';
     var stay = b.stay ? esc(b.stay) + " · " : "";
     var card = document.createElement("div");
     card.className = "basecard";
@@ -28,7 +32,7 @@
       '<div class="baseband" style="background:' + b.color + '">' +
         '<span class="name">' + b.emoji + ' ' + esc(b.name) + '</span>' +
         '<span class="meta">· ' + stay + nights + ' · ' + esc(b.dates) + '</span>' +
-        tag +
+        right +
       '</div>' +
       '<div class="days">' + b.days.map(function (d) { return dayHTML(d, b.color); }).join("") + '</div>';
     itin.appendChild(card);

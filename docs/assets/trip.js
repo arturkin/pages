@@ -43,6 +43,7 @@ window.TRIP = {
       key: "valdorcia", pin: 2, emoji: "🍷", name: "Val d'Orcia",
       stay: "Vineyard villa w/ pool (Airbnb)", nights: 6, dates: "Sun 4 – Sat 10 Oct",
       color: "#8e3b46", coord: [43.057, 11.489], carFree: false,
+      book: { label: "Search Airbnb villas", url: "https://www.airbnb.com/s/Montalcino--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-10&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7" },
       highlights: [
         { name: "Pienza", coord: [43.0766, 11.6787], note: "pecorino, the 'ideal city'" },
         { name: "Montepulciano", coord: [43.0989, 11.7869], note: "Vino Nobile cellars under the town" },
@@ -90,6 +91,7 @@ window.TRIP = {
       key: "argentario", pin: 3, emoji: "🏖️", name: "Argentario / Maremma",
       stay: "Coast hotel (Argentario Golf Resort / La Roqqa)", nights: 4, dates: "Sat 10 – Wed 14 Oct",
       color: "#2f8f8a", coord: [42.393, 11.207], carFree: false,
+      book: { label: "Search Airbnb homes", url: "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-10&checkout=2026-10-14&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7" },
       highlights: [
         { name: "Spiaggia della Feniglia", coord: [42.409, 11.190], note: "pine-backed sandy beach" },
         { name: "Orbetello lagoon", coord: [42.441, 11.216], note: "WWF reserve, flamingos" },
@@ -124,6 +126,7 @@ window.TRIP = {
       key: "cinqueterre", pin: 4, emoji: "🪨", name: "Cinque Terre",
       stay: "Monterosso hotel", nights: 2, dates: "Wed 14 – Fri 16 Oct", carFree: true,
       color: "#d2683f", coord: [44.146, 9.654],
+      book: { label: "Search Monterosso stays", url: "https://www.airbnb.com/s/Monterosso-al-Mare--Italy/homes?checkin=2026-10-14&checkout=2026-10-16&adults=2" },
       highlights: [
         { name: "Vernazza", coord: [44.135, 9.684], note: "harbour + castle" },
         { name: "Manarola", coord: [44.107, 9.729], note: "sunset icon" },
@@ -149,6 +152,7 @@ window.TRIP = {
       key: "santamargherita", pin: 5, emoji: "⛵", name: "Santa Margherita Ligure",
       stay: "Harbour hotel", nights: 2, dates: "Fri 16 – Sun 18 Oct", carFree: true,
       color: "#2b5f8c", coord: [44.335, 9.210],
+      book: { label: "Search Santa Margherita stays", url: "https://www.airbnb.com/s/Santa-Margherita-Ligure--Italy/homes?checkin=2026-10-16&checkout=2026-10-18&adults=2" },
       highlights: [
         { name: "Portofino", coord: [44.303, 9.210], note: "piazzetta, Castello Brown, lighthouse" },
         { name: "San Fruttuoso", coord: [44.318, 9.174], note: "abbey in a hidden cove" },
