@@ -9,9 +9,9 @@ def route(a,b):
     except Exception as e:
         print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], False
 MXP=(8.723,45.630);MIL=(9.204,45.487);FLO=(11.248,43.776)
-CRE=(11.5606,43.2340);MON=(11.4506,43.0272);PE=(11.2064,42.3924)
+CRE=(11.5606,43.2340);MON=(11.4506,43.0272);PE=(11.2064,42.3924);BOL=(10.6018,43.2287)
 legs=[("train",MXP,MIL),("train",MIL,FLO),("car",FLO,CRE),("car",CRE,MON),
- ("car",MON,PE),("car",PE,FLO),("train",FLO,MIL),("train",MIL,MXP)]
+ ("car",MON,PE),("car",PE,BOL),("car",BOL,FLO),("train",FLO,MIL),("train",MIL,MXP)]
 out=[]
 for i,(mode,a,b) in enumerate(legs,1):
     coords,ok=route(a,b); print(f"leg {i} {mode}: {len(coords)} pts {'OSRM' if ok else 'STRAIGHT'}")

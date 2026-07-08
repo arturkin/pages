@@ -366,6 +366,22 @@ window.TRIP = {
             11.4308
           ],
           "note": "mosaic sculpture park (closes 15 Oct)"
+        },
+        {
+          "name": "Castiglione della Pescaia",
+          "coord": [
+            42.762,
+            10.876
+          ],
+          "note": "medieval seaside town (coast drive home)"
+        },
+        {
+          "name": "Bolgheri",
+          "coord": [
+            43.2287,
+            10.6018
+          ],
+          "note": "cypress avenue + Super Tuscan wine (coast drive home)"
         }
       ],
       "days": [
@@ -456,15 +472,17 @@ window.TRIP = {
         {
           "d": 15,
           "date": "Sat 17 Oct",
-          "title": "Argentario → Florence, drop the car",
+          "title": "Coast road back to Florence, drop the car",
           "arrive": true,
           "items": [
-            "Drive up ~2 h 30 to Florence; return the rental (round-trip, so no one-way fee)",
-            "Check in near the centre; Oltrarno artisan workshops, Ponte Vecchio, leather + a last big dinner"
+            "Take the scenic way home: up the SS1 Aurelia along the Maremma & Etruscan coast, not the motorway",
+            "Stop at Castiglione della Pescaia (medieval seaside town), then Bolgheri — the cypress avenue (Viale dei Cipressi) and a Super Tuscan tasting (Sassicaia / Ornellaia country)",
+            "On to Florence (~2 h from Bolgheri); drop the rental (round-trip, no one-way fee)",
+            "Check in near the centre; evening passeggiata, Ponte Vecchio, a last big dinner"
           ],
           "leg": {
             "mode": "car",
-            "text": "Porto Ercole → Florence · ~2 h 30 / 200 km · car dropped here, train from now on"
+            "text": "Porto Ercole → Florence via the coast · ~3 h 15 driving + stops (vs ~2 h 30 inland)"
           }
         }
       ]

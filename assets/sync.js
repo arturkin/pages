@@ -69,7 +69,9 @@ const META = [
       { name: "Parco della Maremma", coord: [42.6558, 11.1053], note: "wild coastal park, trails, cattle" },
       { name: "Orbetello lagoon", coord: [42.4510, 11.2050], note: "WWF reserve, flamingos" },
       { name: "Cala del Gesso", coord: [42.3620, 11.1320], note: "clear-water cove, footpath down" },
-      { name: "Giardino dei Tarocchi", coord: [42.4028, 11.4308], note: "mosaic sculpture park (closes 15 Oct)" }
+      { name: "Giardino dei Tarocchi", coord: [42.4028, 11.4308], note: "mosaic sculpture park (closes 15 Oct)" },
+      { name: "Castiglione della Pescaia", coord: [42.7620, 10.8760], note: "medieval seaside town (coast drive home)" },
+      { name: "Bolgheri", coord: [43.2287, 10.6018], note: "cypress avenue + Super Tuscan wine (coast drive home)" }
     ] },
   { key: "florence2", name: "Florence", color: "#7a6b9c", pin: 5, coord: [43.7696, 11.2558],
     book: [{ site: "booking", url: BOOKING.florence2 }],

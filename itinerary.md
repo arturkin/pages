@@ -118,10 +118,13 @@ DAY 14 · Fri 16 Oct — Boat, coves, or the lagoon
 🛍️ FLORENCE · shopping · 1 night · Sat 17 Oct
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DAY 15 · Sat 17 Oct — Argentario → Florence, drop the car  ›› arrive & check in
- - Drive up ~2 h 30 to Florence; return the rental (round-trip, so no one-way fee)
- - Check in near the centre; Oltrarno artisan workshops, Ponte Vecchio, leather + a last big dinner
- >> Porto Ercole → Florence · ~2 h 30 / 200 km · car dropped here, train from now on
+DAY 15 · Sat 17 Oct — Coast road back to Florence, drop the car  ›› arrive & check in
+ - Take the scenic way home: up the SS1 Aurelia along the Maremma & Etruscan coast, not the motorway
+ - Stop at Castiglione della Pescaia (medieval seaside town), then Bolgheri — the cypress avenue
+   (Viale dei Cipressi) and a Super Tuscan tasting (Sassicaia / Ornellaia country)
+ - On to Florence (~2 h from Bolgheri); drop the rental (round-trip, no one-way fee)
+ - Check in near the centre; evening passeggiata, Ponte Vecchio, a last big dinner
+ >> Porto Ercole → Florence via the coast · ~3 h 15 driving + stops (vs ~2 h 30 inland)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🛫 HOME · Sun 18 Oct
