@@ -15,6 +15,28 @@
     hotel:   { label: "Hotel site",  icon: "🛎️" }
   };
 
+  // highlight place types -> map icon + legend label (order = legend order).
+  // Set a highlight's `type` in assets/sync.js META; unknown/absent falls back to ★.
+  var TYPES = {
+    town:    { icon: "🏰", label: "Town / village" },
+    wine:    { icon: "🍷", label: "Wine" },
+    church:  { icon: "⛪", label: "Church / abbey" },
+    thermal: { icon: "♨️", label: "Thermal springs" },
+    nature:  { icon: "🌿", label: "Nature / park" },
+    beach:   { icon: "🏖️", label: "Beach / coast" },
+    art:     { icon: "🎨", label: "Art / museum" },
+    market:  { icon: "🛍️", label: "Market" }
+  };
+  function typeIcon(t) { return (TYPES[t] && TYPES[t].icon) || "★"; }
+
+  // food & wine POI categories (toggleable layer). Set a POI's `cat` in FOOD (sync.js).
+  var FOOD_TYPES = {
+    winery:     { icon: "🍇", label: "Winery / tasting" },
+    wineshop:   { icon: "🥂", label: "Wine shop / enoteca" },
+    restaurant: { icon: "🍽️", label: "Restaurant" },
+    bar:        { icon: "🍸", label: "Bar / aperitivo" }
+  };
+
   /* ---------- place lookup: linkify town/attraction names in day text -------- */
   // Any name that carries a coordinate (bases, highlights, waypoints, hubs)
   // becomes a clickable photo trigger wherever it appears in a day bullet.
@@ -107,7 +129,28 @@
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
 
+  // full-screen toggle (mobile; CSS pseudo-fullscreen so it works everywhere incl. iOS)
+  var FsCtrl = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd: function () {
+      var c = L.DomUtil.create("div", "leaflet-bar fs-ctrl");
+      var a = L.DomUtil.create("a", "fs-btn", c);
+      a.href = "#"; a.title = "Full screen"; a.setAttribute("role", "button"); a.innerHTML = "⛶";
+      L.DomEvent.on(a, "click", function (e) {
+        L.DomEvent.stop(e);
+        var el = document.querySelector(".mapwrap");
+        var on = el.classList.toggle("fs-on");
+        a.innerHTML = on ? "✕" : "⛶";
+        a.title = on ? "Exit full screen" : "Full screen";
+        setTimeout(function () { map.invalidateSize(); }, 150);
+      });
+      return c;
+    }
+  });
+  map.addControl(new FsCtrl());
+
   var bounds = [];
+  var foodLayer = L.layerGroup();   // food & wine POIs — off by default, toggled from the legend
 
   // route legs (real road/rail-corridor geometry)
   ROUTES.forEach(function (leg) {
@@ -141,7 +184,7 @@
       bounds.push(b.coord);
     }
     (b.highlights || []).forEach(function (hl) {
-      marker(hl.coord, divIcon('<div class="hl" style="color:' + b.color + '">★</div>', 16, 16, 8, 8),
+      marker(hl.coord, divIcon('<div class="hl">' + typeIcon(hl.type) + '</div>', 20, 20, 10, 10),
         "<b>" + esc(hl.name) + "</b>" + (hl.note ? "<br>" + esc(hl.note) : "") +
         '<br><span style="color:#7a7167">near ' + esc(b.name) + "</span>" +
         popupPhotos(hl.name, hl.coord));
@@ -149,14 +192,55 @@
     });
   });
 
+  // food & wine POIs (>4★) — populate the toggleable layer (kept OFF by default)
+  (TRIP.food || []).forEach(function (f) {
+    var ft = FOOD_TYPES[f.cat] || { icon: "📍", label: f.cat };
+    var pop = "<b>" + esc(f.name) + "</b><br>" +
+      '<span style="color:#7a7167">' + esc(ft.label) + (f.rating ? " · ★ " + esc(String(f.rating)) : "") + "</span>" +
+      (f.note ? "<br>" + esc(f.note) : "") +
+      popupPhotos(f.name, f.coord);
+    L.marker(f.coord, { icon: divIcon('<div class="foodpin">' + ft.icon + "</div>", 22, 22, 11, 11) })
+      .bindPopup(pop).addTo(foodLayer);
+    bounds.push(f.coord);
+  });
+
   if (bounds.length) map.fitBounds(L.latLngBounds(bounds).pad(0.12));
 
   /* ---------- legend (built from what's in the data) ---------- */
+  var usedTypes = {};
+  TRIP.bases.forEach(function (b) {
+    (b.highlights || []).forEach(function (hl) { if (TYPES[hl.type]) usedTypes[hl.type] = 1; });
+  });
+  var typeRows = Object.keys(TYPES).filter(function (t) { return usedTypes[t]; })
+    .map(function (t) {
+      return '<div class="lrow"><span class="lic">' + TYPES[t].icon + '</span>' + esc(TYPES[t].label) + '</div>';
+    }).join("");
+  // food & wine key (categories actually present)
+  var usedFood = {};
+  (TRIP.food || []).forEach(function (f) { if (FOOD_TYPES[f.cat]) usedFood[f.cat] = 1; });
+  var foodRows = Object.keys(FOOD_TYPES).filter(function (c) { return usedFood[c]; })
+    .map(function (c) {
+      return '<div class="lrow"><span class="lic">' + FOOD_TYPES[c].icon + '</span>' + esc(FOOD_TYPES[c].label) + '</div>';
+    }).join("");
   document.getElementById("legend").innerHTML =
     '<div class="row"><span class="seg train"></span> Train</div>' +
     '<div class="row"><span class="seg car"></span> Car (round-trip from Florence)</div>' +
     '<div class="row"><span class="dot" style="background:#9a9186"></span> Malpensa airport</div>' +
-    '<div class="row"><span class="star">★</span> Sights &amp; day-trips</div>';
+    '<div class="row"><span class="dot" style="background:#8e3b46"></span> Where you sleep (1–5)</div>' +
+    (typeRows ? '<div class="ltitle">Sights &amp; day-trips</div><div class="ltypes">' + typeRows + '</div>' : '') +
+    (foodRows
+      ? '<div class="ltitle"><label class="ltog"><input type="checkbox" id="foodToggle"> Food &amp; wine (&gt;4★)</label></div>' +
+        '<div class="ltypes" id="foodKey">' + foodRows + '</div>'
+      : '');
+
+  // wire the food & wine show/hide toggle
+  var foodCb = document.getElementById("foodToggle");
+  var foodKey = document.getElementById("foodKey");
+  if (foodKey) foodKey.classList.add("off");
+  if (foodCb) foodCb.addEventListener("change", function () {
+    if (this.checked) { foodLayer.addTo(map); if (foodKey) foodKey.classList.remove("off"); }
+    else { map.removeLayer(foodLayer); if (foodKey) foodKey.classList.add("off"); }
+  });
 
   /* ---------- helpers ---------- */
   function marker(coord, icon, popup) {

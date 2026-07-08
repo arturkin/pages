@@ -20,16 +20,40 @@ header.top .fly b{color:var(--ink);font-weight:600}
 
 /* MAP */
 .mapwrap{position:sticky;top:0;height:100vh;border-right:1px solid var(--line)}
-@media (max-width:900px){.mapwrap{position:relative;height:56vh;border-right:none;border-bottom:1px solid var(--line)}}
 #map{width:100%;height:100%;background:#dfe6e8}
+/* pseudo-fullscreen (works on iOS too, unlike the Fullscreen API on a div) */
+.mapwrap.fs-on{position:fixed;inset:0;width:100vw;height:100vh;z-index:1500;border:none}
+.mapwrap.fs-on #map{height:100%}
+.mapwrap.fs-on .legend{position:absolute;left:12px;bottom:12px;margin:0;
+  max-width:250px;max-height:calc(100% - 24px);box-shadow:var(--shadow)}
+@media (max-width:900px){
+  .mapwrap{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line)}
+  #map{height:56vh}
+  /* legend sits BELOW the map on mobile instead of covering it
+     (.mapwrap .legend beats the later, equal-specificity base .legend rule) */
+  .mapwrap .legend{position:static;left:auto;bottom:auto;max-width:none;max-height:none;margin:10px;box-shadow:none}
+}
+/* full-screen button (mobile only) */
+.fs-ctrl a.fs-btn{display:block;width:30px;height:30px;font:400 18px/30px var(--font);
+  text-align:center;color:#333;background:#fff;text-decoration:none}
+@media (min-width:901px){.fs-ctrl{display:none}}
 .legend{position:absolute;z-index:1000;left:12px;bottom:12px;background:var(--card);
-  border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);font-size:12px}
+  border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);
+  font-size:12px;max-width:250px;max-height:calc(100% - 24px);overflow:auto}
 .legend .row{display:flex;align-items:center;gap:8px;margin:3px 0}
-.legend .seg{width:26px;border-top-width:3px;border-top-style:solid}
+.legend .seg{width:26px;border-top-width:3px;border-top-style:solid;flex:0 0 auto}
 .legend .seg.train{border-color:var(--train);border-top-style:dashed}
 .legend .seg.car{border-color:var(--car)}
-.legend .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
-.legend .star{color:#b5651d;font-size:13px;width:14px;text-align:center}
+.legend .dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15);flex:0 0 auto}
+.legend .ltitle{margin-top:7px;padding-top:7px;border-top:1px solid var(--line);
+  font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.legend .ltypes{display:grid;grid-template-columns:1fr 1fr;gap:1px 10px;margin-top:4px}
+.legend .lrow{display:flex;align-items:center;gap:6px;margin:2px 0;font-size:12px}
+.legend .lic{width:16px;text-align:center;flex:0 0 auto}
+.legend .ltog{display:flex;align-items:center;gap:6px;cursor:pointer;
+  font-weight:600;font-size:12px;letter-spacing:0;text-transform:none;color:var(--ink)}
+.legend .ltog input{margin:0;cursor:pointer}
+.legend .ltypes.off{opacity:.4}
 
 /* map pins (vector-only; no external image assets) */
 .pin{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50% 50% 50% 0;
@@ -37,7 +61,10 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .pin span{transform:rotate(45deg)}
 .pin.hub{width:15px;height:15px;border-radius:50%;transform:none;background:var(--hub)}
 .pin.way{width:12px;height:12px;border-radius:50%;transform:none;background:var(--car)}
-.hl{font-size:16px;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.hl{width:20px;height:20px;display:flex;align-items:center;justify-content:center;
+  font-size:16px;line-height:1;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.foodpin{width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:13px;
+  background:#fffdf8;border:1.5px solid rgba(60,50,40,.35);border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 
 /* ITINERARY */
 .itin{padding:8px 22px 60px}
