@@ -111,6 +111,7 @@ DAY 14 · Fri 16 Oct — Cinque Terre morning → Santa Margherita  ›› arriv
  - Slow morning: Monterosso beach, or boat to Portovenere (gorgeous, just south)
  - Train north to Santa Margherita Ligure (~1 h, change at Levanto/Sestri); check in
  - Harbour passeggiata + aperitivo; Ligurian seafood, focaccia, pesto
+ >> Monterosso → Santa Margherita · ~1 h (change at Levanto/Sestri)
 
 DAY 15 · Sat 17 Oct — Portofino, San Fruttuoso & Camogli
  - Ferry to Portofino: piazzetta, Castello Brown, the lighthouse; swim/lunch at Paraggi cove
