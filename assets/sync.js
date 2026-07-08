@@ -195,8 +195,22 @@ function build() {
                  "// Edit the trip in itinerary.md; map-only metadata lives in assets/sync.js.\n";
   fs.writeFileSync(OUT, banner + "window.TRIP = " + JSON.stringify(TRIP, null, 2) + ";\n");
 
+  // Cache-busting: rewrite ?v=… on the asset URLs in index.html to a hash of the
+  // generated + logic assets, so browsers and the GitHub Pages CDN always fetch
+  // the fresh build instead of a stale cached copy.
+  const crypto = require("crypto");
+  const assetFiles = ["assets/trip.js", "assets/routes.js", "assets/app.js", "assets/style.css"];
+  const hashInput = assetFiles.map(f => {
+    try { return fs.readFileSync(path.join(ROOT, f), "utf8"); } catch (e) { return ""; }
+  }).join("");
+  const ver = crypto.createHash("md5").update(hashInput).digest("hex").slice(0, 8);
+  const idxPath = path.join(ROOT, "index.html");
+  const idx = fs.readFileSync(idxPath, "utf8")
+    .replace(/(\.\/assets\/(?:trip\.js|routes\.js|app\.js|style\.css))(?:\?v=[^"']*)?/g, `$1?v=${ver}`);
+  fs.writeFileSync(idxPath, idx);
+
   const days = outBases.reduce((n, b) => n + b.days.length, 0);
-  return `${outBases.length} bases, ${days} days → assets/trip.js`;
+  return `${outBases.length} bases, ${days} days → assets/trip.js (assets ?v=${ver})`;
 }
 
 try {
