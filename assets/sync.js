@@ -91,7 +91,8 @@ const META = [
       { name: "Trequanda", type: "town", coord: [43.1817, 11.6486], note: "quiet Crete hilltop village" },
       { name: "Monteriggioni", type: "town", coord: [43.3906, 11.2231], note: "circular walled castle-village" },
       { name: "Montisi", type: "town", coord: [43.1607, 11.6318], note: "tiny Crete hamlet, medieval feel" },
-      { name: "Asciano", type: "town", coord: [43.2340, 11.5606], note: "market town, Museo Cassioli" }
+      { name: "Asciano", type: "town", coord: [43.2340, 11.5606], note: "market town, Museo Cassioli" },
+      { name: "Le Biancane", type: "nature", coord: [43.1526, 10.8536], note: "geothermal 'Devil's Valley', free fumarole trail — far-west day-trip (~2 h)" }
     ] },
   { key: "valdorcia", name: "Val d'Orcia", color: "#8e3b46", pin: 3, coord: [43.0272, 11.4506],
     book: [{ site: "hotel", url: HOTEL.poderebrizio }, { site: "booking", url: BOOKING.valdorcia }],
@@ -104,7 +105,9 @@ const META = [
       { name: "Bagni San Filippo", type: "thermal", coord: [42.9260, 11.6180], note: "white travertine hot springs" },
       { name: "San Quirico d'Orcia", type: "town", coord: [43.0592, 11.6039], note: "Horti Leonini gardens, walled town" },
       { name: "Cappella di Vitaleta", type: "church", coord: [43.0668, 11.6355], note: "the iconic cypress-framed chapel" },
-      { name: "Monticchiello", type: "town", coord: [43.0699, 11.7007], note: "quiet walled hilltop village" }
+      { name: "Monticchiello", type: "town", coord: [43.0699, 11.7007], note: "quiet walled hilltop village" },
+      { name: "Abbazia di San Galgano", type: "church", coord: [43.1494, 11.1553], note: "roofless Gothic abbey + the sword in the stone (Montesiepi) — on the Day-11 drive to the coast" },
+      { name: "Bagni di Petriolo", type: "thermal", coord: [43.0803, 11.2995], note: "wild free hot springs in a river gorge — on the Day-11 drive to the coast" }
     ] },
   { key: "argentario", name: "Argentario / Maremma", color: "#2f8f8a", pin: 4, coord: [42.3924, 11.2064],
     book: [{ site: "airbnb", url: AIRBNB.argentario }, { site: "booking", url: BOOKING.argentario }],
@@ -118,7 +121,8 @@ const META = [
       { name: "Bolgheri", type: "wine", coord: [43.2287, 10.6018], note: "cypress avenue + Super Tuscan wine (coast drive home)" },
       { name: "Porto Santo Stefano", type: "town", coord: [42.4356, 11.1178], note: "harbour town, Spanish Fortress views" },
       { name: "Isola del Giglio", type: "beach", coord: [42.3630, 10.9010], note: "island ferry day-trip" },
-      { name: "Golfo di Baratti", type: "nature", coord: [42.9959, 10.4980], note: "Etruscan bay + Populonia (coast drive home)" }
+      { name: "Golfo di Baratti", type: "nature", coord: [42.9959, 10.4980], note: "Etruscan bay + Populonia (coast drive home)" },
+      { name: "Massa Marittima", type: "town", coord: [43.0500, 10.8880], note: "underrated medieval town in the Colline Metallifere (~1 h inland day-trip)" }
     ] },
   { key: "florence2", name: "Florence", color: "#7a6b9c", pin: 5, coord: [43.7696, 11.2558],
     book: [{ site: "booking", url: BOOKING.florence2 }],

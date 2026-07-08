@@ -94,10 +94,14 @@ DAY 10 · Mon 12 Oct — Estate day + Sant'Antimo
 🏖️ ARGENTARIO / MAREMMA · coast hotel · 4 nights · Tue 13 – Sat 17 Oct
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DAY 11 · Tue 13 Oct — Val d'Orcia → Argentario  ›› arrive & check in
- - Drive southwest ~2 h to Porto Ercole; check in at the coast hotel
- - First beach afternoon; seafood dinner in the Porto Ercole harbour
- >> Montalcino → Porto Ercole · ~2 h / 110 km
+DAY 11 · Tue 13 Oct — Val d'Orcia → Argentario, through the wild interior  ›› arrive & check in
+ - Take the scenic inland route down and cut through the middle of the loop:
+ - Abbazia di San Galgano: the roofless Gothic abbey open to the sky, + the sword in the stone up at
+   the Montesiepi chapel (abbey ~€6, open ~09:00–19:00; the chapel is free)
+ - Bagni di Petriolo: a soak in the wild free sulphur springs in the river gorge under the old bridge
+   (no facilities — bring water shoes; skip it if you'd rather push on to the coast)
+ - On down to Porto Ercole; check in, first beach evening, seafood in the harbour
+ >> Montalcino → San Galgano → Petriolo → Porto Ercole · ~3 h 25 driving + stops (a full scenic day)
 
 DAY 12 · Wed 14 Oct — Feniglia beach + the Tarocchi (before it closes)
  - Spiaggia della Feniglia: long pine-backed beach; walk or bike the Duna Feniglia reserve
@@ -112,6 +116,8 @@ DAY 13 · Thu 15 Oct — Parco della Maremma
 DAY 14 · Fri 16 Oct — Boat, coves, or the lagoon
  - Boat around the Argentario coves, or the footpath down to Cala del Gesso
  - OR Orbetello lagoon WWF reserve (flamingos) + the Spanish Fortress viewpoint at Porto Santo Stefano
+ - OR go inland (~1 h) to Massa Marittima: an underrated medieval town in the Colline Metallifere,
+   dramatic cathedral, few tourists
  - Last Maremma swim; pack (drive back to Florence tomorrow)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
