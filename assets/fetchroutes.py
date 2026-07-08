@@ -1,4 +1,4 @@
-import json, subprocess
+import json, subprocess, os
 BASE="https://router.project-osrm.org/route/v1/driving/{}?overview=simplified&geometries=geojson"
 def route(a,b):
     url=BASE.format(f"{a[0]},{a[1]};{b[0]},{b[1]}")
@@ -16,5 +16,6 @@ out=[]
 for i,(mode,a,b) in enumerate(legs,1):
     coords,ok=route(a,b); print(f"leg {i} {mode}: {len(coords)} pts {'OSRM' if ok else 'STRAIGHT'}")
     out.append({"mode":mode,"coords":coords})
-open("routes.js","w").write("// Auto-generated route geometry (OSRM driving). coords=[lat,lon]. Regenerate with fetchroutes.py.\nwindow.ROUTES = "+json.dumps(out,separators=(',',':'))+";\n")
-print("wrote routes.js")
+OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"routes.js")
+open(OUT,"w").write("// Auto-generated route geometry (OSRM driving). coords=[lat,lon]. Regenerate with fetchroutes.py.\nwindow.ROUTES = "+json.dumps(out,separators=(',',':'))+";\n")
+print("wrote "+OUT)
