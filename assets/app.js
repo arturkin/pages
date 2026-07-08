@@ -11,7 +11,8 @@
   // booking sites -> chip label + icon (add more here to support new sites)
   var SITES = {
     airbnb:  { label: "Airbnb",      icon: "🔎" },
-    booking: { label: "Booking.com", icon: "🏨" }
+    booking: { label: "Booking.com", icon: "🏨" },
+    hotel:   { label: "Hotel site",  icon: "🛎️" }
   };
 
   /* ---------- place lookup: linkify town/attraction names in day text -------- */
@@ -153,8 +154,8 @@
   /* ---------- legend (built from what's in the data) ---------- */
   document.getElementById("legend").innerHTML =
     '<div class="row"><span class="seg train"></span> Train</div>' +
-    '<div class="row"><span class="seg car"></span> Car (Florence → La Spezia)</div>' +
-    '<div class="row"><span class="dot" style="background:#9a9186"></span> Milan hub / airport</div>' +
+    '<div class="row"><span class="seg car"></span> Car (round-trip from Florence)</div>' +
+    '<div class="row"><span class="dot" style="background:#9a9186"></span> Malpensa airport</div>' +
     '<div class="row"><span class="star">★</span> Sights &amp; day-trips</div>';
 
   /* ---------- helpers ---------- */

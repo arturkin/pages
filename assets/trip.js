@@ -2,9 +2,9 @@
 // Edit the trip in itinerary.md; map-only metadata lives in assets/sync.js.
 window.TRIP = {
   "meta": {
-    "title": "ITALY — TWO WEEKS: WINE COUNTRY + TWO COASTS",
+    "title": "ITALY — TWO WEEKS: TUSCANY, DEEP",
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 15 nights",
-    "route": "Florence → Val d'Orcia (Montalcino) → Argentario (Maremma) → Cinque Terre → Santa Margherita/Portofino (Liguria) → Milan",
+    "route": "Florence → San Gimignano (Chianti) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence → Milan",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
     "flyBack": "Wizz Air MXP 16:00 → KEF 18:20"
   },
@@ -16,26 +16,9 @@ window.TRIP = {
         8.723
       ],
       "note": "arrive Day 1 · depart Day 16"
-    },
-    {
-      "name": "Milano Centrale",
-      "coord": [
-        45.487,
-        9.204
-      ],
-      "note": "train hub"
     }
   ],
-  "waypoints": [
-    {
-      "name": "La Spezia",
-      "coord": [
-        44.107,
-        9.828
-      ],
-      "note": "drop rental car (Day 12)"
-    }
-  ],
+  "waypoints": [],
   "bases": [
     {
       "key": "florence",
@@ -72,30 +55,153 @@ window.TRIP = {
       ]
     },
     {
-      "key": "valdorcia",
+      "key": "sangimignano",
       "pin": 2,
-      "emoji": "🍷",
-      "name": "Val d'Orcia",
-      "stay": "vineyard villa (Airbnb)",
-      "nights": 6,
-      "dates": "Sun 4 – Sat 10 Oct",
-      "color": "#8e3b46",
+      "emoji": "🏰",
+      "name": "San Gimignano",
+      "stay": "countryside farmhouse (Airbnb)",
+      "nights": 4,
+      "dates": "Sun 4 – Thu 8 Oct",
+      "color": "#6d8c3f",
       "coord": [
-        43.057,
-        11.489
+        43.4677,
+        11.0431
       ],
       "carFree": false,
       "book": [
         {
           "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Montalcino--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-10&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+          "url": "https://www.airbnb.com/s/San-Gimignano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-04&checkout=2026-10-10&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=San+Gimignano%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
+        {
+          "name": "Volterra",
+          "coord": [
+            43.4009,
+            10.8607
+          ],
+          "note": "Etruscan walls, alabaster, big views"
+        },
+        {
+          "name": "Monteriggioni",
+          "coord": [
+            43.3906,
+            11.2231
+          ],
+          "note": "circular walled castle-village"
+        },
+        {
+          "name": "Colle di Val d'Elsa",
+          "coord": [
+            43.4218,
+            11.1268
+          ],
+          "note": "ridge-top Colle Alta, crystal glass"
+        },
+        {
+          "name": "Castellina in Chianti",
+          "coord": [
+            43.47,
+            11.287
+          ],
+          "note": "Chianti Classico, the Chiantigiana"
+        },
+        {
+          "name": "Fattoria Poggio Alloro",
+          "coord": [
+            43.4622,
+            11.0083
+          ],
+          "note": "organic farm, Chianina, tower views"
+        }
+      ],
+      "days": [
+        {
+          "d": 2,
+          "date": "Sun 4 Oct",
+          "title": "Pick up the car, out to the San Gimignano countryside",
+          "arrive": true,
+          "items": [
+            "Collect the rental at Firenze SMN; follow the signed ZTL exit route, do NOT drive into the centre",
+            "Confirm the drop is back at FLORENCE on the contract (round-trip, no one-way fee)",
+            "~1 h south to the farmhouse near San Gimignano; stock up on groceries en route",
+            "Settle in: pool, vineyard views; San Gimignano's towers at dusk once the day-buses leave"
+          ],
+          "leg": {
+            "mode": "car",
+            "text": "Florence → San Gimignano · ~1 h / 55 km"
+          }
+        },
+        {
+          "d": 3,
+          "date": "Mon 5 Oct",
+          "title": "San Gimignano & the Val d'Elsa",
+          "items": [
+            "Morning in San Gimignano: the towers, the ramparts walk, a Vernaccia flight",
+            "Slow afternoon on the vine-and-cypress backroads (Ulignano, Pancole, Pieve di Cellole)",
+            "Farm lunch at Fattoria Poggio Alloro (Chianina cattle, saffron, tower views)"
+          ]
+        },
+        {
+          "d": 4,
+          "date": "Tue 6 Oct",
+          "title": "Volterra & Le Balze",
+          "items": [
+            "Scenic drive west to Volterra: Etruscan walls, alabaster workshops, big empty views",
+            "Le Balze badlands on the edge of town — moody erosion canyons",
+            "Back for a tasting at Montenidoli or Tenuta Torciano (both minutes from the farmhouse)"
+          ]
+        },
+        {
+          "d": 5,
+          "date": "Wed 7 Oct",
+          "title": "Chianti Classico loop",
+          "items": [
+            "Colle di Val d'Elsa (panoramic lift up to Colle Alta) → Monteriggioni (walk the circular walls)",
+            "Into Chianti: Castellina and Radda — enoteche, the Chiantigiana wine road at golden hour",
+            "Last farmhouse dinner; pack for the move south"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "valdorcia",
+      "pin": 3,
+      "emoji": "🍷",
+      "name": "Val d'Orcia",
+      "stay": "vineyard hotel (Podere Brizio)",
+      "nights": 4,
+      "dates": "Thu 8 – Mon 12 Oct",
+      "color": "#8e3b46",
+      "coord": [
+        43.0272,
+        11.4506
+      ],
+      "carFree": false,
+      "book": [
+        {
+          "site": "hotel",
+          "url": "https://poderebrizio.it/en/"
+        },
+        {
+          "site": "booking",
+          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-12&group_adults=2&no_rooms=1&group_children=0"
+        }
+      ],
+      "highlights": [
+        {
+          "name": "Montalcino",
+          "coord": [
+            43.057,
+            11.489
+          ],
+          "note": "Brunello town, Fortezza, enoteca"
+        },
         {
           "name": "Pienza",
           "coord": [
@@ -131,322 +237,271 @@ window.TRIP = {
       ],
       "days": [
         {
-          "d": 2,
-          "date": "Sun 4 Oct",
-          "title": "Pick up the car, down to Val d'Orcia",
+          "d": 6,
+          "date": "Thu 8 Oct",
+          "title": "San Gimignano → Val d'Orcia",
           "arrive": true,
           "items": [
-            "Collect rental at Firenze SMN and drive straight south (do NOT drive into the Florence ZTL)",
-            "Confirm the one-way drop at LA SPEZIA on the contract",
-            "~1 h 45 to Montalcino; check in at the vineyard villa; stock up on groceries en route",
-            "Settle in, pool, sunset over the Val d'Orcia; first dinner cooked in or in Montalcino town",
-            "Pre-book a Brunello tasting for later in the week (town enoteca or one estate visit)"
+            "~1 h 20 south to Montalcino; check in at Podere Brizio (pool, vineyard, on-site restaurant)",
+            "Settle in: pool, sunset over the Val d'Orcia; first dinner at the estate or in Montalcino town",
+            "Pre-book a Brunello tasting (the estate's own cellar, or a town enoteca)"
           ],
           "leg": {
             "mode": "car",
-            "text": "Florence → Montalcino · ~1 h 45 / 150 km"
+            "text": "San Gimignano → Montalcino · ~1 h 20 / 80 km"
           }
-        },
-        {
-          "d": 3,
-          "date": "Mon 5 Oct",
-          "title": "Settle in + Montalcino town",
-          "items": [
-            "Slow morning at the villa (pool, vineyard walk); Bagno Vignoni thermal soak later in the week for spa",
-            "Into Montalcino (~15 min): Fortezza, town enoteca for a Brunello flight, Museo Civico",
-            "Dinner in town (pinci, cinta senese)"
-          ]
-        },
-        {
-          "d": 4,
-          "date": "Tue 6 Oct",
-          "title": "Pienza & the pecorino",
-          "items": [
-            "Pienza (~30 min): cheese shops, the \"ideal city\" streets, Piccolomini palace",
-            "Cypress viewpoints en route (Cappella di Vitaleta, the \"Gladiator\" road) at late light",
-            "Back to the villa"
-          ]
-        },
-        {
-          "d": 5,
-          "date": "Wed 7 Oct",
-          "title": "Thermal Val d'Orcia",
-          "items": [
-            "San Quirico d'Orcia (Horti Leonini gardens) + walled Monticchiello",
-            "Bagno Vignoni thermal square + free Parco dei Mulini pools",
-            "Slow evening at the villa"
-          ]
-        },
-        {
-          "d": 6,
-          "date": "Thu 8 Oct",
-          "title": "Montepulciano (walkable cellars)",
-          "items": [
-            "Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi — Contucci & De' Ricci are in the old town, no estate drive",
-            "Lunch in town; optional Bagni San Filippo white travertine springs (\"Fosso Bianco\") on the way back"
-          ]
         },
         {
           "d": 7,
           "date": "Fri 9 Oct",
-          "title": "Market, abbey, or just the pool",
+          "title": "Montalcino & Brunello",
           "items": [
-            "Friday market in Montalcino (or Pienza): produce, cheese, new-harvest oil",
-            "Romanesque Abbey of Sant'Antimo, near Montalcino",
-            "Last Val d'Orcia dinner; buy/ship wine + oil before the coast; pack"
+            "Into Montalcino (~10 min): Fortezza, town enoteca for a Brunello flight, Museo Civico",
+            "Friday market: produce, cheese, new-harvest oil",
+            "Dinner in town (pinci, cinta senese)"
+          ]
+        },
+        {
+          "d": 8,
+          "date": "Sat 10 Oct",
+          "title": "Pienza & the pecorino",
+          "items": [
+            "Pienza (~30 min): cheese shops, the \"ideal city\" streets, Piccolomini palace",
+            "Cypress viewpoints en route (Cappella di Vitaleta, the \"Gladiator\" road) at late light",
+            "Bagno Vignoni thermal square + free Parco dei Mulini pools"
+          ]
+        },
+        {
+          "d": 9,
+          "date": "Sun 11 Oct",
+          "title": "Montepulciano or the abbey",
+          "items": [
+            "Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi",
+            "OR Romanesque Abbey of Sant'Antimo near Montalcino + Bagni San Filippo white travertine springs",
+            "Last Val d'Orcia dinner; buy/ship wine + oil; pack for the coast"
           ]
         }
       ]
     },
     {
       "key": "argentario",
-      "pin": 3,
+      "pin": 4,
       "emoji": "🏖️",
       "name": "Argentario / Maremma",
       "stay": "coast hotel",
       "nights": 4,
-      "dates": "Sat 10 – Wed 14 Oct",
+      "dates": "Mon 12 – Fri 16 Oct",
       "color": "#2f8f8a",
       "coord": [
-        42.393,
-        11.207
+        42.3924,
+        11.2064
       ],
       "carFree": false,
       "book": [
         {
           "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-10&checkout=2026-10-14&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-12&checkout=2026-10-16&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-10&checkout=2026-10-14&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-12&checkout=2026-10-16&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
         {
           "name": "Spiaggia della Feniglia",
           "coord": [
-            42.409,
-            11.19
+            42.408,
+            11.185
           ],
-          "note": "pine-backed sandy beach"
+          "note": "pine-backed sandy beach + dune reserve"
+        },
+        {
+          "name": "Parco della Maremma",
+          "coord": [
+            42.6558,
+            11.1053
+          ],
+          "note": "wild coastal park, trails, cattle"
         },
         {
           "name": "Orbetello lagoon",
           "coord": [
-            42.441,
-            11.216
+            42.451,
+            11.205
           ],
           "note": "WWF reserve, flamingos"
         },
         {
-          "name": "Isola del Giglio",
+          "name": "Cala del Gesso",
           "coord": [
-            42.363,
-            10.901
+            42.362,
+            11.132
           ],
-          "note": "ferry day-trip"
+          "note": "clear-water cove, footpath down"
+        },
+        {
+          "name": "Giardino dei Tarocchi",
+          "coord": [
+            42.4028,
+            11.4308
+          ],
+          "note": "mosaic sculpture park (closes 15 Oct)"
         }
       ],
       "days": [
         {
-          "d": 8,
-          "date": "Sat 10 Oct",
+          "d": 10,
+          "date": "Mon 12 Oct",
           "title": "Val d'Orcia → Argentario",
           "arrive": true,
           "items": [
-            "Drive southwest ~1 h 30; check in on the Argentario (Argentario Golf Resort, or La Roqqa if splurging)",
-            "First beach afternoon; seafood dinner in Porto Ercole"
+            "Drive southwest ~2 h to Porto Ercole; check in at the coast hotel",
+            "First beach afternoon; seafood dinner in the Porto Ercole harbour"
           ],
           "leg": {
             "mode": "car",
-            "text": "Montalcino → Porto Ercole · ~1 h 30 / 110 km"
+            "text": "Montalcino → Porto Ercole · ~2 h / 110 km"
           }
-        },
-        {
-          "d": 9,
-          "date": "Sun 11 Oct",
-          "title": "Beach + Feniglia",
-          "items": [
-            "Spiaggia della Feniglia: long, pine-backed sandy beach; walk or bike the Duna Feniglia reserve",
-            "Aperitivo on the Argentario; do nothing, on purpose"
-          ]
-        },
-        {
-          "d": 10,
-          "date": "Mon 12 Oct",
-          "title": "Nature: Maremma park or the lagoon",
-          "items": [
-            "Parco della Maremma (Alberese): coastal trails, wild beach, longhorn cattle",
-            "OR Orbetello lagoon WWF reserve (flamingos, birdlife) + the causeway town",
-            "Lagoon seafood and bottarga for dinner"
-          ]
         },
         {
           "d": 11,
           "date": "Tue 13 Oct",
-          "title": "Boat day (weather permitting)",
+          "title": "Feniglia beach + the Tarocchi (before it closes)",
           "items": [
-            "Ferry from Porto Santo Stefano to Isola del Giglio, or a boat around the Argentario coves",
-            "Last Maremma swim; early night (longer drive tomorrow)",
-            "If seas are rough: Porto Santo Stefano + Porto Ercole villages and the spa"
+            "Spiaggia della Feniglia: long pine-backed beach; walk or bike the Duna Feniglia reserve",
+            "Giardino dei Tarocchi at Capalbio (Niki de Saint Phalle's mosaic park) — season ENDS 15 Oct, afternoons only, so do it now",
+            "Aperitivo on the Argentario"
           ]
-        }
-      ]
-    },
-    {
-      "key": "cinqueterre",
-      "pin": 4,
-      "emoji": "🪨",
-      "name": "Cinque Terre",
-      "stay": "Monterosso hotel",
-      "nights": 2,
-      "dates": "Wed 14 – Fri 16 Oct",
-      "color": "#d2683f",
-      "coord": [
-        44.146,
-        9.654
-      ],
-      "carFree": true,
-      "book": [
-        {
-          "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Monterosso-al-Mare--Italy/homes?checkin=2026-10-14&checkout=2026-10-16&adults=2"
         },
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Monterosso+al+Mare%2C+Italy&checkin=2026-10-14&checkout=2026-10-16&group_adults=2&no_rooms=1&group_children=0"
-        }
-      ],
-      "highlights": [
-        {
-          "name": "Vernazza",
-          "coord": [
-            44.135,
-            9.684
-          ],
-          "note": "harbour + castle"
-        },
-        {
-          "name": "Manarola",
-          "coord": [
-            44.107,
-            9.729
-          ],
-          "note": "sunset icon"
-        },
-        {
-          "name": "Portovenere",
-          "coord": [
-            44.048,
-            9.837
-          ],
-          "note": "boat trip, just south"
-        }
-      ],
-      "days": [
         {
           "d": 12,
           "date": "Wed 14 Oct",
-          "title": "Maremma → La Spezia (drop car) → Cinque Terre",
-          "arrive": true,
+          "title": "Parco della Maremma",
           "items": [
-            "Drive up to La Spezia ~3 h 30; return the rental at La Spezia Centrale (car-free from here on)",
-            "Cinque Terre Express train to Monterosso al Mare (~15 min); check in",
-            "Buy a Cinque Terre Card (train + trails); evening on Monterosso's beachfront"
-          ],
-          "leg": {
-            "mode": "car",
-            "text": "Porto Ercole → La Spezia · ~3 h 30 / 330 km · then train, no more driving"
-          }
+            "Parco della Maremma (Alberese): coastal trails to the towers and the wild beach, Maremmana cattle",
+            "Lagoon seafood and Orbetello bottarga for dinner"
+          ]
         },
         {
           "d": 13,
           "date": "Thu 15 Oct",
-          "title": "The five villages by train + boat",
+          "title": "Boat, coves, or the lagoon",
           "items": [
-            "Hop the villages: Vernazza (harbour + castle), Corniglia (clifftop), Manarola (sunset icon), Riomaggiore",
-            "Walk an OPEN section of trail (check status — the low Blue Trail is often closed); higher paths usually open",
-            "Boat back along the coast if seas allow; seafood + Sciacchetrà wine in Monterosso"
+            "Boat around the Argentario coves, or the footpath down to Cala del Gesso",
+            "OR Orbetello lagoon WWF reserve (flamingos) + the Spanish Fortress viewpoint at Porto Santo Stefano",
+            "Last Maremma swim; pack (drive back to Florence tomorrow)"
           ]
         }
       ]
     },
     {
-      "key": "santamargherita",
+      "key": "florence2",
       "pin": 5,
-      "emoji": "⛵",
-      "name": "Santa Margherita Ligure",
-      "stay": "harbour hotel",
-      "nights": 2,
-      "dates": "Fri 16 – Sun 18 Oct",
-      "color": "#2b5f8c",
+      "emoji": "🛍️",
+      "name": "Florence",
+      "stay": "shopping",
+      "nights": 1,
+      "dates": "Fri 16 Oct",
+      "color": "#7a6b9c",
       "coord": [
-        44.335,
-        9.21
+        43.7696,
+        11.2558
       ],
-      "carFree": true,
+      "carFree": false,
       "book": [
         {
-          "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Santa-Margherita-Ligure--Italy/homes?checkin=2026-10-16&checkout=2026-10-18&adults=2"
-        },
-        {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Santa+Margherita+Ligure%2C+Italy&checkin=2026-10-16&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-16&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
         {
-          "name": "Portofino",
+          "name": "Ponte Vecchio",
           "coord": [
-            44.303,
-            9.21
+            43.768,
+            11.2531
           ],
-          "note": "piazzetta, Castello Brown, lighthouse"
+          "note": "goldsmiths' bridge"
         },
         {
-          "name": "San Fruttuoso",
+          "name": "Piazzale Michelangelo",
           "coord": [
-            44.318,
-            9.174
+            43.7629,
+            11.265
           ],
-          "note": "abbey in a hidden cove"
-        },
-        {
-          "name": "Camogli",
-          "coord": [
-            44.349,
-            9.155
-          ],
-          "note": "quiet fishing village"
+          "note": "the classic city view"
         }
       ],
       "days": [
         {
           "d": 14,
           "date": "Fri 16 Oct",
-          "title": "Cinque Terre morning → Santa Margherita",
+          "title": "Argentario → Florence, drop the car",
           "arrive": true,
           "items": [
-            "Slow morning: Monterosso beach, or boat to Portovenere (gorgeous, just south)",
-            "Train north to Santa Margherita Ligure (~1 h, change at Levanto/Sestri); check in",
-            "Harbour passeggiata + aperitivo; Ligurian seafood, focaccia, pesto"
+            "Drive up ~2 h 30 to Florence; return the rental (round-trip, so no one-way fee)",
+            "Check in near the centre; Oltrarno artisan workshops, Ponte Vecchio, leather + a last big dinner"
           ],
           "leg": {
-            "mode": "train",
-            "text": "Monterosso → Santa Margherita · ~1 h (change at Levanto/Sestri)"
+            "mode": "car",
+            "text": "Porto Ercole → Florence · ~2 h 30 / 200 km · car dropped here, trains from now on"
           }
+        }
+      ]
+    },
+    {
+      "key": "milan",
+      "pin": 6,
+      "emoji": "🚆",
+      "name": "Milan",
+      "stay": "overnight before the flight",
+      "nights": 1,
+      "dates": "Sat 17 Oct",
+      "color": "#9a9186",
+      "coord": [
+        45.4642,
+        9.19
+      ],
+      "carFree": false,
+      "book": [
+        {
+          "site": "booking",
+          "url": "https://www.booking.com/searchresults.html?ss=Milano+Centrale%2C+Milan%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
+        }
+      ],
+      "highlights": [
+        {
+          "name": "Duomo di Milano",
+          "coord": [
+            45.4642,
+            9.1919
+          ],
+          "note": "the cathedral + rooftop"
         },
+        {
+          "name": "Galleria Vittorio Emanuele II",
+          "coord": [
+            45.4659,
+            9.1899
+          ],
+          "note": "grand 19th-c. arcade"
+        }
+      ],
+      "days": [
         {
           "d": 15,
           "date": "Sat 17 Oct",
-          "title": "Portofino, San Fruttuoso & Camogli",
+          "title": "Florence → Milan",
+          "arrive": true,
           "items": [
-            "Ferry to Portofino: piazzetta, Castello Brown, the lighthouse; swim/lunch at Paraggi cove",
-            "Boat on to the San Fruttuoso abbey in its hidden cove (or the Monte di Portofino hike)",
-            "Last Riviera dinner; pack"
-          ]
+            "Morning in Florence (San Lorenzo market, last espresso); Frecciarossa to Milano Centrale (~2 h, direct)",
+            "Check in near Centrale; optional Duomo + Galleria stroll, or just rest before tomorrow's flight"
+          ],
+          "leg": {
+            "mode": "train",
+            "text": "Florence → Milan · ~2 h by train"
+          }
         }
       ]
     },
@@ -467,15 +522,14 @@ window.TRIP = {
         {
           "d": 16,
           "date": "Sun 18 Oct",
-          "title": "Riviera → Malpensa, fly home (no car)",
+          "title": "Milan → Malpensa, fly home",
           "items": [
-            "Train Santa Margherita → Milano Centrale (~2 h 15); leave by ~9:30 to be safe",
-            "Malpensa Express Centrale → MXP (~50 min); Wizz Air departs Terminal 2",
+            "Malpensa Express Milano Centrale → MXP (~50 min); Wizz Air departs Terminal 2",
             "16:00 MXP → 18:20 KEF; be at the terminal by ~13:30"
           ],
           "leg": {
             "mode": "train",
-            "text": "Santa Margherita → Malpensa · ~3 h 15 door-to-door by train"
+            "text": "Milano Centrale → Malpensa · ~50 min"
           }
         }
       ]

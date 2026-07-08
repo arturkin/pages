@@ -8,10 +8,10 @@ def route(a,b):
         return [[round(c[1],5),round(c[0],5)] for c in g], True
     except Exception as e:
         print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], False
-MXP=(8.723,45.630);MIL=(9.204,45.487);FLO=(11.248,43.776);MON=(11.489,43.057)
-PE=(11.207,42.393);LAS=(9.828,44.107);MTR=(9.654,44.146);STM=(9.210,44.335)
-legs=[("train",MXP,MIL),("train",MIL,FLO),("car",FLO,MON),("car",MON,PE),
- ("car",PE,LAS),("train",LAS,MTR),("train",MTR,STM),("train",STM,MIL),("train",MIL,MXP)]
+MXP=(8.723,45.630);MIL=(9.204,45.487);FLO=(11.248,43.776)
+SGIM=(11.0431,43.4677);MON=(11.4506,43.0272);PE=(11.2064,42.3924)
+legs=[("train",MXP,MIL),("train",MIL,FLO),("car",FLO,SGIM),("car",SGIM,MON),
+ ("car",MON,PE),("car",PE,FLO),("train",FLO,MIL),("train",MIL,MXP)]
 out=[]
 for i,(mode,a,b) in enumerate(legs,1):
     coords,ok=route(a,b); print(f"leg {i} {mode}: {len(coords)} pts {'OSRM' if ok else 'STRAIGHT'}")

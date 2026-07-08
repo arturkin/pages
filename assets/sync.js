@@ -23,61 +23,70 @@ const OUT = path.join(__dirname, "trip.js");
 
 // ---- map-only metadata (NOT in the doc), bases in travel order ----------
 const HUBS = [
-  { name: "Malpensa (MXP)",  coord: [45.630, 8.723], note: "arrive Day 1 · depart Day 16" },
-  { name: "Milano Centrale", coord: [45.487, 9.204], note: "train hub" }
+  { name: "Malpensa (MXP)",  coord: [45.630, 8.723], note: "arrive Day 1 · depart Day 16" }
 ];
-const WAYPOINTS = [
-  { name: "La Spezia", coord: [44.107, 9.828], note: "drop rental car (Day 12)" }
-];
+const WAYPOINTS = [];
 const AIRBNB = {
-  valdorcia:  "https://www.airbnb.com/s/Montalcino--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-10&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7",
-  argentario: "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-10&checkout=2026-10-14&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7",
-  cinqueterre:"https://www.airbnb.com/s/Monterosso-al-Mare--Italy/homes?checkin=2026-10-14&checkout=2026-10-16&adults=2",
-  santamargherita:"https://www.airbnb.com/s/Santa-Margherita-Ligure--Italy/homes?checkin=2026-10-16&checkout=2026-10-18&adults=2"
+  sangimignano: "https://www.airbnb.com/s/San-Gimignano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7",
+  argentario:   "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-12&checkout=2026-10-16&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+};
+const HOTEL = {
+  poderebrizio: "https://poderebrizio.it/en/"
 };
 const BOOKING = {
-  florence:   "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-03&checkout=2026-10-04&group_adults=2&no_rooms=1&group_children=0",
-  valdorcia:  "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-04&checkout=2026-10-10&group_adults=2&no_rooms=1&group_children=0",
-  argentario: "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-10&checkout=2026-10-14&group_adults=2&no_rooms=1&group_children=0",
-  cinqueterre:"https://www.booking.com/searchresults.html?ss=Monterosso+al+Mare%2C+Italy&checkin=2026-10-14&checkout=2026-10-16&group_adults=2&no_rooms=1&group_children=0",
-  santamargherita:"https://www.booking.com/searchresults.html?ss=Santa+Margherita+Ligure%2C+Italy&checkin=2026-10-16&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
+  florence:    "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-03&checkout=2026-10-04&group_adults=2&no_rooms=1&group_children=0",
+  sangimignano:"https://www.booking.com/searchresults.html?ss=San+Gimignano%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0",
+  valdorcia:   "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-12&group_adults=2&no_rooms=1&group_children=0",
+  argentario:  "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-12&checkout=2026-10-16&group_adults=2&no_rooms=1&group_children=0",
+  florence2:   "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-16&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0",
+  milan:       "https://www.booking.com/searchresults.html?ss=Milano+Centrale%2C+Milan%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
 };
 const META = [
   { key: "florence", name: "Florence", color: "#5b6b8c", pin: 1, coord: [43.776, 11.248],
     book: [{ site: "booking", url: BOOKING.florence }], highlights: [] },
-  { key: "valdorcia", name: "Val d'Orcia", color: "#8e3b46", pin: 2, coord: [43.057, 11.489],
-    book: [{ site: "airbnb", url: AIRBNB.valdorcia }, { site: "booking", url: BOOKING.valdorcia }],
+  { key: "sangimignano", name: "San Gimignano", color: "#6d8c3f", pin: 2, coord: [43.4677, 11.0431],
+    book: [{ site: "airbnb", url: AIRBNB.sangimignano }, { site: "booking", url: BOOKING.sangimignano }],
     highlights: [
+      { name: "Volterra", coord: [43.4009, 10.8607], note: "Etruscan walls, alabaster, big views" },
+      { name: "Monteriggioni", coord: [43.3906, 11.2231], note: "circular walled castle-village" },
+      { name: "Colle di Val d'Elsa", coord: [43.4218, 11.1268], note: "ridge-top Colle Alta, crystal glass" },
+      { name: "Castellina in Chianti", coord: [43.4700, 11.2870], note: "Chianti Classico, the Chiantigiana" },
+      { name: "Fattoria Poggio Alloro", coord: [43.4622, 11.0083], note: "organic farm, Chianina, tower views" }
+    ] },
+  { key: "valdorcia", name: "Val d'Orcia", color: "#8e3b46", pin: 3, coord: [43.0272, 11.4506],
+    book: [{ site: "hotel", url: HOTEL.poderebrizio }, { site: "booking", url: BOOKING.valdorcia }],
+    highlights: [
+      { name: "Montalcino", coord: [43.0570, 11.4890], note: "Brunello town, Fortezza, enoteca" },
       { name: "Pienza", coord: [43.0766, 11.6787], note: "pecorino, the 'ideal city'" },
       { name: "Montepulciano", coord: [43.0989, 11.7869], note: "Vino Nobile cellars under the town" },
       { name: "Bagno Vignoni", coord: [43.0280, 11.6170], note: "thermal square + free pools" },
       { name: "Abbey of Sant'Antimo", coord: [43.0170, 11.5120], note: "Romanesque abbey" }
     ] },
-  { key: "argentario", name: "Argentario / Maremma", color: "#2f8f8a", pin: 3, coord: [42.393, 11.207],
+  { key: "argentario", name: "Argentario / Maremma", color: "#2f8f8a", pin: 4, coord: [42.3924, 11.2064],
     book: [{ site: "airbnb", url: AIRBNB.argentario }, { site: "booking", url: BOOKING.argentario }],
     highlights: [
-      { name: "Spiaggia della Feniglia", coord: [42.409, 11.190], note: "pine-backed sandy beach" },
-      { name: "Orbetello lagoon", coord: [42.441, 11.216], note: "WWF reserve, flamingos" },
-      { name: "Isola del Giglio", coord: [42.363, 10.901], note: "ferry day-trip" }
+      { name: "Spiaggia della Feniglia", coord: [42.4080, 11.1850], note: "pine-backed sandy beach + dune reserve" },
+      { name: "Parco della Maremma", coord: [42.6558, 11.1053], note: "wild coastal park, trails, cattle" },
+      { name: "Orbetello lagoon", coord: [42.4510, 11.2050], note: "WWF reserve, flamingos" },
+      { name: "Cala del Gesso", coord: [42.3620, 11.1320], note: "clear-water cove, footpath down" },
+      { name: "Giardino dei Tarocchi", coord: [42.4028, 11.4308], note: "mosaic sculpture park (closes 15 Oct)" }
     ] },
-  { key: "cinqueterre", name: "Cinque Terre", color: "#d2683f", pin: 4, coord: [44.146, 9.654],
-    book: [{ site: "airbnb", url: AIRBNB.cinqueterre }, { site: "booking", url: BOOKING.cinqueterre }],
+  { key: "florence2", name: "Florence", color: "#7a6b9c", pin: 5, coord: [43.7696, 11.2558],
+    book: [{ site: "booking", url: BOOKING.florence2 }],
     highlights: [
-      { name: "Vernazza", coord: [44.135, 9.684], note: "harbour + castle" },
-      { name: "Manarola", coord: [44.107, 9.729], note: "sunset icon" },
-      { name: "Portovenere", coord: [44.048, 9.837], note: "boat trip, just south" }
+      { name: "Ponte Vecchio", coord: [43.7680, 11.2531], note: "goldsmiths' bridge" },
+      { name: "Piazzale Michelangelo", coord: [43.7629, 11.2650], note: "the classic city view" }
     ] },
-  { key: "santamargherita", name: "Santa Margherita Ligure", color: "#2b5f8c", pin: 5, coord: [44.335, 9.210],
-    book: [{ site: "airbnb", url: AIRBNB.santamargherita }, { site: "booking", url: BOOKING.santamargherita }],
+  { key: "milan", name: "Milan", color: "#9a9186", pin: 6, coord: [45.4642, 9.1900],
+    book: [{ site: "booking", url: BOOKING.milan }],
     highlights: [
-      { name: "Portofino", coord: [44.303, 9.210], note: "piazzetta, Castello Brown, lighthouse" },
-      { name: "San Fruttuoso", coord: [44.318, 9.174], note: "abbey in a hidden cove" },
-      { name: "Camogli", coord: [44.349, 9.155], note: "quiet fishing village" }
+      { name: "Duomo di Milano", coord: [45.4642, 9.1919], note: "the cathedral + rooftop" },
+      { name: "Galleria Vittorio Emanuele II", coord: [45.4659, 9.1899], note: "grand 19th-c. arcade" }
     ] },
   { key: "home", name: "Home", color: "#9a9186", pin: "✈", coord: null, book: [], highlights: [] }
 ];
 // travel-mode for each transfer day (doc's ">>" line gives the text, not the mode)
-const LEG_MODE = { 2: "car", 8: "car", 12: "car", 14: "train", 16: "train" };
+const LEG_MODE = { 2: "car", 6: "car", 10: "car", 14: "car", 15: "train", 16: "train" };
 
 // ---- parse itinerary.md --------------------------------------------------
 function parseBanner(t) {
