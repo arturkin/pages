@@ -27,15 +27,15 @@ const HUBS = [
 ];
 const WAYPOINTS = [];
 const AIRBNB = {
-  sangimignano: "https://www.airbnb.com/s/San-Gimignano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7",
-  argentario:   "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-12&checkout=2026-10-16&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+  cretesenesi: "https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7",
+  argentario:  "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-13&checkout=2026-10-17&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
 };
 const HOTEL = {
   poderebrizio: "https://poderebrizio.it/en/"
 };
 const BOOKING = {
   florence:    "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-03&checkout=2026-10-04&group_adults=2&no_rooms=1&group_children=0",
-  sangimignano:"https://www.booking.com/searchresults.html?ss=San+Gimignano%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0",
+  cretesenesi: "https://www.booking.com/searchresults.html?ss=Asciano%2C+Tuscany%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0",
   valdorcia:   "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0",
   argentario:  "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0",
   florence2:   "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
@@ -43,14 +43,14 @@ const BOOKING = {
 const META = [
   { key: "florence", name: "Florence", color: "#5b6b8c", pin: 1, coord: [43.776, 11.248],
     book: [{ site: "booking", url: BOOKING.florence }], highlights: [] },
-  { key: "sangimignano", name: "San Gimignano", color: "#6d8c3f", pin: 2, coord: [43.4677, 11.0431],
-    book: [{ site: "airbnb", url: AIRBNB.sangimignano }, { site: "booking", url: BOOKING.sangimignano }],
+  { key: "cretesenesi", name: "Crete Senesi", color: "#b07a33", pin: 2, coord: [43.2340, 11.5606],
+    book: [{ site: "airbnb", url: AIRBNB.cretesenesi }, { site: "booking", url: BOOKING.cretesenesi }],
     highlights: [
-      { name: "Volterra", coord: [43.4009, 10.8607], note: "Etruscan walls, alabaster, big views" },
-      { name: "Monteriggioni", coord: [43.3906, 11.2231], note: "circular walled castle-village" },
-      { name: "Colle di Val d'Elsa", coord: [43.4218, 11.1268], note: "ridge-top Colle Alta, crystal glass" },
-      { name: "Castellina in Chianti", coord: [43.4700, 11.2870], note: "Chianti Classico, the Chiantigiana" },
-      { name: "Fattoria Poggio Alloro", coord: [43.4622, 11.0083], note: "organic farm, Chianina, tower views" }
+      { name: "San Gimignano", coord: [43.4677, 11.0431], note: "the towers — stop on the drive in" },
+      { name: "Monte Oliveto Maggiore", coord: [43.1719, 11.5478], note: "great abbey in a cypress wood" },
+      { name: "Siena", coord: [43.3188, 11.3308], note: "Piazza del Campo, Duomo — ~35 min" },
+      { name: "Buonconvento", coord: [43.1381, 11.4817], note: "walled town, good market" },
+      { name: "Trequanda", coord: [43.1817, 11.6486], note: "quiet Crete hilltop village" }
     ] },
   { key: "valdorcia", name: "Val d'Orcia", color: "#8e3b46", pin: 3, coord: [43.0272, 11.4506],
     book: [{ site: "hotel", url: HOTEL.poderebrizio }, { site: "booking", url: BOOKING.valdorcia }],
@@ -60,7 +60,7 @@ const META = [
       { name: "Montepulciano", coord: [43.0989, 11.7869], note: "Vino Nobile cellars under the town" },
       { name: "Bagno Vignoni", coord: [43.0280, 11.6170], note: "thermal square + free pools" },
       { name: "Abbey of Sant'Antimo", coord: [43.0170, 11.5120], note: "Romanesque abbey" },
-      { name: "Monte Oliveto Maggiore", coord: [43.1719, 11.5478], note: "abbey in the Crete Senesi moonscape" }
+      { name: "Bagni San Filippo", coord: [42.9260, 11.6180], note: "white travertine hot springs" }
     ] },
   { key: "argentario", name: "Argentario / Maremma", color: "#2f8f8a", pin: 4, coord: [42.3924, 11.2064],
     book: [{ site: "airbnb", url: AIRBNB.argentario }, { site: "booking", url: BOOKING.argentario }],

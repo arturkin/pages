@@ -1,20 +1,21 @@
 ITALY — TWO WEEKS: TUSCANY, DEEP
 Sat 3 Oct – Sun 18 Oct 2026 · 15 nights
-Route: Florence → San Gimignano (Chianti) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence
+Route: Florence → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence
 Fly: Icelandair KEF 09:00 → MXP 15:10 (out) · Wizz Air MXP 16:00 → KEF 18:20 (back)
 
 WHAT CHANGED IN THIS VERSION
  - Liguria dropped entirely. No Cinque Terre, no Riviera — it's off this southern/central
    route (a 3 h+ detour each way), saved for another trip.
- - All Tuscany now, spread north→south: a wild-countryside farmhouse near San Gimignano,
-   then a Brunello vineyard hotel in the Val d'Orcia, then the Maremma coast.
+ - All Tuscany now: an isolated farmhouse in the Crete Senesi (the empty clay-moonscape hills —
+   the least touristy, most immersive of the options), then a Brunello vineyard hotel in the
+   Val d'Orcia, then the Maremma coast. San Gimignano is now a stop on the drive in, not a base.
  - One car, a simple round-trip from Florence (pick up Day 2, drop Day 15) — no one-way fee.
  - No Milan overnight: the 16:00 flight lets you train Florence → Malpensa on the day itself.
-   That freed night goes to the Val d'Orcia vineyard hotel — now 5 nights, the trip's anchor.
+   The freed night went to the Val d'Orcia vineyard hotel — now 5 nights, the trip's anchor.
 
 WHERE YOU SLEEP
  Florence .............. 1 night (arrival only)
- San Gimignano ......... isolated farmhouse w/ pool via Airbnb (4 nights) — full countryside immersion
+ Crete Senesi .......... isolated farmhouse w/ pool via Airbnb, near Asciano (4 nights) — full immersion
  Val d'Orcia ........... vineyard hotel w/ pool + bar: Podere Brizio, Montalcino (5 nights) — the anchor, book early
  Argentario ............ coast hotel near Porto Ercole (4 nights)
  Florence .............. shopping, last night before the flight (1 night)
@@ -31,40 +32,42 @@ DAY 1 · Sat 3 Oct — Fly in, train to Florence
  - Check in near Santa Maria Novella; easy dinner, early night
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🏰 SAN GIMIGNANO · countryside farmhouse (Airbnb) · 4 nights · Sun 4 – Thu 8 Oct
+🌾 CRETE SENESI · isolated farmhouse (Airbnb) · 4 nights · Sun 4 – Thu 8 Oct
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DAY 2 · Sun 4 Oct — Pick up the car, out to the San Gimignano countryside  ›› arrive & check in
+DAY 2 · Sun 4 Oct — Pick up the car, out to the Crete Senesi (San Gimignano on the way)  ›› arrive & check in
  - Collect the rental at Firenze SMN; follow the signed ZTL exit route, do NOT drive into the centre
  - Confirm the drop is back at FLORENCE on the contract (round-trip, no one-way fee)
- - ~1 h south to the farmhouse near San Gimignano; stock up on groceries en route
- - Settle in: pool, vineyard views; San Gimignano's towers at dusk once the day-buses leave
- >> Florence → San Gimignano · ~1 h / 55 km
+ - Break the drive at San Gimignano (park outside the walls): the towers, a Vernaccia, lunch
+ - On ~1 h more to the isolated farmhouse near Asciano; groceries in Asciano or Buonconvento
+ - Settle in: the clay-hill silence, big skies, sunset over the crete
+ >> Florence → Crete Senesi · ~1 h 15 / 100 km (+ the San Gimignano stop)
 
-DAY 3 · Mon 5 Oct — San Gimignano & the Val d'Elsa
- - Morning in San Gimignano: the towers, the ramparts walk, a Vernaccia flight
- - Slow afternoon on the vine-and-cypress backroads (Ulignano, Pancole, Pieve di Cellole)
- - Farm lunch at Fattoria Poggio Alloro (Chianina cattle, saffron, tower views)
+DAY 3 · Mon 5 Oct — Asciano & Monte Oliveto Maggiore
+ - Slow morning at the farmhouse, then the classic crete drive on the back-roads (the biancane badlands)
+ - Monte Oliveto Maggiore: the great abbey in its cypress wood, Signorelli & Sodoma frescoes
+ - Asciano: the Museo Cassioli, a quiet lunch; home for sunset over the clay
 
-DAY 4 · Tue 6 Oct — Volterra & Le Balze
- - Scenic drive west to Volterra: Etruscan walls, alabaster workshops, big empty views
- - Le Balze badlands on the edge of town — moody erosion canyons
- - Back for a tasting at Montenidoli or Tenuta Torciano (both minutes from the farmhouse)
+DAY 4 · Tue 6 Oct — Siena
+ - Into Siena (~35 min): Piazza del Campo, the Duomo, the contrade lanes — a city, but a glorious walkable one
+ - Early evening back to the quiet; aperitivo at the farmhouse
+ - (Skip it entirely if you'd rather just do nothing in the hills — no obligation)
 
-DAY 5 · Wed 7 Oct — Chianti Classico loop
- - Colle di Val d'Elsa (panoramic lift up to Colle Alta) → Monteriggioni (walk the circular walls)
- - Into Chianti: Castellina and Radda — enoteche, the Chiantigiana wine road at golden hour
+DAY 5 · Wed 7 Oct — Truffle villages & Buonconvento
+ - The tiny Crete hilltops: Trequanda, Montisi, Castelmuzio, Petroio — Etruscan-quiet, almost empty
+ - Buonconvento (little walled town, good market): produce, pecorino, new-harvest oil; white-truffle
+   fairs if they're on
  - Last farmhouse dinner; pack for the move south
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 🍷 VAL D'ORCIA · vineyard hotel (Podere Brizio) · 5 nights · Thu 8 – Tue 13 Oct
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DAY 6 · Thu 8 Oct — San Gimignano → Val d'Orcia  ›› arrive & check in
- - ~1 h 20 south to Montalcino; check in at Podere Brizio (pool, vineyard, on-site restaurant)
+DAY 6 · Thu 8 Oct — Crete Senesi → Val d'Orcia  ›› arrive & check in
+ - ~40 min south to Montalcino; check in at Podere Brizio (pool, vineyard, on-site restaurant)
  - Settle in: pool, sunset over the Val d'Orcia; first dinner at the estate or in Montalcino town
  - Pre-book a Brunello tasting (the estate's own cellar, or a town enoteca)
- >> San Gimignano → Montalcino · ~1 h 20 / 80 km
+ >> Crete Senesi → Montalcino · ~40 min / 35 km
 
 DAY 7 · Fri 9 Oct — Montalcino & Brunello
  - Into Montalcino (~10 min): Fortezza, town enoteca for a Brunello flight, Museo Civico
@@ -76,15 +79,15 @@ DAY 8 · Sat 10 Oct — Pienza & the pecorino
  - Cypress viewpoints en route (Cappella di Vitaleta, the "Gladiator" road) at late light
  - Bagno Vignoni thermal square + free Parco dei Mulini pools
 
-DAY 9 · Sun 11 Oct — Montepulciano or the abbey
+DAY 9 · Sun 11 Oct — Montepulciano (Vino Nobile)
  - Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi
- - OR Romanesque Abbey of Sant'Antimo near Montalcino + Bagni San Filippo white travertine springs
+ - Lunch in town; wine shopping
  - Dinner back at the estate
 
-DAY 10 · Mon 12 Oct — Estate day + the Crete Senesi
+DAY 10 · Mon 12 Oct — Estate day + Sant'Antimo
  - Nothing morning: pool, spa, the vineyard — this is the anchor, so actually enjoy it
- - Afternoon scenic loop north into the Crete Senesi: the clay moonscape hills around Asciano and the
-   Abbey of Monte Oliveto Maggiore
+ - Afternoon: the Romanesque Abbey of Sant'Antimo near Montalcino + the Bagni San Filippo white
+   travertine springs ("Fosso Bianco")
  - Last Val d'Orcia dinner; buy/ship wine + oil; pack for the coast
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -136,19 +139,22 @@ NOTES
  - Car: pick up Firenze SMN (Day 2) and drop back in FLORENCE (Day 15) — a plain round-trip, no
    one-way fee. Book via a consolidator (AutoEurope etc.). FLORENCE ZTL: depots sit at the
    restricted-zone edge — follow the signed exit route out, do NOT cut through the centre or you'll
-   get camera fines by post. Park OUTSIDE the walls at San Gimignano, Volterra, Montepulciano etc.
+   get camera fines by post. Park OUTSIDE the walls at San Gimignano, Siena, Montepulciano, Buonconvento.
  - The final day is a train day, not a city stay: Florence → Milano Centrale → Malpensa, ~3 h 15
    door-to-door. With the 16:00 flight, a ~09:30 departure from Florence lands you at MXP with a
    comfortable buffer — no need to sleep in Milan.
- - Trains: only three train moments — Day 1 (Milan → Florence on arrival), Day 16 (Florence →
+ - Trains: only two train moments — Day 1 (Milan → Florence on arrival) and Day 16 (Florence →
    Malpensa). Fares open ~90–120 days out; grab cheap "Super Economy" fares early (€15–20 vs €70–80
    last-minute). Florence → Milano C.le is direct ~2 h, ~hourly.
- - Lodging strategy: book the two countryside stays FIRST — a good isolated farmhouse w/ pool near
-   San Gimignano and Podere Brizio in Montalcino both go early for October. Vet reviews + Superhost;
-   check the drive in (some farmhouses are 15+ min down a gravel strada bianca).
- - Podere Brizio: romantic Brunello wine resort ~10 min from Montalcino; pool confirmed open to
-   30 Nov, on-site La Bottaia restaurant + small spa, their own Brunello Riserva tastings.
-   Stretch upgrades if wanted: Villa Le Prata (adults-only) or Mastrojanni Relais (infinity pool).
+ - Lodging strategy: book the two countryside stays FIRST — a genuinely isolated farmhouse near
+   Asciano / Trequanda (Crete Senesi) and Podere Brizio in Montalcino both go early for October.
+   Vet reviews + Superhost; check the drive in (some are 15+ min down a gravel strada bianca).
+ - POOLS: by mid-October most Crete Senesi farmhouse pools have closed or gone cold and are rarely
+   heated — confirm the pool is open (and heated) for your dates before booking, and treat it as a
+   bonus, not a swim guarantee. Podere Brizio's pool IS confirmed open to 30 Nov.
+ - Podere Brizio: romantic Brunello wine resort ~10 min from Montalcino; on-site La Bottaia
+   restaurant + small spa, their own Brunello Riserva tastings. Stretch upgrades if wanted: Villa
+   Le Prata (adults-only) or Mastrojanni Relais (infinity pool).
  - Seasonal: the Giardino dei Tarocchi closes for the season 15 Oct — that's why it's on Day 12.
    The Argentario fishing harbours (Porto Ercole, Porto Santo Stefano) stay open year-round.
  - Baggage: Wizz Air is strict — ship a case of wine home or pre-book a checked bag.
@@ -156,8 +162,8 @@ NOTES
 TO BOOK — actionable links (dates & 2 guests pre-filled)
  [ ] Florence, arrival (1 nt, Oct 3–4):
      https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-03&checkout=2026-10-04&group_adults=2&no_rooms=1&group_children=0
- [ ] Farmhouse near San Gimignano (4 nts, Oct 4–8, entire home + pool):
-     https://www.airbnb.com/s/San-Gimignano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7
+ [ ] Isolated farmhouse, Crete Senesi / Asciano (4 nts, Oct 4–8, entire home + pool):
+     https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7
  [ ] Podere Brizio, Montalcino (5 nts, Oct 8–13):
      https://poderebrizio.it/en/   (or Booking: Montalcino, Oct 8–13)
  [ ] Coast hotel, Monte Argentario / Porto Ercole (4 nts, Oct 13–17):

@@ -4,7 +4,7 @@ window.TRIP = {
   "meta": {
     "title": "ITALY — TWO WEEKS: TUSCANY, DEEP",
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 15 nights",
-    "route": "Florence → San Gimignano (Chianti) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence",
+    "route": "Florence → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
     "flyBack": "Wizz Air MXP 16:00 → KEF 18:20"
   },
@@ -55,115 +55,116 @@ window.TRIP = {
       ]
     },
     {
-      "key": "sangimignano",
+      "key": "cretesenesi",
       "pin": 2,
-      "emoji": "🏰",
-      "name": "San Gimignano",
-      "stay": "countryside farmhouse (Airbnb)",
+      "emoji": "🌾",
+      "name": "Crete Senesi",
+      "stay": "isolated farmhouse (Airbnb)",
       "nights": 4,
       "dates": "Sun 4 – Thu 8 Oct",
-      "color": "#6d8c3f",
+      "color": "#b07a33",
       "coord": [
-        43.4677,
-        11.0431
+        43.234,
+        11.5606
       ],
       "carFree": false,
       "book": [
         {
           "site": "airbnb",
-          "url": "https://www.airbnb.com/s/San-Gimignano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+          "url": "https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=San+Gimignano%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Asciano%2C+Tuscany%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
         {
-          "name": "Volterra",
+          "name": "San Gimignano",
           "coord": [
-            43.4009,
-            10.8607
+            43.4677,
+            11.0431
           ],
-          "note": "Etruscan walls, alabaster, big views"
+          "note": "the towers — stop on the drive in"
         },
         {
-          "name": "Monteriggioni",
+          "name": "Monte Oliveto Maggiore",
           "coord": [
-            43.3906,
-            11.2231
+            43.1719,
+            11.5478
           ],
-          "note": "circular walled castle-village"
+          "note": "great abbey in a cypress wood"
         },
         {
-          "name": "Colle di Val d'Elsa",
+          "name": "Siena",
           "coord": [
-            43.4218,
-            11.1268
+            43.3188,
+            11.3308
           ],
-          "note": "ridge-top Colle Alta, crystal glass"
+          "note": "Piazza del Campo, Duomo — ~35 min"
         },
         {
-          "name": "Castellina in Chianti",
+          "name": "Buonconvento",
           "coord": [
-            43.47,
-            11.287
+            43.1381,
+            11.4817
           ],
-          "note": "Chianti Classico, the Chiantigiana"
+          "note": "walled town, good market"
         },
         {
-          "name": "Fattoria Poggio Alloro",
+          "name": "Trequanda",
           "coord": [
-            43.4622,
-            11.0083
+            43.1817,
+            11.6486
           ],
-          "note": "organic farm, Chianina, tower views"
+          "note": "quiet Crete hilltop village"
         }
       ],
       "days": [
         {
           "d": 2,
           "date": "Sun 4 Oct",
-          "title": "Pick up the car, out to the San Gimignano countryside",
+          "title": "Pick up the car, out to the Crete Senesi (San Gimignano on the way)",
           "arrive": true,
           "items": [
             "Collect the rental at Firenze SMN; follow the signed ZTL exit route, do NOT drive into the centre",
             "Confirm the drop is back at FLORENCE on the contract (round-trip, no one-way fee)",
-            "~1 h south to the farmhouse near San Gimignano; stock up on groceries en route",
-            "Settle in: pool, vineyard views; San Gimignano's towers at dusk once the day-buses leave"
+            "Break the drive at San Gimignano (park outside the walls): the towers, a Vernaccia, lunch",
+            "On ~1 h more to the isolated farmhouse near Asciano; groceries in Asciano or Buonconvento",
+            "Settle in: the clay-hill silence, big skies, sunset over the crete"
           ],
           "leg": {
             "mode": "car",
-            "text": "Florence → San Gimignano · ~1 h / 55 km"
+            "text": "Florence → Crete Senesi · ~1 h 15 / 100 km (+ the San Gimignano stop)"
           }
         },
         {
           "d": 3,
           "date": "Mon 5 Oct",
-          "title": "San Gimignano & the Val d'Elsa",
+          "title": "Asciano & Monte Oliveto Maggiore",
           "items": [
-            "Morning in San Gimignano: the towers, the ramparts walk, a Vernaccia flight",
-            "Slow afternoon on the vine-and-cypress backroads (Ulignano, Pancole, Pieve di Cellole)",
-            "Farm lunch at Fattoria Poggio Alloro (Chianina cattle, saffron, tower views)"
+            "Slow morning at the farmhouse, then the classic crete drive on the back-roads (the biancane badlands)",
+            "Monte Oliveto Maggiore: the great abbey in its cypress wood, Signorelli & Sodoma frescoes",
+            "Asciano: the Museo Cassioli, a quiet lunch; home for sunset over the clay"
           ]
         },
         {
           "d": 4,
           "date": "Tue 6 Oct",
-          "title": "Volterra & Le Balze",
+          "title": "Siena",
           "items": [
-            "Scenic drive west to Volterra: Etruscan walls, alabaster workshops, big empty views",
-            "Le Balze badlands on the edge of town — moody erosion canyons",
-            "Back for a tasting at Montenidoli or Tenuta Torciano (both minutes from the farmhouse)"
+            "Into Siena (~35 min): Piazza del Campo, the Duomo, the contrade lanes — a city, but a glorious walkable one",
+            "Early evening back to the quiet; aperitivo at the farmhouse",
+            "(Skip it entirely if you'd rather just do nothing in the hills — no obligation)"
           ]
         },
         {
           "d": 5,
           "date": "Wed 7 Oct",
-          "title": "Chianti Classico loop",
+          "title": "Truffle villages & Buonconvento",
           "items": [
-            "Colle di Val d'Elsa (panoramic lift up to Colle Alta) → Monteriggioni (walk the circular walls)",
-            "Into Chianti: Castellina and Radda — enoteche, the Chiantigiana wine road at golden hour",
+            "The tiny Crete hilltops: Trequanda, Montisi, Castelmuzio, Petroio — Etruscan-quiet, almost empty",
+            "Buonconvento (little walled town, good market): produce, pecorino, new-harvest oil; white-truffle fairs if they're on",
             "Last farmhouse dinner; pack for the move south"
           ]
         }
@@ -235,28 +236,28 @@ window.TRIP = {
           "note": "Romanesque abbey"
         },
         {
-          "name": "Monte Oliveto Maggiore",
+          "name": "Bagni San Filippo",
           "coord": [
-            43.1719,
-            11.5478
+            42.926,
+            11.618
           ],
-          "note": "abbey in the Crete Senesi moonscape"
+          "note": "white travertine hot springs"
         }
       ],
       "days": [
         {
           "d": 6,
           "date": "Thu 8 Oct",
-          "title": "San Gimignano → Val d'Orcia",
+          "title": "Crete Senesi → Val d'Orcia",
           "arrive": true,
           "items": [
-            "~1 h 20 south to Montalcino; check in at Podere Brizio (pool, vineyard, on-site restaurant)",
+            "~40 min south to Montalcino; check in at Podere Brizio (pool, vineyard, on-site restaurant)",
             "Settle in: pool, sunset over the Val d'Orcia; first dinner at the estate or in Montalcino town",
             "Pre-book a Brunello tasting (the estate's own cellar, or a town enoteca)"
           ],
           "leg": {
             "mode": "car",
-            "text": "San Gimignano → Montalcino · ~1 h 20 / 80 km"
+            "text": "Crete Senesi → Montalcino · ~40 min / 35 km"
           }
         },
         {
@@ -282,20 +283,20 @@ window.TRIP = {
         {
           "d": 9,
           "date": "Sun 11 Oct",
-          "title": "Montepulciano or the abbey",
+          "title": "Montepulciano (Vino Nobile)",
           "items": [
             "Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi",
-            "OR Romanesque Abbey of Sant'Antimo near Montalcino + Bagni San Filippo white travertine springs",
+            "Lunch in town; wine shopping",
             "Dinner back at the estate"
           ]
         },
         {
           "d": 10,
           "date": "Mon 12 Oct",
-          "title": "Estate day + the Crete Senesi",
+          "title": "Estate day + Sant'Antimo",
           "items": [
             "Nothing morning: pool, spa, the vineyard — this is the anchor, so actually enjoy it",
-            "Afternoon scenic loop north into the Crete Senesi: the clay moonscape hills around Asciano and the Abbey of Monte Oliveto Maggiore",
+            "Afternoon: the Romanesque Abbey of Sant'Antimo near Montalcino + the Bagni San Filippo white travertine springs (\"Fosso Bianco\")",
             "Last Val d'Orcia dinner; buy/ship wine + oil; pack for the coast"
           ]
         }
@@ -318,7 +319,7 @@ window.TRIP = {
       "book": [
         {
           "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-12&checkout=2026-10-16&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-13&checkout=2026-10-17&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
         },
         {
           "site": "booking",
