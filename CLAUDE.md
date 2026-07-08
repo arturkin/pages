@@ -25,6 +25,10 @@ itinerary.md  ──(assets/sync.js)──▶  assets/trip.js  ──▶  index.
   (`window.TRIP`). Trip **content** comes from the doc; **map-only metadata**
   (coords, colours, pins, highlights, booking URLs, leg modes) lives in the `META`
   block at the top of `sync.js`. Bases are matched to `META` **by order**.
+  It also rewrites a `?v=<hash>` cache-buster on the asset URLs in `index.html`
+  (md5 of trip.js + routes.js + app.js + style.css), so the GitHub Pages CDN /
+  browsers never serve a stale build. If you regenerate `routes.js`, run
+  `node assets/sync.js` again afterwards so the hash covers the new geometry.
 - **[assets/sync-hook.sh](assets/sync-hook.sh)** + a `PostToolUse` hook in
   [.claude/settings.json](.claude/settings.json) run `sync.js` automatically whenever
   `itinerary.md` is edited. (After changing the hook config you must open `/hooks`
