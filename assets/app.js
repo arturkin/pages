@@ -15,27 +15,38 @@
     hotel:   { label: "Hotel site",  icon: "🛎️" }
   };
 
+  var MAP = TRIP.map || {};
+  var LEGEND = MAP.legend || {};
+  var PHOTO_REGION = MAP.photoRegion || "";
+  var LAYERS = TRIP.layers || [];
+
   // highlight place types -> map icon + legend label (order = legend order).
-  // Set a highlight's `type` in assets/sync.js META; unknown/absent falls back to ★.
+  // Set a highlight's `type` in the trip's meta.js; unknown/absent falls back to ★.
   var TYPES = {
-    town:    { icon: "🏰", label: "Town / village" },
-    wine:    { icon: "🍷", label: "Wine" },
-    church:  { icon: "⛪", label: "Church / abbey" },
-    thermal: { icon: "♨️", label: "Thermal springs" },
-    nature:  { icon: "🌿", label: "Nature / park" },
-    beach:   { icon: "🏖️", label: "Beach / coast" },
-    art:     { icon: "🎨", label: "Art / museum" },
-    market:  { icon: "🛍️", label: "Market" }
+    town:      { icon: "🏰", label: "Town / village" },
+    wine:      { icon: "🍷", label: "Wine" },
+    church:    { icon: "⛪", label: "Church / abbey" },
+    thermal:   { icon: "♨️", label: "Hot spring / pool" },
+    nature:    { icon: "🌿", label: "Nature / park" },
+    beach:     { icon: "🏖️", label: "Beach / coast" },
+    art:       { icon: "🎨", label: "Art / museum" },
+    market:    { icon: "🛍️", label: "Market" },
+    waterfall: { icon: "💧", label: "Waterfall" },
+    viewpoint: { icon: "🔭", label: "Viewpoint" },
+    wildlife:  { icon: "🦭", label: "Wildlife" },
+    museum:    { icon: "🏛️", label: "Museum" },
+    fossil:    { icon: "🦴", label: "Fossils / geology" }
   };
   function typeIcon(t) { return (TYPES[t] && TYPES[t].icon) || "★"; }
 
-  // food & wine POI categories (toggleable layer). Set a POI's `cat` in FOOD (sync.js).
-  var FOOD_TYPES = {
-    winery:     { icon: "🍇", label: "Winery / tasting" },
-    wineshop:   { icon: "🥂", label: "Wine shop / enoteca" },
-    restaurant: { icon: "🍽️", label: "Restaurant" },
-    bar:        { icon: "🍸", label: "Bar / aperitivo" }
-  };
+  // weather-variant labels -> chip emoji (matched case-insensitively on the label)
+  var WX = { fair: "☀️", sun: "☀️", grey: "☁️", gray: "☁️", cloud: "☁️", overcast: "☁️",
+             wet: "🌧️", rain: "🌧️", wind: "🌬️", windy: "🌬️", storm: "⛈️" };
+  function wxEmoji(label) {
+    var k = String(label || "").toLowerCase();
+    for (var w in WX) { if (k.indexOf(w) >= 0) return WX[w]; }
+    return "•";
+  }
 
   /* ---------- place lookup: linkify town/attraction names in day text -------- */
   // Any name that carries a coordinate (bases, highlights, waypoints, hubs)
@@ -76,11 +87,14 @@
 
   /* ---------- header ---------- */
   var m = TRIP.meta;
+  var sub = esc(m.dates) + (m.route ? ' · ' + esc(m.route) : '');
+  var flyHTML = (m.flyOut || m.flyBack)
+    ? '<div class="fly">✈︎ <b>Out:</b> ' + esc(m.flyOut) +
+        ' &nbsp;·&nbsp; <b>Back:</b> ' + esc(m.flyBack) + '</div>'
+    : '';
   document.getElementById("top").innerHTML =
     '<h1>' + esc(m.title) + '</h1>' +
-    '<div class="sub">' + esc(m.dates) + ' · ' + esc(m.route) + '</div>' +
-    '<div class="fly">✈︎ <b>Out:</b> ' + esc(m.flyOut) +
-      ' &nbsp;·&nbsp; <b>Back:</b> ' + esc(m.flyBack) + '</div>';
+    '<div class="sub">' + sub + '</div>' + flyHTML;
 
   /* ---------- itinerary cards ---------- */
   var itin = document.getElementById("itin");
@@ -109,19 +123,39 @@
     itin.appendChild(card);
   });
 
+  var vgroup = 0;   // unique id per variant block, for wiring the toggle chips
+  function liList(items) {
+    return '<ul>' + (items || []).map(function (i) { return '<li>' + linkifyItem(i) + '</li>'; }).join("") + '</ul>';
+  }
+  function variantsHTML(day) {
+    var vs = day.variants;
+    var g = "vg" + (++vgroup);
+    var chips = vs.map(function (v, i) {
+      return '<button type="button" class="vchip' + (i === 0 ? ' active' : '') + '" data-vg="' + g +
+        '" data-vi="' + i + '">' + wxEmoji(v.label) + ' ' + esc(v.label) + '</button>';
+    }).join("");
+    var panes = vs.map(function (v, i) {
+      return '<div class="vpane' + (i === 0 ? '' : ' off') + '" data-vg="' + g + '" data-vi="' + i + '">' +
+        (v.note ? '<div class="vnote">' + linkifyItem(v.note) + '</div>' : '') +
+        liList(v.items) + '</div>';
+    }).join("");
+    return '<div class="variants" data-vg="' + g + '"><div class="vchips">' + chips + '</div>' + panes + '</div>';
+  }
   function dayHTML(day, color) {
     var leg = day.leg
       ? '<div class="leg"><span class="mode ' + day.leg.mode + '">' + day.leg.mode + '</span> ' + esc(day.leg.text) + '</div>'
       : '';
     var arrive = day.arrive ? ' <span class="arrivetag">›› arrive &amp; check in</span>' : '';
+    var wx = day.weather ? '<div class="wx">' + esc(day.weather) + '</div>' : '';
+    var shared = (day.items && day.items.length) ? liList(day.items) : '';
+    var variants = (day.variants && day.variants.length) ? variantsHTML(day) : '';
     return '<div class="day">' +
       '<div class="dhead">' +
         '<span class="dno" style="background:' + color + '">DAY ' + day.d + '</span>' +
         '<span class="ddate">' + esc(day.date) + '</span>' +
         '<span class="dtitle">' + esc(day.title) + arrive + '</span>' +
       '</div>' +
-      '<ul>' + day.items.map(function (i) { return '<li>' + linkifyItem(i) + '</li>'; }).join("") + '</ul>' +
-      leg + '</div>';
+      wx + shared + variants + leg + '</div>';
   }
 
   /* ---------- map ---------- */
@@ -150,16 +184,30 @@
   map.addControl(new FsCtrl());
 
   var bounds = [];
-  var foodLayer = L.layerGroup();   // food & wine POIs — off by default, toggled from the legend
+  // toggleable POI layers (food/pools/chargers/tips…) — one Leaflet group each
+  var layerGroups = LAYERS.map(function () { return L.layerGroup(); });
 
-  // route legs (real road/rail-corridor geometry)
+  // route legs (real road/rail-corridor geometry). If legs carry a `day`, group
+  // them into per-day toggleable layers (coloured by day) so each day's driving
+  // can be shown/hidden; otherwise draw them straight onto the map (one route).
+  var ROUTE_PALETTE = ["#c0533b", "#2f8f8a", "#8e6b3a", "#5b6b8c", "#7a4b6b", "#4a8c5a", "#b07a33", "#3a5a8c"];
+  var routeHasDays = ROUTES.some(function (l) { return l.day != null; });
+  var routeDays = [], routeGroups = {}, routeColor = {};
   ROUTES.forEach(function (leg) {
+    if (leg.day != null && routeDays.indexOf(leg.day) < 0) {
+      routeColor[leg.day] = ROUTE_PALETTE[routeDays.length % ROUTE_PALETTE.length];
+      routeGroups[leg.day] = L.layerGroup();
+      routeDays.push(leg.day);
+    }
+    var color = routeHasDays ? routeColor[leg.day] : (leg.mode === "car" ? MODE.car.color : MODE.train.color);
     var style = leg.mode === "car"
-      ? { color: MODE.car.color, weight: 4, opacity: .9 }
-      : { color: MODE.train.color, weight: 3, opacity: .85, dashArray: "2,9", lineCap: "round" };
-    L.polyline(leg.coords, style).addTo(map);
+      ? { color: color, weight: 4, opacity: .9 }
+      : { color: color, weight: 3, opacity: .85, dashArray: "2,9", lineCap: "round" };
+    var pl = L.polyline(leg.coords, style);
+    if (routeHasDays) pl.addTo(routeGroups[leg.day]); else pl.addTo(map);
     leg.coords.forEach(function (c) { bounds.push(c); });
   });
+  if (routeHasDays) routeDays.forEach(function (d) { routeGroups[d].addTo(map); });
 
   // hubs (Milan / airport)
   (TRIP.hubs || []).forEach(function (h) {
@@ -192,21 +240,29 @@
     });
   });
 
-  // food & wine POIs (>4★) — populate the toggleable layer (kept OFF by default)
-  (TRIP.food || []).forEach(function (f) {
-    var ft = FOOD_TYPES[f.cat] || { icon: "📍", label: f.cat };
-    var pop = "<b>" + esc(f.name) + "</b><br>" +
-      '<span style="color:#7a7167">' + esc(ft.label) + (f.rating ? " · ★ " + esc(String(f.rating)) : "") + "</span>" +
-      (f.note ? "<br>" + esc(f.note) : "") +
-      popupPhotos(f.name, f.coord);
-    L.marker(f.coord, { icon: divIcon('<div class="foodpin">' + ft.icon + "</div>", 22, 22, 11, 11) })
-      .bindPopup(pop).addTo(foodLayer);
-    bounds.push(f.coord);
+  // POI layers (food/pools/chargers/tips…) — populate each toggleable group
+  LAYERS.forEach(function (layer, li) {
+    var cats = layer.cats || {};
+    (layer.points || []).forEach(function (p) {
+      var ct = cats[p.cat] || { icon: layer.icon || "📍", label: layer.label };
+      var showPhotos = layer.photos !== false && p.coord;
+      var pop = "<b>" + esc(p.name) + "</b><br>" +
+        '<span style="color:#7a7167">' + esc(ct.label || layer.label) +
+          (p.rating ? " · ★ " + esc(String(p.rating)) : "") + "</span>" +
+        (p.note ? "<br>" + esc(p.note) : "") +
+        (p.url ? '<br><a href="' + esc(p.url) + '" target="_blank" rel="noopener">Open ↗</a>' : "") +
+        (showPhotos ? popupPhotos(p.name, p.coord) : "");
+      L.marker(p.coord, { icon: divIcon('<div class="poipin">' + (ct.icon || layer.icon || "📍") + "</div>", 22, 22, 11, 11) })
+        .bindPopup(pop).addTo(layerGroups[li]);
+      bounds.push(p.coord);
+    });
   });
 
   if (bounds.length) map.fitBounds(L.latLngBounds(bounds).pad(0.12));
 
   /* ---------- legend (built from what's in the data) ---------- */
+  var modes = {};
+  ROUTES.forEach(function (l) { modes[l.mode] = 1; });
   var usedTypes = {};
   TRIP.bases.forEach(function (b) {
     (b.highlights || []).forEach(function (hl) { if (TYPES[hl.type]) usedTypes[hl.type] = 1; });
@@ -215,31 +271,76 @@
     .map(function (t) {
       return '<div class="lrow"><span class="lic">' + TYPES[t].icon + '</span>' + esc(TYPES[t].label) + '</div>';
     }).join("");
-  // food & wine key (categories actually present)
-  var usedFood = {};
-  (TRIP.food || []).forEach(function (f) { if (FOOD_TYPES[f.cat]) usedFood[f.cat] = 1; });
-  var foodRows = Object.keys(FOOD_TYPES).filter(function (c) { return usedFood[c]; })
-    .map(function (c) {
-      return '<div class="lrow"><span class="lic">' + FOOD_TYPES[c].icon + '</span>' + esc(FOOD_TYPES[c].label) + '</div>';
-    }).join("");
+  var sleepColor = LEGEND.sleepColor || (TRIP.bases[0] && TRIP.bases[0].color) || "#8e3b46";
+  var layersHTML = LAYERS.map(function (layer, li) {
+    var catRows = layer.cats
+      ? Object.keys(layer.cats)
+          .filter(function (c) { return (layer.points || []).some(function (p) { return p.cat === c; }); })
+          .map(function (c) {
+            return '<div class="lrow"><span class="lic">' + layer.cats[c].icon + '</span>' + esc(layer.cats[c].label) + '</div>';
+          }).join("")
+      : '';
+    var body = catRows ||
+      '<div class="lrow"><span class="lic">' + (layer.icon || "📍") + '</span>' + esc(layer.label) + '</div>';
+    return '<div class="ltitle"><label class="ltog"><input type="checkbox" class="layerToggle" data-li="' + li + '"' +
+        (layer.on ? ' checked' : '') + '> ' + esc(layer.label) + '</label></div>' +
+      '<div class="ltypes" id="layerKey-' + li + '">' + body + '</div>';
+  }).join("");
+  var routeRows = routeHasDays
+    ? '<div class="ltitle">Driving — by day</div>' +
+      routeDays.slice().sort(function (a, b) { return a - b; }).map(function (d) {
+        return '<label class="ltog rtog"><input type="checkbox" class="routeToggle" data-day="' + d + '" checked> ' +
+          '<span class="seg" style="border-color:' + routeColor[d] + '"></span> Day ' + d + '</label>';
+      }).join("")
+    : (modes.train ? '<div class="row"><span class="seg train"></span> ' + esc(LEGEND.train || "Train") + '</div>' : '') +
+      (modes.car ? '<div class="row"><span class="seg car"></span> ' + esc(LEGEND.car || "Car") + '</div>' : '');
   document.getElementById("legend").innerHTML =
-    '<div class="row"><span class="seg train"></span> Train</div>' +
-    '<div class="row"><span class="seg car"></span> Car (round-trip from Florence)</div>' +
-    '<div class="row"><span class="dot" style="background:#9a9186"></span> Malpensa airport</div>' +
-    '<div class="row"><span class="dot" style="background:#8e3b46"></span> Where you sleep (1–5)</div>' +
+    routeRows +
+    (TRIP.hubs && TRIP.hubs.length
+      ? '<div class="row"><span class="dot" style="background:' + (LEGEND.hubColor || "#9a9186") + '"></span> ' +
+        esc(LEGEND.hub || TRIP.hubs[0].name) + '</div>' : '') +
+    '<div class="row"><span class="dot" style="background:' + sleepColor + '"></span> ' +
+      esc(LEGEND.sleep || "Where you sleep") + '</div>' +
     (typeRows ? '<div class="ltitle">Sights &amp; day-trips</div><div class="ltypes">' + typeRows + '</div>' : '') +
-    (foodRows
-      ? '<div class="ltitle"><label class="ltog"><input type="checkbox" id="foodToggle"> Food &amp; wine (&gt;4★)</label></div>' +
-        '<div class="ltypes" id="foodKey">' + foodRows + '</div>'
-      : '');
+    layersHTML;
 
-  // wire the food & wine show/hide toggle
-  var foodCb = document.getElementById("foodToggle");
-  var foodKey = document.getElementById("foodKey");
-  if (foodKey) foodKey.classList.add("off");
-  if (foodCb) foodCb.addEventListener("change", function () {
-    if (this.checked) { foodLayer.addTo(map); if (foodKey) foodKey.classList.remove("off"); }
-    else { map.removeLayer(foodLayer); if (foodKey) foodKey.classList.add("off"); }
+  // wire each POI layer's show/hide toggle (default visibility from layer.on)
+  LAYERS.forEach(function (layer, li) {
+    var key = document.getElementById("layerKey-" + li);
+    if (layer.on) layerGroups[li].addTo(map);
+    else if (key) key.classList.add("off");
+  });
+  Array.prototype.forEach.call(document.querySelectorAll(".layerToggle"), function (cb) {
+    cb.addEventListener("change", function () {
+      var li = +this.getAttribute("data-li");
+      var key = document.getElementById("layerKey-" + li);
+      if (this.checked) { layerGroups[li].addTo(map); if (key) key.classList.remove("off"); }
+      else { map.removeLayer(layerGroups[li]); if (key) key.classList.add("off"); }
+    });
+  });
+
+  // wire per-day driving-route toggles (default all checked / visible)
+  Array.prototype.forEach.call(document.querySelectorAll(".routeToggle"), function (cb) {
+    cb.addEventListener("change", function () {
+      var d = this.getAttribute("data-day");
+      if (this.checked) routeGroups[d].addTo(map);
+      else map.removeLayer(routeGroups[d]);
+    });
+  });
+
+  // wire weather-variant chips (toggle which variant pane shows inside a day)
+  document.addEventListener("click", function (e) {
+    var chip = e.target.closest ? e.target.closest(".vchip") : null;
+    if (!chip) return;
+    var box = chip.closest(".variants");
+    if (!box) return;
+    var vi = chip.getAttribute("data-vi");
+    Array.prototype.forEach.call(box.querySelectorAll(".vchip"), function (c) {
+      c.classList.toggle("active", c.getAttribute("data-vi") === vi);
+    });
+    Array.prototype.forEach.call(box.querySelectorAll(".vpane"), function (p) {
+      p.classList.toggle("off", p.getAttribute("data-vi") !== vi);
+    });
   });
 
   /* ---------- helpers ---------- */
@@ -294,7 +395,11 @@
       '<div class="pm-panel" role="dialog" aria-modal="true" aria-label="Photos">' +
         '<div class="pm-head">' +
           '<span class="pm-title"></span>' +
-          '<a class="pm-ext" target="_blank" rel="noopener">More images ↗</a>' +
+          '<span class="pm-links">' +
+            '<a class="pm-map pm-gmaps" target="_blank" rel="noopener" hidden>🗺️ Maps</a>' +
+            '<a class="pm-map pm-waze" target="_blank" rel="noopener" hidden>🚗 Waze</a>' +
+            '<a class="pm-ext" target="_blank" rel="noopener">More images ↗</a>' +
+          '</span>' +
           '<button class="pm-close" type="button" aria-label="Close">×</button>' +
         '</div>' +
         '<div class="pm-body"></div>' +
@@ -356,7 +461,15 @@
     document.body.classList.add("pm-open");
     modal.querySelector(".pm-title").textContent = name;
     modal.querySelector(".pm-ext").href =
-      "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(name + " Italy");
+      "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(photoQ(name));
+
+    // driving links — only when the place carries a coordinate
+    var gm = modal.querySelector(".pm-gmaps"), wz = modal.querySelector(".pm-waze");
+    if (!isNaN(lat) && !isNaN(lon)) {
+      gm.href = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lon;
+      wz.href = "https://waze.com/ul?ll=" + lat + "," + lon + "&navigate=yes";
+      gm.removeAttribute("hidden"); wz.removeAttribute("hidden");
+    } else { gm.setAttribute("hidden", ""); wz.setAttribute("hidden", ""); }
     var body = modal.querySelector(".pm-body");
     body.innerHTML = '<div class="pm-note">Loading photos…</div>';
 
@@ -389,9 +502,10 @@
 
   // Openverse: aggregated CC images (Flickr, museums, Wikimedia…). No key needed;
   // CORS-enabled; thumbnails are served through its own proxy so they always load.
+  function photoQ(name) { return PHOTO_REGION ? name + " " + PHOTO_REGION : name; }
   function fetchOpenverse(name) {
     var url = "https://api.openverse.org/v1/images/?page_size=40&mature=false&q=" +
-      encodeURIComponent(name + " Italy");
+      encodeURIComponent(photoQ(name));
     return fetch(url).then(function (r) { return r.json(); }).then(function (j) {
       return (j.results || []).filter(function (r) { return r.thumbnail; }).map(function (r) {
         return {
@@ -439,7 +553,7 @@
   function fallbackHTML(name) {
     var commons = "https://commons.wikimedia.org/w/index.php?search=" +
       encodeURIComponent(name) + "&title=Special:MediaSearch&type=image";
-    var google = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(name + " Italy");
+    var google = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(photoQ(name));
     return '<div class="pm-note">No geotagged photos here yet. Browse instead:<br><br>' +
       '<a href="' + commons + '" target="_blank" rel="noopener">Wikimedia Commons ↗</a>' +
       ' &nbsp;·&nbsp; <a href="' + google + '" target="_blank" rel="noopener">Google Images ↗</a></div>';
