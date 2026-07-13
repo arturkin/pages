@@ -6,11 +6,11 @@ BASE="https://router.project-osrm.org/route/v1/driving/{}?overview=simplified&ge
 def route(a,b):
     url=BASE.format(f"{a[0]},{a[1]};{b[0]},{b[1]}")
     try:
-        out=subprocess.run(["curl","-s","--max-time","30",url],capture_output=True,text=True).stdout
-        g=json.loads(out)['routes'][0]['geometry']['coordinates']
-        return [[round(c[1],5),round(c[0],5)] for c in g], True
+        r=json.loads(subprocess.run(["curl","-s","--max-time","30",url],capture_output=True,text=True).stdout)['routes'][0]
+        g=r['geometry']['coordinates']
+        return [[round(c[1],5),round(c[0],5)] for c in g], round(r.get('distance',0)/1000), True
     except Exception as e:
-        print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], False
+        print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], 0, False
 
 # (lon,lat)
 RVK=(-21.9426,64.1466);STY=(-22.7276,65.0748);BUD=(-21.7530,65.1130)
@@ -30,8 +30,8 @@ legs=[
 ]
 out=[]
 for i,(day,mode,a,b) in enumerate(legs,1):
-    coords,ok=route(a,b); print(f"leg {i} day{day} {mode}: {len(coords)} pts {'OSRM' if ok else 'STRAIGHT'}")
-    out.append({"mode":mode,"day":day,"coords":coords})
+    coords,km,ok=route(a,b); print(f"leg {i} day{day} {mode}: {len(coords)} pts {km} km {'OSRM' if ok else 'STRAIGHT'}")
+    out.append({"mode":mode,"day":day,"km":km,"coords":coords})
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"routes.js")
 open(OUT,"w").write("// Auto-generated route geometry (OSRM driving), tagged by day. coords=[lat,lon]. Regenerate with routes.py.\nwindow.ROUTES = "+json.dumps(out,separators=(',',':'))+";\n")
 print("wrote "+OUT)

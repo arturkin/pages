@@ -33,25 +33,14 @@ header.top .fly b{color:var(--ink);font-weight:600}
      (.mapwrap .legend beats the later, equal-specificity base .legend rule) */
   .mapwrap .legend{position:static;left:auto;bottom:auto;max-width:none;max-height:none;margin:12px 14px;box-shadow:none}
 }
-/* mobile: smaller, aligned gutters across header / legend / itinerary cards (14px) */
-@media (max-width:900px){
-  header.top{padding:18px 14px 13px}
-  header.top .sub{font-size:14px}
-  .itin{padding:4px 14px 44px}
-  .basecard{margin:14px 0 8px}
-  .baseband{padding:11px 13px}
-  .baseband .name{font-size:18px}
-  .day{padding:12px 13px}
-  .day ul{padding-left:17px}
-  .foot{padding:18px 14px}
-}
 /* full-screen button (mobile only) */
 .fs-ctrl a.fs-btn{display:block;width:30px;height:30px;font:400 18px/30px var(--font);
   text-align:center;color:#333;background:#fff;text-decoration:none}
 @media (min-width:901px){.fs-ctrl{display:none}}
-.legend{position:absolute;z-index:1000;left:12px;bottom:12px;background:var(--card);
+.legend{position:absolute;z-index:1000;left:12px;bottom:12px;
+  background:rgba(255,253,248,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
   border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);
-  font-size:12px;max-width:250px;max-height:calc(100% - 24px);overflow:auto}
+  font-size:12px;max-width:440px;max-height:calc(100% - 24px);overflow:auto}
 .legend .row{display:flex;align-items:center;gap:8px;margin:3px 0}
 .legend .seg{width:26px;border-top-width:3px;border-top-style:solid;flex:0 0 auto}
 .legend .seg.train{border-color:var(--train);border-top-style:dashed}
@@ -66,7 +55,25 @@ header.top .fly b{color:var(--ink);font-weight:600}
   font-weight:600;font-size:12px;letter-spacing:0;text-transform:none;color:var(--ink)}
 .legend .ltog input{margin:0;cursor:pointer}
 .legend .rtog{margin:3px 0;font-weight:500}
+.legend .rkm{color:var(--muted);font-weight:400}
 .legend .ltypes.off{opacity:.4}
+/* two-column legend: left = driving (always shown), right = collapsible sections */
+.legend .lg-cols{display:grid;grid-template-columns:auto auto;gap:0 16px;align-items:start}
+.legend .lg-left .ltitle{border-top:none;margin-top:0;padding-top:0}
+.legend .lg-right{border-left:1px solid var(--line);padding-left:14px;min-width:150px}
+.legend .lsec{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.legend .lg-right .lsec:first-child{border-top:none;margin-top:0;padding-top:0}
+.legend .lsec-head{display:flex;align-items:center;gap:6px}
+.legend .lsec-head .ltog{flex:1 1 auto}
+.legend .lsec-title{font-weight:600;font-size:12px;color:var(--ink)}
+.legend .lsec-toggle{cursor:pointer}
+.legend .lsec-arrow{margin-left:auto;flex:0 0 auto;color:var(--muted);font-size:12px;line-height:1;
+  transition:transform .15s;user-select:none;padding:0 2px}
+.legend .lsec.open .lsec-arrow{transform:rotate(90deg)}
+.legend .lsec:not(.open) .lsec-body{display:none}
+.legend .lsec-body{margin-top:4px}
+.legend .lg-subt{font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:6px 0 2px}
+.legend .dim{opacity:.4}
 
 /* map pins (vector-only; no external image assets) */
 .pin{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50% 50% 50% 0;
@@ -167,3 +174,21 @@ body.pm-open{overflow:hidden}
 .pm-count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#fff;
   font-size:13px;background:rgba(0,0,0,.4);padding:3px 10px;border-radius:999px}
 @media (max-width:640px){.pm-nav{width:40px;height:52px;font-size:30px}.pm-prev{left:6px}.pm-next{right:6px}}
+
+/* mobile: smaller, aligned gutters across header / legend / itinerary cards (14px).
+   Placed last so these win over the base rules (media queries add no specificity). */
+@media (max-width:900px){
+  header.top{padding:18px 14px 13px}
+  header.top .sub{font-size:14px}
+  .itin{padding:4px 14px 44px}
+  .basecard{margin:14px 0 8px}
+  .baseband{padding:11px 13px}
+  .baseband .name{font-size:18px}
+  .day{padding:12px 13px}
+  .day ul{padding-left:17px}
+  .foot{padding:18px 14px}
+  /* legend stacks on mobile: driving on top, sections below (no vertical divider) */
+  .legend .lg-cols{grid-template-columns:1fr;gap:0}
+  .legend .lg-right{border-left:none;padding-left:0}
+  .legend .lg-right .lsec:first-child{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+}

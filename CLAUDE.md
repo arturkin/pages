@@ -82,7 +82,19 @@ trips/<slug>/meta.js ──────┘
 | A coordinate, colour, map pin, highlight, booking link, POI layer, leg mode, legend label | `trips/<slug>/meta.js` |
 | Add/remove a base (stop) | banner + days in `itinerary.md` **and** a `bases` entry in `meta.js` (counts must match) |
 | Map rendering / styling (all trips) | `assets/app.js` / `assets/style.css` |
-| Route geometry | `trips/<slug>/routes.py` → `python3 trips/<slug>/routes.py`, then `node assets/sync.js` |
+| Route geometry / per-day driving | `trips/<slug>/routes.py` → `python3 trips/<slug>/routes.py`, then `node assets/sync.js` |
+
+### Route geometry (`routes.py` → `routes.js`)
+Each leg is `{ mode, coords, day?, km? }`. If legs carry a `day`, the app groups them
+into **per-day driving routes** — one coloured, toggleable layer per day in the legend
+(all on by default), each labelled with its OSRM road distance (`km`). Without `day`
+tags the whole route draws as one line (Italy). To split a trip's driving by day, tag
+each leg with its day number in `routes.py` (see `trips/westfjords/routes.py`); `km`
+comes straight from the OSRM response. Loop/day-trip legs (not just base-to-base) can be
+included so a day's real driving shows on the map.
+
+The photo modal also offers **🗺️ Maps / 🚗 Waze** navigation links for any place with a
+coordinate — engine-level, so every trip gets them for free.
 
 ### Adding a whole new trip
 1. `mkdir trips/<slug>`; write `itinerary.md`, `meta.js`, `routes.py` (copy an existing trip as a template).

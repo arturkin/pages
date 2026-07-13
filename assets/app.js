@@ -192,8 +192,20 @@
   // can be shown/hidden; otherwise draw them straight onto the map (one route).
   var ROUTE_PALETTE = ["#c0533b", "#2f8f8a", "#8e6b3a", "#5b6b8c", "#7a4b6b", "#4a8c5a", "#b07a33", "#3a5a8c"];
   var routeHasDays = ROUTES.some(function (l) { return l.day != null; });
-  var routeDays = [], routeGroups = {}, routeColor = {};
+  var routeDays = [], routeGroups = {}, routeColor = {}, routeKm = {};
+  function legKm(coords) {   // great-circle length along a polyline (km)
+    var R = 6371, s = 0;
+    for (var i = 1; i < coords.length; i++) {
+      var a = coords[i - 1], b = coords[i], rad = Math.PI / 180;
+      var dLat = (b[0] - a[0]) * rad, dLon = (b[1] - a[1]) * rad;
+      var h = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(a[0] * rad) * Math.cos(b[0] * rad) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      s += 2 * R * Math.asin(Math.sqrt(h));
+    }
+    return s;
+  }
   ROUTES.forEach(function (leg) {
+    if (leg.day != null) routeKm[leg.day] = (routeKm[leg.day] || 0) + (leg.km != null ? leg.km : legKm(leg.coords));
     if (leg.day != null && routeDays.indexOf(leg.day) < 0) {
       routeColor[leg.day] = ROUTE_PALETTE[routeDays.length % ROUTE_PALETTE.length];
       routeGroups[leg.day] = L.layerGroup();
@@ -272,7 +284,32 @@
       return '<div class="lrow"><span class="lic">' + TYPES[t].icon + '</span>' + esc(TYPES[t].label) + '</div>';
     }).join("");
   var sleepColor = LEGEND.sleepColor || (TRIP.bases[0] && TRIP.bases[0].color) || "#8e3b46";
-  var layersHTML = LAYERS.map(function (layer, li) {
+  // LEFT column: driving (per-day toggles for day-tagged trips, else mode key) — always visible
+  var drivingRows = routeHasDays
+    ? routeDays.slice().sort(function (a, b) { return a - b; }).map(function (d) {
+        var km = Math.round(routeKm[d] / 5) * 5;   // nearest 5 km (OSRM road distance)
+        return '<label class="ltog rtog"><input type="checkbox" class="routeToggle" data-day="' + d + '" checked> ' +
+          '<span class="seg" style="border-color:' + routeColor[d] + '"></span> Day ' + d +
+          ' <span class="rkm">· ' + km + ' km</span></label>';
+      }).join("")
+    : (modes.train ? '<div class="row"><span class="seg train"></span> ' + esc(LEGEND.train || "Train") + '</div>' : '') +
+      (modes.car ? '<div class="row"><span class="seg car"></span> ' + esc(LEGEND.car || "Car") + '</div>' : '');
+
+  // RIGHT column: collapsible sections (only title + checkbox + arrow shown by default)
+  function section(head, body, headToggles) {
+    return '<div class="lsec"><div class="lsec-head' + (headToggles ? ' lsec-toggle' : '') + '">' + head +
+      '<span class="lsec-arrow' + (headToggles ? '' : ' lsec-toggle') + '" role="button" aria-label="Expand">▸</span>' +
+      '</div><div class="lsec-body">' + body + '</div></div>';
+  }
+  var mapKeyBody =
+    (TRIP.hubs && TRIP.hubs.length
+      ? '<div class="lrow"><span class="dot" style="background:' + (LEGEND.hubColor || "#9a9186") + '"></span>' +
+        esc(LEGEND.hub || TRIP.hubs[0].name) + '</div>' : '') +
+    '<div class="lrow"><span class="dot" style="background:' + sleepColor + '"></span>' +
+      esc(LEGEND.sleep || "Where you sleep") + '</div>' +
+    (typeRows ? '<div class="lg-subt">Sights &amp; day-trips</div><div class="ltypes">' + typeRows + '</div>' : '');
+  var mapKeySection = section('<span class="lsec-title">Map key</span>', mapKeyBody, true);
+  var layerSections = LAYERS.map(function (layer, li) {
     var catRows = layer.cats
       ? Object.keys(layer.cats)
           .filter(function (c) { return (layer.points || []).some(function (p) { return p.cat === c; }); })
@@ -282,40 +319,35 @@
       : '';
     var body = catRows ||
       '<div class="lrow"><span class="lic">' + (layer.icon || "📍") + '</span>' + esc(layer.label) + '</div>';
-    return '<div class="ltitle"><label class="ltog"><input type="checkbox" class="layerToggle" data-li="' + li + '"' +
-        (layer.on ? ' checked' : '') + '> ' + esc(layer.label) + '</label></div>' +
-      '<div class="ltypes" id="layerKey-' + li + '">' + body + '</div>';
+    var head = '<label class="ltog"><input type="checkbox" class="layerToggle" data-li="' + li + '"' +
+      (layer.on ? ' checked' : '') + '> ' + esc(layer.label) + '</label>';
+    return '<div class="lsec"><div class="lsec-head">' + head +
+      '<span class="lsec-arrow lsec-toggle" role="button" aria-label="Expand">▸</span>' +
+      '</div><div class="lsec-body ltypes' + (layer.on ? '' : ' dim') + '" id="layerKey-' + li + '">' + body + '</div></div>';
   }).join("");
-  var routeRows = routeHasDays
-    ? '<div class="ltitle">Driving — by day</div>' +
-      routeDays.slice().sort(function (a, b) { return a - b; }).map(function (d) {
-        return '<label class="ltog rtog"><input type="checkbox" class="routeToggle" data-day="' + d + '" checked> ' +
-          '<span class="seg" style="border-color:' + routeColor[d] + '"></span> Day ' + d + '</label>';
-      }).join("")
-    : (modes.train ? '<div class="row"><span class="seg train"></span> ' + esc(LEGEND.train || "Train") + '</div>' : '') +
-      (modes.car ? '<div class="row"><span class="seg car"></span> ' + esc(LEGEND.car || "Car") + '</div>' : '');
+
   document.getElementById("legend").innerHTML =
-    routeRows +
-    (TRIP.hubs && TRIP.hubs.length
-      ? '<div class="row"><span class="dot" style="background:' + (LEGEND.hubColor || "#9a9186") + '"></span> ' +
-        esc(LEGEND.hub || TRIP.hubs[0].name) + '</div>' : '') +
-    '<div class="row"><span class="dot" style="background:' + sleepColor + '"></span> ' +
-      esc(LEGEND.sleep || "Where you sleep") + '</div>' +
-    (typeRows ? '<div class="ltitle">Sights &amp; day-trips</div><div class="ltypes">' + typeRows + '</div>' : '') +
-    layersHTML;
+    '<div class="lg-cols">' +
+      '<div class="lg-left"><div class="ltitle">' + (routeHasDays ? 'Driving — by day' : 'Route') + '</div>' + drivingRows + '</div>' +
+      '<div class="lg-right">' + mapKeySection + layerSections + '</div>' +
+    '</div>';
 
   // wire each POI layer's show/hide toggle (default visibility from layer.on)
-  LAYERS.forEach(function (layer, li) {
-    var key = document.getElementById("layerKey-" + li);
-    if (layer.on) layerGroups[li].addTo(map);
-    else if (key) key.classList.add("off");
-  });
+  LAYERS.forEach(function (layer, li) { if (layer.on) layerGroups[li].addTo(map); });
   Array.prototype.forEach.call(document.querySelectorAll(".layerToggle"), function (cb) {
     cb.addEventListener("change", function () {
       var li = +this.getAttribute("data-li");
       var key = document.getElementById("layerKey-" + li);
-      if (this.checked) { layerGroups[li].addTo(map); if (key) key.classList.remove("off"); }
-      else { map.removeLayer(layerGroups[li]); if (key) key.classList.add("off"); }
+      if (this.checked) { layerGroups[li].addTo(map); if (key) key.classList.remove("dim"); }
+      else { map.removeLayer(layerGroups[li]); if (key) key.classList.add("dim"); }
+    });
+  });
+
+  // wire collapsible right-column sections (expand/collapse; collapsed by default)
+  Array.prototype.forEach.call(document.querySelectorAll(".lsec-toggle"), function (t) {
+    t.addEventListener("click", function () {
+      var sec = this.closest(".lsec");
+      if (sec) sec.classList.toggle("open");
     });
   });
 
