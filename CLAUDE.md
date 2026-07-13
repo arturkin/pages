@@ -74,6 +74,10 @@ trips/<slug>/meta.js ──────┘
 - **`assets/sync-hook.sh`** + a `PostToolUse` hook in `.claude/settings.json` run `sync.js`
   automatically whenever any `itinerary.md` or `meta.js` is edited. (After changing the hook
   config, open `/hooks` once or restart so Claude Code reloads it.)
+- **npm scripts** (`package.json`, no deps to install): `npm run sync` (all trips) ·
+  `npm run sync:westfjords` / `sync:italy` (one trip) · `npm run routes:westfjords` /
+  `routes:italy` (regenerate OSRM geometry) · `npm run serve` (or `npm start`) to preview at
+  `http://localhost:8000`.
 
 ### What to edit where
 | Want to change… | Edit |
@@ -95,6 +99,23 @@ included so a day's real driving shows on the map.
 
 The photo modal also offers **🗺️ Maps / 🚗 Waze** navigation links for any place with a
 coordinate — engine-level, so every trip gets them for free.
+
+### EV chargers via PlugShare (how to get real charger data)
+Chargers live in a `chargers` layer in `meta.js` (`{ name, coord, note }`, `photos:false`).
+To populate them with **real, current** data instead of guessing, pull from PlugShare's API
+(its site is a SPA + the map is sign-in-gated, so scrape the API, not the HTML). Use the
+Chrome DevTools MCP browser tools:
+1. Open `https://www.plugshare.com/` in a page (`new_page`).
+2. Read any `api.plugshare.com` request's headers (`list_network_requests` → `get_network_request`)
+   to grab the app's `Authorization` — a public Basic key, e.g. `Basic d2ViX3YyOkVOanNuUE54NHhXeHVkODU=`
+   (the `web_v2` key; re-grab from a live request if it 401s / rotates).
+3. From the page context (`evaluate_script`, so it's same-site and CORS passes), fetch the region:
+   `GET https://api.plugshare.com/v3/locations/region?latitude=<lat>&longitude=<lon>&spanLat=<dLat>&spanLng=<dLng>&count=500&access=1&access=3`
+   with header `Authorization: <that key>`.
+4. Each result has `name`, `latitude`, `longitude`, `is_fast_charger`, and
+   `stations[].outlets[].kilowatts` — filter to `is_fast_charger` and the route corridor, then
+   write the picks (name + coord + "NN kW …" note) into the `chargers` layer. A Westfjords+Snæfellsnes
+   box: `latitude=65.55&longitude=-22.9&spanLat=1.8&spanLng=3.6`.
 
 ### Adding a whole new trip
 1. `mkdir trips/<slug>`; write `itinerary.md`, `meta.js`, `routes.py` (copy an existing trip as a template).

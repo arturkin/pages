@@ -88,6 +88,7 @@ window.TRIP = {
           "weather": "🌧️ Wettest, windiest day: rain (heavy in the afternoon), SW wind ~13 m/s — views muted, and a long drive",
           "items": [
             "Leave Reykjavík ~08:00; Rte 1 north, top up the car in Borgarnes, then onto the Snæfellsnes peninsula",
+            "⚡ Charging (best stops): Baulan on Rte 1 (Orkan, 400 kW + shop/WC) → Stykkishólmur (150 kW, in town for lunch) or Kaffi 59 in Grundarfjörður (150 kW, café by Kirkjufell) → last town top-up in Búðardalur (Kjörbúðin shop) → Hótel Bjarkalundur (150 kW, hotel restaurant) on Rte 60 → Flókalundur (50 kW) by Birkimelur. Loads of options — no long gaps",
             "Strönd Guesthouse check-in is 16:00–23:00, so an evening arrival is fine"
           ],
           "variants": [
@@ -121,7 +122,8 @@ window.TRIP = {
           "title": "Rauðasandur, the far west & hot pools",
           "weather": "🌧️ Wet-ish and windy: passing showers, W/SW wind 10–13 m/s (the windiest day)",
           "items": [
-            "Based at Strönd Guesthouse — a loop out west and back, with pools woven through"
+            "Based at Strönd Guesthouse — a loop out west and back, with pools woven through",
+            "⚡ Charging: Patreksfjörður (40 kW DC, shops + lunch) mid-loop is the best stop; Flókalundur (50 kW) near base. Rauðasandur & Pollurinn have none, so leave with range"
           ],
           "variants": [
             {
@@ -264,7 +266,8 @@ window.TRIP = {
           "arrive": true,
           "weather": "☁️ The best day: dry and calm, cloudy, wind 5–6 m/s — the window for the big outdoor stops",
           "items": [
-            "Check out of Strönd by 10:00; Westfjords - Rooms check-in in Bolungarvík is 16:00–21:00"
+            "Check out of Strönd by 10:00; Westfjords - Rooms check-in in Bolungarvík is 16:00–21:00",
+            "⚡ Charging: Mjólkárvirkjun (150 kW) sits right by Dynjandi — top up while you walk the falls; then the 150 kW hub in Ísafjörður (shops, cafés) before Bolungarvík"
           ],
           "variants": [
             {
@@ -296,7 +299,8 @@ window.TRIP = {
           "title": "Ísafjarðardjúp: pools, foxes & the old town",
           "weather": "☁️ Overcast, calm and mostly dry (wind ~5 m/s) — a pools-and-indoors day",
           "items": [
-            "Based in Bolungarvík; three friends' tips are right here — Ósvör, the settler statue and the Natural History Museum (polar bear)"
+            "Based in Bolungarvík; three friends' tips are right here — Ósvör, the settler statue and the Natural History Museum (polar bear)",
+            "⚡ Charging: the 150 kW at Reykjanes is right by the geothermal pool — charge while you soak; your base charger is the 150 kW at Sundlaug Bolungarvíkur (by the pool in town)"
           ],
           "variants": [
             {
@@ -333,7 +337,8 @@ window.TRIP = {
           "title": "Home via Strandir & the Drangsnes hot pots",
           "weather": "☁️ Calm, with light rain building as you drive south (wind ~3 m/s)",
           "items": [
-            "Check out of Westfjords - Rooms by 10:00 — it's a long drive back to Reykjavík (~6–6.5 h with stops)"
+            "Check out of Westfjords - Rooms by 10:00 — it's a long drive back to Reykjavík (~6–6.5 h with stops)",
+            "⚡ Charging: fast-charge at Hólmavík (Krambúðin, up to 250 kW + supermarket for lunch) — the key Strandir stop; one more at Baulan (400 kW, Rte 1) on the run south if needed"
           ],
           "variants": [
             {
@@ -407,7 +412,7 @@ window.TRIP = {
             65.92,
             -22.412
           ],
-          "note": "big geothermal swimming pool out in Ísafjarðardjúp"
+          "note": "big geothermal swimming pool (50 × 12.5 m) out in Ísafjarðardjúp"
         },
         {
           "name": "Heydalur",
@@ -418,12 +423,36 @@ window.TRIP = {
           "note": "nature pool + greenhouse hideaway in Mjóifjörður"
         },
         {
+          "name": "Hörgshlíðarlaug",
+          "coord": [
+            65.801,
+            -22.477
+          ],
+          "note": "tiny seaside hot pool in Mjóifjörður (road 633) — ask the farmer's permission; near the Day-4 loop"
+        },
+        {
           "name": "Drangsnes hot pots",
           "coord": [
             65.687,
             -21.447
           ],
           "note": "free seaside hot pots on the Strandir coast — the Day-5 finale soak"
+        },
+        {
+          "name": "Gvendarlaug (Laugarhóll)",
+          "coord": [
+            65.767,
+            -21.475
+          ],
+          "note": "pool + the historic natural 'Gvendarlaug' at Hotel Laugarhóll, Bjarnarfjörður — a Strandir detour north of Drangsnes"
+        },
+        {
+          "name": "Krossneslaug",
+          "coord": [
+            66.03,
+            -21.42
+          ],
+          "note": "iconic beachside pool at Krossnes, far NE Strandir — spectacular but a long detour (~2 h+ past Hólmavík), not really on this route"
         }
       ]
     },
@@ -433,62 +462,745 @@ window.TRIP = {
       "icon": "🔌",
       "on": false,
       "photos": false,
+      "cats": {
+        "fast": {
+          "icon": "⚡",
+          "label": "Fast charger (DC)"
+        },
+        "slow": {
+          "icon": "🔌",
+          "label": "Standard (AC)"
+        }
+      },
       "points": [
         {
-          "name": "Borgarnes charger",
+          "name": "Ráðhús Bolungarvíkur",
           "coord": [
-            64.5386,
-            -21.9223
+            66.1581,
+            -23.2497
           ],
-          "note": "ON/Ísorka fast chargers at the N1/Hyrnan hub — Day-1 top-up"
+          "cat": "slow",
+          "note": "22 kW · AC charger"
         },
         {
-          "name": "Búðardalur charger",
+          "name": "Sundlaug Bolungarvíkur",
           "coord": [
-            65.113,
-            -21.753
+            66.1558,
+            -23.2523
           ],
-          "note": "charger in the village — handy before the Rte 60 passes"
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
         },
         {
-          "name": "Patreksfjörður charger",
+          "name": "Suðureyri",
           "coord": [
-            65.596,
-            -23.999
+            66.129,
+            -23.5277
           ],
-          "note": "south-Westfjords charging — Day-2 lunch stop"
+          "cat": "slow",
+          "note": "22 kW · AC charger"
         },
         {
-          "name": "Þingeyri charger",
+          "name": "N1 hraðhleðsla",
           "coord": [
-            65.873,
-            -23.493
+            66.0746,
+            -23.1243
           ],
-          "note": "charging in Dýrafjörður — Day-3 stop"
+          "cat": "fast",
+          "note": "DC fast charger"
         },
         {
-          "name": "Ísafjörður charger",
+          "name": "Menntaskólinn Ísafirði",
           "coord": [
-            66.074,
-            -23.135
+            66.0736,
+            -23.1314
           ],
-          "note": "the main Westfjords fast-charging hub"
+          "cat": "slow",
+          "note": "22 kW · AC charger"
         },
         {
-          "name": "Bolungarvík charger",
+          "name": "Police",
           "coord": [
-            66.1545,
-            -23.26
+            66.0727,
+            -23.1212
           ],
-          "note": "charging in town by your base"
+          "cat": "slow",
+          "note": "AC charger"
         },
         {
-          "name": "Hólmavík charger",
+          "name": "Ísafjörður",
           "coord": [
-            65.705,
-            -21.687
+            66.0701,
+            -23.122
           ],
-          "note": "Strandir charging — Day-5 stop before the run south"
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Avis Hraðhleðsla (Ísorka)",
+          "coord": [
+            66.0544,
+            -23.1434
+          ],
+          "cat": "fast",
+          "note": "75 kW · DC fast charger"
+        },
+        {
+          "name": "Flateyri Swimming Pool",
+          "coord": [
+            66.0518,
+            -23.5176
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Urðartindur guesthouse",
+          "coord": [
+            66.0502,
+            -21.5678
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Ögur Travel",
+          "coord": [
+            66.0395,
+            -22.7288
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Súðavík",
+          "coord": [
+            66.026,
+            -22.992
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Holt Inn Country Hotel",
+          "coord": [
+            66.0075,
+            -23.4397
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Hvítanes - Orkubú Vestfjarða",
+          "coord": [
+            65.9923,
+            -22.8142
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Korpudalur",
+          "coord": [
+            65.9847,
+            -23.3404
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Hotel Djúpavík",
+          "coord": [
+            65.9445,
+            -21.5594
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Reykjanes - Orkubú Vestfjarða",
+          "coord": [
+            65.9265,
+            -22.4301
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Þingeyri",
+          "coord": [
+            65.8801,
+            -23.4918
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Heydalur Hotel",
+          "coord": [
+            65.8441,
+            -22.68
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Hótel Laugarhóll",
+          "coord": [
+            65.7811,
+            -21.5188
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Mjólkárvirkjun",
+          "coord": [
+            65.7731,
+            -23.1674
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Gistihús Hólmavíkur",
+          "coord": [
+            65.7068,
+            -21.6674
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Museum of Icelandic Sorcery & Witchcraft",
+          "coord": [
+            65.7065,
+            -21.6659
+          ],
+          "cat": "fast",
+          "note": "240 kW · DC fast charger"
+        },
+        {
+          "name": "Campground in Hólmavík",
+          "coord": [
+            65.7021,
+            -21.6836
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Stoppustuð við sundlaugina og tjaldstæðið",
+          "coord": [
+            65.7019,
+            -21.6853
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Krambúðin Supermarket (1)",
+          "coord": [
+            65.7012,
+            -21.6861
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Hveravík",
+          "coord": [
+            65.7011,
+            -21.5618
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Krambúðin Supermarket (2)",
+          "coord": [
+            65.7011,
+            -21.6862
+          ],
+          "cat": "fast",
+          "note": "250 kW · DC fast charger"
+        },
+        {
+          "name": "OV - Drangsnes",
+          "coord": [
+            65.6886,
+            -21.4468
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Orkubú Vestfjarða",
+          "coord": [
+            65.6856,
+            -23.5994
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "Harbour Inn Guesthouse",
+          "coord": [
+            65.6854,
+            -23.602
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Vesturbyggð",
+          "coord": [
+            65.6838,
+            -23.603
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Tálknafjörður Swimming Pool",
+          "coord": [
+            65.6284,
+            -23.8456
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "450 Patreksfjörður Patreksfjörður",
+          "coord": [
+            65.5964,
+            -24.0023
+          ],
+          "cat": "fast",
+          "note": "40 kW · DC fast charger"
+        },
+        {
+          "name": "Stoppustuð Íþróttasmiðstöðin Patreksfirði",
+          "coord": [
+            65.5954,
+            -23.9846
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Fosshótel - Patreksfirði",
+          "coord": [
+            65.5916,
+            -23.977
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Djúpidalur",
+          "coord": [
+            65.5828,
+            -22.2819
+          ],
+          "cat": "fast",
+          "note": "30 kW · DC fast charger"
+        },
+        {
+          "name": "Hótel Flókalundur",
+          "coord": [
+            65.5761,
+            -23.1688
+          ],
+          "cat": "fast",
+          "note": "50 kW · DC fast charger"
+        },
+        {
+          "name": "Hótel Bjarkalundur",
+          "coord": [
+            65.5559,
+            -22.1035
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "OV - Reykhólar",
+          "coord": [
+            65.4515,
+            -22.2018
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Vogur Country Lodge",
+          "coord": [
+            65.1769,
+            -22.367
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Dalakot Búðardal",
+          "coord": [
+            65.1097,
+            -21.7656
+          ],
+          "cat": "fast",
+          "note": "50 kW · DC fast charger"
+        },
+        {
+          "name": "Stjórnsýsluhúsið í Búðardal",
+          "coord": [
+            65.1095,
+            -21.7659
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "ON - Búðardal",
+          "coord": [
+            65.1083,
+            -21.7628
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "Ísorka - Kjörbúðin",
+          "coord": [
+            65.1082,
+            -21.763
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "The Castle Guesthouse",
+          "coord": [
+            65.1061,
+            -21.7711
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Fransiskus Hótel",
+          "coord": [
+            65.0775,
+            -22.7223
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Narfeyrarstofa",
+          "coord": [
+            65.077,
+            -22.7251
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Ísorka Stykkishólmur",
+          "coord": [
+            65.0733,
+            -22.7296
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Sundlaug Stykkishólmar/Swimming Pool",
+          "coord": [
+            65.0732,
+            -22.7303
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Fosshótel Stykkishólmur",
+          "coord": [
+            65.0722,
+            -22.7251
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Camping/Golf Club",
+          "coord": [
+            65.0707,
+            -22.7319
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Hótel Stundarfriður",
+          "coord": [
+            65.0037,
+            -22.7078
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Erpsstaðir Creamery",
+          "coord": [
+            64.9998,
+            -21.6253
+          ],
+          "cat": "fast",
+          "note": "30 kW · DC fast charger"
+        },
+        {
+          "name": "DÍS Cottages",
+          "coord": [
+            64.9922,
+            -23.2085
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Ravencliff Lodge",
+          "coord": [
+            64.9786,
+            -21.7406
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Bjargsteinn - Mathús (Ísorka)",
+          "coord": [
+            64.9278,
+            -23.2611
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Fjölbrautaskóli Snæfellinga",
+          "coord": [
+            64.9256,
+            -23.2629
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Kaffi 59",
+          "coord": [
+            64.9244,
+            -23.2669
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Ólafsvík (Sker veitingastaður)",
+          "coord": [
+            64.8954,
+            -23.7072
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "ON - Ólafsvík",
+          "coord": [
+            64.8953,
+            -23.7085
+          ],
+          "cat": "fast",
+          "note": "150 kW · DC fast charger"
+        },
+        {
+          "name": "Við Hafið Guesthouse",
+          "coord": [
+            64.8939,
+            -23.7035
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Ólafsvík Disc Golf Course",
+          "coord": [
+            64.888,
+            -23.6878
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "eONE 50kW charger",
+          "coord": [
+            64.86,
+            -22.6652
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "Ræktunarstöðin Lágafell við Vegamót",
+          "coord": [
+            64.8492,
+            -22.7416
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "ON Power Charging Station - Hótel Snaefellsnes",
+          "coord": [
+            64.8491,
+            -22.7353
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "Lýsuhólslaug",
+          "coord": [
+            64.8417,
+            -23.213
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Stoppustuð",
+          "coord": [
+            64.8415,
+            -23.213
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Hótel Búðir",
+          "coord": [
+            64.8231,
+            -23.3842
+          ],
+          "cat": "slow",
+          "note": "11 kW · AC charger"
+        },
+        {
+          "name": "Hraunsnef Sveitahótel",
+          "coord": [
+            64.7876,
+            -21.5073
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Háskólinn á Bifröst",
+          "coord": [
+            64.7667,
+            -21.5515
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Arnarstapi",
+          "coord": [
+            64.7665,
+            -23.63
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "Fosshotel Hellnar",
+          "coord": [
+            64.7522,
+            -23.6491
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Háafell Goat farm",
+          "coord": [
+            64.7095,
+            -21.2518
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "Munaðarnes",
+          "coord": [
+            64.698,
+            -21.6192
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Hotel Varmaland",
+          "coord": [
+            64.6881,
+            -21.5939
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Orkan - Baulan",
+          "coord": [
+            64.675,
+            -21.6649
+          ],
+          "cat": "fast",
+          "note": "400 kW · DC fast charger"
+        },
+        {
+          "name": "ON Power Charging Station - Fosshótel Reykholt",
+          "coord": [
+            64.6656,
+            -21.2912
+          ],
+          "cat": "slow",
+          "note": "AC charger"
+        },
+        {
+          "name": "ON Power Charging Station - N1 Reykholt",
+          "coord": [
+            64.6628,
+            -21.2825
+          ],
+          "cat": "fast",
+          "note": "DC fast charger"
+        },
+        {
+          "name": "Nes Ferðaþjónusta",
+          "coord": [
+            64.6626,
+            -21.3397
+          ],
+          "cat": "slow",
+          "note": "22 kW · AC charger"
+        },
+        {
+          "name": "Hverinn Restaurant",
+          "coord": [
+            64.6551,
+            -21.4061
+          ],
+          "cat": "slow",
+          "note": "AC charger"
         }
       ]
     },

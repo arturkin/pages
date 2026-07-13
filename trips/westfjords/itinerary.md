@@ -14,6 +14,7 @@ edgy, changeable week and only Day 3 looks reliably dry and calm.
 DAY 1 · Wed 15 Jul — Reykjavík → Snæfellsnes → Birkimelur ›› arrive & check in
     = 🌧️ Wettest, windiest day: rain (heavy in the afternoon), SW wind ~13 m/s — views muted, and a long drive
     - Leave Reykjavík ~08:00; Rte 1 north, top up the car in Borgarnes, then onto the Snæfellsnes peninsula
+    - ⚡ Charging (best stops): Baulan on Rte 1 (Orkan, 400 kW + shop/WC) → Stykkishólmur (150 kW, in town for lunch) or Kaffi 59 in Grundarfjörður (150 kW, café by Kirkjufell) → last town top-up in Búðardalur (Kjörbúðin shop) → Hótel Bjarkalundur (150 kW, hotel restaurant) on Rte 60 → Flókalundur (50 kW) by Birkimelur. Loads of options — no long gaps
     - Strönd Guesthouse check-in is 16:00–23:00, so an evening arrival is fine
     >> Reykjavík → Stykkishólmur → Rte 60 north over Klettsháls to Birkimelur (~7–8 h with stops)
     ~ Fair · if the cloud lifts, do the peninsula
@@ -28,6 +29,7 @@ DAY 1 · Wed 15 Jul — Reykjavík → Snæfellsnes → Birkimelur ›› arrive
 DAY 2 · Thu 16 Jul — Rauðasandur, the far west & hot pools
     = 🌧️ Wet-ish and windy: passing showers, W/SW wind 10–13 m/s (the windiest day)
     - Based at Strönd Guesthouse — a loop out west and back, with pools woven through
+    - ⚡ Charging: Patreksfjörður (40 kW DC, shops + lunch) mid-loop is the best stop; Flókalundur (50 kW) near base. Rauðasandur & Pollurinn have none, so leave with range
     ~ Grey · the planned day
     - Rauðasandur red-gold beach (Rte 614, gravel — take it slow)
     - Pollurinn natural hot tubs above Tálknafjörður
@@ -45,6 +47,7 @@ DAY 2 · Thu 16 Jul — Rauðasandur, the far west & hot pools
 DAY 3 · Fri 17 Jul — Over the passes: Dynjandi & Dýrafjörður ›› arrive & check in
     = ☁️ The best day: dry and calm, cloudy, wind 5–6 m/s — the window for the big outdoor stops
     - Check out of Strönd by 10:00; Westfjords - Rooms check-in in Bolungarvík is 16:00–21:00
+    - ⚡ Charging: Mjólkárvirkjun (150 kW) sits right by Dynjandi — top up while you walk the falls; then the 150 kW hub in Ísafjörður (shops, cafés) before Bolungarvík
     >> Birkimelur → Dynjandi → Þingeyri → tunnel → Ísafjörður → Bolungarvík (~4 h + stops)
     ~ Grey · the planned transfer (dry & calm)
     - Dynjandi — climb the tiered waterfall (~1–1.5 h)
@@ -57,6 +60,7 @@ DAY 3 · Fri 17 Jul — Over the passes: Dynjandi & Dýrafjörður ›› arrive
 DAY 4 · Sat 18 Jul — Ísafjarðardjúp: pools, foxes & the old town
     = ☁️ Overcast, calm and mostly dry (wind ~5 m/s) — a pools-and-indoors day
     - Based in Bolungarvík; three friends' tips are right here — Ósvör, the settler statue and the Natural History Museum (polar bear)
+    - ⚡ Charging: the 150 kW at Reykjanes is right by the geothermal pool — charge while you soak; your base charger is the 150 kW at Sundlaug Bolungarvíkur (by the pool in town)
     ~ Grey · the planned loop (pools + fox centre)
     - Into Ísafjarðardjúp: the Súðavík Arctic Fox Centre (indoor), then the Litlibær turf-house café
     - Soak at the Reykjanes geothermal pool and/or the Heydalur nature pool
@@ -72,6 +76,7 @@ DAY 4 · Sat 18 Jul — Ísafjarðardjúp: pools, foxes & the old town
 DAY 5 · Sun 19 Jul — Home via Strandir & the Drangsnes hot pots
     = ☁️ Calm, with light rain building as you drive south (wind ~3 m/s)
     - Check out of Westfjords - Rooms by 10:00 — it's a long drive back to Reykjavík (~6–6.5 h with stops)
+    - ⚡ Charging: fast-charge at Hólmavík (Krambúðin, up to 250 kW + supermarket for lunch) — the key Strandir stop; one more at Baulan (400 kW, Rte 1) on the run south if needed
     >> Bolungarvík → Ísafjarðardjúp (Rte 61) → Hólmavík → Drangsnes → Rte 1 → Reykjavík
     ~ Grey · the planned return
     - Hólmavík: lunch and the Museum of Sorcery & Witchcraft (friends' tip)
