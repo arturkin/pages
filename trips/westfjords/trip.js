@@ -246,7 +246,16 @@ window.TRIP = {
             66.05,
             -22.8289
           ],
-          "note": "island boat trip from Ísafjörður: puffins & eider — Day 4, weather-permitting"
+          "note": "island boat trip from Ísafjörður: puffins & eider — a shorter, sheltered alternative to Hesteyri (Day 4)"
+        },
+        {
+          "name": "Hesteyri (Hornstrandir)",
+          "type": "wildlife",
+          "coord": [
+            66.3341,
+            -22.8745
+          ],
+          "note": "abandoned village + gateway to the Hornstrandir nature reserve — the full-day boat trip from Ísafjörður: guided walk, Arctic foxes & seabirds, soup at the Doctor's House (Day 4, weather-permitting; book ahead with Borea Adventures)"
         },
         {
           "name": "Hólmavík",
@@ -296,37 +305,36 @@ window.TRIP = {
         {
           "d": 4,
           "date": "Sat 18 Jul",
-          "title": "Ísafjarðardjúp: pools, foxes & the old town",
-          "weather": "☁️ Overcast, calm and mostly dry (wind ~5 m/s) — a pools-and-indoors day",
+          "title": "Hornstrandir: boat to Hesteyri from Ísafjörður",
+          "weather": "☁️ Overcast, calm and mostly dry (wind ~5 m/s) — calm seas, a good day to sail into the reserve",
           "items": [
-            "Based in Bolungarvík; three friends' tips are right here — Ósvör, the settler statue and the Natural History Museum (polar bear)",
-            "⚡ Charging: the 150 kW at Reykjanes is right by the geothermal pool — charge while you soak; your base charger is the 150 kW at Sundlaug Bolungarvíkur (by the pool in town)"
+            "The marquee day: a boat from Ísafjörður (15 min from base) into the Hornstrandir nature reserve. It's weather-dependent and must be booked ahead, so keep the Ísafjarðardjúp pools loop as a wind/rain fallback",
+            "⚡ Charging: top up at the 150 kW hub in Ísafjörður while you're by the harbour; your base charger is the 150 kW at Sundlaug Bolungarvíkur (by the pool in town)"
           ],
           "variants": [
             {
               "label": "Grey",
-              "note": "the planned loop (pools + fox centre)",
+              "note": "Hesteyri day trip (the plan)",
               "items": [
-                "Into Ísafjarðardjúp: the Súðavík Arctic Fox Centre (indoor), then the Litlibær turf-house café",
-                "Soak at the Reykjanes geothermal pool and/or the Heydalur nature pool",
-                "Back via Ósvör and the Natural History Museum in Bolungarvík (friends' tips)"
+                "To Ísafjörður harbour for the 09:00 sailing (arrive 08:30); ~1 h boat through the Jökulfirðir into Hornstrandir",
+                "Guided walk around Hesteyri, the abandoned village — Arctic foxes, seabirds and seals — then soup & pancakes at the Doctor's House (~5 km, easy)",
+                "Boat back ~19:00, into Ísafjörður ~20:00, then the short hop home (Borea Adventures — book ahead at info@borea.is; light dinner included, bring your own lunch)"
               ]
             },
             {
               "label": "Fair",
-              "note": "grab the views",
+              "note": "same trip, clearer views",
               "items": [
-                "Bolafjall viewing platform above Bolungarvík (only worth it if it's clear)",
-                "Vigur island boat from Ísafjörður — puffins & eider, weather-permitting",
-                "Reykjanes pool on the way home"
+                "Sail anyway — a bright day makes the Jökulfirðir crossing and the reserve spectacular; watch the shore for foxes",
+                "Prefer a shorter outing? The Vigur island boat from Ísafjörður is a half-day, more sheltered alternative (puffins & eider)"
               ]
             },
             {
               "label": "Wet",
-              "note": "town & museums",
+              "note": "boat's off — pools, foxes & museums",
               "items": [
-                "Ósvör, the Natural History Museum (polar bear) and the settler statue in Bolungarvík (friends' tips)",
-                "Ísafjörður: the Westfjords Heritage Museum, the old town and the town pool"
+                "Into Ísafjarðardjúp: the Súðavík Arctic Fox Centre (indoor) and the Litlibær turf-house café; soak at the Reykjanes geothermal pool and/or the Heydalur nature pool",
+                "Back via Ósvör, the Natural History Museum (polar bear) and the settler statue in Bolungarvík (friends' tips), or the Westfjords Heritage Museum and pool in Ísafjörður"
               ]
             }
           ]
@@ -346,7 +354,6 @@ window.TRIP = {
               "note": "the planned return",
               "items": [
                 "Hólmavík: lunch and the Museum of Sorcery & Witchcraft (friends' tip)",
-                "Whale watching from Hólmavík — the 14:00 sailing if the sighting rate looks good (friends' tip)",
                 "Finish with a soak at the Drangsnes seaside hot pots before the run south"
               ]
             },
@@ -354,7 +361,7 @@ window.TRIP = {
               "label": "Wet",
               "note": "straighter run home",
               "items": [
-                "Quick stop at the witchcraft museum in Hólmavík (indoor); skip the whales",
+                "Quick stop at the witchcraft museum in Hólmavík (indoor)",
                 "A soak at the Drangsnes hot pots if you're up for it, then Rte 1 to Reykjavík"
               ]
             }
@@ -1249,14 +1256,6 @@ window.TRIP = {
             -23.2635
           ],
           "note": "Náttúrugripasafn Bolungarvíkur: the stuffed polar bear + Iceland's biggest bird collection — Day 4"
-        },
-        {
-          "name": "Whale watching (Hólmavík)",
-          "coord": [
-            65.7052,
-            -21.6712
-          ],
-          "note": "Láki Tours on sheltered Steingrímsfjörður — the 14:00 sailing if the sighting rate looks good — Day 5"
         },
         {
           "name": "Museum of Sorcery & Witchcraft",

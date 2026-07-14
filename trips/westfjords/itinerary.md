@@ -57,21 +57,20 @@ DAY 3 · Fri 17 Jul — Over the passes: Dynjandi & Dýrafjörður ›› arrive
     - Dynjandi (rain suits it), skip the Sandafell drive
     - Spend the afternoon in Ísafjörður: old town, the Westfjords Heritage Museum, a café
 
-DAY 4 · Sat 18 Jul — Ísafjarðardjúp: pools, foxes & the old town
-    = ☁️ Overcast, calm and mostly dry (wind ~5 m/s) — a pools-and-indoors day
-    - Based in Bolungarvík; three friends' tips are right here — Ósvör, the settler statue and the Natural History Museum (polar bear)
-    - ⚡ Charging: the 150 kW at Reykjanes is right by the geothermal pool — charge while you soak; your base charger is the 150 kW at Sundlaug Bolungarvíkur (by the pool in town)
-    ~ Grey · the planned loop (pools + fox centre)
-    - Into Ísafjarðardjúp: the Súðavík Arctic Fox Centre (indoor), then the Litlibær turf-house café
-    - Soak at the Reykjanes geothermal pool and/or the Heydalur nature pool
-    - Back via Ósvör and the Natural History Museum in Bolungarvík (friends' tips)
-    ~ Fair · grab the views
-    - Bolafjall viewing platform above Bolungarvík (only worth it if it's clear)
-    - Vigur island boat from Ísafjörður — puffins & eider, weather-permitting
-    - Reykjanes pool on the way home
-    ~ Wet · town & museums
-    - Ósvör, the Natural History Museum (polar bear) and the settler statue in Bolungarvík (friends' tips)
-    - Ísafjörður: the Westfjords Heritage Museum, the old town and the town pool
+DAY 4 · Sat 18 Jul — Hornstrandir: boat to Hesteyri from Ísafjörður
+    = ☁️ Overcast, calm and mostly dry (wind ~5 m/s) — calm seas, a good day to sail into the reserve
+    - The marquee day: a boat from Ísafjörður (15 min from base) into the Hornstrandir nature reserve. It's weather-dependent and must be booked ahead, so keep the Ísafjarðardjúp pools loop as a wind/rain fallback
+    - ⚡ Charging: top up at the 150 kW hub in Ísafjörður while you're by the harbour; your base charger is the 150 kW at Sundlaug Bolungarvíkur (by the pool in town)
+    ~ Grey · Hesteyri day trip (the plan)
+    - To Ísafjörður harbour for the 09:00 sailing (arrive 08:30); ~1 h boat through the Jökulfirðir into Hornstrandir
+    - Guided walk around Hesteyri, the abandoned village — Arctic foxes, seabirds and seals — then soup & pancakes at the Doctor's House (~5 km, easy)
+    - Boat back ~19:00, into Ísafjörður ~20:00, then the short hop home (Borea Adventures — book ahead at info@borea.is; light dinner included, bring your own lunch)
+    ~ Fair · same trip, clearer views
+    - Sail anyway — a bright day makes the Jökulfirðir crossing and the reserve spectacular; watch the shore for foxes
+    - Prefer a shorter outing? The Vigur island boat from Ísafjörður is a half-day, more sheltered alternative (puffins & eider)
+    ~ Wet · boat's off — pools, foxes & museums
+    - Into Ísafjarðardjúp: the Súðavík Arctic Fox Centre (indoor) and the Litlibær turf-house café; soak at the Reykjanes geothermal pool and/or the Heydalur nature pool
+    - Back via Ósvör, the Natural History Museum (polar bear) and the settler statue in Bolungarvík (friends' tips), or the Westfjords Heritage Museum and pool in Ísafjörður
 
 DAY 5 · Sun 19 Jul — Home via Strandir & the Drangsnes hot pots
     = ☁️ Calm, with light rain building as you drive south (wind ~3 m/s)
@@ -80,8 +79,7 @@ DAY 5 · Sun 19 Jul — Home via Strandir & the Drangsnes hot pots
     >> Bolungarvík → Ísafjarðardjúp (Rte 61) → Hólmavík → Drangsnes → Rte 1 → Reykjavík
     ~ Grey · the planned return
     - Hólmavík: lunch and the Museum of Sorcery & Witchcraft (friends' tip)
-    - Whale watching from Hólmavík — the 14:00 sailing if the sighting rate looks good (friends' tip)
     - Finish with a soak at the Drangsnes seaside hot pots before the run south
     ~ Wet · straighter run home
-    - Quick stop at the witchcraft museum in Hólmavík (indoor); skip the whales
+    - Quick stop at the witchcraft museum in Hólmavík (indoor)
     - A soak at the Drangsnes hot pots if you're up for it, then Rte 1 to Reykjavík

@@ -43,7 +43,8 @@ module.exports = {
         { name: "Westfjords Heritage Museum", type: "museum", coord: [66.0681, -23.1275], note: "Byggðasafn Vestfjarða in Ísafjörður's old harbour — a good rainy-day stop" },
         { name: "Súðavík Arctic Fox Centre", type: "wildlife", coord: [66.0304, -22.9914], note: "Iceland's only native land mammal — indoor, Day 4" },
         { name: "Bolafjall", type: "viewpoint", coord: [66.1790, -23.3325], note: "clifftop viewing platform above Bolungarvík — clear days only" },
-        { name: "Vigur", type: "wildlife", coord: [66.0500, -22.8289], note: "island boat trip from Ísafjörður: puffins & eider — Day 4, weather-permitting" },
+        { name: "Vigur", type: "wildlife", coord: [66.0500, -22.8289], note: "island boat trip from Ísafjörður: puffins & eider — a shorter, sheltered alternative to Hesteyri (Day 4)" },
+        { name: "Hesteyri (Hornstrandir)", type: "wildlife", coord: [66.3341, -22.8745], note: "abandoned village + gateway to the Hornstrandir nature reserve — the full-day boat trip from Ísafjörður: guided walk, Arctic foxes & seabirds, soup at the Doctor's House (Day 4, weather-permitting; book ahead with Borea Adventures)" },
         { name: "Hólmavík", type: "town", coord: [65.7057, -21.6710], note: "Strandir hub — the Day-5 drive home" }
       ] }
   ],
@@ -157,7 +158,6 @@ module.exports = {
       { name: "Ósvör", coord: [66.1501, -23.2160], note: "open-air replica of an old fishing station just outside Bolungarvík — Day 4" },
       { name: "Þuríður settler statue", coord: [66.1552, -23.2605], note: "memorial to Bolungarvík's first settler, in town — Day 4" },
       { name: "Natural History Museum", coord: [66.1568, -23.2635], note: "Náttúrugripasafn Bolungarvíkur: the stuffed polar bear + Iceland's biggest bird collection — Day 4" },
-      { name: "Whale watching (Hólmavík)", coord: [65.7052, -21.6712], note: "Láki Tours on sheltered Steingrímsfjörður — the 14:00 sailing if the sighting rate looks good — Day 5" },
       { name: "Museum of Sorcery & Witchcraft", coord: [65.7065, -21.6654], note: "Galdrasýning á Ströndum, Hólmavík — Day 5" }
     ] }
   ],
