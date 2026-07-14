@@ -25,7 +25,7 @@ module.exports = {
   waypoints: [],
 
   bases: [
-    { key: "birkimelur", name: "Birkimelur", color: "#2f7f8f", pin: 1, coord: [65.5340, -23.0180],
+    { key: "birkimelur", name: "Birkimelur", color: "#2f7f8f", pin: 1, coord: [65.5209, -23.4191],
       book: [{ site: "booking", url: BOOKING.strond }],
       highlights: [
         { name: "Kirkjufell", type: "viewpoint", coord: [64.9275, -23.3086], note: "iconic peak + Kirkjufellsfoss at Grundarfjörður — Day-1 drive up (fair weather)" },
@@ -38,28 +38,28 @@ module.exports = {
       highlights: [
         { name: "Dynjandi", type: "waterfall", coord: [65.7333, -23.2050], note: "the Westfjords' great tiered waterfall — the Day-3 transfer highlight" },
         { name: "Þingeyri", type: "town", coord: [65.8730, -23.4930], note: "Dýrafjörður village, lunch stop — Day 3" },
-        { name: "Sandafell", type: "viewpoint", coord: [65.8760, -23.4400], note: "short gravel drive to a fjord panorama above Þingeyri — Day 3" },
+        { name: "Sandafell", type: "viewpoint", coord: [65.8726, -23.5061], note: "short gravel drive to a fjord panorama above Þingeyri — Day 3" },
         { name: "Ísafjörður", type: "town", coord: [66.0748, -23.1350], note: "the Westfjords' capital — old town, cafés, harbour" },
-        { name: "Westfjords Heritage Museum", type: "museum", coord: [66.0730, -23.1290], note: "Byggðasafn Vestfjarða in Ísafjörður's old harbour — a good rainy-day stop" },
-        { name: "Súðavík Arctic Fox Centre", type: "wildlife", coord: [66.0430, -22.9930], note: "Iceland's only native land mammal — indoor, Day 4" },
-        { name: "Bolafjall", type: "viewpoint", coord: [66.1630, -23.2260], note: "clifftop viewing platform above Bolungarvík — clear days only" },
-        { name: "Vigur", type: "wildlife", coord: [66.0400, -22.8300], note: "island boat trip from Ísafjörður: puffins & eider — Day 4, weather-permitting" },
-        { name: "Hólmavík", type: "town", coord: [65.7050, -21.6870], note: "Strandir hub — the Day-5 drive home" }
+        { name: "Westfjords Heritage Museum", type: "museum", coord: [66.0681, -23.1275], note: "Byggðasafn Vestfjarða in Ísafjörður's old harbour — a good rainy-day stop" },
+        { name: "Súðavík Arctic Fox Centre", type: "wildlife", coord: [66.0304, -22.9914], note: "Iceland's only native land mammal — indoor, Day 4" },
+        { name: "Bolafjall", type: "viewpoint", coord: [66.1790, -23.3325], note: "clifftop viewing platform above Bolungarvík — clear days only" },
+        { name: "Vigur", type: "wildlife", coord: [66.0500, -22.8289], note: "island boat trip from Ísafjörður: puffins & eider — Day 4, weather-permitting" },
+        { name: "Hólmavík", type: "town", coord: [65.7057, -21.6710], note: "Strandir hub — the Day-5 drive home" }
       ] }
   ],
 
   layers: [
     { key: "pools", label: "Hot pools & springs", icon: "♨️", on: true, points: [
-      { name: "Hellulaug", coord: [65.5560, -23.1870], note: "natural seaside pool at Flókalundur, Vatnsfjörður — a short hop from Birkimelur" },
-      { name: "Birkimelslaug", coord: [65.5335, -23.0170], note: "the little swimming pool right at Birkimelur" },
-      { name: "Reykjafjarðarlaug", coord: [65.6900, -23.4400], note: "a built pool + a natural hot pool above it, Arnarfjörður" },
-      { name: "Pollurinn", coord: [65.6230, -23.8080], note: "three natural hot tubs on the hillside above Tálknafjörður" },
-      { name: "Reykjanes", coord: [65.9200, -22.4120], note: "big geothermal swimming pool (50 × 12.5 m) out in Ísafjarðardjúp" },
-      { name: "Heydalur", coord: [65.8790, -22.6260], note: "nature pool + greenhouse hideaway in Mjóifjörður" },
-      { name: "Hörgshlíðarlaug", coord: [65.8010, -22.4770], note: "tiny seaside hot pool in Mjóifjörður (road 633) — ask the farmer's permission; near the Day-4 loop" },
+      { name: "Hellulaug", coord: [65.5772, -23.1595], note: "natural seaside pool at Flókalundur, Vatnsfjörður — a short hop from Birkimelur" },
+      { name: "Birkimelslaug", coord: [65.5209, -23.4083], note: "the little swimming pool right at Birkimelur" },
+      { name: "Reykjafjarðarlaug", coord: [65.6231, -23.4691], note: "a built pool + a natural hot pool above it, Arnarfjörður" },
+      { name: "Pollurinn", coord: [65.6491, -23.8949], note: "three natural hot tubs on the hillside above Tálknafjörður" },
+      { name: "Reykjanes", coord: [65.9272, -22.4270], note: "big geothermal swimming pool (50 × 12.5 m) out in Ísafjarðardjúp" },
+      { name: "Heydalur", coord: [65.8441, -22.6800], note: "nature pool + greenhouse hideaway in Mjóifjörður" },
+      { name: "Hörgshlíðarlaug", coord: [65.8310, -22.6288], note: "tiny seaside hot pool in Mjóifjörður (road 633) — ask the farmer's permission; near the Day-4 loop" },
       { name: "Drangsnes hot pots", coord: [65.6870, -21.4470], note: "free seaside hot pots on the Strandir coast — the Day-5 finale soak" },
-      { name: "Gvendarlaug (Laugarhóll)", coord: [65.7670, -21.4750], note: "pool + the historic natural 'Gvendarlaug' at Hotel Laugarhóll, Bjarnarfjörður — a Strandir detour north of Drangsnes" },
-      { name: "Krossneslaug", coord: [66.0300, -21.4200], note: "iconic beachside pool at Krossnes, far NE Strandir — spectacular but a long detour (~2 h+ past Hólmavík), not really on this route" }
+      { name: "Gvendarlaug (Laugarhóll)", coord: [65.7815, -21.5201], note: "pool + the historic natural 'Gvendarlaug' at Hotel Laugarhóll, Bjarnarfjörður — a Strandir detour north of Drangsnes" },
+      { name: "Krossneslaug", coord: [66.0556, -21.5080], note: "iconic beachside pool at Krossnes, far NE Strandir — spectacular but a long detour (~2 h+ past Hólmavík), not really on this route" }
     ] },
     { key: "chargers", label: "EV chargers", icon: "🔌", on: false, photos: false,
       cats: {
@@ -152,13 +152,13 @@ module.exports = {
       { name: "Hverinn Restaurant", coord: [64.6551, -21.4061], cat: "slow", note: "AC charger" }
     ] },
     { key: "tips", label: "Friends' local tips", icon: "💬", on: true, points: [
-      { name: "Ytri-Tunga (seals)", coord: [64.8020, -23.0870], note: "harbour & grey seal colony on Snæfellsnes, best at low tide — Day 1" },
-      { name: "Surtarbrandsgil", coord: [65.5450, -23.1600], note: "12-million-year plant fossils + a free exhibition at Brjánslækur (canyon hike only with a ranger) — Day 1/2" },
-      { name: "Ósvör", coord: [66.1520, -23.2870], note: "open-air replica of an old fishing station just outside Bolungarvík — Day 4" },
+      { name: "Ytri-Tunga (seals)", coord: [64.8047, -23.0790], note: "harbour & grey seal colony on Snæfellsnes, best at low tide — Day 1" },
+      { name: "Surtarbrandsgil", coord: [65.5279, -23.2555], note: "12-million-year plant fossils + a free exhibition at Brjánslækur (canyon hike only with a ranger) — Day 1/2" },
+      { name: "Ósvör", coord: [66.1501, -23.2160], note: "open-air replica of an old fishing station just outside Bolungarvík — Day 4" },
       { name: "Þuríður settler statue", coord: [66.1552, -23.2605], note: "memorial to Bolungarvík's first settler, in town — Day 4" },
       { name: "Natural History Museum", coord: [66.1568, -23.2635], note: "Náttúrugripasafn Bolungarvíkur: the stuffed polar bear + Iceland's biggest bird collection — Day 4" },
-      { name: "Whale watching (Hólmavík)", coord: [65.7050, -21.6830], note: "Láki Tours on sheltered Steingrímsfjörður — the 14:00 sailing if the sighting rate looks good — Day 5" },
-      { name: "Museum of Sorcery & Witchcraft", coord: [65.7060, -21.6820], note: "Galdrasýning á Ströndum, Hólmavík — Day 5" }
+      { name: "Whale watching (Hólmavík)", coord: [65.7052, -21.6712], note: "Láki Tours on sheltered Steingrímsfjörður — the 14:00 sailing if the sighting rate looks good — Day 5" },
+      { name: "Museum of Sorcery & Witchcraft", coord: [65.7065, -21.6654], note: "Galdrasýning á Ströndum, Hólmavík — Day 5" }
     ] }
   ],
 

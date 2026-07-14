@@ -31,8 +31,8 @@ window.TRIP = {
       "dates": "Wed 15 – Fri 17 Jul",
       "color": "#2f7f8f",
       "coord": [
-        65.534,
-        -23.018
+        65.5209,
+        -23.4191
       ],
       "carFree": false,
       "book": [
@@ -198,8 +198,8 @@ window.TRIP = {
           "name": "Sandafell",
           "type": "viewpoint",
           "coord": [
-            65.876,
-            -23.44
+            65.8726,
+            -23.5061
           ],
           "note": "short gravel drive to a fjord panorama above Þingeyri — Day 3"
         },
@@ -216,8 +216,8 @@ window.TRIP = {
           "name": "Westfjords Heritage Museum",
           "type": "museum",
           "coord": [
-            66.073,
-            -23.129
+            66.0681,
+            -23.1275
           ],
           "note": "Byggðasafn Vestfjarða in Ísafjörður's old harbour — a good rainy-day stop"
         },
@@ -225,8 +225,8 @@ window.TRIP = {
           "name": "Súðavík Arctic Fox Centre",
           "type": "wildlife",
           "coord": [
-            66.043,
-            -22.993
+            66.0304,
+            -22.9914
           ],
           "note": "Iceland's only native land mammal — indoor, Day 4"
         },
@@ -234,8 +234,8 @@ window.TRIP = {
           "name": "Bolafjall",
           "type": "viewpoint",
           "coord": [
-            66.163,
-            -23.226
+            66.179,
+            -23.3325
           ],
           "note": "clifftop viewing platform above Bolungarvík — clear days only"
         },
@@ -243,8 +243,8 @@ window.TRIP = {
           "name": "Vigur",
           "type": "wildlife",
           "coord": [
-            66.04,
-            -22.83
+            66.05,
+            -22.8289
           ],
           "note": "island boat trip from Ísafjörður: puffins & eider — Day 4, weather-permitting"
         },
@@ -252,8 +252,8 @@ window.TRIP = {
           "name": "Hólmavík",
           "type": "town",
           "coord": [
-            65.705,
-            -21.687
+            65.7057,
+            -21.671
           ],
           "note": "Strandir hub — the Day-5 drive home"
         }
@@ -377,56 +377,56 @@ window.TRIP = {
         {
           "name": "Hellulaug",
           "coord": [
-            65.556,
-            -23.187
+            65.5772,
+            -23.1595
           ],
           "note": "natural seaside pool at Flókalundur, Vatnsfjörður — a short hop from Birkimelur"
         },
         {
           "name": "Birkimelslaug",
           "coord": [
-            65.5335,
-            -23.017
+            65.5209,
+            -23.4083
           ],
           "note": "the little swimming pool right at Birkimelur"
         },
         {
           "name": "Reykjafjarðarlaug",
           "coord": [
-            65.69,
-            -23.44
+            65.6231,
+            -23.4691
           ],
           "note": "a built pool + a natural hot pool above it, Arnarfjörður"
         },
         {
           "name": "Pollurinn",
           "coord": [
-            65.623,
-            -23.808
+            65.6491,
+            -23.8949
           ],
           "note": "three natural hot tubs on the hillside above Tálknafjörður"
         },
         {
           "name": "Reykjanes",
           "coord": [
-            65.92,
-            -22.412
+            65.9272,
+            -22.427
           ],
           "note": "big geothermal swimming pool (50 × 12.5 m) out in Ísafjarðardjúp"
         },
         {
           "name": "Heydalur",
           "coord": [
-            65.879,
-            -22.626
+            65.8441,
+            -22.68
           ],
           "note": "nature pool + greenhouse hideaway in Mjóifjörður"
         },
         {
           "name": "Hörgshlíðarlaug",
           "coord": [
-            65.801,
-            -22.477
+            65.831,
+            -22.6288
           ],
           "note": "tiny seaside hot pool in Mjóifjörður (road 633) — ask the farmer's permission; near the Day-4 loop"
         },
@@ -441,16 +441,16 @@ window.TRIP = {
         {
           "name": "Gvendarlaug (Laugarhóll)",
           "coord": [
-            65.767,
-            -21.475
+            65.7815,
+            -21.5201
           ],
           "note": "pool + the historic natural 'Gvendarlaug' at Hotel Laugarhóll, Bjarnarfjörður — a Strandir detour north of Drangsnes"
         },
         {
           "name": "Krossneslaug",
           "coord": [
-            66.03,
-            -21.42
+            66.0556,
+            -21.508
           ],
           "note": "iconic beachside pool at Krossnes, far NE Strandir — spectacular but a long detour (~2 h+ past Hólmavík), not really on this route"
         }
@@ -1213,24 +1213,24 @@ window.TRIP = {
         {
           "name": "Ytri-Tunga (seals)",
           "coord": [
-            64.802,
-            -23.087
+            64.8047,
+            -23.079
           ],
           "note": "harbour & grey seal colony on Snæfellsnes, best at low tide — Day 1"
         },
         {
           "name": "Surtarbrandsgil",
           "coord": [
-            65.545,
-            -23.16
+            65.5279,
+            -23.2555
           ],
           "note": "12-million-year plant fossils + a free exhibition at Brjánslækur (canyon hike only with a ranger) — Day 1/2"
         },
         {
           "name": "Ósvör",
           "coord": [
-            66.152,
-            -23.287
+            66.1501,
+            -23.216
           ],
           "note": "open-air replica of an old fishing station just outside Bolungarvík — Day 4"
         },
@@ -1253,16 +1253,16 @@ window.TRIP = {
         {
           "name": "Whale watching (Hólmavík)",
           "coord": [
-            65.705,
-            -21.683
+            65.7052,
+            -21.6712
           ],
           "note": "Láki Tours on sheltered Steingrímsfjörður — the 14:00 sailing if the sighting rate looks good — Day 5"
         },
         {
           "name": "Museum of Sorcery & Witchcraft",
           "coord": [
-            65.706,
-            -21.682
+            65.7065,
+            -21.6654
           ],
           "note": "Galdrasýning á Ströndum, Hólmavík — Day 5"
         }

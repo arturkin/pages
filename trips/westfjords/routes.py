@@ -14,10 +14,10 @@ def route(a,b):
 
 # (lon,lat)
 RVK=(-21.9426,64.1466);STY=(-22.7276,65.0748);BUD=(-21.7530,65.1130)
-BIRK=(-23.0180,65.5340);RAUD=(-24.0500,65.4667);POLL=(-23.8080,65.6230);REYKJA=(-23.4400,65.6900)
+BIRK=(-23.4191,65.5209);RAUD=(-24.0500,65.4667);POLL=(-23.8949,65.6491);REYKJA=(-23.4691,65.6231)
 THING=(-23.4930,65.8730);BOL=(-23.2620,66.1560)
-SUD=(-22.9930,66.0430);REYK=(-22.4120,65.9200);HEY=(-22.6260,65.8790)
-HOLM=(-21.6870,65.7050)
+SUD=(-22.9914,66.0304);REYK=(-22.4270,65.9272);HEY=(-22.6800,65.8441)
+HOLM=(-21.6710,65.7057)
 
 # each leg: (day, mode, from, to). BUD via forces the land route (not the Baldur
 # ferry); THING routes Day 3 past Dynjandi. Days 2 & 4 are the based-day loops.

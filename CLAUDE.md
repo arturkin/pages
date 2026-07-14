@@ -117,6 +117,33 @@ Chrome DevTools MCP browser tools:
    write the picks (name + coord + "NN kW …" note) into the `chargers` layer. A Westfjords+Snæfellsnes
    box: `latitude=65.55&longitude=-22.9&spanLat=1.8&spanLng=3.6`.
 
+### Validating coordinates (make sure every pin is really where it says)
+`meta.js` coords are easy to get wrong (guessed, transposed, or copied to the wrong
+spot). To verify a trip's `bases`, `highlights`, `waypoints`, `hubs` and `layers` points
+against real map data, use two geocoders — OSM for a fast numeric pass, Google Maps to
+confirm anything suspect:
+1. **OSM/Nominatim pass (bulk, numeric).** Open a page on `https://www.openstreetmap.org/`
+   (`new_page`) so fetches are same-origin, then from the page context (`evaluate_script`)
+   forward-geocode each place and compare to the stored coord with a haversine distance:
+   `GET https://nominatim.openstreetmap.org/search?format=jsonv2&limit=3&q=<name+region>`
+   (add `&viewbox=<lonW>,<latN>,<lonE>,<latS>&bounded=1` to constrain to the trip area, e.g.
+   Westfjords+Snæfellsnes `-24.7,66.6,-21.0,64.6`). Reverse-geocode the stored point to see
+   what's actually there: `…/reverse?format=jsonv2&lat=<lat>&lon=<lon>`. **Rate-limit to ~1
+   req/sec** (`await sleep(1200)` between calls) or it throttles. Flag anything >~1.5 km off,
+   and treat "no result" as "my query missed", not "coord wrong" — retry with a bare name.
+2. **Google Maps confirm pass (suspects + no-results).** `navigate_page` to
+   `https://www.google.com/maps/search/<name>` (first run hits a consent wall — **ask the
+   user before clicking "Reject all"/"Accept all"**, then it's remembered for the session).
+   When Google resolves to one place the URL gains `!3d<lat>!4d<lon>` — poll `location.href`
+   for it. When it shows a results *list* instead, read the first result's coord from a
+   `a[href*="/maps/place/"]` link's own `!3d!4d`. This is authoritative for exact pins.
+3. Judgment: long features (a beach, a cliff line, an island) legitimately span kilometres —
+   a big distance there isn't necessarily wrong. For a drive-up **viewpoint** prefer the
+   platform/parking pin over the mountain-summit node.
+4. After fixing coords, **also update `routes.py`** — it keeps its *own* hardcoded copy of the
+   base/waypoint coords, so a moved base leaves the driving line pointing at the old spot.
+   Re-run `python3 trips/<slug>/routes.py` then `node assets/sync.js`.
+
 ### Adding a whole new trip
 1. `mkdir trips/<slug>`; write `itinerary.md`, `meta.js`, `routes.py` (copy an existing trip as a template).
 2. `python3 trips/<slug>/routes.py` to generate `routes.js`.
