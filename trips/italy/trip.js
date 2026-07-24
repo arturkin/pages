@@ -2,7 +2,7 @@
 // Edit the trip in trips/italy/itinerary.md; map-only metadata lives in trips/italy/meta.js.
 window.TRIP = {
   "meta": {
-    "title": "ITALY — TWO WEEKS: TUSCANY, DEEP",
+    "title": "ITALY — TWO WEEKS: TUSCANY",
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 14 nights",
     "route": "Florence → Argentario (Maremma) → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Florence",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",

@@ -1,4 +1,4 @@
-ITALY — TWO WEEKS: TUSCANY, DEEP
+ITALY — TWO WEEKS: TUSCANY
 Sat 3 Oct – Sun 18 Oct 2026 · 14 nights
 Route: Florence → Argentario (Maremma) → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Florence
 Fly: Icelandair KEF 09:00 → MXP 15:10 (out) · MXP 07:00 → KEF at dawn (back)
