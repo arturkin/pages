@@ -99,7 +99,8 @@
   /* ---------- itinerary cards ---------- */
   var itin = document.getElementById("itin");
   TRIP.bases.forEach(function (b) {
-    var nights = b.nights ? (b.nights + " night" + (b.nights > 1 ? "s" : "")) : "fly out";
+    var stay = b.stay ? esc(b.stay) : "";
+    var nights = b.nights ? (b.nights + " night" + (b.nights > 1 ? "s" : "")) : (stay ? "" : "fly out");
     var tag = b.carFree ? '<span class="tag">Car-free</span>' : '';
     var book = (b.book || []).map(function (x) {
       var s = SITES[x.site] || { label: x.site, icon: "🔗" };
@@ -110,13 +111,13 @@
       ? '<a class="book photos" href="#" ' + photoAttrs(b.name, b.coord) + '>📷 Photos</a>'
       : '';
     var right = (photos || book || tag) ? '<span class="bandright">' + photos + book + tag + '</span>' : '';
-    var stay = b.stay ? esc(b.stay) + " · " : "";
+    var metaBits = [stay, nights, esc(b.dates)].filter(Boolean).join(" · ");
     var card = document.createElement("div");
     card.className = "basecard";
     card.innerHTML =
       '<div class="baseband" style="background:' + b.color + '">' +
         '<span class="name">' + b.emoji + ' ' + esc(b.name) + '</span>' +
-        '<span class="meta">· ' + stay + nights + ' · ' + esc(b.dates) + '</span>' +
+        '<span class="meta">· ' + metaBits + '</span>' +
         right +
       '</div>' +
       '<div class="days">' + b.days.map(function (d) { return dayHTML(d, b.color); }).join("") + '</div>';

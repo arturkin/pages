@@ -69,7 +69,7 @@ module.exports = {
       car:   "Car (round-trip from Florence)",
       train: "Train",
       hub:   "Malpensa airport",
-      sleep: "Where you sleep (1–5)",
+      sleep: "Where you sleep (1–4) · 5 = day visit",
       sleepColor: "#8e3b46"
     }
   },
