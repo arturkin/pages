@@ -6,7 +6,7 @@ window.TRIP = {
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 14 nights",
     "route": "Florence → Argentario (Maremma) → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Florence",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
-    "flyBack": "",
+    "flyBack": "MXP 07:00 → KEF at dawn",
     "start": "2026-10-03"
   },
   "map": {

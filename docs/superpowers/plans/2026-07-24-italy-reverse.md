@@ -1,7 +1,41 @@
+# Italy Reversed Itinerary Implementation Plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+
+**Goal:** Reverse the Italy trip: beach first (longest drive Day 2), gradually back north, last day shopping in Florence with a 07:00 MXP flight next morning and no final hotel night.
+
+**Architecture:** Content lives in `trips/italy/itinerary.md`; map-only data in `trips/italy/meta.js`; route geometry from `trips/italy/routes.py` → `routes.js`. `assets/sync.js` merges doc+meta into `trip.js` (bases matched BY ORDER). A PostToolUse hook auto-runs sync on itinerary/meta edits.
+
+**Tech Stack:** Plain Node (sync), Python + OSRM public API (routes). No deps.
+
+## Global Constraints
+
+- Commit directly to `main` — no branches.
+- Do NOT hand-edit `trip.js`, `routes.js`, `index.html` — generated.
+- Do NOT launch/screenshot the page — trust `node assets/sync.js` output.
+- `bases` in `meta.js` must match the doc's bases by order and count (6 incl. HOME).
+- After regenerating `routes.js`, run `node assets/sync.js` again (cache-buster hash).
+- New nights: Florence 1 (Oct 3) · Argentario 4 (4–8) · Crete Senesi 5 (8–13) · Val d'Orcia 4 (13–17) · Florence day-visit 0 (17) · fly 07:00 MXP Oct 18.
+- Car: Florence round-trip — pick up Firenze SMN Day 2 (Oct 4), drop Florence Day 15 (Oct 17). Florence→MXP by evening train + late airport connection, overnight in the terminal.
+
+---
+
+### Task 1: Rewrite `itinerary.md` + matching `meta.js`
+
+**Files:**
+- Modify: `trips/italy/itinerary.md` (full rewrite, content below)
+- Modify: `trips/italy/meta.js` (link dates, base order, highlight moves, legMode)
+
+**Interfaces:**
+- Produces: doc base order Florence → Argentario → Crete Senesi → Val d'Orcia → Florence(0 nt) → Home, which Task 2's route legs and `legMode` day numbers (2, 6, 11, 15) rely on.
+
+- [ ] **Step 1: Write the new `itinerary.md`** — replace the whole file with:
+
+```markdown
 ITALY — TWO WEEKS: TUSCANY, DEEP
 Sat 3 Oct – Sun 18 Oct 2026 · 14 nights
 Route: Florence → Argentario (Maremma) → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Florence
-Fly: Icelandair KEF 09:00 → MXP 15:10 (out) · MXP 07:00 → KEF at dawn (back)
+Fly: Icelandair KEF 09:00 → MXP 15:10 (out) · MXP 07:00 → KEF (back, dawn — overnight at the airport)
 
 WHAT CHANGED IN THIS VERSION
  - The whole route is REVERSED: the coast comes first (while the sea is warmest), then the
@@ -189,3 +223,83 @@ TO BOOK — actionable links (dates & 2 guests pre-filled)
  [ ] Trains (BOOKABLE ~90–120 days out): Milano C.le → Firenze SMN (Day 1) · Firenze SMN →
      Milano C.le → Malpensa (Day 15, evening)
  [ ] Rental car: pick up Firenze SMN (Day 2, Oct 4), drop Firenze (Day 15, Oct 17) — round-trip
+```
+
+- [ ] **Step 2: Update `meta.js`** — apply ALL of these edits:
+
+1. Link builders (new dates; drop the shopping-night link):
+
+```js
+const AIRBNB = {
+  cretesenesi: "https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-08&checkout=2026-10-13&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7",
+  argentario:  "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+};
+const HOTEL = {
+  poderebrizio: "https://poderebrizio.it/en/"
+};
+const BOOKING = {
+  florence:    "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-03&checkout=2026-10-04&group_adults=2&no_rooms=1&group_children=0",
+  cretesenesi: "https://www.booking.com/searchresults.html?ss=Asciano%2C+Tuscany%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0",
+  valdorcia:   "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0",
+  argentario:  "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
+};
+```
+
+2. Reorder `bases` to florence → argentario → cretesenesi → valdorcia → florence2 → home, renumbering pins 1–5 in that order. Keep each base's existing `key`, `color`, `coord`, `book` (florence2's `book` becomes `[]`), and highlights, EXCEPT the highlight moves/note edits in point 3.
+
+3. Highlight edits while reordering:
+   - MOVE `Abbazia di San Galgano` and `Bagni di Petriolo` from `valdorcia.highlights` to `cretesenesi.highlights`; note suffix becomes "— on the Day-6 drive up from the coast".
+   - `San Gimignano` (cretesenesi): note → `"the towers — Day-10 day-trip (~1 h 15)"`.
+   - argentario: `Castiglione della Pescaia` note → `"medieval seaside town (Day-2 coast drive down)"`; `Bolgheri` note → `"cypress avenue + Super Tuscan wine (Day-2 coast drive down)"`; `Golfo di Baratti` note → `"Etruscan bay + Populonia (Day-2 coast drive down)"`.
+
+4. `legMode` → `{ 2: "car", 6: "car", 11: "car", 15: "car" }` (Day 15's `>>` leg is the drive; Day 16 has no `>>` line).
+
+5. FOOD comment `— Maremma & Etruscan coast (the drive home) —` → `— Maremma & Etruscan coast (the Day-2 drive down) —`.
+
+- [ ] **Step 3: Verify sync**
+
+Run: `node assets/sync.js italy`
+Expected: prints the italy build lines without error (base count 6 matches; Florence day-visit parses as `0 nights`). The PostToolUse hook may have already run it — still run once explicitly and read the output.
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add trips/italy/itinerary.md trips/italy/meta.js trips/italy/trip.js italy.html index.html
+git commit -m "Reverse the Italy trip: beach first, Florence shopping finale, dawn flight"
+```
+
+### Task 2: Regenerate route geometry
+
+**Files:**
+- Modify: `trips/italy/routes.py:11-15` (coords + legs)
+- Generated: `trips/italy/routes.js`
+
+**Interfaces:**
+- Consumes: the new base order from Task 1.
+- Produces: `window.ROUTES` legs in the reversed travel order.
+
+- [ ] **Step 1: Rewrite the coord/leg lines in `routes.py`** — replace lines 11–15 with:
+
+```python
+MXP=(8.723,45.630);MIL=(9.204,45.487);FLO=(11.248,43.776)
+CRE=(11.5606,43.2340);MON=(11.4506,43.0272);PE=(11.2064,42.3924);BOL=(10.6018,43.2287)
+CDP=(10.8760,42.7620)                        # Castiglione della Pescaia (Day-2 coast stop)
+SG=(11.1553,43.1494);PET=(11.2995,43.0803)   # San Galgano, Bagni di Petriolo (Day-6 interior stops)
+legs=[("train",MXP,MIL),("train",MIL,FLO),
+ ("car",FLO,BOL),("car",BOL,CDP),("car",CDP,PE),
+ ("car",PE,PET),("car",PET,SG),("car",SG,CRE),
+ ("car",CRE,MON),("car",MON,FLO),
+ ("train",FLO,MIL),("train",MIL,MXP)]
+```
+
+- [ ] **Step 2: Regenerate + re-sync**
+
+Run: `python3 trips/italy/routes.py && node assets/sync.js`
+Expected: 12 `leg N mode: … OSRM` lines (a `STRAIGHT` fallback means OSRM timed out — re-run), `wrote …routes.js`, then sync prints all trips without error.
+
+- [ ] **Step 3: Commit**
+
+```bash
+git add trips/italy/routes.py trips/italy/routes.js trips/italy/trip.js italy.html index.html
+git commit -m "Regenerate Italy route geometry for the reversed order"
+```
