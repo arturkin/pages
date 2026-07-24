@@ -3,10 +3,10 @@
 window.TRIP = {
   "meta": {
     "title": "ITALY — TWO WEEKS: TUSCANY, DEEP",
-    "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 15 nights",
-    "route": "Florence → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Argentario (Maremma) → Florence",
+    "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 14 nights",
+    "route": "Florence → Argentario (Maremma) → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Florence",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
-    "flyBack": "Wizz Air MXP 16:00 → KEF 18:20",
+    "flyBack": "",
     "start": "2026-10-03"
   },
   "map": {
@@ -66,13 +66,188 @@ window.TRIP = {
       ]
     },
     {
-      "key": "cretesenesi",
+      "key": "argentario",
       "pin": 2,
+      "emoji": "🏖️",
+      "name": "Argentario / Maremma",
+      "stay": "coast hotel",
+      "nights": 4,
+      "dates": "Sun 4 – Thu 8 Oct",
+      "color": "#2f8f8a",
+      "coord": [
+        42.3924,
+        11.2064
+      ],
+      "carFree": false,
+      "book": [
+        {
+          "site": "airbnb",
+          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+        },
+        {
+          "site": "booking",
+          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
+        }
+      ],
+      "highlights": [
+        {
+          "name": "Spiaggia della Feniglia",
+          "type": "beach",
+          "coord": [
+            42.408,
+            11.185
+          ],
+          "note": "pine-backed sandy beach + dune reserve"
+        },
+        {
+          "name": "Parco della Maremma",
+          "type": "nature",
+          "coord": [
+            42.6558,
+            11.1053
+          ],
+          "note": "wild coastal park, trails, cattle"
+        },
+        {
+          "name": "Orbetello lagoon",
+          "type": "nature",
+          "coord": [
+            42.451,
+            11.205
+          ],
+          "note": "WWF reserve, flamingos"
+        },
+        {
+          "name": "Cala del Gesso",
+          "type": "beach",
+          "coord": [
+            42.362,
+            11.132
+          ],
+          "note": "clear-water cove, footpath down"
+        },
+        {
+          "name": "Giardino dei Tarocchi",
+          "type": "art",
+          "coord": [
+            42.4028,
+            11.4308
+          ],
+          "note": "mosaic sculpture park (closes 15 Oct)"
+        },
+        {
+          "name": "Castiglione della Pescaia",
+          "type": "town",
+          "coord": [
+            42.762,
+            10.876
+          ],
+          "note": "medieval seaside town (Day-2 coast drive down)"
+        },
+        {
+          "name": "Bolgheri",
+          "type": "wine",
+          "coord": [
+            43.2287,
+            10.6018
+          ],
+          "note": "cypress avenue + Super Tuscan wine (Day-2 coast drive down)"
+        },
+        {
+          "name": "Porto Santo Stefano",
+          "type": "town",
+          "coord": [
+            42.4356,
+            11.1178
+          ],
+          "note": "harbour town, Spanish Fortress views"
+        },
+        {
+          "name": "Isola del Giglio",
+          "type": "beach",
+          "coord": [
+            42.363,
+            10.901
+          ],
+          "note": "island ferry day-trip"
+        },
+        {
+          "name": "Golfo di Baratti",
+          "type": "nature",
+          "coord": [
+            42.9959,
+            10.498
+          ],
+          "note": "Etruscan bay + Populonia (Day-2 coast drive down)"
+        },
+        {
+          "name": "Massa Marittima",
+          "type": "town",
+          "coord": [
+            43.05,
+            10.888
+          ],
+          "note": "underrated medieval town in the Colline Metallifere (~1 h inland day-trip)"
+        }
+      ],
+      "days": [
+        {
+          "d": 2,
+          "date": "Sun 4 Oct",
+          "title": "Pick up the car, the long coast road south",
+          "arrive": true,
+          "items": [
+            "Collect the rental at Firenze SMN; follow the signed ZTL exit route, do NOT drive into the centre",
+            "Confirm the drop is back at FLORENCE on the contract (round-trip, no one-way fee)",
+            "Take the scenic way down the SS1 Aurelia: Bolgheri — the cypress avenue (Viale dei Cipressi) and a Super Tuscan stop (Sassicaia / Ornellaia country; you're driving — taste light or just buy)",
+            "Late lunch at Castiglione della Pescaia (medieval seaside town)",
+            "On to Porto Ercole; check in, first beach evening, seafood in the harbour"
+          ],
+          "leg": {
+            "mode": "car",
+            "text": "Florence → Bolgheri → Castiglione della Pescaia → Porto Ercole · ~3 h 15 driving + stops (the trip's longest drive)"
+          }
+        },
+        {
+          "d": 3,
+          "date": "Mon 5 Oct",
+          "title": "Feniglia beach + the Tarocchi",
+          "items": [
+            "Spiaggia della Feniglia: long pine-backed beach; walk or bike the Duna Feniglia reserve",
+            "Giardino dei Tarocchi at Capalbio (Niki de Saint Phalle's mosaic park) — afternoons only; the season runs to 15 Oct, so early October is comfortably inside it",
+            "Aperitivo on the Argentario"
+          ]
+        },
+        {
+          "d": 4,
+          "date": "Tue 6 Oct",
+          "title": "Parco della Maremma",
+          "items": [
+            "Parco della Maremma (Alberese): coastal trails to the towers and the wild beach, Maremmana cattle",
+            "Lagoon seafood and Orbetello bottarga for dinner"
+          ]
+        },
+        {
+          "d": 5,
+          "date": "Wed 7 Oct",
+          "title": "Boat, coves, or the lagoon",
+          "items": [
+            "Boat around the Argentario coves, or the footpath down to Cala del Gesso",
+            "OR Orbetello lagoon WWF reserve (flamingos) + the Spanish Fortress viewpoint at Porto Santo Stefano",
+            "OR go inland (~1 h) to Massa Marittima: an underrated medieval town in the Colline Metallifere, dramatic cathedral, few tourists",
+            "Last Maremma swim; pack (into the hills tomorrow)"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "cretesenesi",
+      "pin": 3,
       "emoji": "🌾",
       "name": "Crete Senesi",
       "stay": "isolated farmhouse (Airbnb)",
-      "nights": 4,
-      "dates": "Sun 4 – Thu 8 Oct",
+      "nights": 5,
+      "dates": "Thu 8 – Tue 13 Oct",
       "color": "#b07a33",
       "coord": [
         43.234,
@@ -82,11 +257,11 @@ window.TRIP = {
       "book": [
         {
           "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
+          "url": "https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-08&checkout=2026-10-13&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Asciano%2C+Tuscany%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Asciano%2C+Tuscany%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
@@ -97,7 +272,7 @@ window.TRIP = {
             43.4677,
             11.0431
           ],
-          "note": "the towers — stop on the drive in"
+          "note": "the towers — Day-10 day-trip (~1 h 15)"
         },
         {
           "name": "Monte Oliveto Maggiore",
@@ -170,29 +345,47 @@ window.TRIP = {
             10.8536
           ],
           "note": "geothermal 'Devil's Valley', free fumarole trail — far-west day-trip (~2 h)"
+        },
+        {
+          "name": "Abbazia di San Galgano",
+          "type": "church",
+          "coord": [
+            43.1494,
+            11.1553
+          ],
+          "note": "roofless Gothic abbey + the sword in the stone (Montesiepi) — on the Day-6 drive up from the coast"
+        },
+        {
+          "name": "Bagni di Petriolo",
+          "type": "thermal",
+          "coord": [
+            43.0803,
+            11.2995
+          ],
+          "note": "wild free hot springs in a river gorge — on the Day-6 drive up from the coast"
         }
       ],
       "days": [
         {
-          "d": 2,
-          "date": "Sun 4 Oct",
-          "title": "Pick up the car, out to the Crete Senesi (San Gimignano on the way)",
+          "d": 6,
+          "date": "Thu 8 Oct",
+          "title": "Argentario → Crete Senesi, through the wild interior",
           "arrive": true,
           "items": [
-            "Collect the rental at Firenze SMN; follow the signed ZTL exit route, do NOT drive into the centre",
-            "Confirm the drop is back at FLORENCE on the contract (round-trip, no one-way fee)",
-            "Break the drive at San Gimignano (park outside the walls): the towers, a Vernaccia, lunch",
-            "On ~1 h more to the isolated farmhouse near Asciano; groceries in Asciano or Buonconvento",
+            "Take the scenic inland route up and cut through the middle of the loop:",
+            "Bagni di Petriolo: a soak in the wild free sulphur springs in the river gorge under the old bridge (no facilities — bring water shoes; skip it if you'd rather push on to the hills)",
+            "Abbazia di San Galgano: the roofless Gothic abbey open to the sky, + the sword in the stone up at the Montesiepi chapel (abbey ~€6, open ~09:00–19:00; the chapel is free)",
+            "On to the isolated farmhouse near Asciano; groceries in Asciano or Buonconvento",
             "Settle in: the clay-hill silence, big skies, sunset over the crete"
           ],
           "leg": {
             "mode": "car",
-            "text": "Florence → Crete Senesi · ~1 h 15 / 100 km (+ the San Gimignano stop)"
+            "text": "Porto Ercole → Petriolo → San Galgano → Crete Senesi · ~3 h driving + stops (a full scenic day)"
           }
         },
         {
-          "d": 3,
-          "date": "Mon 5 Oct",
+          "d": 7,
+          "date": "Fri 9 Oct",
           "title": "Asciano & Monte Oliveto Maggiore",
           "items": [
             "Slow morning at the farmhouse, then the classic crete drive on the back-roads (the biancane badlands)",
@@ -201,8 +394,18 @@ window.TRIP = {
           ]
         },
         {
-          "d": 4,
-          "date": "Tue 6 Oct",
+          "d": 8,
+          "date": "Sat 10 Oct",
+          "title": "Truffle villages & Buonconvento",
+          "items": [
+            "The tiny Crete hilltops: Trequanda, Montisi, Castelmuzio, Petroio — Etruscan-quiet, almost empty",
+            "Buonconvento (little walled town, good market): produce, pecorino, new-harvest oil; white-truffle fairs if they're on",
+            "Aperitivo back at the farmhouse"
+          ]
+        },
+        {
+          "d": 9,
+          "date": "Sun 11 Oct",
           "title": "Siena",
           "items": [
             "Into Siena (~35 min): Piazza del Campo, the Duomo, the contrade lanes — a city, but a glorious walkable one",
@@ -211,25 +414,25 @@ window.TRIP = {
           ]
         },
         {
-          "d": 5,
-          "date": "Wed 7 Oct",
-          "title": "Truffle villages & Buonconvento",
+          "d": 10,
+          "date": "Mon 12 Oct",
+          "title": "San Gimignano day-trip",
           "items": [
-            "The tiny Crete hilltops: Trequanda, Montisi, Castelmuzio, Petroio — Etruscan-quiet, almost empty",
-            "Buonconvento (little walled town, good market): produce, pecorino, new-harvest oil; white-truffle fairs if they're on",
-            "Last farmhouse dinner; pack for the move south"
+            "Out west (~1 h 15) to San Gimignano (park outside the walls): the towers, a Vernaccia, lunch",
+            "Monteriggioni on the way back if you're in no hurry — the circular walled castle-village",
+            "Last farmhouse dinner; pack for the move to the vineyard"
           ]
         }
       ]
     },
     {
       "key": "valdorcia",
-      "pin": 3,
+      "pin": 4,
       "emoji": "🍷",
       "name": "Val d'Orcia",
       "stay": "vineyard hotel (Podere Brizio)",
-      "nights": 5,
-      "dates": "Thu 8 – Tue 13 Oct",
+      "nights": 4,
+      "dates": "Tue 13 – Sat 17 Oct",
       "color": "#8e3b46",
       "coord": [
         43.0272,
@@ -243,7 +446,7 @@ window.TRIP = {
         },
         {
           "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0"
         }
       ],
       "highlights": [
@@ -327,30 +530,12 @@ window.TRIP = {
             11.7007
           ],
           "note": "quiet walled hilltop village"
-        },
-        {
-          "name": "Abbazia di San Galgano",
-          "type": "church",
-          "coord": [
-            43.1494,
-            11.1553
-          ],
-          "note": "roofless Gothic abbey + the sword in the stone (Montesiepi) — on the Day-11 drive to the coast"
-        },
-        {
-          "name": "Bagni di Petriolo",
-          "type": "thermal",
-          "coord": [
-            43.0803,
-            11.2995
-          ],
-          "note": "wild free hot springs in a river gorge — on the Day-11 drive to the coast"
         }
       ],
       "days": [
         {
-          "d": 6,
-          "date": "Thu 8 Oct",
+          "d": 11,
+          "date": "Tue 13 Oct",
           "title": "Crete Senesi → Val d'Orcia",
           "arrive": true,
           "items": [
@@ -364,18 +549,8 @@ window.TRIP = {
           }
         },
         {
-          "d": 7,
-          "date": "Fri 9 Oct",
-          "title": "Montalcino & Brunello",
-          "items": [
-            "Into Montalcino (~10 min): Fortezza, town enoteca for a Brunello flight, Museo Civico",
-            "Friday market: produce, cheese, new-harvest oil",
-            "Dinner in town (pinci, cinta senese)"
-          ]
-        },
-        {
-          "d": 8,
-          "date": "Sat 10 Oct",
+          "d": 12,
+          "date": "Wed 14 Oct",
           "title": "Pienza & the pecorino",
           "items": [
             "Pienza (~30 min): cheese shops, the \"ideal city\" streets, Piccolomini palace",
@@ -384,8 +559,8 @@ window.TRIP = {
           ]
         },
         {
-          "d": 9,
-          "date": "Sun 11 Oct",
+          "d": 13,
+          "date": "Thu 15 Oct",
           "title": "Montepulciano (Vino Nobile)",
           "items": [
             "Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi",
@@ -394,187 +569,14 @@ window.TRIP = {
           ]
         },
         {
-          "d": 10,
-          "date": "Mon 12 Oct",
-          "title": "Estate day + Sant'Antimo",
-          "items": [
-            "Nothing morning: pool, spa, the vineyard — this is the anchor, so actually enjoy it",
-            "Afternoon: the Romanesque Abbey of Sant'Antimo near Montalcino + the Bagni San Filippo white travertine springs (\"Fosso Bianco\")",
-            "Last Val d'Orcia dinner; buy/ship wine + oil; pack for the coast"
-          ]
-        }
-      ]
-    },
-    {
-      "key": "argentario",
-      "pin": 4,
-      "emoji": "🏖️",
-      "name": "Argentario / Maremma",
-      "stay": "coast hotel",
-      "nights": 4,
-      "dates": "Tue 13 – Sat 17 Oct",
-      "color": "#2f8f8a",
-      "coord": [
-        42.3924,
-        11.2064
-      ],
-      "carFree": false,
-      "book": [
-        {
-          "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-13&checkout=2026-10-17&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
-        },
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0"
-        }
-      ],
-      "highlights": [
-        {
-          "name": "Spiaggia della Feniglia",
-          "type": "beach",
-          "coord": [
-            42.408,
-            11.185
-          ],
-          "note": "pine-backed sandy beach + dune reserve"
-        },
-        {
-          "name": "Parco della Maremma",
-          "type": "nature",
-          "coord": [
-            42.6558,
-            11.1053
-          ],
-          "note": "wild coastal park, trails, cattle"
-        },
-        {
-          "name": "Orbetello lagoon",
-          "type": "nature",
-          "coord": [
-            42.451,
-            11.205
-          ],
-          "note": "WWF reserve, flamingos"
-        },
-        {
-          "name": "Cala del Gesso",
-          "type": "beach",
-          "coord": [
-            42.362,
-            11.132
-          ],
-          "note": "clear-water cove, footpath down"
-        },
-        {
-          "name": "Giardino dei Tarocchi",
-          "type": "art",
-          "coord": [
-            42.4028,
-            11.4308
-          ],
-          "note": "mosaic sculpture park (closes 15 Oct)"
-        },
-        {
-          "name": "Castiglione della Pescaia",
-          "type": "town",
-          "coord": [
-            42.762,
-            10.876
-          ],
-          "note": "medieval seaside town (coast drive home)"
-        },
-        {
-          "name": "Bolgheri",
-          "type": "wine",
-          "coord": [
-            43.2287,
-            10.6018
-          ],
-          "note": "cypress avenue + Super Tuscan wine (coast drive home)"
-        },
-        {
-          "name": "Porto Santo Stefano",
-          "type": "town",
-          "coord": [
-            42.4356,
-            11.1178
-          ],
-          "note": "harbour town, Spanish Fortress views"
-        },
-        {
-          "name": "Isola del Giglio",
-          "type": "beach",
-          "coord": [
-            42.363,
-            10.901
-          ],
-          "note": "island ferry day-trip"
-        },
-        {
-          "name": "Golfo di Baratti",
-          "type": "nature",
-          "coord": [
-            42.9959,
-            10.498
-          ],
-          "note": "Etruscan bay + Populonia (coast drive home)"
-        },
-        {
-          "name": "Massa Marittima",
-          "type": "town",
-          "coord": [
-            43.05,
-            10.888
-          ],
-          "note": "underrated medieval town in the Colline Metallifere (~1 h inland day-trip)"
-        }
-      ],
-      "days": [
-        {
-          "d": 11,
-          "date": "Tue 13 Oct",
-          "title": "Val d'Orcia → Argentario, through the wild interior",
-          "arrive": true,
-          "items": [
-            "Take the scenic inland route down and cut through the middle of the loop:",
-            "Abbazia di San Galgano: the roofless Gothic abbey open to the sky, + the sword in the stone up at the Montesiepi chapel (abbey ~€6, open ~09:00–19:00; the chapel is free)",
-            "Bagni di Petriolo: a soak in the wild free sulphur springs in the river gorge under the old bridge (no facilities — bring water shoes; skip it if you'd rather push on to the coast)",
-            "On down to Porto Ercole; check in, first beach evening, seafood in the harbour"
-          ],
-          "leg": {
-            "mode": "car",
-            "text": "Montalcino → San Galgano → Petriolo → Porto Ercole · ~3 h 25 driving + stops (a full scenic day)"
-          }
-        },
-        {
-          "d": 12,
-          "date": "Wed 14 Oct",
-          "title": "Feniglia beach + the Tarocchi (before it closes)",
-          "items": [
-            "Spiaggia della Feniglia: long pine-backed beach; walk or bike the Duna Feniglia reserve",
-            "Giardino dei Tarocchi at Capalbio (Niki de Saint Phalle's mosaic park) — season ENDS 15 Oct, afternoons only, so do it now",
-            "Aperitivo on the Argentario"
-          ]
-        },
-        {
-          "d": 13,
-          "date": "Thu 15 Oct",
-          "title": "Parco della Maremma",
-          "items": [
-            "Parco della Maremma (Alberese): coastal trails to the towers and the wild beach, Maremmana cattle",
-            "Lagoon seafood and Orbetello bottarga for dinner"
-          ]
-        },
-        {
           "d": 14,
           "date": "Fri 16 Oct",
-          "title": "Boat, coves, or the lagoon",
+          "title": "Montalcino, market day + Sant'Antimo",
           "items": [
-            "Boat around the Argentario coves, or the footpath down to Cala del Gesso",
-            "OR Orbetello lagoon WWF reserve (flamingos) + the Spanish Fortress viewpoint at Porto Santo Stefano",
-            "OR go inland (~1 h) to Massa Marittima: an underrated medieval town in the Colline Metallifere, dramatic cathedral, few tourists",
-            "Last Maremma swim; pack (drive back to Florence tomorrow)"
+            "Slow estate morning: pool, spa, the vineyard",
+            "Into Montalcino (~10 min): the Friday market (produce, cheese, new-harvest oil), Fortezza, town enoteca for a Brunello flight",
+            "Afternoon: the Romanesque Abbey of Sant'Antimo + the Bagni San Filippo white travertine springs (\"Fosso Bianco\")",
+            "Last countryside dinner; buy/ship wine + oil TODAY (you fly at dawn on Sunday); pack"
           ]
         }
       ]
@@ -584,8 +586,8 @@ window.TRIP = {
       "pin": 5,
       "emoji": "🛍️",
       "name": "Florence",
-      "stay": "shopping",
-      "nights": 1,
+      "stay": "shopping day, no hotel",
+      "nights": 0,
       "dates": "Sat 17 Oct",
       "color": "#7a6b9c",
       "coord": [
@@ -593,12 +595,7 @@ window.TRIP = {
         11.2558
       ],
       "carFree": false,
-      "book": [
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Florence%2C+Italy&checkin=2026-10-17&checkout=2026-10-18&group_adults=2&no_rooms=1&group_children=0"
-        }
-      ],
+      "book": [],
       "highlights": [
         {
           "name": "Ponte Vecchio",
@@ -659,17 +656,17 @@ window.TRIP = {
         {
           "d": 15,
           "date": "Sat 17 Oct",
-          "title": "Coast road back to Florence, drop the car",
-          "arrive": true,
+          "title": "Montalcino → Florence, shopping, night run to Malpensa",
           "items": [
-            "Take the scenic way home: up the SS1 Aurelia along the Maremma & Etruscan coast, not the motorway",
-            "Stop at Castiglione della Pescaia (medieval seaside town), then Bolgheri — the cypress avenue (Viale dei Cipressi) and a Super Tuscan tasting (Sassicaia / Ornellaia country)",
-            "On to Florence (~2 h from Bolgheri); drop the rental (round-trip, no one-way fee)",
-            "Check in near the centre; evening passeggiata, Ponte Vecchio, a last big dinner"
+            "Leave after breakfast (~1 h 50 to Florence); drop the rental at Firenze SMN (round-trip, no one-way fee); leave the bags at the station deposit",
+            "Shopping: San Lorenzo Market + the leather quarter, Ponte Vecchio goldsmiths, Oltrarno artisans",
+            "Evening passeggiata + an early last big dinner",
+            "Frecciarossa Firenze SMN → Milano Centrale (~20:30–21:30 departure, ~2 h)",
+            "Late Malpensa Express / night bus Milano Centrale → MXP; NO hotel — overnight in the terminal"
           ],
           "leg": {
             "mode": "car",
-            "text": "Porto Ercole → Florence via the coast · ~3 h 15 driving + stops (vs ~2 h 30 inland)"
+            "text": "Montalcino → Florence · ~1 h 50 / 110 km (then the evening train north)"
           }
         }
       ]
@@ -691,16 +688,11 @@ window.TRIP = {
         {
           "d": 16,
           "date": "Sun 18 Oct",
-          "title": "Florence → Malpensa, fly home",
+          "title": "Fly home at dawn",
           "items": [
-            "Frecciarossa Firenze SMN → Milano Centrale (~2 h); leave by ~09:30 to be safe",
-            "Malpensa Express Milano Centrale → MXP (~50 min); Wizz Air departs Terminal 2",
-            "16:00 MXP → 18:20 KEF; be at the terminal by ~13:30"
-          ],
-          "leg": {
-            "mode": "train",
-            "text": "Florence → Malpensa · ~3 h 15 door-to-door by train"
-          }
+            "07:00 MXP → KEF; you're already at the terminal — bag drop by ~05:30",
+            "Land in Reykjavik with the whole day ahead"
+          ]
         }
       ]
     }
