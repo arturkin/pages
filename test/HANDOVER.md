@@ -1,6 +1,6 @@
 # Handover — Iceland driving theory: PDFs → text edition → study app
 
-State as of 2026-08-06, end of the **fourth** working session. `README.md` documents the
+State as of 2026-08-06, end of the **fifth** working session. `README.md` documents the
 transcription pipeline, `app/README.md` the study app, and **`FIXES.md` is the ranked
 worklist** — it carries every open item with its severity, measured evidence, the files
 it touches, and the check that says it is done. This file is the status and the
@@ -18,10 +18,10 @@ before you change that — there is a leak to avoid.
 | Documents transcribed | 9 (`Ch. 1–2`, `Ch. 3`–`Ch. 8`, `Appendix`, `umferdarmerki_enska`) |
 | Book pages | 188, mean OCR confidence 97.5% |
 | Word accuracy | 96.6–99.4% chapters, 94.6% sign sheet |
-| Study cards | **775** — 247 authored MCQ, 6 cloze, 522 sign |
+| Study cards | **767** — 247 authored MCQ, 6 cloze, 514 sign, 27 exclusions |
 | Dataset | 91 sections · 1,938 chunks · 357 signs |
 | `npm run test:e2e` | **197 green** |
-| `npm run test:app` | **97 green** |
+| `npm run test:app` | **99 green** (was 97 — two regression tests added) |
 | `npm run cards -- --strict` | exit 0 |
 | `npm run typecheck` | clean |
 
@@ -285,6 +285,120 @@ threshold or constant was lowered anywhere across stages 1–3.
   mechanism, unrelated to Stage 3.
 - The flaky `test:app` check (Traps below) remains unfixed.
 
+## What landed this session — first real use of the product, a published FALSE fixed at the mechanism, sign/app/design fixes
+
+**The project was used and read for the first time.** Four independent passes: the
+app driven in a real browser (60+ cards, mock exam, both themes, 390px), 121 sign
+images opened visually, chapter 6 read page-by-page against the scan photographs,
+and 54 authored questions reviewed. **All 197+97 checks were green throughout, and
+that did not mean the product was good** — every defect below was invisible to the
+suites.
+
+**A published FALSE, found by reading, fixed at the mechanism.** Book p.96 published
+"Cars that have transmissions should only be towed…", dropping "automatic" and
+widening a rule about automatics into a restriction on all towing. Card `ch-6-a-03`
+was correctly worded from the fact (per the authoring contract) — only the edition
+was wrong. Root cause: the towing callout box was mis-detected as a photo region,
+and `pageBody()`'s `insidePicture()` guard drops lines that are both ≤14 chars and
+inside a figure's core bounds; every other line of the callout was longer and
+survived, so only the 9-character word "automatic" was swallowed. Vision had read it
+at conf 1.0 all along — this was never an OCR defect. Fix in `pipeline/src/layout.ts`:
+`rawInsidePicture` + a new `isSandwichedProse()` — measured, of the 548 lines
+`insidePicture` drops corpus-wide, 34 have surviving same-column prose neighbours
+above **and** below (Δx<0.03, Δy<0.03); 33 are unambiguous sentence completions and
+the 34th is a licence-specimen fragment at conf 0.30, excluded by a `conf >= 0.4`
+floor. **Not a regression from the OCR stages** — the defect reads identically in all
+three archived stage baselines. Blast radius: paragraphs correctly merged on 7 other
+pages, 5 citations re-pointed and repaired (`ch-1-2-a-07`, `ch-4-b-06`, `ch-4-c-08`,
+`ch-5-b-08`, `ch-6-a-03`). Collateral: on `Ch. 5-p007b` restoring two rescued words
+shifted that column's statistics and fragmented a nearby paragraph further —
+pre-existing C5 `paragraphize` fragility, triggered, not introduced, nothing false.
+
+**Five sign crops shipped wrong images for their labels** (found by opening them):
+`10full:xa3ofy` (illegible photographic noise), `8full:5ucr98-2` (five black dots, no
+person icon, shipped as "Caution - blind people"), `4full:v2px8m`/`bgtx5p-2` (lorry
+turning-space pair with left/right labels **swapped**), `3full:1puizi3-2` (lane-group
+heading on a direction arrow), `4full:bgtx5p` (catalogue only). All excluded, 10
+cards lost. Diagnostic pattern worth recording: in 3 of 5, one sibling was already
+excluded and an identical-defect sibling had been missed — **a mechanical exclusion
+rule plus a `reason` field that only describes the image lets a good sign sit out,
+or a bad one ship, unnoticed.** A sibling sweep of all 121 sign images plus 8
+directional pairs (verified by pixel-diffing: true mirrors diff 4–17, cross-pairings
+30+) found no further mismatches.
+
+**Over-exclusion found in the other direction.** `"Give-Way line` had been excluded
+as `GARBLED_LABEL` for a stray quote, with nothing else in the deck covering
+give-way lines. Read at 6×, the page prints `"Give-Way" line` — quotes on both sides;
+OCR dropped the closing one. **Recovered** as `Give-Way line` (+2 cards, 765→767).
+Fidelity tradeoff recorded honestly: `CLEAN_LABEL`'s charset excludes `"`
+project-wide (measured and rejected in an earlier session), so the shipped label is
+not verbatim — diverging from the `Bus-stop` precedent, where the printed hyphen was
+kept. Verbatim was unreachable here. Two stayed out with real justifications:
+`Unbroken dividing ine` (confirmed as "dividing line", but visually indistinguishable
+at card size from in-deck `p010full-s002` and a mutual distractor — retyped
+`AMBIGUOUS_PAIR`); `Orgamized street running` (re-read at magnification — the book
+really prints it, the source's own typo, so `GARBLED_LABEL` was the wrong exclusion
+type; retyped `SOURCE_TYPO`, kept out because a non-word as the sole correct answer
+among clean distractors reads as an app bug). Also: 10 exclusion `reason` fields
+rewritten to justify rather than describe, 2 `GARBLED_LABEL`→`WRONG_LABEL`, 1
+→`BAD_CROP`, 2 truncated reason strings repaired.
+
+**A landmine defused.** `sign-label-corrections.json`'s RECOVERY note for
+`p003full-s017` instructed a future maintainer to delete that sign's exclusion — the
+exact sign re-excluded above. Now prefixed "SUPERSEDED 2026-08-06 — DO NOT ACT ON THE
+RECOVERY BELOW" with the reasoning; original note preserved; this file and
+`sign-exclusions.json` deliberately disagree, same convention as `p010full-s007`.
+
+**App bugs fixed** (`app/js/`): (a) **the "one direction per sign per session"
+promise was broken** — `viewSigns()`'s per-category buttons called
+`Engine.shuffled(list).slice(0,20)` and bypassed `oneDirectionPerSign` entirely; only
+the "Mixed signs" entry point honoured it, so both directions of a sign were
+routinely served in one sitting. (b) **"Seen" tile over-reported** — now
+`Engine.seenCount(cards, sched)` counts only ids in the live deck; nothing is deleted
+from storage since a retired card can return. Two regression tests added (97→99),
+each confirmed to fail against the pre-fix code. (c) A third reported bug —
+distractors not drawn from a sign's own category — was **measured and refuted**:
+99.48% of distractor slots are already same-category across 1,536 slots; the only
+leakage is "Police hand signals" (2 signs, cannot fill 3 distractors). What was
+actually observed was repetition *within* a category. Recorded as refuted so it is
+not re-"fixed".
+
+**Design pass.** Merriweather self-hosted (400/700/italic, ~304KB static files —
+the variable family's name table reports every instance as "Light 18pt", so static
+was the correct choice), paired with the existing system stack for chrome: read vs
+operated. Measured contrast: dark 14.42:1 body, light 13.99:1, tightest pair 4.61:1
+(above the 4.5:1 AA floor), accent 9.67:1. Added an Icelandic-hazard-sign due chip
+and a lightbox for sign images (road-marking diagrams were illegible at card size).
+Fonts wired through `pipeline/src/build-html.ts` → `pipeline/assets/fonts/` so they
+survive a rebuild. Four briefed problems (sign-grid reflow, tabular numerals,
+keyboard access, reduced-motion) were found **already solved** and verified rather
+than fixed. One flex bug caught after: `.duechip`'s `gap` did not apply between two
+adjacent bare text nodes, which collapse into a single anonymous flex item — the
+glyph now has its own element.
+
+**Still open, newly recorded this session:**
+- `ch-7-a-21` cites a table-header fragment; the real text is in uncited
+  `ch-7:6a:1v9m2dq`. Not fixed — `cards --strict` only fails when a cited chunk
+  *vanishes*, so a card citing an existing-but-wrong chunk is invisible to it.
+- `ch-6-b-05`'s explanation asserts a fact from an adjacent uncited chunk. Not fixed.
+- Duplicate pair `ch-1-2-a-11` / `ch-5-a-17` (same trailer-towing rule). Not fixed.
+- **Sheep and reindeer remain at zero cards; the record is corrected.** "Crosswind"
+  is a **book** gap, not a deck gap — the word appears nowhere in the source. The
+  sheep passage sits in `ch-4:17b:10uptcl`, already cited twice for other facts.
+- Missing figures on ch-6 pp.98, 106, 111 — whole diagrams absent, captions surviving
+  as orphaned text. p.106's reversed tread labels (see "Known imperfections") cannot
+  assert anything backwards *because* the diagrams that would label them are absent.
+- 43 `ok`-graded figures in `figures.json` have no file in `site/figures/`; unexplained.
+- The 4 figures that vanished during the OCR stages were never identified — no
+  pre-session `figures.json` was archived, and the only baseline predates a filename
+  convention change.
+- Local `file://` localStorage in the dev browser now contains agent-generated study
+  history and mock-exam results.
+
+Suites re-verified at the end of this session: `test:e2e` 197/197, `test:app`
+99/99, `cards -- --strict` exit 0 (767 cards — 247 MCQ / 6 cloze / 514 sign / 27
+exclusions), `typecheck` clean.
+
 ## Where to pick up
 
 `FIXES.md` is the authority and is current. **The OCR-omission sweep (C6/C10/C11) is
@@ -311,6 +425,14 @@ below and is now closed, so the small items it displaced move up. **In the order
    ch-5 p.86 and ch-6 p.101 eyeballed first. `C5-r4` is a one-line sort in `proseBlocks`
    whose blast radius is corpus-wide. **`C5-r2` and `C5-r3` are closed as measured and
    rejected — do not retry them**; see "measured and rejected" below.
+
+**New, open items from the validation-pass session, not yet ranked into the list
+above, all recorded in "What landed this session — first real use of the product"
+above:** `ch-7-a-21` cites a table-header fragment instead of `ch-7:6a:1v9m2dq`;
+`ch-6-b-05`'s explanation borrows a fact from an uncited neighbour; duplicate pair
+`ch-1-2-a-11`/`ch-5-a-17`; missing figures on ch-6 pp.98, 106, 111; 43 orphaned
+`figures.json` entries with no file in `site/figures/`. None teaches something
+false — see the session section for why each is deferred rather than fixed.
 
 **New, open items the OCR-omission sweep leaves behind — not yet ranked into the
 list above, all recorded in "What landed this session — the OCR Stage 3 fix round"
@@ -377,6 +499,11 @@ Every one of these was tried, measured, and turned down. The measurements are in
 - **B7's group-wise `shared` filter** would drop 28 signs currently in the deck.
 - **Auto-correcting OCR text.** 166 proposed single-edit fixes led with
   `braking → broking`, `called → celled`, `parties → panties`.
+- **"Distractors aren't drawn from a sign's own category."** Measured across 1,536
+  distractor slots: 99.48% are already same-category; the only leakage is "Police
+  hand signals" (2 signs, cannot fill 3 distractors on its own). The reported
+  symptom was repetition *within* a category, not cross-category leakage. Refuted —
+  do not re-fix.
 - **OCR-omission Stage 1's ungated variant.** An ungated prefix-superset rule in
   `better()`, and a bare tail-length threshold with no alnum gate, were both measured
   against the corpus and rejected in favour of the shipped `hasAlnum`-gated rule.
@@ -435,7 +562,24 @@ session:
    and passed on immediate rerun — random question selection timing. A flaky check in this
    suite is a defect in its own right and needs its own fix; do not dismiss a red run as
    flake without rerunning and reading which check actually failed.
-10. **Stage 2's best-first tie-break is a second, distinct, still-open mechanism.** On a
+10. **Green suites do not mean a good product.** All 197 e2e + 97 app checks stayed
+    green through a session that found a published FALSE, five wrong sign images, an
+    over-exclusion, and two app bugs — none of it visible to any assertion in place.
+    Suites prove regressions didn't happen; they do not prove the thing is right.
+    Reading and driving the product is a distinct, still-necessary step.
+11. **A mechanical exclusion rule plus a `reason` field that only describes the
+    image, rather than justifying the exclusion, lets a good sign sit out for a
+    stray glyph unnoticed — and its inverse lets a bad sign ship unnoticed.** In 3 of
+    5 wrong-image signs found this session, an identical-defect sibling on the same
+    sheet had already been excluded and the twin was missed; a sibling sweep is
+    required whenever one sign on a row is found bad.
+12. **A stale "delete this exclusion" note in a corrections file can point straight
+    at a sign that gets legitimately re-excluded later.** `sign-label-corrections.json`
+    told a future maintainer to restore `p003full-s017`; it was re-excluded this
+    session for a real defect. Superseded notes must be struck through with the
+    reason left in place, not deleted — the two files are allowed to disagree, on
+    record, same as `p010full-s007`.
+13. **Stage 2's best-first tie-break is a second, distinct, still-open mechanism.** On a
     handful of pages a geometrically-higher-scoring but lower-confidence/garbled candidate
     wins a 1:1 slot, leaving a stray duplicate or dropping a garbled fragment
     (`Ch. 6-p010b`, `Ch. 7-p002b`). Not introduced by the fusion extension above, not part
@@ -477,6 +621,17 @@ session:
   extraction, not OCR. Do not silently revisit this.
 - The emergency number rendered `1 -2 – 2` on ch-8 p.141 is **the book's own typo**,
   faithfully reproduced.
+- **`Unbroken dividing ine`** — the caption confirms "dividing line", but the crop is
+  visually indistinguishable at card size from in-deck `p010full-s002`, and the two
+  are mutual distractors. Kept out, retyped `AMBIGUOUS_PAIR` (was `GARBLED_LABEL`).
+- **`Orgamized street running`** — re-read at magnification, the page really prints
+  it; the source's own typo, not an OCR defect, retyped `SOURCE_TYPO`. Kept out
+  because a non-word as the sole correct answer among clean distractors reads as an
+  app bug, and the app has no "as printed" affordance.
+- **`"Give-Way line`** is shipped without its opening quote (`CLEAN_LABEL`'s charset
+  excludes `"` project-wide) — the one sign in the deck whose label is not verbatim
+  the page, unlike the `Bus-stop` precedent which kept its printed hyphen. Verbatim
+  was unreachable here; recorded rather than silently accepted.
 
 ## Where the evidence lives
 

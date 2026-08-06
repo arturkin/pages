@@ -69,6 +69,19 @@ function dueCards(cards, sched, now = Date.now()) {
 }
 
 /**
+ * How many *live* cards have a schedule entry.
+ *
+ * `sched` accumulates one record per card ever answered and never prunes a
+ * retired id, so `Object.keys(sched).length` counts signs and questions that
+ * left the deck — a returning student's "Seen" tile only grows. Walking the
+ * live deck instead means a retired id simply stops being counted, with
+ * nothing deleted from storage (it can legitimately come back).
+ */
+function seenCount(cards, sched) {
+  return cards.reduce((n, c) => n + (sched[c.id] ? 1 : 0), 0);
+}
+
+/**
  * Both directions of one sign are separate cards sharing an image and an answer
  * phrase. Asking both in the same sitting makes the second one free — its answer
  * was just printed on screen — so a session takes at most one direction per sign.
@@ -155,4 +168,4 @@ function stats(log) {
   return { byTopic, byDoc };
 }
 
-window.Engine = { EXAM, dueCards, weighted, examSet, errorRates, stats, shuffled, mulberry32, oneDirectionPerSign };
+window.Engine = { EXAM, dueCards, seenCount, weighted, examSet, errorRates, stats, shuffled, mulberry32, oneDirectionPerSign };

@@ -458,9 +458,17 @@ function validate(p) {
   return null;
 }
 
-/** What replacing the current state would cost, for the confirmation prompt. */
-function summary() {
-  return { answers: state.log.length, exams: state.exams.length, cards: Object.keys(state.sched).length };
+/**
+ * What replacing the current state would cost, for the confirmation prompt.
+ *
+ * `liveIds`, when given, restricts `cards` to schedule entries for cards still
+ * in the deck — `Object.keys(state.sched).length` alone counts retired ids
+ * forever, the same over-count the "Seen" tile had.
+ */
+function summary(liveIds) {
+  const ids = Object.keys(state.sched);
+  const cards = liveIds ? ids.filter((id) => liveIds.has(id)).length : ids.length;
+  return { answers: state.log.length, exams: state.exams.length, cards };
 }
 
 /**

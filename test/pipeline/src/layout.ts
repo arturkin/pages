@@ -1097,7 +1097,7 @@ export function pageBody(
   // caption apart ("Path for pedestrians and bicycle riders" / "11%" / "only.").
   // Only the region's core counts, so a crop that overshoots slightly cannot
   // swallow neighbouring text.
-  const insidePicture = (l: OcrLine) => {
+  const rawInsidePicture = (l: OcrLine) => {
     // Restricted to short or unconfident fragments — the legends and speckle that
     // live inside artwork. A crop that overshoots into a real caption would
     // otherwise cost the picture its label.
@@ -1109,6 +1109,30 @@ export function pageBody(
         && cy > f.y + f.h * 0.15 && cy < f.y + f.h * 0.82;
     });
   };
+  // A callout box can itself get cropped as a "figure" (ch-6 p.96's towing
+  // sidebar), and a single short word inside it then reads as picture speckle
+  // and vanishes — dropping "automatic" from "Cars that have automatic
+  // transmissions should only be towed...", which silently widened a rule
+  // about automatic-transmission cars into one about all towing.
+  // Measured over all 548 lines the raw check above drops corpus-wide: a line
+  // whose nearest same-column (|Δx| < 0.03) neighbours above and below both
+  // survive, within Δy < 0.03 of it, is mid-sentence — 34 lines qualify, and
+  // 33 of them complete a sentence straddled by two lines of running prose
+  // ("driving.", "the car.", "participants.", this "automatic"). The one
+  // exception is a driving-licence specimen photo's fragment at conf 0.30
+  // ("1 Höskuldsdötir"), which a conf ≥ 0.4 floor excludes while keeping the
+  // other 33 — the two confidence buckets these OCR merges actually produce
+  // below 1.0 are 0.30 and 0.50, so 0.4 sits cleanly between them.
+  const isSandwichedProse = (l: OcrLine): boolean => {
+    if (l.conf < 0.4) return false;
+    const sameCol = page.lines.filter((o) => o !== l && !isNoise(o) && Math.abs(o.x - l.x) < 0.03);
+    const above = sameCol.filter((o) => o.y < l.y).sort((a, b) => b.y - a.y)[0];
+    const below = sameCol.filter((o) => o.y > l.y).sort((a, b) => a.y - b.y)[0];
+    if (!above || !below) return false;
+    return l.y - above.y < 0.03 && below.y - l.y < 0.03
+      && !rawInsidePicture(above) && !rawInsidePicture(below);
+  };
+  const insidePicture = (l: OcrLine) => rawInsidePicture(l) && !isSandwichedProse(l);
   const all = page.lines.filter((l) => !isNoise(l) && !insidePicture(l));
 
   // Pull page furniture out before layout analysis.

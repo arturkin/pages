@@ -639,6 +639,42 @@ async function run() {
     await ctx.close();
   }
 
+  // The per-category sign buttons on the Signs screen used to hand the whole
+  // category straight to shuffled().slice(20) with no direction exclusion at
+  // all — only the "Mixed signs" button went through weighted(), which does
+  // exclude. "Police hand signals" is the smallest category (2 signs, 4
+  // cards), so a real session there reliably surfaces both directions of both
+  // signs if the exclusion is missing.
+  {
+    const { ctx, page } = await open(browser, base, 390, 844);
+    await page.locator('nav.tabs button[data-view="signs"]').click();
+    await page.locator('button:has-text("Police hand signals")').click();
+    const sources = await page.evaluate(() =>
+      (window as any).UI.session().cards.map((c: any) => c.source));
+    check('a category signs session never asks the same sign both ways',
+      new Set(sources).size === sources.length, sources.join(', '));
+    await ctx.close();
+  }
+
+  // The "Seen" tile used to be Object.keys(sched).length, with no check that
+  // the id was still in the deck — a retired card (a sign dropped by a new
+  // exclusion, say) inflated the count forever.
+  {
+    const { ctx, page } = await open(browser, base, 390, 844);
+    const before = await page.evaluate(() => {
+      const S = (window as any).Store;
+      const rec = { last: Date.now(), reviews: 1, interval: 1, ease: 2.5, due: Date.now() + 86_400_000, lapses: 0 };
+      S.setSchedule((window as any).CARDS.cards[0].id, rec);
+      S.setSchedule('retired-card-id-not-in-the-live-deck', rec);
+      (window as any).UI.route('home');
+      return Object.keys(S.get().sched).length;
+    });
+    const seenText = (await page.locator('.tile:has(.k:text-is("Seen")) .n').textContent())?.trim();
+    check('the "Seen" tile does not count schedule entries for retired cards',
+      seenText === '1', `${before} schedule entries, tile shows "${seenText}"`);
+    await ctx.close();
+  }
+
   // ── 5. Opened straight from disk ──────────────────────────────────────────
   // The app is meant to work without a server, which is a different origin
   // model: no fetch(), and storage on an opaque origin. Everything above ran

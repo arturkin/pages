@@ -359,7 +359,7 @@ function viewHome() {
   const st = window.Store.get();
   const now = Date.now();
   const due = window.Engine.dueCards(DATA.cards, st.sched, now);
-  const seen = Object.keys(st.sched).length;
+  const seen = window.Engine.seenCount(DATA.cards, st.sched);
   const today = st.log.filter((e) => e.at > now - 86_400_000);
   const lastExam = st.exams[st.exams.length - 1];
 
@@ -372,6 +372,11 @@ function viewHome() {
   return [
     el('h1', {}, 'Today'),
     resumeCard(),
+    relearn
+      ? el('div', { class: 'duechip warn' }, '⚠', el('span', { class: 'n' }, String(relearn)), ' due for review')
+      // the glyph needs its own element: adjacent bare text nodes collapse into one
+      // anonymous flex item, so the chip's `gap` would not apply between them
+      : el('div', { class: 'duechip calm' }, el('span', { class: 'g' }, '✓'), fresh ? `${fresh} new, nothing overdue` : 'all caught up'),
     el('p', { class: 'lede' }, relearn
       ? `${relearn} card${relearn === 1 ? '' : 's'} due for review.`
       : fresh
@@ -435,7 +440,7 @@ function viewSigns() {
         el('span', { class: 'ic' }, '⬗'),
         el('span', {}, el('span', { class: 't' }, 'Mixed signs'), el('span', { class: 's' }, 'both directions, 20 cards'))),
       ...[...byCat.entries()].sort((a, b) => b[1].length - a[1].length).map(([cat, list]) =>
-        el('button', { onclick: () => startSession('signs', window.Engine.shuffled(list).slice(0, 20)) },
+        el('button', { onclick: () => startSession('signs', window.Engine.oneDirectionPerSign(window.Engine.shuffled(list)).slice(0, 20)) },
           el('span', { class: 'ic' }, '◇'),
           el('span', {}, el('span', { class: 't' }, cat),
             el('span', { class: 's' }, `${Math.min(20, list.length)} of ${list.length} cards · ${list.length / 2} signs, both directions`)))),
@@ -468,7 +473,7 @@ function questionBody(card, cur, locked) {
   ));
 
   if (card.type === 'sign-to-meaning') {
-    nodes.push(el('div', { class: 'signbox' }, el('img', { src: card.img, alt: 'Road sign' })));
+    nodes.push(signbox(card.img, 'Road sign'));
   }
 
   if (card.type === 'cloze') {
@@ -575,7 +580,7 @@ function missedCard(card, unanswered) {
     el('p', { class: 'qtext' }, card.type === 'cloze' ? card.text : card.question),
     unanswered ? el('p', { class: 'note' }, 'Not answered — you ran out of time.') : null,
     el('div', { class: 'feedback right' },
-      isSign ? el('div', { class: 'signbox' }, el('img', { src: card.img, alt: answerText })) : null,
+      isSign ? signbox(card.img, answerText) : null,
       el('div', { class: 'verdict' }, answerText),
       // For meaning-to-sign the generated explanation just repeats the stem.
       card.explanation && !card.question.includes(answerText)
@@ -699,7 +704,7 @@ function importProgress() {
   input.addEventListener('change', async () => {
     const file = input.files?.[0];
     if (!file) return;
-    const had = window.Store.summary();
+    const had = window.Store.summary(new Set(DATA.cards.map((c) => c.id)));
     try {
       const text = await file.text();
       // Say what is about to be lost. The import used to overwrite first and
@@ -770,6 +775,27 @@ function resetProgress() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Routing and shell
+
+/**
+ * Full-size look at a sign/marking crop. Road-marking scans especially are
+ * low-contrast grey-on-grey at question size, so a plain image, not a
+ * decorative button, is the fix — this just makes the existing crop bigger.
+ */
+let lightboxEl = null;
+function openLightbox(src, alt) {
+  if (!lightboxEl) return;
+  $('img', lightboxEl).src = src;
+  $('img', lightboxEl).alt = alt;
+  lightboxEl.hidden = false;
+}
+function closeLightbox() { if (lightboxEl) lightboxEl.hidden = true; }
+/** A signbox is a zoom trigger wherever the crop can be hard to read at question size. */
+function signbox(src, alt) {
+  return el('div', { class: 'signbox' },
+    el('button', { type: 'button', 'aria-label': `Enlarge: ${alt}`, onclick: () => openLightbox(src, alt) },
+      el('img', { src, alt })),
+    el('span', { class: 'zoomhint' }, '🔍 Tap to enlarge'));
+}
 
 let current = 'home';
 const TABS = [
@@ -854,6 +880,12 @@ function boot(data) {
   toggle.addEventListener('click', () =>
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
   setTheme(window.Store.get().settings.theme || 'dark');
+
+  // Outside #view, like #notices, so it survives every re-render and a running
+  // exam's countdown never rebuilds it out from under an open lightbox.
+  lightboxEl = el('button', { type: 'button', class: 'lightbox', 'aria-label': 'Close enlarged image', hidden: true, onclick: closeLightbox },
+    el('img', { src: '', alt: '' }));
+  document.body.appendChild(lightboxEl);
   probeBook();
 
   // Another tab wrote, or a save started failing. Repainting mid-question would
@@ -866,6 +898,7 @@ function boot(data) {
 
   // Answer with the keyboard: A–D pick an option, Enter moves on.
   document.addEventListener('keydown', (ev) => {
+    if (lightboxEl && !lightboxEl.hidden) { if (ev.key === 'Escape') closeLightbox(); return; }
     if (!session || session.done || ev.metaKey || ev.ctrlKey) return;
     if (document.activeElement?.id === 'cloze-input') return;
     const k = ev.key.toUpperCase();

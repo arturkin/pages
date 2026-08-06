@@ -40,6 +40,12 @@
 
   /* Sign crops are printed on white; a plate keeps them from floating. */
   --plate: #f7f5f1;
+
+  /* Icelandic road-hazard yellow/black — spent in exactly one place, the
+     due-count chip, so it reads as a warning sign rather than a repaint.
+     14.1:1 against --caution, nowhere near the surfaces it never touches. */
+  --caution: #f2c230;
+  --caution-fg: #14110d;
 }
 
 :root[data-theme='light'] {
@@ -67,12 +73,44 @@
   --shadow-2: 0 1px 2px rgba(60, 48, 28, 0.09), 0 10px 24px -14px rgba(60, 48, 28, 0.3);
 
   --plate: #ffffff;
+
+  /* Same sign colour, slightly deep so it doesn't glare on paper. Text stays
+     the near-black --caution-fg: 13.2:1. */
+  --caution: #d9a316;
+  --caution-fg: #14110d;
+}
+
+/* Merriweather, self-hosted: three static weights/styles (not the variable
+   family — the variable file's own name table reports "Light 18pt" at every
+   instance, which would fool nothing but is one more reason to pin statics).
+   font-display: swap so first paint never blocks on the network — there is
+   none, on file://, but a cold disk cache is the same problem. */
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal; font-weight: 400;
+  src: url("fonts/merriweather-regular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal; font-weight: 700;
+  src: url("fonts/merriweather-bold.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic; font-weight: 400;
+  src: url("fonts/merriweather-italic.woff2") format("woff2");
+  font-display: swap;
 }
 
 :root {
-  /* One reading face, one UI face, one for figures that must not jitter. */
-  --font-read: "New York", "Iowan Old Style", Charter, "Charter BT", Palatino,
-               "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  /* One reading face, one UI face, one for figures that must not jitter.
+     Merriweather carries anything meant to be *read* — question stems,
+     explanations, the "Today" heading; UI chrome (nav, buttons, meta pills)
+     stays on the system-ui stack deliberately, since it's operated, not read. */
+  --font-read: "Merriweather", "Iowan Old Style", Charter, "Charter BT",
+               Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Avenir Next",
              Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-num: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
@@ -183,8 +221,11 @@ nav.tabs button[aria-current='page'] { color: var(--accent); font-weight: 650; }
 /* ── Blocks ─────────────────────────────────────────────────────────────── */
 
 h1 {
-  font-family: var(--font-read); font-weight: 600;
+  /* 700, not 600: Merriweather only ships regular and bold, and the nearest-
+     match a browser picks for an absent weight is not guaranteed across engines. */
+  font-family: var(--font-read); font-weight: 700;
   font-size: 1.55rem; line-height: 1.2; letter-spacing: -0.01em;
+  text-wrap: balance;
   margin: var(--sp-5) 0 var(--sp-2);
 }
 h2 {
@@ -217,6 +258,21 @@ p.lede {
 }
 .tile .k { font-size: 0.64rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
 
+/* The "what do I do next" signal: a due count in words is still just a number
+   until it looks like the thing it means. Caution-yellow/black borrows the
+   Icelandic road-hazard sign directly — the one place this page spends it —
+   so "cards are waiting" reads as a warning glance, not a label to parse.
+   Zero due is the calm state, so it drops the colour rather than inverting it. */
+.duechip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-ui); font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 0.02em; padding: 0.3rem 0.7rem 0.3rem 0.55rem;
+  border-radius: var(--r-sm); margin-bottom: var(--sp-3);
+}
+.duechip .n { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 0.95rem; }
+.duechip.warn { background: var(--caution); color: var(--caution-fg); box-shadow: var(--shadow-1); }
+.duechip.calm { background: var(--surface-2); color: var(--muted); border: 1px solid var(--rule); }
+
 .actions { display: grid; gap: var(--sp-2); }
 .actions button { padding: 0.85rem var(--sp-4); text-align: left; display: flex; align-items: center; gap: 0.8rem; border-radius: var(--r-md); }
 .actions .ic { font-size: 1.25rem; flex: none; opacity: 0.9; }
@@ -236,13 +292,39 @@ p.lede {
   line-height: 1.5; letter-spacing: 0; margin: 0 0 var(--sp-4);
   max-width: var(--measure); text-wrap: pretty;
 }
-.qtext .blank { color: var(--accent); font-weight: 600; letter-spacing: 0.05em; margin: 0 0.15em; }
+.qtext .blank { color: var(--accent); font-weight: 700; letter-spacing: 0.05em; margin: 0 0.15em; }
 
 .signbox { text-align: center; margin: 0 0 var(--sp-4); }
+.signbox button {
+  background: none; border: 0; padding: 0; box-shadow: none; cursor: zoom-in;
+}
 .signbox img {
-  max-height: 11rem; max-width: 100%;
+  max-height: 13rem; max-width: 100%;
   background: var(--plate); border: 1px solid var(--rule);
   border-radius: var(--r-md); padding: 0.5rem;
+}
+/* Road-marking scans are low-contrast grey-on-grey at this size — the zoom
+   affordance matters most exactly there, so it is a permanent label, not a
+   hover-only hint a touch screen would never see. */
+.signbox .zoomhint {
+  display: block; margin-top: 0.35rem; font-family: var(--font-ui);
+  font-size: 0.72rem; font-weight: 600; color: var(--muted);
+}
+
+/* Full-size look at the sign/marking crop this question is about. */
+.lightbox {
+  position: fixed; inset: 0; z-index: 30;
+  background: color-mix(in srgb, var(--bg) 80%, black);
+  display: grid; place-items: center; padding: var(--sp-5);
+  border: 0; cursor: zoom-out;
+}
+/* Same trap as nav.tabs[hidden]: a class rule with `display` outranks the
+   UA's [hidden] default, so hiding it back has to be said explicitly. */
+.lightbox[hidden] { display: none; }
+.lightbox img {
+  max-width: min(92vw, 40rem); max-height: 86vh;
+  background: var(--plate); border-radius: var(--r-md); padding: var(--sp-3);
+  box-shadow: var(--shadow-2);
 }
 
 .opts { display: grid; gap: var(--sp-2); }
@@ -409,6 +491,7 @@ a { color: var(--accent); text-underline-offset: 0.15em; }
   }
   .runfoot button { flex: 0 0 auto; min-width: 11rem; }
   .opts.pics .opt img { height: 9rem; }
+  .signbox img { max-height: 16rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

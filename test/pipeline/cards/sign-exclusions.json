@@ -1,155 +1,190 @@
 {
- "figures/umferdarmerki-enska-p008full-s034.jpg": {
-  "ref": "8full-347",
-  "type": "WRONG_LABEL",
-  "label": "Total permitted",
-  "reason": "yellow square with black T-junction symbol - one of the 'Course of main road at intersections' group on p008",
-  "wasId": "umferdarmerki-enska:8full:347"
- },
- "figures/umferdarmerki-enska-p008full-s035.jpg": {
-  "ref": "8full-349",
-  "type": "WRONG_LABEL",
-  "label": "Total permitted",
-  "reason": "yellow square with black cross/T-junction symbol - 'Course of main road at intersections' group",
-  "wasId": "umferdarmerki-enska:8full:349"
- },
- "figures/umferdarmerki-enska-p003full-s016.jpg": {
-  "ref": "3full-98",
-  "type": "GARBLED_LABEL",
-  "label": "•- Signs indicating traffic lane(s)",
-  "reason": "blue circle with diagonal arrow down-right",
-  "wasId": "umferdarmerki-enska:3full:98"
- },
- "figures/umferdarmerki-enska-p003full-s018.jpg": {
-  "ref": "3full-100",
-  "type": "GARBLED_LABEL",
-  "label": "•- Signs indicating traffic lane(s)",
-  "reason": "blue circle with two diverging down arrows",
-  "wasId": "umferdarmerki-enska:3full:100"
- },
- "figures/umferdarmerki-enska-p005full-s012.jpg": {
-  "ref": "5full-170",
-  "type": "GARBLED_LABEL",
-  "label": "Gbr-Midbar Destinations ahead (a) with distances in capital area",
-  "reason": "blue three-panel destination board (Keflavik 40 / Vatnsendi 6 / Gardabaer 2)",
-  "wasId": "umferdarmerki-enska:5full:170"
- },
- "figures/umferdarmerki-enska-p008full-s043.jpg": {
-  "ref": "8full-354",
-  "type": "GARBLED_LABEL",
-  "label": "Road for slow driving only. Displayed at the beginning of a road which is negotiable by good private cars but calls",
-  "reason": "yellow plate with car on rough road (SEINFARINN VEGUR)",
-  "wasId": "umferdarmerki-enska:8full:354"
- },
- "figures/umferdarmerki-enska-p008full-s054.jpg": {
-  "ref": "8full-361",
-  "type": "GARBLED_LABEL",
-  "label": "Very rough track. Used to mark tracks which are only negotiable by specially-equipped off-road",
-  "reason": "yellow plate TORLEIDI (jeep on rough terrain)",
-  "wasId": "umferdarmerki-enska:8full:361"
- },
- "figures/umferdarmerki-enska-p008full-s064.jpg": {
-  "ref": "8full-372",
-  "type": "GARBLED_LABEL",
-  "label": "Orgamized street running",
-  "reason": "orange plate GOTUHLAUP with three runners",
-  "wasId": "umferdarmerki-enska:8full:372"
- },
- "figures/umferdarmerki-enska-p010full-s007.jpg": {
-  "ref": "10full-431",
-  "type": "AMBIGUOUS_PAIR",
-  "label": "Overtaking permitted for traffic within broken lane line",
-  "reason": "DELIBERATE CONSERVATIVE EXCLUSION, re-applied after B12 recovered this sign. Not an OCR defect: the label above is a correct reading of the page, taken at native resolution, and its entry stays in sign-label-corrections.json on purpose — a correct reading stays recorded even for a sign the deck does not ship, so the two files disagree by design. THE CROP: a grey carriageway with three short white blocks stepping up off a thin continuous line that runs the full width. THE PROBLEM: in-deck p010full-s004 ('Half-broken centre line with unbroken central line') depicts the SAME PHYSICAL MARKING — a solid line beside a broken one — differing only in dash-to-gap ratio (s004: four long blocks with narrow gaps over a thick band; s007: three short blocks with long gaps over a thin line) and NEITHER LABEL NAMES THAT DIFFERENCE. Contrast p010full-s003/s006, where 'Half-broken' versus 'Broken' maps directly onto long versus short dashes and the caption tells the learner what to look at. The two co-occur as options in two cards, so a learner can only score them by memorising crop artefacts, and the risk is grading a correct reading wrong — the exact defect B2 shipped. Cost of excluding: 2 sign cards. 'A missing card beats a wrong card' decides it. TO OVERTURN: delete this entry and rebuild; the label correction is already in place, so the sign returns with its correct reading and no other change is needed. Do that only if the pair is given captions that name the discriminator, or the app renders crops large enough to read dash geometry at a glance (currently 198x176). Related: FIXES.md C4 and B12's watch list."
- },
- "figures/umferdarmerki-enska-p010full-s010.jpg": {
-  "ref": "10full-435",
-  "type": "GARBLED_LABEL",
-  "label": "Unbroken dividing ine (restriction line)",
-  "reason": "road marking: single unbroken dividing line",
-  "wasId": "umferdarmerki-enska:10full:435"
- },
- "figures/umferdarmerki-enska-p010full-s018.jpg": {
-  "ref": "10full-443",
-  "type": "GARBLED_LABEL",
-  "label": "\"Give-Way line",
-  "reason": "road marking: give-way triangles across lane",
-  "wasId": "umferdarmerki-enska:10full:443"
- },
- "figures/umferdarmerki-enska-p009full-s006.jpg": {
-  "ref": "9full-400",
-  "type": "GARBLED_LABEL",
-  "label": "138 Provisional signs are intended to warn drivers of temporary changes in the road system.",
-  "reason": "orange provisional sign board (Umferdartakmorkun a Olfusarbru)",
-  "wasId": "umferdarmerki-enska:9full:400"
- },
- "figures/umferdarmerki-enska-p005full-s030.jpg": {
-  "ref": "5full-198",
-  "type": "NOT_A_SIGN",
-  "label": "County or municipal boundary sign (large)",
-  "reason": "bare Reykjavik coat-of-arms shield glyph cut out of the boundary sign, no sign panel",
-  "wasId": "umferdarmerki-enska:5full:198"
- },
- "figures/umferdarmerki-enska-p003full-s003.jpg": {
-  "ref": "3full-85",
-  "type": "BAD_CROP",
-  "label": "Direction of traffic",
-  "reason": "the dashed group frame around the 'Direction of traffic' row plus a duplicate of the right-arrow sign already ",
-  "wasId": "umferdarmerki-enska:3full:85"
- },
- "figures/umferdarmerki-enska-p005full-s028.jpg": {
-  "ref": "5full-190",
-  "type": "BAD_CROP",
-  "label": "Abandoned farm",
-  "reason": "the abandoned-farm sign with the caption line 'Abandoned fa' sliced into the bottom of the crop",
-  "wasId": "umferdarmerki-enska:5full:190"
- },
- "figures/umferdarmerki-enska-p007full-s002.jpg": {
-  "ref": "7full-290",
-  "type": "BAD_CROP",
-  "label": "Lane markings showing where a lane ends",
-  "reason": "two separate lane-marking signs merged in one crop inside the dashed group frame",
-  "wasId": "umferdarmerki-enska:7full:290"
- },
- "figures/umferdarmerki-enska-p007full-s011.jpg": {
-  "ref": "7full-300",
-  "type": "BAD_CROP",
-  "label": "Lane on far right is for traffic joining the road",
-  "reason": "sign plus the dashed group frame and the caption text 'Lane on far right is for' baked into the crop",
-  "wasId": "umferdarmerki-enska:7full:300"
- },
- "figures/umferdarmerki-enska-p007full-s019.jpg": {
-  "ref": "7full-307",
-  "type": "BAD_CROP",
-  "label": "Lane markings showing the number of lanes on the road, their direction, type and position",
-  "reason": "a thin vertical blue sliver - the sign is sliced away, only its left edge remains",
-  "wasId": "umferdarmerki-enska:7full:307"
- },
- "figures/umferdarmerki-enska-p007full-s024.jpg": {
-  "ref": "7full-308",
-  "type": "BAD_CROP",
-  "label": "Lane markings showing the number of lanes on the road, their direction, type and position",
-  "reason": "a partially sliced sign shrunk inside the dashed group frame",
-  "wasId": "umferdarmerki-enska:7full:308"
- },
- "figures/umferdarmerki-enska-p008full-s008.jpg": {
-  "ref": "8full-330",
-  "type": "BAD_CROP",
-  "label": "",
-  "reason": "mostly the dashed group frame with only the bottom strip of a yellow/red arrow plate sliced in",
-  "wasId": "umferdarmerki-enska:8full:330"
- },
- "figures/umferdarmerki-enska-p008full-s038.jpg": {
-  "ref": "8full-348",
-  "type": "BAD_CROP",
-  "label": "Caution - blind people",
-  "reason": "left-hand slice of a yellow 'Course of main road at intersections' plate plus dashed group frame; label also b",
-  "wasId": "umferdarmerki-enska:8full:348"
- },
- "figures/umferdarmerki-enska-p010full-s011.jpg": {
-  "ref": "10full-434",
-  "type": "BAD_CROP",
-  "label": "Broken dividing line",
-  "reason": "grey road block with only a single dash visible - the rest of the marking is cut off",
-  "wasId": "umferdarmerki-enska:10full:434"
- }
+  "figures/umferdarmerki-enska-p008full-s034.jpg": {
+    "ref": "8full-347",
+    "type": "WRONG_LABEL",
+    "label": "Total permitted",
+    "reason": "shipped label 'Total permitted' is a weight-limit caption and does not match this image at all — a yellow square with a black T-junction symbol, one of the 'Course of main road at intersections' group on p008.",
+    "wasId": "umferdarmerki-enska:8full:347"
+  },
+  "figures/umferdarmerki-enska-p008full-s035.jpg": {
+    "ref": "8full-349",
+    "type": "WRONG_LABEL",
+    "label": "Total permitted",
+    "reason": "shipped label 'Total permitted' is a weight-limit caption and does not match this image at all — a yellow square with a black cross/T-junction symbol, 'Course of main road at intersections' group; same defect and same wrong caption as its sibling 8full-347.",
+    "wasId": "umferdarmerki-enska:8full:349"
+  },
+  "figures/umferdarmerki-enska-p003full-s016.jpg": {
+    "ref": "3full-98",
+    "type": "WRONG_LABEL",
+    "label": "•- Signs indicating traffic lane(s)",
+    "reason": "the '•- ' prefix is only the dashed group frame's own glyphs, not text, but the caption underneath it is a genuine mismatch, not an OCR defect: the crop is a blue mandatory-DIRECTION arrow (diagonal, down-right), and 'Signs indicating traffic lane(s)' names a group about LANES. Reclassified from GARBLED_LABEL to WRONG_LABEL 2026-08-06 to match the finding recorded for sibling p003full-s017 in sign-label-corrections.json (SUPERSEDED entry), which names s016/s018 as sharing the same defect.",
+    "wasId": "umferdarmerki-enska:3full:98"
+  },
+  "figures/umferdarmerki-enska-p003full-s018.jpg": {
+    "ref": "3full-100",
+    "type": "WRONG_LABEL",
+    "label": "•- Signs indicating traffic lane(s)",
+    "reason": "same defect as sibling p003full-s016: the crop is a blue mandatory-DIRECTION arrow (two diverging down arrows), and the shipped 'Signs indicating traffic lane(s)' names a group about LANES, not direction. Reclassified from GARBLED_LABEL to WRONG_LABEL 2026-08-06 for the same reason recorded for p003full-s017 in sign-label-corrections.json (SUPERSEDED entry).",
+    "wasId": "umferdarmerki-enska:3full:100"
+  },
+  "figures/umferdarmerki-enska-p005full-s012.jpg": {
+    "ref": "5full-170",
+    "type": "BAD_CROP",
+    "label": "Destinations ahead (a) with distances in capital area",
+    "reason": "same printed caption as in-deck p005full-s031 ('Destinations ahead (a) with distances in capital area'), but this crop is a blue three-panel destination board clipped mid-way through its third panel (Keflavik 40 / Vatnsendi 6 / Gardabaer 2, the last cut off) — the image doesn't show the complete sign the label names. s031's crop is clean and complete and was recovered instead, so this one stays excluded. Reclassified from GARBLED_LABEL to BAD_CROP 2026-08-06 per the note already recorded for it in sign-label-corrections.json ('its exclusion reason is better recorded as BAD_CROP than GARBLED_LABEL').",
+    "wasId": "umferdarmerki-enska:5full:170"
+  },
+  "figures/umferdarmerki-enska-p008full-s043.jpg": {
+    "ref": "8full-354",
+    "type": "GARBLED_LABEL",
+    "label": "Road for slow driving only. Displayed at the beginning of a road which is negotiable by good private cars but calls",
+    "reason": "the shipped label breaks off mid-sentence ('...but calls', no closing clause) rather than a full caption — the crop (yellow plate with car on rough road, SEINFARINN VEGUR) is fine, but there is no complete printed caption on this page to read the rest from without guessing at it, which the project's rules forbid.",
+    "wasId": "umferdarmerki-enska:8full:354"
+  },
+  "figures/umferdarmerki-enska-p008full-s054.jpg": {
+    "ref": "8full-361",
+    "type": "GARBLED_LABEL",
+    "label": "Very rough track. Used to mark tracks which are only negotiable by specially-equipped off-road",
+    "reason": "the shipped label breaks off mid-sentence ('...only negotiable by specially-equipped off-road', no closing clause) rather than a full caption — the crop (yellow plate TORLEIDI, jeep on rough terrain) is fine, but there is no complete printed caption captured here to finish the sentence from without guessing, which the project's rules forbid.",
+    "wasId": "umferdarmerki-enska:8full:361"
+  },
+  "figures/umferdarmerki-enska-p008full-s064.jpg": {
+    "ref": "8full-372",
+    "type": "SOURCE_TYPO",
+    "label": "Orgamized street running",
+    "reason": "RE-VERIFIED 2026-08-06, same conclusion as the original B12 refusal (see HANDOVER.md / FIXES.md): read the p008 caption band at 6x magnification and it prints 'Orgamized street running', letter for letter — this is the book's own typo (missing the 'n' in 'Organized'), not OCR damage. GARBLED_LABEL was therefore the wrong type: nothing here is garbled, the shipped string already matches the page exactly. There is consequently no correction to author — writing 'Organized' would be inventing text the page does not have, which the label-correction mechanism exists specifically to forbid. The remaining question is a policy call, not a legibility one: KEPT EXCLUDED because the sole correct-answer text for this card would be a non-word sitting among three cleanly-spelled distractors, which is more likely to read as an app bug than as a faithful source quirk — unlike the site, the app has no per-card 'as printed' indicator to disambiguate that. This is a niche sign (not referenced elsewhere in the deck), so the study-value cost of leaving it out is low; if that indicator is ever added, or if the label is judged worth shipping verbatim despite the risk (crop is otherwise clean and unambiguous — orange GOTUHLAUP plate, three runners), delete this entry and rebuild with label 'Orgamized street running' unchanged.",
+    "wasId": "umferdarmerki-enska:8full:372"
+  },
+  "figures/umferdarmerki-enska-p010full-s007.jpg": {
+    "ref": "10full-431",
+    "type": "AMBIGUOUS_PAIR",
+    "label": "Overtaking permitted for traffic within broken lane line",
+    "reason": "DELIBERATE CONSERVATIVE EXCLUSION, re-applied after B12 recovered this sign. Not an OCR defect: the label above is a correct reading of the page, taken at native resolution, and its entry stays in sign-label-corrections.json on purpose — a correct reading stays recorded even for a sign the deck does not ship, so the two files disagree by design. THE CROP: a grey carriageway with three short white blocks stepping up off a thin continuous line that runs the full width. THE PROBLEM: in-deck p010full-s004 ('Half-broken centre line with unbroken central line') depicts the SAME PHYSICAL MARKING — a solid line beside a broken one — differing only in dash-to-gap ratio (s004: four long blocks with narrow gaps over a thick band; s007: three short blocks with long gaps over a thin line) and NEITHER LABEL NAMES THAT DIFFERENCE. Contrast p010full-s003/s006, where 'Half-broken' versus 'Broken' maps directly onto long versus short dashes and the caption tells the learner what to look at. The two co-occur as options in two cards, so a learner can only score them by memorising crop artefacts, and the risk is grading a correct reading wrong — the exact defect B2 shipped. Cost of excluding: 2 sign cards. 'A missing card beats a wrong card' decides it. TO OVERTURN: delete this entry and rebuild; the label correction is already in place, so the sign returns with its correct reading and no other change is needed. Do that only if the pair is given captions that name the discriminator, or the app renders crops large enough to read dash geometry at a glance (currently 198x176). Related: FIXES.md C4 and B12's watch list."
+  },
+  "figures/umferdarmerki-enska-p010full-s010.jpg": {
+    "ref": "10full-435",
+    "type": "AMBIGUOUS_PAIR",
+    "label": "Unbroken dividing line (restriction line)",
+    "reason": "RE-VERIFIED 2026-08-06 (same conclusion as the original B12 refusal). Read the p010 caption band at 6x magnification: it prints 'Unbroken dividing line (restriction line)' over two lines, unambiguously — the shipped 'Unbroken dividing ine (restriction line)' is a genuine one-glyph OCR drop of the 'l' in 'line', and the corrected reading is recorded in sign-label-corrections.json anyway (same convention as p010full-s007) so it isn't lost. Reclassified from GARBLED_LABEL to AMBIGUOUS_PAIR because the OCR defect is NOT why this stays out: the crop is a plain grey carriageway with one continuous thin white line, and in-deck p010full-s002 ('Overtaking prohibited', same 'Road markings' category, so the two are drawn as mutual distractors) renders as the same plain continuous line at the app's crop size (both ~150x30px source, upscaled) — the two signs are visually indistinguishable in the app even though they name different concepts. Shipping this card risks grading a correct reading wrong, the exact defect the p010full-s007 AMBIGUOUS_PAIR entry exists to prevent. TO OVERTURN: delete this entry and rebuild; the label correction is already in place. Do that only if the crops are rendered large enough to show whatever distinguishes 'restriction line' from 'overtaking prohibited' on the ground (lane position, line width, or similar), which this crop size does not.",
+    "wasId": "umferdarmerki-enska:10full:435"
+  },
+  "figures/umferdarmerki-enska-p009full-s006.jpg": {
+    "ref": "9full-400",
+    "type": "GARBLED_LABEL",
+    "label": "138 Provisional signs are intended to warn drivers of temporary changes in the road system.",
+    "reason": "the shipped label ('138 Provisional signs are intended to warn drivers of temporary changes in the road system.') is generic section prose about the 'Provisional signs' category, plus a paragraph number ('138'), not a caption naming this specific sign — the crop itself (orange provisional sign board, Umferdartakmorkun a Olfusarbru) has no sign-specific caption captured to use instead.",
+    "wasId": "umferdarmerki-enska:9full:400"
+  },
+  "figures/umferdarmerki-enska-p005full-s030.jpg": {
+    "ref": "5full-198",
+    "type": "NOT_A_SIGN",
+    "label": "County or municipal boundary sign (large)",
+    "reason": "bare Reykjavik coat-of-arms shield glyph cut out of the boundary sign, no sign panel",
+    "wasId": "umferdarmerki-enska:5full:198"
+  },
+  "figures/umferdarmerki-enska-p003full-s003.jpg": {
+    "ref": "3full-85",
+    "type": "BAD_CROP",
+    "label": "Direction of traffic",
+    "reason": "the dashed group frame around the 'Direction of traffic' row plus a duplicate of the right-arrow sign already shipping elsewhere in the deck — a second card for the same sign would be a duplicate-label risk even if the crop were clean.",
+    "wasId": "umferdarmerki-enska:3full:85"
+  },
+  "figures/umferdarmerki-enska-p005full-s028.jpg": {
+    "ref": "5full-190",
+    "type": "BAD_CROP",
+    "label": "Abandoned farm",
+    "reason": "the abandoned-farm sign with the caption line 'Abandoned fa' sliced into the bottom of the crop",
+    "wasId": "umferdarmerki-enska:5full:190"
+  },
+  "figures/umferdarmerki-enska-p007full-s002.jpg": {
+    "ref": "7full-290",
+    "type": "BAD_CROP",
+    "label": "Lane markings showing where a lane ends",
+    "reason": "two separate lane-marking signs merged in one crop inside the dashed group frame",
+    "wasId": "umferdarmerki-enska:7full:290"
+  },
+  "figures/umferdarmerki-enska-p007full-s011.jpg": {
+    "ref": "7full-300",
+    "type": "BAD_CROP",
+    "label": "Lane on far right is for traffic joining the road",
+    "reason": "sign plus the dashed group frame and the caption text 'Lane on far right is for' baked into the crop",
+    "wasId": "umferdarmerki-enska:7full:300"
+  },
+  "figures/umferdarmerki-enska-p007full-s019.jpg": {
+    "ref": "7full-307",
+    "type": "BAD_CROP",
+    "label": "Lane markings showing the number of lanes on the road, their direction, type and position",
+    "reason": "a thin vertical blue sliver - the sign is sliced away, only its left edge remains",
+    "wasId": "umferdarmerki-enska:7full:307"
+  },
+  "figures/umferdarmerki-enska-p007full-s024.jpg": {
+    "ref": "7full-308",
+    "type": "BAD_CROP",
+    "label": "Lane markings showing the number of lanes on the road, their direction, type and position",
+    "reason": "a partially sliced sign shrunk inside the dashed group frame",
+    "wasId": "umferdarmerki-enska:7full:308"
+  },
+  "figures/umferdarmerki-enska-p008full-s008.jpg": {
+    "ref": "8full-330",
+    "type": "BAD_CROP",
+    "label": "",
+    "reason": "mostly the dashed group frame with only the bottom strip of a yellow/red arrow plate sliced in",
+    "wasId": "umferdarmerki-enska:8full:330"
+  },
+  "figures/umferdarmerki-enska-p008full-s038.jpg": {
+    "ref": "8full-348",
+    "type": "BAD_CROP",
+    "label": "Caution - blind people",
+    "reason": "left-hand slice of a yellow 'Course of main road at intersections' plate plus dashed group frame; label is also mismatched — it ships as 'Caution - blind people', a different sign entirely, so even a clean crop of this plate would still need re-labelling.",
+    "wasId": "umferdarmerki-enska:8full:348"
+  },
+  "figures/umferdarmerki-enska-p010full-s011.jpg": {
+    "ref": "10full-434",
+    "type": "BAD_CROP",
+    "label": "Broken dividing line",
+    "reason": "grey road block with only a single dash visible - the rest of the marking is cut off",
+    "wasId": "umferdarmerki-enska:10full:434"
+  },
+  "figures/umferdarmerki-enska-p010full-s016.jpg": {
+    "ref": "xa3ofy",
+    "type": "BAD_CROP",
+    "label": "Lines indicating appropriate lanes",
+    "reason": "image is illegible photographic noise - blurred road surface with scattered white blobs, no readable diagram; not answerable from the picture in either direction [found by visual review 2026-08-06; sibling-miss pattern - audit remaining exclusion siblings]",
+    "wasId": "umferdarmerki-enska:10full:xa3ofy"
+  },
+  "figures/umferdarmerki-enska-p008full-s039.jpg": {
+    "ref": "5ucr98-2",
+    "type": "WRONG_LABEL",
+    "label": "Caution - blind people",
+    "reason": "yellow plate showing five black dots in a row, no person icon; ships as 'Caution - blind people'. Identical sibling s038 already excluded, this one was missed [found by visual review 2026-08-06; sibling-miss pattern - audit remaining exclusion siblings]",
+    "wasId": "umferdarmerki-enska:8full:5ucr98-2"
+  },
+  "figures/umferdarmerki-enska-p004full-s022.jpg": {
+    "ref": "v2px8m",
+    "type": "WRONG_LABEL",
+    "label": "RYMI Place for turning on right",
+    "reason": "turning-space bay opens LEFT in the crop but ships as 'Place for turning on right' - swapped with its pair bgtx5p-2 [found by visual review 2026-08-06; sibling-miss pattern - audit remaining exclusion siblings]",
+    "wasId": "umferdarmerki-enska:4full:v2px8m"
+  },
+  "figures/umferdarmerki-enska-p004full-s023.jpg": {
+    "ref": "bgtx5p-2",
+    "type": "WRONG_LABEL",
+    "label": "RYMI Place for turning on left Signs indicating where large",
+    "reason": "turning-space bay opens RIGHT in the crop but ships as 'Place for turning on left' - swapped with its pair v2px8m [found by visual review 2026-08-06; sibling-miss pattern - audit remaining exclusion siblings]",
+    "wasId": "umferdarmerki-enska:4full:bgtx5p-2"
+  },
+  "figures/umferdarmerki-enska-p004full-s024.jpg": {
+    "ref": "bgtx5p",
+    "type": "WRONG_LABEL",
+    "label": "RYMI Place for turning on left Signs indicating where large",
+    "reason": "plain 'ahead only' arrow sign labelled 'Place for turning on left'; catalogue entry only, no card shipped [found by visual review 2026-08-06; sibling-miss pattern - audit remaining exclusion siblings]",
+    "wasId": "umferdarmerki-enska:4full:bgtx5p"
+  },
+  "figures/umferdarmerki-enska-p003full-s017.jpg": {
+    "ref": "1puizi3-2",
+    "type": "WRONG_LABEL",
+    "label": "•- Signs indicating traffic lane(s)",
+    "reason": "blue mandatory-direction arrow carrying the group heading 'Signs indicating traffic lane(s)' instead of a specific label. Siblings s016/s018 already excluded, this one was missed [found by visual review 2026-08-06; sibling-miss pattern - audit remaining exclusion siblings]",
+    "wasId": "umferdarmerki-enska:3full:1puizi3-2"
+  }
 }

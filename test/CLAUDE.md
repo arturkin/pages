@@ -63,7 +63,7 @@ npm run build:html   # → site/
 npm run dataset      # → build/work/dataset.json
 npm run cards        # → app/data/
 npm run test:e2e     # site: 197 checks
-npm run test:app     # app: 97 checks
+npm run test:app     # app: 99 checks
 npm run typecheck
 
 npm run packets      # re-cut authoring work packets

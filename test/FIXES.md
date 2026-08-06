@@ -1302,6 +1302,143 @@ detector is finding the label and missing the picture above it. Recovering these
 also feeds B11, since p010's road markings are exactly the starved section.
 *Files:* `pipeline/src/layout.ts`.
 
+### C12 · ✅ DONE · S1 · Published FALSE: an automatic-towing rule widened to all towing
+Book p.96 published "Cars that have transmissions should only be towed…", dropping
+"automatic". Cited by `ch-6-a-03`, whose card was correctly worded from the fact —
+only the edition was wrong. Cause: the towing callout box was mis-detected as a
+photo region, and `pageBody()`'s `insidePicture()` guard drops lines that are both
+≤14 chars and inside a figure's core bounds; every other callout line was longer
+and survived, so only the 9-character "automatic" was swallowed. Not an OCR defect
+— Vision read it at conf 1.0; the omission is purely `insidePicture`'s.
+
+**Fix:** `rawInsidePicture` + a new `isSandwichedProse()` in `pipeline/src/layout.ts`.
+Measured: of 548 lines `insidePicture` drops corpus-wide, 34 have surviving
+same-column prose neighbours above **and** below (Δx<0.03, Δy<0.03); 33 are
+unambiguous sentence completions, the 34th a licence-specimen fragment at conf
+0.30, excluded by a `conf >= 0.4` floor. Confirmed present identically in all three
+archived pre-OCR-sweep baselines — not a regression from C6/C10/C11.
+
+Blast radius: 7 other pages' paragraphs correctly merged; 5 citations re-pointed and
+repaired, each confirmed by reading the successor chunk: `ch-1-2-a-07`, `ch-4-b-06`,
+`ch-4-c-08`, `ch-5-b-08`, `ch-6-a-03`. Collateral, recorded not fixed: on
+`Ch. 5-p007b` restoring two rescued words shifted that column's statistics and
+fragmented a nearby paragraph further — pre-existing C5 `paragraphize` fragility,
+triggered, not introduced.
+*Files:* `pipeline/src/layout.ts`.
+
+### B13 · ✅ DONE · S1 · Five sign crops shipped the wrong image for their label, found by opening them
+Not caught by any check — a mismatch between crop and label is invisible to
+`cards.ts --strict`, which only validates shape. Found by opening all 121 sign
+images visually: `10full:xa3ofy` (illegible photographic noise), `8full:5ucr98-2`
+(five black dots, no person icon, shipped as "Caution - blind people"),
+`4full:v2px8m`/`bgtx5p-2` (lorry turning-space pair with left/right labels
+**swapped**), `3full:1puizi3-2` (lane-group heading on a direction arrow),
+`4full:bgtx5p` (catalogue only). All excluded, 10 cards lost.
+
+**Diagnostic pattern:** in 3 of 5, one sibling on the same sheet row was already
+excluded and an identical-defect sibling had been missed. A sibling sweep is
+required whenever one sign on a row is found bad — the full sweep here (121 images,
+plus 8 directional pairs pixel-diffed: true mirrors diff 4–17, cross-pairings 30+)
+found no further mismatches.
+*Files:* `pipeline/cards/sign-exclusions.json`.
+
+### B14 · ✅ DONE · S3 · Over-exclusion in the other direction: `"Give-Way line`
+Excluded as `GARBLED_LABEL` for a stray quote, with its `reason` field merely
+describing the image rather than justifying the exclusion, and nothing else in the
+deck covering give-way lines. Read at 6×, the page prints `"Give-Way" line` — quotes
+on both sides; OCR dropped the closing one. **Recovered** as `Give-Way line` (+2
+cards, 765→767). Fidelity tradeoff recorded honestly: `CLEAN_LABEL`'s charset
+excludes `"` project-wide (measured and rejected in an earlier session — see
+`HANDOVER.md`), so the shipped label is not verbatim, diverging from the
+`Bus-stop` precedent (printed hyphen kept). Verbatim was unreachable here.
+
+Two related refusals, each with a real justification, are recorded in
+`HANDOVER.md` "Known imperfections": `Unbroken dividing ine` (confirmed reading,
+kept out as a visual mutual-distractor with in-deck `p010full-s002`, retyped
+`AMBIGUOUS_PAIR`) and `Orgamized street running` (the book's own typo, retyped
+`SOURCE_TYPO`, kept out because a non-word as sole correct answer reads as an app
+bug). Also: 10 exclusion `reason` fields rewritten to justify rather than describe,
+2 `GARBLED_LABEL`→`WRONG_LABEL`, 1 →`BAD_CROP`, 2 truncated reason strings repaired.
+
+**A landmine defused:** `sign-label-corrections.json`'s RECOVERY note for
+`p003full-s017` told a future maintainer to delete that sign's exclusion — the exact
+sign re-excluded in B13. Now prefixed "SUPERSEDED 2026-08-06 — DO NOT ACT ON THE
+RECOVERY BELOW" with the reasoning; original note kept; the two sign files
+deliberately disagree, same convention as `p010full-s007`.
+*Files:* `pipeline/cards/sign-exclusions.json`, `sign-label-corrections.json`.
+
+### B16 · S3 · `ch-7-a-21` cites an existing chunk that is the wrong one
+It cites a table-header fragment (`"#The following are examples of penalty points.
+3 Penalty"`); the real text is in uncited `ch-7:6a:1v9m2dq`. **Not fixed.**
+Structural point worth keeping: `cards --strict` only fails when a cited chunk
+*vanishes* — a card citing an existing-but-wrong chunk is invisible to it, unlike
+the citation-repair work in C12 above where the chunk had actually disappeared.
+*Files:* `pipeline/cards/ch-7-a.json` or `pipeline/src/dataset.ts`.
+
+### B17 · S3 · `ch-6-b-05`'s explanation borrows a fact from an uncited neighbour
+The explanation asserts a fact that lives in an adjacent chunk the card does not
+cite. Not fixed.
+*Files:* `pipeline/cards/ch-6-b.json`.
+
+### B18 · S4 · Duplicate pair `ch-1-2-a-11` / `ch-5-a-17`
+Same trailer-towing rule, tested twice. Not fixed.
+*Files:* `pipeline/cards/ch-1-2-a.json`, `ch-5-a.json`.
+
+### B10-correction · sheep, reindeer, crosswind — the record was wrong about "crosswind"
+B10 above lists "sheep", "reindeer" and "crosswind" as zero-coverage gaps. Re-checked
+this session: **"crosswind" is a BOOK gap, not a deck gap** — the word appears
+nowhere in the source, so no card can cite it. Sheep and reindeer remain genuine
+zero-card gaps; the sheep passage sits in `ch-4:17b:10uptcl`, a chunk already cited
+twice for other facts and ready to author against.
+
+### C13 · S2 · Missing figures on ch-6 pp.98, 106, 111 — whole diagrams absent
+Captions survive as orphaned text; the diagrams themselves are not in the edition.
+Consequence for a known imperfection: p.106's reversed tread labels (`Worn Tread` /
+`New Tread`, `Unstudded` / `Studded`, see `HANDOVER.md` "Known imperfections") cannot
+assert anything backwards *because* the diagram that would label them is absent.
+Related, recorded not investigated: 43 `ok`-graded entries in `figures.json` have no
+file in `site/figures/`, and the 4 figures known to have vanished during the OCR
+stages were never identified (no pre-session `figures.json` baseline exists, and the
+oldest surviving one predates a filename convention change).
+*Files:* `pipeline/src/layout.ts`, `build/tools/*.swift` figure cropping.
+
+### A14 · ✅ DONE · S1 · The "one direction per sign per session" promise was broken
+`viewSigns()`'s per-category buttons called `Engine.shuffled(list).slice(0,20)` and
+bypassed `oneDirectionPerSign` entirely; only the "Mixed signs" entry point honoured
+it, so both directions of a sign were routinely served in one sitting. Found by
+driving the app in a real browser, not by any of the 97 prior checks.
+*Files:* `app/js/ui.js`.
+*Check:* new regression test, confirmed to fail against the pre-fix code.
+
+### A15 · ✅ DONE · S2 · "Seen" tile over-reported
+Now `Engine.seenCount(cards, sched)` counts only ids in the live deck; nothing is
+deleted from storage since a retired card can return.
+*Files:* `app/js/engine.js`, `app/js/ui.js`.
+*Check:* new regression test, confirmed to fail against the pre-fix code. `test:app`
+97 → 99.
+
+**A third reported app bug — distractors not drawn from a sign's own category — was
+measured and refuted, not fixed:** 99.48% of distractor slots are already
+same-category across 1,536 slots; the only leakage is "Police hand signals" (2
+signs, cannot fill 3 distractors). The symptom actually observed was repetition
+*within* a category. Recorded as refuted so it is not re-"fixed".
+
+### A16 · ✅ DONE · S4 · Design pass — reading typography, contrast, a due chip, a sign lightbox
+Merriweather self-hosted (400/700/italic, ~304KB static files — the variable
+family's name table reports every instance as "Light 18pt", so static was the
+correct choice), paired with the existing system stack for chrome: read vs
+operated. Measured contrast: dark 14.42:1 body, light 13.99:1, tightest pair 4.61:1
+(above the 4.5:1 AA floor), accent 9.67:1. Added an Icelandic-hazard-sign due chip
+and a lightbox for sign images (road-marking diagrams were illegible at card size).
+Fonts wired through `pipeline/src/build-html.ts` → `pipeline/assets/fonts/` so they
+survive a rebuild. Four briefed problems (sign-grid reflow, tabular numerals,
+keyboard access, reduced-motion) were found already solved and verified, not fixed.
+One flex bug caught after shipping: `.duechip`'s `gap` did not apply between two
+adjacent bare text nodes, which collapse into a single anonymous flex item — the
+glyph now has its own element.
+*Files:* `app/css/style.css`, `app/index.html`, `pipeline/assets/fonts/`,
+`pipeline/src/build-html.ts`.
+
 ## What the scan sample confirms is sound
 
 Worth recording so the sweep does not go looking for problems that are not there:
@@ -1346,6 +1483,13 @@ Worth recording so the sweep does not go looking for problems that are not there
    the full account, including a real-text-deletion bug found and fixed in the
    plan's own containment rule before shipping.
 
+7. ✅ **A validation pass — first real use of the product.** Driven in a real
+   browser, 121 sign images opened, ch-6 read against the scans, 54 authored
+   questions reviewed. Found and fixed a published FALSE (C12), five wrong sign
+   images and one over-exclusion (B13/B14), and two app bugs (A14/A15) — none
+   visible to the 197+97 checks that stayed green throughout. New open items:
+   B16–B18, C13. See `HANDOVER.md` for the full account.
+
 What is actually left, ranked:
 
 1. **C4/C7/C9 — the small ones**, roughly an hour together. C4: wrong and
@@ -1365,6 +1509,8 @@ What is actually left, ranked:
    the C5 entry above — `CROSS_MAX` on appendix p.165 chief among them.
 5. **The publishable `public/` tree** does not exist yet, and nothing in this
    project has ever been committed or pushed — see `HANDOVER.md` "Publishing".
+6. **B16–B18, C13** — this session's leftovers: two mis-pointed/borrowed citations,
+   one duplicate pair, and three missing ch-6 figures. None teaches something false.
 
 **B2 and B3/B4/B5, once the two things worth pulling ahead of this order, have
 both shipped** (see their entries above) — nothing here still depends on doing

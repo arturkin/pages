@@ -9,13 +9,15 @@
  */
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { buildPage, buildSignPage, type Block, type FigureRegion, type OcrPage, type PageDoc } from './layout.js';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const WORK = path.join(ROOT, 'build/work');
 const SITE = path.join(ROOT, 'site');
+/** Self-hosted webfonts, checked in here (not under site/, which is wiped every build). */
+const FONTS_SRC = path.join(ROOT, 'pipeline/assets/fonts');
 
 interface DocSpec {
   base: string;
@@ -274,7 +276,10 @@ ${body}
 function main() {
   const { byDoc, cutCrops: cutSet } = loadPages();
   rmSync(SITE, { recursive: true, force: true });
-  mkdirSync(path.join(SITE, 'assets'), { recursive: true });
+  mkdirSync(path.join(SITE, 'assets/fonts'), { recursive: true });
+  for (const f of readdirSync(FONTS_SRC)) {
+    copyFileSync(path.join(FONTS_SRC, f), path.join(SITE, 'assets/fonts', f));
+  }
 
   // Stage images once, shared across documents.
   const figMap = new Map<string, string>();
@@ -400,6 +405,26 @@ ${items
 }
 
 const CSS = `/* Driving in Iceland — text edition. Mobile-first, readable, theme-aware. */
+/* Merriweather, self-hosted (regular/bold/italic only — the reading face this
+   edition is set in). font-display: swap so a cold cache never blocks paint. */
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal; font-weight: 400;
+  src: url("fonts/merriweather-regular.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal; font-weight: 700;
+  src: url("fonts/merriweather-bold.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic; font-weight: 400;
+  src: url("fonts/merriweather-italic.woff2") format("woff2");
+  font-display: swap;
+}
 :root {
   --bg: #fbfaf7;
   --fg: #1c1b19;
@@ -427,7 +452,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font: 400 1.0625rem/1.62 ui-serif, Georgia, "Times New Roman", serif;
+  font: 400 1.0625rem/1.62 "Merriweather", ui-serif, Georgia, "Times New Roman", serif;
   padding: 0 1.15rem env(safe-area-inset-bottom) 1.15rem;
   overflow-wrap: break-word;
 }
