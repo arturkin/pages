@@ -1,0 +1,114 @@
+{
+  "figures/umferdarmerki-enska-p009full-s018.jpg": {
+    "label": "Traffic signals with direction arrows",
+    "reason": "OCR read the printed caption as 'Traftic'. Reading taken off the sheet, not guessed. That single glyph was the only reason this sign and p009full-s015 both entered the deck: with the spelling corrected the duplicate-label rule in usableSigns() drops one, which is what stops the app grading a correct answer wrong. NOTE the sheet genuinely prints the same caption over two different dashed groups here — s015 is a head whose three aspects are all arrows, s018 is a main head plus a separate green filter arrow — so de-dup discards a real, distinct sign. That is deliberate under 'a missing card beats a wrong card'. Recovering it needs a distinguishing label from the regulations, which the book does not print and which must not be invented."
+  },
+  "figures/umferdarmerki-enska-p001full-s009.jpg": {
+    "label": "No tractors, off-road vehicles on wheels or motor-propelled machinery",
+    "reason": "Caption is five centred lines on p001: 'No tractors,' / 'off-road vehicles' / 'on wheels or' / 'motor-propelled' / 'machinery'. The fifth line was read at native resolution in a separate band (it sits below the band that carries the first four) and is unambiguous. The shipped label stops at 'motor-propelled', so the sign the card names is a different, narrower prohibition than the one printed. 69 characters, inside CLEAN_LABEL's cap (71 when this was written, 78 since B12)."
+  },
+  "figures/umferdarmerki-enska-p004full-s022.jpg": {
+    "label": "Place for turning on right",
+    "reason": "Read off the p004 band: the caption under this crop is 'Place for turning' / 'on right'. 'SNUNINGS-RYMI' is printed on the sign face itself, on a blue sub-plate below the pictogram, and OCR spliced its tail 'RYMI' onto the front of the caption. On-face legends are not captions."
+  },
+  "figures/umferdarmerki-enska-p004full-s023.jpg": {
+    "label": "Place for turning on left",
+    "reason": "Same p004 band, the sign immediately to the right of s022: caption 'Place for turning' / 'on left'. Two foreign strings were spliced in — the on-face plate 'SNUNINGS-RYMI' (as 'RYMI') and the dashed-group caption 'Signs indicating where large ...' printed along the bottom of the frame that encloses both turning-place signs. Neither belongs to this sign."
+  },
+  "figures/umferdarmerki-enska-p004full-s032.jpg": {
+    "label": "Bus-stop",
+    "reason": "The page prints 'Bus-' / 'stop' on two lines under the bus pictogram; OCR joined the lines and dropped the hyphen, giving 'Busstop', which is not a spelling anywhere on the sheet. The reading taken here is verbatim what is printed, hyphen included. NOTE: because the hyphen falls exactly at the line break it cannot be decided from the page whether it is a soft (break) hyphen or part of the compound — the sheet's house style hyphenates compounds freely ('First-Aid post', 'Hot-pot', 'Ski-lift', 'Single-width bridge'), which is why the printed form is kept rather than the unhyphenated 'Bus stop' proposed in build/qa/validation-2026-08-05/sign-labels.md §6 — the divergence is deliberate, not an oversight. Either string names the same sign; only the fidelity differs."
+  },
+  "figures/umferdarmerki-enska-p004full-s035.jpg": {
+    "label": "Built-up area",
+    "reason": "Caption under the crop on p004 reads 'Built-up area'. 'Mosfellsbaer' is printed on the yellow name-plate that is part of the sign, below the skyline pictogram; OCR read it as 'Mostellsbar' and prepended it. On-face legend, not caption."
+  },
+  "figures/umferdarmerki-enska-p004full-s046.jpg": {
+    "label": "Toll road",
+    "reason": "Caption reads 'Toll road'. '5,2 km' is the sign's own lower plate (blue, white figures, directly under the STANS/VEGGJALD roundel) and was read at native resolution as part of the sign. On-face legend, not caption."
+  },
+  "figures/umferdarmerki-enska-p005full-s006.jpg": {
+    "label": "Notice of destination ahead",
+    "reason": "Caption is 'Notice of' / 'destination ahead'. The sign face carries 'Modruvellir' and '2 km' in red inside its red frame; OCR took the '2 km' line into the label. NOT in the 2026-08-05 audit — this sign was verdict 'correct' there and has since acquired the on-face '2 km', so it is a regression introduced after that audit (the crop boundary moved when B1's caption clip landed). Reading taken off the page band at native resolution."
+  },
+  "figures/umferdarmerki-enska-p006full-s005.jpg": {
+    "label": "Police",
+    "reason": "Third sign in the first Service-signs row on p006 (First-Aid post, Clinic, [this], Pharmacy, Emergency shelter); the crop is the yellow star badge and the caption under it reads 'Police'. The shipped label 'FO CE' is OCR ruin of that one word and is not a question a learner can answer in either direction."
+  },
+  "figures/umferdarmerki-enska-p006full-s052.jpg": {
+    "label": "Sports centre",
+    "reason": "Caption wraps to two lines, 'Sports' / 'centre', read in a caption-only strip below the row (the row band alone clips the second line). Shipped label is the first line only. Also removes the 'Sports' / 'Sports field' prefix collision inside Service signs — the neighbouring sign one column right is 'Sports field'."
+  },
+  "figures/umferdarmerki-enska-p006full-s059.jpg": {
+    "label": "Sea angling",
+    "reason": "Read off the p006 caption strip: the row runs 'Angling permits' | 'Sea angling' | 'Whale-watching' | 'Ski-lift' | 'Chair ski-lift' | ... This crop is the second of those and its caption is 'Sea angling'; 'Whale-watching' is the neighbouring sign's caption, spliced in. The crop is the boat-and-fish plate."
+  },
+  "figures/umferdarmerki-enska-p006full-s063.jpg": {
+    "label": "Cross-country skiing area",
+    "reason": "Same p006 caption strip: this crop's caption is 'Cross-country' / 'skiing area' (two lines) and the neighbour to its right is 'Snowcat trips'. OCR interleaved the neighbour's caption into the middle of this one, giving 'Cross-country Snowcat trips skiing area'. Crop is the cross-country skier."
+  },
+  "figures/umferdarmerki-enska-p006full-s067.jpg": {
+    "label": "Snow-scooters for hire",
+    "reason": "Caption is three lines, 'Snow-' / 'scooters' / 'for hire', read at native resolution in the row band. OCR joined them and dropped the hyphen. Same soft-hyphen caveat as p004-s032: the hyphen sits at a line break, and the printed form is what is kept."
+  },
+  "figures/umferdarmerki-enska-p006full-s068.jpg": {
+    "label": "Water-scooters for hire",
+    "reason": "Immediately right of s067 in the same row; caption 'Water-' / 'scooters' / 'for hire'. Same lost line-break hyphen. The crop is the jet-ski plate, distinct from s067's snowmobile."
+  },
+  "figures/umferdarmerki-enska-p006full-s071.jpg": {
+    "label": "Water skiing",
+    "reason": "Fifth crop in the same p006 row (Snow-scooters, Water-scooters, Bicycles for hire, Boats for hire, [this], River rafting); its caption is printed on one line as 'Water skiing' — two words, no hyphen, and the second word has three i's. The shipped 'Water sking' is one dropped glyph."
+  },
+  "figures/umferdarmerki-enska-p008full-s062.jpg": {
+    "label": "Single-width bridge",
+    "reason": "Caption under the crop reads 'Single-width bridge'. 'EINBREID BRU' is printed inside the yellow sign face, along its bottom edge, and OCR read it as 'EINDREID BRU' and prepended it. NOT in the 2026-08-05 audit — verdict there was 'correct'; this is a second post-audit regression of the same on-face-legend shape as p005-s006. Reading taken off the page at native resolution."
+  },
+  "figures/umferdarmerki-enska-p008full-s083.jpg": {
+    "label": "Horizontal barriers - roadworks",
+    "reason": "Caption is 'Horizontal barriers -' / 'roadworks'; the dash is printed at the end of the first line and was dropped when the lines were joined. Verified in the p008 band at native resolution."
+  },
+  "figures/umferdarmerki-enska-p009full-s005.jpg": {
+    "label": "Warning - with same meaning as amber light",
+    "reason": "Caption is 'Warning -' / 'with same meaning' / 'as amber light'; the dash ends the first line and was lost in the join. Cosmetic — the meaning was already right — but the shipped string reads as a different sentence."
+  },
+  "figures/umferdarmerki-enska-p009full-s019.jpg": {
+    "label": "Traffic signals with direction arrows",
+    "reason": "DEFENSIVE, no card changes today. This is the second member of the pair behind B2. p009full-s018 already carries a correction for the identical OCR defect; s019 is the same printed caption ('Traffic signals with direction arrows', read off the p009 band) still stored as 'Traftic'. It is out of the deck only because layout.ts happens to flag it shared — the exact arrangement the sign-labels audit called 'a coincidence of three filters, not a rule'. Correcting it means the duplicate-label rule, not the shared flag, is what keeps it out, so the B2 failure cannot come back if that flag ever moves."
+  },
+  "figures/umferdarmerki-enska-p003full-s017.jpg": {
+    "label": "Signs indicating traffic lane(s)",
+    "reason": "RECOVERY (also needs its GARBLED_LABEL entry removed from sign-exclusions.json). The three blue diagonal-arrow circles on p003 sit in one dashed frame whose caption, printed once along the bottom edge, reads 'Signs indicating traffic lane(s)'. The shipped '•- ' prefix is the dashed frame's own glyphs, not text. Crop is clean and complete (down-right arrow). This is a group caption shared by three sheet signs, so it names a group the way the deck's other 20 group-caption signs do; s016 and s018 stay out (both also flagged shared / excluded), so only one representative enters and the card keeps a single right answer."
+  },
+  "figures/umferdarmerki-enska-p005full-s031.jpg": {
+    "label": "Destinations ahead (a) with distances in capital area",
+    "reason": "RECOVERY (also needs its GARBLED_LABEL entry removed from sign-exclusions.json). Caption under this crop on p005 reads 'Destinations ahead (a)' / 'with distances in capital area'. 'Borgarnes' and '107' are two of the four destination rows printed on the sign face; OCR took '107 Borgarnes' into the label. Crop is clean and complete (blue panel, four destinations). Chosen over p005full-s012, which carries the same printed caption but whose crop is clipped mid-way through its third panel — s012 should stay excluded and its exclusion reason is better recorded as BAD_CROP than GARBLED_LABEL."
+  },
+  "figures/umferdarmerki-enska-p007full-s009.jpg": {
+    "label": "Approach lane merges with right-hand lane",
+    "reason": "RECOVERY, no exclusion change needed (blocked today only by an empty label). The two blue lane-arrow plates on p007 sit in one dashed frame whose caption, printed once beneath them, reads 'Approach lane merges with right-hand lane'; the label for this crop was captured empty. Crop is clean (two up arrows plus a merging arrow). Only this member is corrected — its partner s010 keeps its empty label and stays out, so the group still puts exactly one sign in the deck. Lane markings is the thinnest section on the sheet (3 deck signs today, none with a specific caption), which is what makes this worth doing."
+  },
+  "figures/umferdarmerki-enska-p007full-s025.jpg": {
+    "label": "Sign showing number of lanes on road to be entered",
+    "reason": "RECOVERY, no exclusion change needed (blocked today only by an empty label). Same shape as s009: a two-sign dashed group on p007 whose caption, printed once beneath it, reads 'Sign showing number of' / 'lanes on road to be entered'. Label was captured empty. Crop is clean (two diagonal arrows plus a third joining arrow). Partner s026 is left alone so only one representative enters."
+  },
+  "figures/umferdarmerki-enska-p008full-s003.jpg": {
+    "label": "Distance to danger or to place covered by prohibition or instruction",
+    "reason": "RECOVERY (also needs its GARBLED_LABEL entry removed from sign-exclusions.json). Caption is five lines, 'Distance to' / 'danger or' / 'to place covered by' / 'prohibition or' / 'instruction'; the last line was not captured. Crop is the clean '200 m' plate. Distinct from the in-deck 008full-s007, whose plate reads '200-800m' and whose caption is 'Distance to and length of danger or prohibition zone' — the two plates are told apart by range-versus-single-distance, which is exactly what the captions say. 68 characters, inside CLEAN_LABEL's cap (71 when this was written, 78 since B12)."
+  },
+  "figures/umferdarmerki-enska-p008full-s040.jpg": {
+    "label": "Caution - deaf people",
+    "reason": "RECOVERY (also needs its GARBLED_LABEL entry removed from sign-exclusions.json). Caption reads 'Caution - deaf' / 'people' — the 'f' of 'deaf' is unambiguous at native resolution, unlike the OCR's 'deat', and the reading rests on the caption alone. The pictogram does NOT corroborate it and must not be cited as if it did: the plate is a plain yellow rectangle carrying a circled face-like glyph with three dots, not the 'ear symbol' the old exclusion note recorded — that note was simply inaccurate. Its in-deck neighbour 'Caution - blind people' is a distinct plate (red-framed yellow, five black dots) and its label differs by more than one glyph, so the near-duplicate floor stays at zero."
+  },
+  "figures/umferdarmerki-enska-p008full-s044.jpg": {
+    "label": "Total permitted weight limit",
+    "reason": "RECOVERY, no exclusion change needed (blocked today only by the lower-case 'weight limit' fragment failing CLEAN_LABEL). Caption is 'Total permitted' / 'weight limit'; only the second line was captured. Crop is the clean '10 t' plate. Distinct from the round prohibition sign 'Total weight limit' on p001, which is a different sign class and differs by more than one glyph."
+  },
+  "figures/umferdarmerki-enska-p010full-s007.jpg": {
+    "label": "Overtaking permitted for traffic within broken lane line",
+    "reason": "Caption reads 'Overtaking permitted for' / 'traffic within broken lane line'; the 'c' of 'traffic' is clear at native resolution. Crop is a grey carriageway with long white dashes and a step in the lane edge — distinguishable from the in-deck 010full-s006 ('Broken centre line ...', three short centred dashes), though this is the harder end of the Road-markings pairs and belongs on the same watch list as 008-068/008-070. NOTE: this sign is EXCLUDED again — the recovery was reverted because its crop and in-deck 010full-s004's depict the same physical marking and neither label names the discriminator. This reading is kept anyway, deliberately: a correct reading of the page stays recorded even for a sign the deck does not ship. See sign-exclusions.json for the full reasoning and how to overturn it."
+  },
+  "figures/umferdarmerki-enska-p010full-s020.jpg": {
+    "label": "Prohibition area",
+    "reason": "RECOVERY (also needs its GARBLED_LABEL entry removed from sign-exclusions.json). Caption reads 'Prohibition area'; the shipped 'Prohibition .area' carries a stray period. Crop is the cross-hatched wedge — visually unlike every other Road-markings crop, which is what makes this one safe to add where 010full-s010 is not. Its empty-label twin 010full-s021 is left alone, so the duplicate-label rule is not engaged."
+  }
+}

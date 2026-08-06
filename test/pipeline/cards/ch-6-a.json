@@ -1,0 +1,285 @@
+{
+  "packet": "ch-6-a",
+  "questions": [
+    {
+      "id": "ch-6-a-01",
+      "question": "What is the maximum permitted length of a purpose-made tow rope?",
+      "options": [
+        "3 metres",
+        "5 metres",
+        "8 metres",
+        "10 metres"
+      ],
+      "answer": 1,
+      "explanation": "A longer rope gives the towed car too much room to swing out or run into the towing car, so the length is capped by law.",
+      "topic": "vehicle",
+      "source": "ch-6:1a:779y6b"
+    },
+    {
+      "id": "ch-6-a-02",
+      "question": "How fast may the two cars drive when one is being towed on a tow rope?",
+      "options": [
+        "No faster than 20 km/h",
+        "No faster than 30 km/h",
+        "No faster than 45 km/h",
+        "No faster than 60 km/h"
+      ],
+      "answer": 1,
+      "explanation": "The towed car's stopping distance is limited by the rope, so both drivers must hold a low and as constant a speed as possible.",
+      "topic": "speed",
+      "source": "ch-6:1a:779y6b"
+    },
+    {
+      "id": "ch-6-a-03",
+      "question": "In which gear position must a car with automatic transmission be while it is towed?",
+      "options": [
+        "Park",
+        "Drive",
+        "Neutral",
+        "Reverse"
+      ],
+      "answer": 2,
+      "explanation": "An automatic gearbox is not lubricated properly when the engine is off, so any driven position can wreck it; the tow must also be short and slow.",
+      "topic": "vehicle",
+      "source": "ch-6:1a:1v5b5qp"
+    },
+    {
+      "id": "ch-6-a-04",
+      "question": "The anti-lock brake warning light comes on while you are driving. What does it mean?",
+      "options": [
+        "The braking system has failed and the car must not be driven at all",
+        "The brake fluid has dropped below its minimum permitted level",
+        "The anti-lock function is off, but ordinary braking usually still works",
+        "The parking brake has been left partly applied while driving"
+      ],
+      "answer": 2,
+      "explanation": "The lamp reports only the loss of the anti-lock function; the hydraulic braking circuit is separate and has its own warning light.",
+      "topic": "vehicle",
+      "source": "ch-6:1b:gyzzhi"
+    },
+    {
+      "id": "ch-6-a-05",
+      "question": "The rear fog beam indicator is lit on your dashboard. Where must you switch that lamp off?",
+      "options": [
+        "In urban areas",
+        "On gravel roads",
+        "Inside tunnels",
+        "On mountain roads"
+      ],
+      "answer": 0,
+      "explanation": "The rear fog lamp is far brighter than a tail light and dazzles the driver behind, which is why an indicator on the dashboard reminds you it is on.",
+      "topic": "lights",
+      "source": "ch-6:1b:528hpy"
+    },
+    {
+      "id": "ch-6-a-06",
+      "question": "The oil pressure warning light comes on while driving. What should you do first?",
+      "options": [
+        "Drive slowly onward to the nearest automobile repair shop",
+        "Pour in more oil straight away with the engine idling",
+        "Read the dipstick while the engine is still running",
+        "Stop the engine at once and let it cool before checking"
+      ],
+      "answer": 3,
+      "explanation": "Low oil pressure can destroy an engine within moments, and the oil must settle back into the sump before a dipstick reading means anything.",
+      "topic": "vehicle",
+      "source": "ch-6:2a:fa2xo6"
+    },
+    {
+      "id": "ch-6-a-07",
+      "question": "After an oil pressure warning, the dipstick shows a normal oil level. What now?",
+      "options": [
+        "Restart the engine and drive gently back home",
+        "Leave the engine off until the cause has been found",
+        "Add more oil anyway and carry on driving",
+        "Restart the engine after an hour of cooling"
+      ],
+      "answer": 1,
+      "explanation": "A normal level means the fault lies somewhere else and is probably far more serious, so starting the engine again is likely to damage it.",
+      "topic": "vehicle",
+      "source": "ch-6:2a:fa2xo6"
+    },
+    {
+      "id": "ch-6-a-08",
+      "question": "What supplies the electricity for the lamps and radio while the engine is running?",
+      "options": [
+        "The battery",
+        "The starter motor",
+        "The ignition coil",
+        "The alternator"
+      ],
+      "answer": 3,
+      "explanation": "The battery's job is to power the electrics with the engine off; once the engine runs, the alternator takes over and recharges the battery as well.",
+      "topic": "vehicle",
+      "source": "ch-6:2b:1esb2fi"
+    },
+    {
+      "id": "ch-6-a-09",
+      "question": "What happens if the serpentine belt breaks while you are driving?",
+      "options": [
+        "The engine loses its oil pressure and seizes almost at once",
+        "The brakes lose their power assistance within a few seconds",
+        "Nothing is noticed until the next attempt to start the car",
+        "The battery stops charging and the car eventually stops running"
+      ],
+      "answer": 3,
+      "explanation": "The belt drives the alternator, so the car runs on the battery alone until it is flat; the battery warning light comes on to signal this.",
+      "topic": "vehicle",
+      "source": "ch-6:2b:sio3fu"
+    },
+    {
+      "id": "ch-6-a-10",
+      "question": "Which is the recommended way to get a car going when its battery is dead?",
+      "options": [
+        "Push-start it with the help of another vehicle",
+        "Tow-start it in a high gear on a quiet road",
+        "Jump-start it with jumper cables from another car",
+        "Roll-start it down a slope in second gear"
+      ],
+      "answer": 2,
+      "explanation": "Push- and tow-starting keep two vehicles moving very close together, and the probability of a collision during the manoeuvre is substantial.",
+      "topic": "accidents",
+      "source": "ch-6:3a:1799v1x"
+    },
+    {
+      "id": "ch-6-a-11",
+      "question": "Which jumper cable connection is made first when jump-starting a car?",
+      "options": [
+        "The red clamp on the dead battery's positive terminal",
+        "The red clamp on the good battery's positive terminal",
+        "The black clamp on the good battery's negative terminal",
+        "The black clamp on the dead battery's negative terminal"
+      ],
+      "answer": 0,
+      "explanation": "The sequence works through the two positive terminals before the two negative ones, and the flat battery's negative post is connected last of all.",
+      "topic": "vehicle",
+      "source": "ch-6:3a:1mkd6bo"
+    },
+    {
+      "id": "ch-6-a-12",
+      "question": "Why must you never open the coolant reservoir lid on a hot engine?",
+      "options": [
+        "Cold air rushing in can crack the hot radiator",
+        "The coolant instantly loses its antifreeze effect",
+        "Dirt getting in will block the radiator at once",
+        "Boiling coolant can spurt out of the opening"
+      ],
+      "answer": 3,
+      "explanation": "The cooling system is under pressure when hot, so releasing the cap lets the fluid flash into steam and scald whoever is standing over it.",
+      "topic": "vehicle",
+      "source": "ch-6:3b:xq9iyk"
+    },
+    {
+      "id": "ch-6-a-13",
+      "question": "Why should you keep your face away from a battery while connecting jumper cables?",
+      "options": [
+        "The alternator may be ruined by the sudden current surge",
+        "The battery itself may explode, especially if sparks fly",
+        "The cables can melt and weld themselves to the terminals",
+        "The engine management system may be reset by the sparks"
+      ],
+      "answer": 1,
+      "explanation": "A battery gives off gas that a spark at the terminal can ignite; if acid does reach the face it must be rinsed at once with plenty of water.",
+      "topic": "vehicle",
+      "source": "ch-6:3b:vdzyag"
+    },
+    {
+      "id": "ch-6-a-14",
+      "question": "What must never be used to put out a burning gasoline fire?",
+      "options": [
+        "A dry chemical extinguisher",
+        "A blanket thrown over it",
+        "Dry sand shovelled onto it",
+        "Water or any other liquid"
+      ],
+      "answer": 3,
+      "explanation": "Burning petrol floats on top and is carried along by the liquid, so the fire is spread rather than smothered.",
+      "topic": "vehicle",
+      "source": "ch-6:4a:xf2bvj"
+    },
+    {
+      "id": "ch-6-a-15",
+      "question": "What makes the carbon monoxide in exhaust fumes so hard to detect?",
+      "options": [
+        "It has neither colour nor smell of any kind",
+        "It has a sharp smell that quickly numbs the nose",
+        "It is heavier than air and pools near the ground",
+        "It stings the eyes only long after it has harmed you"
+      ],
+      "answer": 0,
+      "explanation": "The victim gets no warning while the gas binds to haemoglobin and blocks oxygen from reaching the tissues, which is why an engine must never run in a closed space.",
+      "topic": "vehicle",
+      "source": "ch-6:4a:17fzh4g"
+    },
+    {
+      "id": "ch-6-a-16",
+      "question": "What hazard does a catalytic converter present to the car and its surroundings?",
+      "options": [
+        "It leaks carbon monoxide straight into the passenger cabin",
+        "It gets extremely hot and can set flammable material alight",
+        "It stops working completely once the engine has warmed up",
+        "It makes the exhaust fumes considerably more toxic than before"
+      ],
+      "answer": 1,
+      "explanation": "The converter only cleans the exhaust once it reaches a high working temperature, so parking over dry grass or leaves is a real fire risk.",
+      "topic": "vehicle",
+      "source": "ch-6:4b:1w6ar34"
+    },
+    {
+      "id": "ch-6-a-17",
+      "question": "How should the pedals be operated in a car with automatic transmission?",
+      "options": [
+        "With the right foot on gas, the left on brake",
+        "With whichever foot happens to be comfortable",
+        "With the right foot only, for both pedals",
+        "With the left foot only, resting on the brake"
+      ],
+      "answer": 2,
+      "explanation": "There is no clutch pedal to occupy the left foot, and using both feet risks pressing the accelerator and the brake at the same time.",
+      "topic": "vehicle",
+      "source": "ch-6:5a:o5yei4"
+    },
+    {
+      "id": "ch-6-a-18",
+      "question": "What are the consequences of running a tire at too low an air pressure?",
+      "options": [
+        "Fuel consumption rises and the tire loses grip",
+        "Fuel consumption falls but the tread wears faster",
+        "Grip improves although the steering grows heavier",
+        "Nothing changes until the tire is almost flat"
+      ],
+      "answer": 0,
+      "explanation": "An under-inflated tire deforms as it rolls, which increases rolling resistance and distorts the patch of rubber that touches the road.",
+      "topic": "vehicle",
+      "source": "ch-6:5b:12wlvku"
+    },
+    {
+      "id": "ch-6-a-19",
+      "question": "What is the minimum tread groove depth required during winter, 1 November to 14 April?",
+      "options": [
+        "3 mm",
+        "1.6 mm",
+        "5 mm",
+        "8 mm"
+      ],
+      "answer": 0,
+      "explanation": "The year-round minimum is only 1.6 mm, but winter conditions need deeper grooves to clear away snow, slush and water.",
+      "topic": "weather",
+      "source": "ch-6:6a:fbvdpf"
+    },
+    {
+      "id": "ch-6-a-20",
+      "question": "What is the usual recommended maximum speed when driving on a compact spare tire?",
+      "options": [
+        "50 km/h",
+        "90 km/h",
+        "80 km/h",
+        "100 km/h"
+      ],
+      "answer": 2,
+      "explanation": "The compact spare is deliberately made smaller and lighter to save space and cost, so it is only meant for a short trip to a repair shop.",
+      "topic": "speed",
+      "source": "ch-6:6b:4pbh85"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Iceland driving theory — study</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Set before first paint so a light-theme user never sees a dark flash. Only
+  // the two known themes are honoured: a damaged payload must not put an unknown
+  // value on <html>, where no variables are defined for it.
+  try {
+    const s = JSON.parse(localStorage.getItem('iceland-theory:v1') || '{}');
+    document.documentElement.dataset.theme = s?.settings?.theme === 'light' ? 'light' : 'dark';
+  } catch { document.documentElement.dataset.theme = 'dark'; }
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">Driving in Iceland <span>· theory</span></div>
+    <button class="ghost icon spacer" id="theme-toggle" aria-label="Switch theme">☾</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="tabs" aria-label="Sections"></nav>
+  <!-- Storage warnings live outside #view so they survive every re-render. -->
+  <div id="notices" aria-live="polite" style="display:none"></div>
+  <main id="view"></main>
+</div>
+
+<script src="data/cards.js"></script>
+<script src="js/sm2.js"></script>
+<script src="js/store.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/ui.js"></script>
+<script>
+  if (!window.CARDS) {
+    document.getElementById('view').textContent =
+      'Card data missing — run “npm run cards” to build app/data/cards.js.';
+  } else {
+    window.UI.boot(window.CARDS);
+  }
+</script>
+
+</body>
+</html>

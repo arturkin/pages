@@ -1,0 +1,215 @@
+### Ch. 1–2
+orientation: 0°×7 → applying 0°
+p001a   1220x1791  turn=  0 skew=-1.90°→+0.00°  lines= 74 chars=  955 conf=0.986 low=0
+p001b   1287x1791  turn=  0 skew=-0.10°→+0.20°  lines= 71 chars= 1043 conf=0.993 low=0
+p002a   1230x1827  turn=  0 skew=-3.10°→+0.10°  lines= 49 chars=  781 conf=0.990 low=0
+p002b   1309x1827  turn=  0 skew=-0.30°→+0.00°  lines= 48 chars= 1767 conf=0.900 low=4
+p003a   1217x1761  turn=  0 skew=-0.30°→+0.00°  lines= 75 chars= 1506 conf=0.884 low=6
+p003b   1264x1761  turn=  0 skew=+0.20°→-0.10°  lines=107 chars= 2199 conf=0.905 low=1
+p004a   1235x1762  turn=  0 skew=+0.00°→+0.00°  lines= 57 chars= 1685 conf=0.961 low=1
+p004b   1287x1762  turn=  0 skew=+0.80°→+0.10°  lines= 67 chars= 2536 conf=1.000 low=0
+p005a   1232x1762  turn=  0 skew=+0.00°→+0.00°  lines= 43 chars= 1993 conf=0.972 low=1
+p005b   1239x1762  turn=  0 skew=+0.00°→+0.00°  lines= 41 chars= 1679 conf=1.000 low=0
+p006a   1233x1795  turn=  0 skew=+0.00°→+0.00°  lines= 57 chars= 2507 conf=1.000 low=0
+p006b   1272x1795  turn=  0 skew=-0.40°→+0.10°  lines= 59 chars= 2365 conf=0.983 low=0
+p007a   1231x1778  turn=  0 skew=+0.30°→+0.00°  lines= 60 chars= 2516 conf=0.992 low=0
+p007b   1257x1778  turn=  0 skew=-0.80°→-0.10°  lines= 55 chars= 1906 conf=0.933 low=1
+== Ch. 1–2: 14 page-sides, 25438 chars, meanConf=0.964
+### Ch. 3
+orientation: 0°×10 → applying 0°
+p001a   1249x1808  turn=  0 skew=+0.30°→-0.20°  lines= 35 chars= 1691 conf=0.986 low=0
+p001b   1281x1808  turn=  0 skew=+0.00°→+0.00°  lines= 53 chars= 1880 conf=0.879 low=2
+p002a   1217x1729  turn=  0 skew=-0.80°→+0.00°  lines= 27 chars=  612 conf=0.981 low=0
+p002b   1189x1729  turn=  0 skew=+0.70°→-0.10°  lines= 45 chars= 2027 conf=0.984 low=1
+p003a   1188x1639  turn=  0 skew=-0.90°→+0.00°  lines= 45 chars= 1954 conf=0.989 low=0
+p003b   1186x1639  turn=  0 skew=+0.90°→-0.10°  lines= 29 chars= 1232 conf=1.000 low=0
+p004a   1255x1767  turn=  0 skew=-1.20°→+0.00°  lines= 35 chars= 1363 conf=1.000 low=0
+p004b   1210x1767  turn=  0 skew=-0.70°→-0.10°  lines= 66 chars= 1929 conf=0.858 low=7
+p005a   1276x1723  turn=  0 skew=-0.20°→+0.00°  lines= 56 chars= 1733 conf=0.939 low=2
+p005b   1194x1723  turn=  0 skew=+0.00°→+0.00°  lines= 38 chars= 1401 conf=1.000 low=0
+p006a   1208x1696  turn=  0 skew=-0.70°→+0.00°  lines= 46 chars= 1919 conf=0.985 low=1
+p006b   1188x1696  turn=  0 skew=+0.20°→-0.10°  lines= 33 chars= 1162 conf=0.985 low=0
+p007a   1237x1728  turn=  0 skew=-0.60°→+0.00°  lines= 47 chars= 1494 conf=0.938 low=2
+p007b   1228x1728  turn=  0 skew=+0.30°→+0.10°  lines= 29 chars=  976 conf=0.959 low=1
+p008a   1232x1736  turn=  0 skew=-1.10°→+0.00°  lines= 56 chars= 1901 conf=0.964 low=0
+p008b   1218x1736  turn=  0 skew=-0.50°→+0.00°  lines= 37 chars= 1423 conf=1.000 low=0
+p009a   1207x1694  turn=  0 skew=-1.40°→+0.10°  lines= 53 chars= 2114 conf=1.000 low=0
+p009b   1197x1694  turn=  0 skew=+0.20°→-0.10°  lines= 69 chars= 2416 conf=1.000 low=0
+p010a   1286x1766  turn=  0 skew=-0.70°→+0.00°  lines= 33 chars= 1182 conf=0.985 low=0
+p010b   1238x1766  turn=  0 skew=+0.90°→+0.00°  lines= 24 chars=  943 conf=1.000 low=0
+== Ch. 3: 20 page-sides, 31352 chars, meanConf=0.972
+### Ch. 4
+orientation: 0°×19 → applying 0°
+p001a   1289x1785  turn=  0 skew=-0.80°→+0.00°  lines= 46 chars= 1891 conf=1.000 low=0
+p001b   1260x1785  turn=  0 skew=+0.90°→+0.20°  lines= 47 chars= 2048 conf=1.000 low=0
+p002a   1245x1713  turn=  0 skew=-1.80°→+0.00°  lines= 29 chars= 1368 conf=1.000 low=0
+p002b   1222x1713  turn=  0 skew=+0.90°→+0.20°  lines= 47 chars= 2297 conf=1.000 low=0
+p003a   1222x1707  turn=  0 skew=-2.10°→-0.20°  lines= 33 chars= 1431 conf=1.000 low=0
+p003b   1240x1707  turn=  0 skew=+1.30°→-0.10°  lines= 39 chars= 1662 conf=0.949 low=0
+p004a   1393x1998  turn=  0 skew=-1.00°→+0.00°  lines= 41 chars= 1676 conf=1.000 low=0
+p004b   1317x1998  turn=  0 skew=-0.30°→+0.10°  lines= 37 chars= 1645 conf=1.000 low=0
+p005a   1379x1795  turn=  0 skew=+0.40°→+0.00°  lines= 71 chars= 2509 conf=0.986 low=0
+p005b   1179x1795  turn=  0 skew=+0.20°→+0.00°  lines= 41 chars= 1472 conf=1.000 low=0
+p006a   1347x1814  turn=  0 skew=-0.40°→-0.10°  lines= 37 chars= 1590 conf=1.000 low=0
+p006b   1248x1814  turn=  0 skew=+0.20°→+0.10°  lines= 40 chars= 1607 conf=1.000 low=0
+p007a   1342x1863  turn=  0 skew=-0.60°→+0.00°  lines= 24 chars= 1109 conf=0.971 low=1
+p007b   1275x1863  turn=  0 skew=+0.20°→+0.20°  lines= 60 chars= 2076 conf=0.902 low=2
+p008a   1373x1887  turn=  0 skew=-1.30°→-0.10°  lines= 46 chars= 2245 conf=1.000 low=0
+p008b   1299x1887  turn=  0 skew=-0.40°→+0.20°  lines= 53 chars= 1857 conf=0.987 low=1
+p009a   1365x1818  turn=  0 skew=+0.00°→+0.00°  lines= 62 chars= 2594 conf=1.000 low=0
+p009b   1226x1818  turn=  0 skew=+0.20°→+0.20°  lines= 60 chars= 2641 conf=1.000 low=0
+p010a   1407x1889  turn=  0 skew=+0.00°→+0.00°  lines= 46 chars= 1798 conf=1.000 low=0
+p010b   1257x1889  turn=  0 skew=+0.70°→-0.10°  lines= 70 chars= 1984 conf=0.930 low=2
+p011a   1359x1826  turn=  0 skew=-0.90°→-0.10°  lines= 47 chars= 2150 conf=0.979 low=0
+p011b   1223x1826  turn=  0 skew=+0.60°→-0.10°  lines= 32 chars= 1282 conf=1.000 low=0
+p012a   1348x1825  turn=  0 skew=-1.40°→-0.10°  lines= 40 chars= 1741 conf=0.988 low=0
+p012b   1234x1825  turn=  0 skew=+0.70°→-0.10°  lines= 64 chars= 2394 conf=0.992 low=0
+p013a   1337x1840  turn=  0 skew=-0.90°→+0.30°  lines= 51 chars= 1729 conf=0.990 low=0
+p013b   1261x1840  turn=  0 skew=+1.60°→+0.00°  lines= 54 chars= 2089 conf=0.972 low=0
+p014a   1359x1865  turn=  0 skew=-1.10°→-0.10°  lines= 62 chars= 2408 conf=0.992 low=0
+p014b   1256x1865  turn=  0 skew=+0.70°→+0.10°  lines= 52 chars= 2298 conf=1.000 low=0
+p015a   1339x1872  turn=  0 skew=-0.50°→+0.00°  lines= 59 chars= 2424 conf=0.992 low=0
+p015b   1219x1872  turn=  0 skew=+0.20°→-0.10°  lines= 50 chars= 2195 conf=1.000 low=0
+p016a   1382x1859  turn=  0 skew=-0.80°→+0.30°  lines= 39 chars= 1804 conf=0.987 low=0
+p016b   1187x1859  turn=  0 skew=+0.30°→-0.10°  lines= 44 chars= 2149 conf=1.000 low=0
+p017a   1359x1830  turn=  0 skew=-0.90°→-0.10°  lines= 52 chars= 2218 conf=1.000 low=0
+p017b   1196x1830  turn=  0 skew=+0.50°→-0.10°  lines= 43 chars= 1665 conf=0.988 low=0
+p018a   1340x1824  turn=  0 skew=-0.10°→-0.10°  lines= 54 chars= 2330 conf=1.000 low=0
+p018b   1203x1824  turn=  0 skew=+0.20°→+0.20°  lines= 54 chars= 2278 conf=1.000 low=0
+p019a   1289x1755  turn=  0 skew=-1.30°→+0.00°  lines= 69 chars= 2389 conf=1.000 low=0
+p019b   1137x1755  turn=  0 skew=+1.10°→+0.20°  lines= 20 chars=  759 conf=1.000 low=0
+== Ch. 4: 38 page-sides, 73802 chars, meanConf=0.990
+### Ch. 5
+orientation: 0°×11 → applying 0°
+p001a   1285x1710  turn=  0 skew=-0.90°→+0.00°  lines= 45 chars= 1935 conf=1.000 low=0
+p001b   1128x1710  turn=  0 skew=-1.30°→+0.20°  lines= 41 chars= 1934 conf=1.000 low=0
+p002a   1255x1688  turn=  0 skew=-0.10°→-0.10°  lines= 56 chars= 2495 conf=1.000 low=0
+p002b   1118x1688  turn=  0 skew=-0.40°→+0.10°  lines= 55 chars= 2125 conf=1.000 low=0
+p003a   1210x1643  turn=  0 skew=-0.90°→-0.10°  lines= 53 chars= 2406 conf=1.000 low=0
+p003b   1131x1643  turn=  0 skew=-0.60°→-0.10°  lines= 51 chars= 2220 conf=1.000 low=0
+p004a   1272x1773  turn=  0 skew=-0.10°→-0.10°  lines= 45 chars= 2252 conf=1.000 low=0
+p004b   1211x1773  turn=  0 skew=-0.40°→+0.00°  lines= 77 chars= 2269 conf=0.832 low=2
+p005a   1278x1741  turn=  0 skew=+0.80°→+0.00°  lines= 45 chars= 2134 conf=1.000 low=0
+p005b   1131x1741  turn=  0 skew=-2.10°→-0.10°  lines= 62 chars= 2333 conf=0.944 low=0
+p006a   1225x1756  turn=  0 skew=-0.10°→-0.10°  lines= 61 chars= 2221 conf=0.946 low=4
+p006b   1173x1756  turn=  0 skew=-0.70°→+0.00°  lines= 66 chars= 2751 conf=0.952 low=1
+p007a   1249x1707  turn=  0 skew=+1.00°→-0.10°  lines= 59 chars= 2273 conf=1.000 low=0
+p007b   1108x1707  turn=  0 skew=+0.00°→+0.00°  lines= 48 chars= 1565 conf=0.990 low=0
+p008a   1257x1732  turn=  0 skew=+1.00°→-0.10°  lines= 55 chars= 2451 conf=1.000 low=0
+p008b   1150x1732  turn=  0 skew=-0.90°→+0.00°  lines= 38 chars= 1689 conf=1.000 low=0
+p009a   1265x1806  turn=  0 skew=-1.30°→-0.10°  lines= 52 chars= 2124 conf=0.981 low=0
+p009b   1264x1806  turn=  0 skew=-1.30°→+0.00°  lines= 61 chars= 2552 conf=0.984 low=0
+p010a   1277x1771  turn=  0 skew=+1.10°→-0.10°  lines= 50 chars= 2090 conf=1.000 low=0
+p010b   1240x1771  turn=  0 skew=-0.10°→-0.10°  lines= 52 chars= 2212 conf=1.000 low=0
+p011a   1282x1806  turn=  0 skew=-0.50°→+0.00°  lines= 50 chars= 2030 conf=0.990 low=0
+p011b   1250x1806  turn=  0 skew=-0.80°→+0.00°  lines= 60 chars= 2071 conf=0.908 low=0
+== Ch. 5: 22 page-sides, 48132 chars, meanConf=0.978
+### Ch. 6
+orientation: 0°×12 → applying 0°
+p001a   1259x1753  turn=  0 skew=-2.20°→-0.20°  lines= 50 chars= 2030 conf=0.980 low=0
+p001b   1227x1753  turn=  0 skew=+1.10°→+0.00°  lines= 58 chars= 2061 conf=0.914 low=0
+p002a   1284x1763  turn=  0 skew=-0.70°→+0.00°  lines= 54 chars= 1981 conf=0.991 low=0
+p002b   1210x1763  turn=  0 skew=-0.30°→-0.10°  lines= 42 chars= 1919 conf=0.988 low=0
+p003a   1211x1733  turn=  0 skew=+0.80°→-0.10°  lines= 38 chars= 1707 conf=1.000 low=0
+p003b   1187x1733  turn=  0 skew=-2.20°→+0.00°  lines= 46 chars= 2269 conf=0.985 low=1
+p004a   1211x1741  turn=  0 skew=+0.00°→+0.00°  lines= 42 chars= 1837 conf=0.988 low=0
+p004b   1176x1741  turn=  0 skew=-1.20°→+0.00°  lines= 46 chars= 1939 conf=0.978 low=0
+p005a   1248x1802  turn=  0 skew=-2.60°→-0.10°  lines= 56 chars= 2383 conf=1.000 low=0
+p005b   1241x1802  turn=  0 skew=-0.80°→+0.00°  lines= 53 chars= 2194 conf=0.991 low=0
+p006a   1305x1834  turn=  0 skew=+2.10°→+0.00°  lines= 58 chars= 2453 conf=0.991 low=0
+p006b   1209x1834  turn=  0 skew=-1.50°→+0.00°  lines= 55 chars= 2304 conf=0.907 low=3
+p007a   1202x1645  turn=  0 skew=+2.10°→+0.00°  lines= 45 chars= 1830 conf=1.000 low=0
+p007b   1113x1645  turn=  0 skew=-1.50°→+0.10°  lines= 47 chars= 2185 conf=1.000 low=0
+p008a   1160x1742  turn=  0 skew=+0.40°→-0.10°  lines= 38 chars= 1857 conf=0.987 low=0
+p008b   1100x1742  turn=  0 skew=-2.10°→+0.10°  lines= 35 chars= 1511 conf=0.986 low=0
+p009a   1287x1819  turn=  0 skew=+1.80°→+0.00°  lines= 43 chars= 2104 conf=1.000 low=0
+p009b   1244x1819  turn=  0 skew=-2.10°→+0.10°  lines= 43 chars= 2001 conf=0.977 low=0
+p010a   1239x1744  turn=  0 skew=-0.10°→+0.30°  lines= 55 chars= 2309 conf=1.000 low=0
+p010b   1195x1744  turn=  0 skew=-0.10°→-0.10°  lines= 51 chars= 2157 conf=1.000 low=0
+p011a   1281x1771  turn=  0 skew=-0.20°→-0.20°  lines= 82 chars= 2655 conf=0.944 low=3
+p011b   1242x1771  turn=  0 skew=+0.60°→+0.10°  lines= 50 chars= 2383 conf=0.976 low=1
+p012a   1254x1801  turn=  0 skew=-1.10°→+0.00°  lines= 12 chars=  554 conf=1.000 low=0
+p012b   1201x1801  turn=  0 skew=+0.00°→+0.00°  lines= 35 chars= 1662 conf=1.000 low=0
+== Ch. 6: 24 page-sides, 48285 chars, meanConf=0.983
+### Ch. 7
+orientation: 0°×9 → applying 0°
+p001a   1321x1872  turn=  0 skew=-4.40°→-0.30°  lines= 12 chars=  549 conf=1.000 low=0
+p001b   1294x1872  turn=  0 skew=+0.60°→+0.00°  lines= 35 chars= 1669 conf=1.000 low=0
+p002a   1315x1858  turn=  0 skew=-0.20°→-0.20°  lines= 38 chars= 1955 conf=0.987 low=0
+p002b   1263x1858  turn=  0 skew=+0.10°→+0.10°  lines= 31 chars= 1368 conf=0.952 low=0
+p003a   1396x1971  turn=  0 skew=-0.70°→+0.00°  lines= 50 chars= 2031 conf=1.000 low=0
+p003b   1359x1971  turn=  0 skew=+0.60°→+0.10°  lines= 27 chars=  981 conf=1.000 low=0
+p004a   1307x1817  turn=  0 skew=+0.00°→+0.00°  lines= 41 chars= 2195 conf=1.000 low=0
+p004b   1250x1817  turn=  0 skew=+0.80°→+0.10°  lines= 41 chars= 2019 conf=1.000 low=0
+p005a   1262x1727  turn=  0 skew=-0.20°→-0.20°  lines= 61 chars= 2292 conf=0.992 low=0
+p005b   1200x1727  turn=  0 skew=+0.50°→+0.00°  lines= 60 chars= 1922 conf=1.000 low=0
+p006a   1270x1729  turn=  0 skew=-0.20°→-0.20°  lines= 68 chars= 2345 conf=0.971 low=0
+p006b   1222x1729  turn=  0 skew=+0.70°→+0.10°  lines= 41 chars= 1810 conf=0.988 low=0
+p007a   1250x1764  turn=  0 skew=-0.20°→+0.30°  lines= 38 chars= 1838 conf=1.000 low=0
+p007b   1183x1764  turn=  0 skew=+1.30°→+0.00°  lines= 53 chars= 2232 conf=0.943 low=0
+p008a   1321x1830  turn=  0 skew=-0.10°→+0.00°  lines= 40 chars= 1863 conf=1.000 low=0
+p008b   1220x1830  turn=  0 skew=+1.00°→+0.20°  lines= 44 chars= 2119 conf=1.000 low=0
+p009a   1273x1845  turn=  0 skew=-1.40°→-0.10°  lines= 20 chars=  902 conf=1.000 low=0
+p009b   1254x1845  turn=  0 skew=+0.00°→+0.00°  lines= 53 chars= 1648 conf=0.930 low=1
+== Ch. 7: 18 page-sides, 31738 chars, meanConf=0.987
+### Ch. 8
+orientation: 0°×10 → applying 0°
+p001a   1249x1703  turn=  0 skew=-3.00°→+0.00°  lines= 20 chars=  901 conf=1.000 low=0
+p001b   1170x1703  turn=  0 skew=+0.70°→+0.00°  lines= 42 chars= 1623 conf=1.000 low=0
+p002a   1327x1798  turn=  0 skew=+0.30°→+0.30°  lines= 57 chars= 2467 conf=0.982 low=0
+p002b   1244x1798  turn=  0 skew=+0.50°→-0.10°  lines= 55 chars= 2174 conf=1.000 low=0
+p003a   1299x1783  turn=  0 skew=-0.20°→-0.20°  lines= 41 chars= 1712 conf=0.988 low=0
+p003b   1232x1783  turn=  0 skew=+0.50°→+0.20°  lines= 41 chars= 2032 conf=1.000 low=0
+p004a   1304x1762  turn=  0 skew=-0.20°→-0.20°  lines= 42 chars= 1971 conf=0.988 low=0
+p004b   1209x1762  turn=  0 skew=+0.20°→+0.20°  lines= 53 chars= 2234 conf=1.000 low=0
+p005a   1326x1806  turn=  0 skew=-0.20°→+0.30°  lines= 28 chars= 1407 conf=1.000 low=0
+p005b   1282x1806  turn=  0 skew=+2.50°→+0.10°  lines= 50 chars= 2030 conf=1.000 low=0
+p006a   1334x1841  turn=  0 skew=-0.20°→+0.30°  lines= 41 chars= 1925 conf=1.000 low=0
+p006b   1252x1841  turn=  0 skew=+1.30°→+0.20°  lines= 47 chars= 2026 conf=0.940 low=4
+p007a   1308x1820  turn=  0 skew=-0.20°→-0.20°  lines= 30 chars= 1445 conf=1.000 low=0
+p007b   1214x1820  turn=  0 skew=+0.20°→+0.20°  lines= 43 chars= 1846 conf=1.000 low=0
+p008a   1341x1784  turn=  0 skew=-0.20°→-0.20°  lines= 42 chars= 2104 conf=0.976 low=0
+p008b   1232x1784  turn=  0 skew=+0.20°→+0.20°  lines= 47 chars= 1896 conf=0.989 low=0
+p009a   1292x1782  turn=  0 skew=+0.00°→+0.00°  lines= 44 chars= 2061 conf=1.000 low=0
+p009b   1204x1782  turn=  0 skew=+3.20°→+0.00°  lines= 38 chars= 1476 conf=1.000 low=0
+p010a   1332x1843  turn=  0 skew=-0.20°→+0.00°  lines= 41 chars= 2048 conf=1.000 low=0
+p010b   1280x1843  turn=  0 skew=+2.00°→+0.10°  lines= 29 chars= 1239 conf=1.000 low=0
+== Ch. 8: 20 page-sides, 36617 chars, meanConf=0.993
+### Appendix
+orientation: 90°×4 270°×7 → applying 270°
+p001a   1241x1674  turn=270 skew=-0.70°→-0.10°  lines= 27 chars=  707 conf=1.000 low=0
+p001b   1155x1674  turn=270 skew=+0.20°→+0.10°  lines= 43 chars= 1101 conf=0.988 low=0
+p002a   1269x1790  turn=270 skew=-1.70°→+0.00°  lines= 41 chars=  837 conf=0.905 low=2
+p002b   1191x1790  turn=270 skew=+0.20°→+0.20°  lines= 68 chars= 1998 conf=0.978 low=0
+p003a   1249x1831  turn=270 skew=-1.30°→+0.00°  lines= 42 chars= 1371 conf=0.971 low=1
+p003b   1196x1831  turn=270 skew=+1.00°→+0.10°  lines= 63 chars= 1783 conf=0.949 low=1
+p004a   1237x1832  turn=270 skew=-3.10°→-0.30°  lines= 42 chars= 1106 conf=0.902 low=3
+p004b   1185x1832  turn=270 skew=+1.50°→+0.10°  lines= 40 chars=  932 conf=0.970 low=1
+p005a   1240x1863  turn=270 skew=-2.00°→+0.10°  lines= 32 chars=  577 conf=0.963 low=1
+p005b   1169x1863  turn=270 skew=+1.00°→+0.10°  lines= 29 chars=  472 conf=0.966 low=0
+p006a   1187x1905  turn=270 skew=-1.80°→+0.00°  lines= 28 chars=  454 conf=0.982 low=0
+p006b   1122x1905  turn=270 skew=+2.40°→+0.10°  lines=118 chars= 2161 conf=0.792 low=15
+p007a   1304x1794  turn=270 skew=-1.20°→+0.00°  lines=115 chars= 2129 conf=0.847 low=13
+p007b   1224x1794  turn=270 skew=+2.00°→+0.10°  lines= 51 chars= 1469 conf=0.971 low=0
+p008a   1317x1809  turn=270 skew=-0.50°→-0.10°  lines= 66 chars= 1686 conf=0.932 low=0
+p008b   1261x1809  turn=270 skew=-0.60°→+0.00°  lines= 84 chars= 2192 conf=0.870 low=7
+p009a   1264x1686  turn=270 skew=+0.30°→+0.30°  lines= 86 chars= 3005 conf=0.980 low=1
+p009b   1165x1686  turn=270 skew=-0.70°→+0.00°  lines= 28 chars= 1594 conf=1.000 low=0
+p010a   1347x1776  turn=270 skew=+0.00°→+0.00°  lines= 35 chars= 2157 conf=0.980 low=1
+p010b   1196x1776  turn=270 skew=+0.10°→+0.10°  lines= 31 chars= 1544 conf=0.984 low=0
+p011a   1334x1721  turn=270 skew=+0.60°→+0.00°  lines= 47 chars= 2752 conf=1.000 low=0
+p011b   1130x1721  turn=270 skew=-1.00°→+0.10°  lines= 34 chars= 1872 conf=0.985 low=0
+== Appendix: 22 page-sides, 33899 chars, meanConf=0.951
+### umferdarmerki_enska
+p001full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 91 chars=  981 conf=0.965 low=1
+p002full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 71 chars=  777 conf=0.972 low=0
+p003full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 16 chars=  204 conf=0.925 low=1
+p004full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 97 chars=  997 conf=0.885 low=6
+p005full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines=134 chars= 1874 conf=0.712 low=23
+p006full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines=120 chars= 1074 conf=0.973 low=1
+p007full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 21 chars=  573 conf=0.805 low=3
+p008full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines=126 chars= 1722 conf=0.927 low=6
+p009full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 39 chars=  619 conf=0.908 low=3
+p010full   2481x3508  turn=  0 skew=+0.00°→+0.00°  lines= 52 chars=  997 conf=0.952 low=0
+== umferdarmerki_enska: 10 page-sides, 9818 chars, meanConf=0.902
+ALL DONE

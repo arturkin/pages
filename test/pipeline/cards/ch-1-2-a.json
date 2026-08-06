@@ -1,0 +1,285 @@
+{
+  "packet": "ch-1-2-a",
+  "questions": [
+    {
+      "id": "ch-1-2-a-01",
+      "question": "From what age are you allowed to start learning to drive in Iceland?",
+      "options": [
+        "15 years",
+        "17 years",
+        "18 years",
+        "16 years"
+      ],
+      "answer": 3,
+      "explanation": "Learning may begin at 16, which is two years before the age at which the full category B entitlement is normally used independently.",
+      "topic": "test",
+      "source": "ch-1-2:2b:1hjyi54"
+    },
+    {
+      "id": "ch-1-2-a-02",
+      "question": "What must a learner obtain before the driving course can begin?",
+      "options": [
+        "A medical certificate issued by a doctor",
+        "A temporary licence issued by the police",
+        "An insurance policy in the learner's name",
+        "A permit issued by a District Commissioner"
+      ],
+      "answer": 3,
+      "explanation": "The learner's permit comes from the District Commissioner; only after that does instruction with a driving instructor start.",
+      "topic": "documents",
+      "source": "ch-1-2:2b:1hjyi54"
+    },
+    {
+      "id": "ch-1-2-a-03",
+      "question": "During a driving lesson, who is legally considered the operator of the car?",
+      "options": [
+        "The learner, because the learner steers",
+        "The driving instructor sitting alongside",
+        "The registered owner of the vehicle",
+        "The owner of the driving school"
+      ],
+      "answer": 1,
+      "explanation": "Legal responsibility for the vehicle rests with the instructor during a lesson, even though the learner is doing the actual driving.",
+      "topic": "test",
+      "source": "ch-1-2:2b:1gic9uc"
+    },
+    {
+      "id": "ch-1-2-a-04",
+      "question": "How many driving lessons is a learner generally assumed to take before starting accompanied practice driving?",
+      "options": [
+        "At least 10",
+        "At least 5",
+        "At least 15",
+        "At least 20"
+      ],
+      "answer": 0,
+      "explanation": "Ten lessons is the general assumption, but the instructor is the one who judges when the learner is actually ready.",
+      "topic": "test",
+      "source": "ch-1-2:2b:n6drxh"
+    },
+    {
+      "id": "ch-1-2-a-05",
+      "question": "Why must a car used for accompanied practice driving carry the practice-driving label?",
+      "options": [
+        "So the police can check the learner's permit",
+        "So the learner is exempt from some traffic rules",
+        "So the car is identified as a driving school car",
+        "So other drivers can give the learner room"
+      ],
+      "answer": 3,
+      "explanation": "The label is a warning to surrounding traffic, not a permit or an exemption; other drivers use it to leave safe space for the learner.",
+      "topic": "test",
+      "source": "ch-1-2:2b:q7f70q"
+    },
+    {
+      "id": "ch-1-2-a-06",
+      "question": "What is the minimum age of the person who supervises accompanied practice driving?",
+      "options": [
+        "24 years",
+        "18 years",
+        "21 years",
+        "30 years"
+      ],
+      "answer": 0,
+      "explanation": "The supervising practice-driving instructor must be at least 24 and also hold several years of driving experience.",
+      "topic": "test",
+      "source": "ch-1-2:3a:kta5h3"
+    },
+    {
+      "id": "ch-1-2-a-07",
+      "question": "What does research say about using a hands-free phone while driving?",
+      "options": [
+        "It removes the risk of an accident",
+        "It still raises the risk of an accident",
+        "It is as safe as talking to a passenger",
+        "It only distracts drivers in heavy traffic"
+      ],
+      "answer": 1,
+      "explanation": "The distraction is mental rather than manual, so the accident risk stays elevated even when both hands remain on the wheel.",
+      "topic": "behaviour",
+      "source": "ch-1-2:7a:tee9tz"
+    },
+    {
+      "id": "ch-1-2-a-08",
+      "question": "Learning to drive covers three main areas: knowledge, skill and what else?",
+      "options": [
+        "Endurance",
+        "Reaction speed",
+        "Mechanical repair",
+        "Attitude"
+      ],
+      "answer": 3,
+      "explanation": "Attitude covers how the driver behaves towards others; courtesy and understanding are treated as learnable parts of the course.",
+      "topic": "behaviour",
+      "source": "ch-1-2:4a:18j5s7v"
+    },
+    {
+      "id": "ch-1-2-a-09",
+      "question": "What is the maximum authorised mass of a car that may be driven on a category B licence?",
+      "options": [
+        "2,500 kg",
+        "3,500 kg",
+        "3,000 kg",
+        "4,500 kg"
+      ],
+      "answer": 1,
+      "explanation": "Category B is limited to 3,500 kg; anything heavier requires a licence of a higher category such as C1 or C.",
+      "topic": "documents",
+      "source": "ch-1-2:4b:1adwq61"
+    },
+    {
+      "id": "ch-1-2-a-10",
+      "question": "How should a driver understand the right of way in traffic?",
+      "options": [
+        "As an absolute right others must respect",
+        "As a priority, never as an absolute right",
+        "As a rule that applies only at signed junctions",
+        "As belonging to whoever reaches the spot first"
+      ],
+      "answer": 1,
+      "explanation": "Priority never entitles a driver to press on regardless; assuming what another road user will do is how collisions happen.",
+      "topic": "right-of-way",
+      "source": "ch-1-2:6b:gw5or2"
+    },
+    {
+      "id": "ch-1-2-a-11",
+      "question": "On a category B licence, when may you tow a trailer heavier than 750 kg?",
+      "options": [
+        "When the trailer carries no passengers at all",
+        "When the trailer has its own braking system",
+        "When car and trailer together stay within 3,500 kg",
+        "When you have held the licence for two years"
+      ],
+      "answer": 2,
+      "explanation": "The 750 kg trailer limit can be exceeded only while the combined authorised mass of car and trailer remains within 3,500 kg.",
+      "topic": "documents",
+      "source": "ch-1-2:4b:1adwq61"
+    },
+    {
+      "id": "ch-1-2-a-12",
+      "question": "What is the highest design speed of a moped that may be ridden on a category B licence?",
+      "options": [
+        "25 km/h",
+        "35 km/h",
+        "60 km/h",
+        "45 km/h"
+      ],
+      "answer": 3,
+      "explanation": "A light motorcycle covered by category B is limited to 45 km/h design speed and 50 cubic centimetres of cylinder capacity.",
+      "topic": "speed",
+      "source": "ch-1-2:4b:1adwq61"
+    },
+    {
+      "id": "ch-1-2-a-13",
+      "question": "Which body runs the theoretical and practical driving tests in Iceland?",
+      "options": [
+        "Frumherji",
+        "The Police",
+        "The District Commissioners",
+        "The Road Administration"
+      ],
+      "answer": 0,
+      "explanation": "Testing is handled by one of the vehicle inspection companies, Frumherji, for every licence category.",
+      "topic": "test",
+      "source": "ch-1-2:7b:pf8umc"
+    },
+    {
+      "id": "ch-1-2-a-14",
+      "question": "How long is the provisional licence valid after you pass the driving test?",
+      "options": [
+        "One year",
+        "Two years",
+        "Three years",
+        "Five years"
+      ],
+      "answer": 2,
+      "explanation": "The first licence is provisional for three years, after which it is replaced by the permanent licence.",
+      "topic": "documents",
+      "source": "ch-1-2:4b:6bl1zw"
+    },
+    {
+      "id": "ch-1-2-a-15",
+      "question": "Once you hold a permanent driving licence, how often must it be renewed?",
+      "options": [
+        "Every 5 years",
+        "Every 10 years",
+        "Every 15 years",
+        "Every 20 years"
+      ],
+      "answer": 2,
+      "explanation": "The right to drive itself is unlimited in time, but the licence document has to be renewed at 15-year intervals.",
+      "topic": "documents",
+      "source": "ch-1-2:4b:6bl1zw"
+    },
+    {
+      "id": "ch-1-2-a-16",
+      "question": "What happens if a driving licence stays unrenewed for more than two years after it expires?",
+      "options": [
+        "The licence is renewed against a higher fee",
+        "A medical examination replaces the renewal",
+        "The driving test must be taken again",
+        "The holder reverts to a provisional licence"
+      ],
+      "answer": 2,
+      "explanation": "After more than two years of lapse the entitlement is no longer simply renewable and the test has to be passed again.",
+      "topic": "documents",
+      "source": "ch-1-2:4b:ke8p1t"
+    },
+    {
+      "id": "ch-1-2-a-17",
+      "question": "A provisional driver who is penalised for a traffic offence may apply for the permanent licence only after what?",
+      "options": [
+        "A continuous 6 months without penalties",
+        "A continuous 12 months without penalties",
+        "Paying the fine and a renewal fee",
+        "Taking additional lessons with an instructor"
+      ],
+      "answer": 1,
+      "explanation": "The clock restarts: a full penalty-free year is required, and failing to achieve it within two years means retaking the driving test.",
+      "topic": "documents",
+      "source": "ch-1-2:5a:q52h9l"
+    },
+    {
+      "id": "ch-1-2-a-18",
+      "question": "Which item is a driver required to carry in the car when driving in France?",
+      "options": [
+        "An alcohol meter",
+        "A spare fuel can",
+        "A first aid manual",
+        "A highway sticker"
+      ],
+      "answer": 0,
+      "explanation": "Rules differ from country to country, and France is the example given of a state requiring a breath alcohol tester on board.",
+      "topic": "alcohol",
+      "source": "ch-1-2:5a:1rcr7eg"
+    },
+    {
+      "id": "ch-1-2-a-19",
+      "question": "Roughly what share of the information a driver uses is taken in through the eyes?",
+      "options": [
+        "About 50%",
+        "About 70%",
+        "About 90%",
+        "About 100%"
+      ],
+      "answer": 2,
+      "explanation": "Because sight supplies about nine tenths of the information, anything that degrades vision has a large effect on driving.",
+      "topic": "general",
+      "source": "ch-1-2:5b:1sm9pjv"
+    },
+    {
+      "id": "ch-1-2-a-20",
+      "question": "How are medicines that may impair driving marked in Iceland?",
+      "options": [
+        "A red triangle on a white background",
+        "A red circle on a yellow background",
+        "A black cross on a white background",
+        "A blue square on a white background"
+      ],
+      "answer": 0,
+      "explanation": "The red warning triangle flags drugs that can cause drowsiness; when unsure, ask a doctor or pharmacist before driving.",
+      "topic": "general",
+      "source": "ch-1-2:6a:a7rbwp"
+    }
+  ]
+}

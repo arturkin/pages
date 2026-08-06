@@ -1,0 +1,243 @@
+{
+  "packet": "appendix-a",
+  "questions": [
+    {
+      "id": "appendix-a-01",
+      "question": "A sign states a maximum total weight. How does that limit apply to a car towing a trailer?",
+      "options": [
+        "It applies to the combined weight of car and trailer",
+        "It applies to each of the connected vehicles separately",
+        "It applies only to the towing vehicle",
+        "It applies only to the trailer and its load"
+      ],
+      "answer": 1,
+      "explanation": "For connected vehicles the stated figure is read per vehicle, so each unit of the combination must stay below it. A separate sign exists for the combined weight of connected vehicles.",
+      "topic": "vehicle",
+      "source": "appendix:2a:1x2fmcb"
+    },
+    {
+      "id": "appendix-a-03",
+      "question": "Besides banning a left turn, what else does a no-left-turn sign forbid at that junction?",
+      "options": [
+        "Turning around in a U-turn",
+        "Turning right into the side road",
+        "Stopping anywhere inside the junction",
+        "Overtaking on the approach to it"
+      ],
+      "answer": 0,
+      "explanation": "A U-turn is treated as a left turn taken to its extreme, so the sign covers it without any separate no-U-turn sign being posted.",
+      "topic": "rules",
+      "source": "appendix:2b:1rqbbh9"
+    },
+    {
+      "id": "appendix-a-04",
+      "question": "Over what stretch of road is a no-U-turn sign valid?",
+      "options": [
+        "Only at the point where the sign is placed",
+        "Until an end-of-prohibition sign is passed",
+        "Along the whole street the sign stands on",
+        "Up to and including the next crossing"
+      ],
+      "answer": 3,
+      "explanation": "The ban covers the road ahead as far as the next crossing, and the crossing itself is included, so turning around in it is still forbidden.",
+      "topic": "rules",
+      "source": "appendix:2b:1rqbbh9"
+    },
+    {
+      "id": "appendix-a-05",
+      "question": "What exactly does the ordinary no-overtaking sign prohibit?",
+      "options": [
+        "Overtaking any vehicle, cycles included",
+        "Overtaking motor vehicles with more than two wheels",
+        "Overtaking only goods vehicles and buses",
+        "Overtaking anything other than a stopped vehicle"
+      ],
+      "answer": 1,
+      "explanation": "The prohibition is defined by what is being passed: motor vehicles running on more than two wheels. A separate sign restricts goods vehicles from overtaking.",
+      "topic": "overtaking",
+      "source": "appendix:2b:1rqbbh9"
+    },
+    {
+      "id": "appendix-a-06",
+      "question": "What background colour does a destination sign with distances carry outside urban areas?",
+      "options": [
+        "Green",
+        "Yellow",
+        "White",
+        "Blue"
+      ],
+      "answer": 1,
+      "explanation": "Rural destination signs use a yellow background, while the same information inside urban areas is shown on a white or a blue background.",
+      "topic": "signs",
+      "source": "appendix:6b:1uesscm"
+    },
+    {
+      "id": "appendix-a-07",
+      "question": "A supplementary plate reading \"200 m\" is fitted under a prohibition sign. What does the figure state?",
+      "options": [
+        "The distance to the place where the sign must be obeyed",
+        "The length of road over which the prohibition runs",
+        "The distance to the next sign of the same kind",
+        "The distance over which stopping is still permitted"
+      ],
+      "answer": 0,
+      "explanation": "A single distance tells you how far ahead the danger or the point of obedience lies. A plate showing two figures, such as 200-800 m, is the one that gives both distance and length of the zone.",
+      "topic": "signs",
+      "source": "appendix:8a:v9yau4"
+    },
+    {
+      "id": "appendix-a-08",
+      "question": "A road is signed as a \"difficult road\". Which vehicles is it meant for?",
+      "options": [
+        "Any private car driven at reduced speed",
+        "Vehicles higher than ordinary cars and with four-wheel drive",
+        "Only specially equipped off-road vehicles",
+        "Any vehicle carrying recovery equipment"
+      ],
+      "answer": 1,
+      "explanation": "Difficult roads call for a jeep-type vehicle with extra ground clearance and four-wheel drive. Tracks that demand specially equipped off-road vehicles carry the stronger \"very rough track\" sign instead.",
+      "topic": "gravel",
+      "source": "appendix:8a:iiyh0q"
+    },
+    {
+      "id": "appendix-a-11",
+      "question": "How are the reflectors on left and right roadside markers arranged?",
+      "options": [
+        "They point diagonally towards the road",
+        "They point diagonally away from the road",
+        "They face straight along the line of the road",
+        "They face directly across the carriageway"
+      ],
+      "answer": 0,
+      "explanation": "Angling the reflectors inwards throws the headlight beam back to an approaching driver, which is what makes the edge of the road readable in the dark.",
+      "topic": "rules",
+      "source": "appendix:9a:18lnlmf"
+    },
+    {
+      "id": "appendix-a-13",
+      "question": "On a half broken centre line, how do the painted segments compare with the gaps?",
+      "options": [
+        "The segments are three times as long as the gaps",
+        "The segments and the gaps are equally long",
+        "The gaps are three times as long as the segments",
+        "The segments are twice as long as the gaps"
+      ],
+      "answer": 0,
+      "explanation": "Long paint and short gaps is the visual warning that overtaking here is dangerous and demands extreme care. Equal paint and gaps is the pattern of a broken side line.",
+      "topic": "rules",
+      "source": "appendix:9b:15k7lmh"
+    },
+    {
+      "id": "appendix-a-14",
+      "question": "The centre marking beside your lane is broken while the line on the far side is continuous. What applies?",
+      "options": [
+        "Neither direction of traffic may overtake here",
+        "Both directions may overtake if it is done with care",
+        "You may overtake, but oncoming traffic may not",
+        "You may not overtake, but oncoming traffic may"
+      ],
+      "answer": 2,
+      "explanation": "Each direction obeys the line nearest to it, so the broken line permits your overtaking while the continuous line bars it for the other side.",
+      "topic": "overtaking",
+      "source": "appendix:9b:1psp8s0"
+    },
+    {
+      "id": "appendix-a-16",
+      "question": "An unbroken yellow line runs along the edge of the road. What does it mean?",
+      "options": [
+        "Parking is barred, but a brief stop is allowed",
+        "Only loading and unloading are permitted there",
+        "Parking is reserved for permit holders only",
+        "Stopping a vehicle at that location is prohibited"
+      ],
+      "answer": 3,
+      "explanation": "A solid yellow line is the stronger of the two: it bans stopping altogether. A broken yellow line is the one that bans parking only.",
+      "topic": "parking",
+      "source": "appendix:10a:p7vgnw"
+    },
+    {
+      "id": "appendix-a-17",
+      "question": "How is a parking bay reserved for special vehicles such as delivery vans marked out?",
+      "options": [
+        "With the usual bay lines plus diagonals joining opposite corners",
+        "With the usual bay lines drawn in yellow instead of white",
+        "With the usual bay lines plus a line closing the entrance",
+        "With the usual bay lines drawn at double the normal width"
+      ],
+      "answer": 0,
+      "explanation": "The bay keeps the ordinary 50-100 mm line segments and adds a cross of diagonals between the corners to flag its restricted use.",
+      "topic": "parking",
+      "source": "appendix:10a:1fvxevy"
+    },
+    {
+      "id": "appendix-a-18",
+      "question": "A police officer controlling traffic holds an arm straight out to the side. What must you do if you are approaching from the front?",
+      "options": [
+        "Stop and wait for further instructions",
+        "Carry on, as the signal covers the side roads",
+        "Slow down and pass behind the officer",
+        "Stop only if another vehicle is crossing"
+      ],
+      "answer": 0,
+      "explanation": "The outstretched arm halts traffic coming from in front of and from behind the officer, while road users approaching from the side may keep moving.",
+      "topic": "rules",
+      "source": "appendix:10b:fgrq5i"
+    },
+    {
+      "id": "appendix-a-19",
+      "question": "A traffic light shows red and amber together. What does that combination mean?",
+      "options": [
+        "Move off, since green is about to show",
+        "Cross the junction, but proceed with caution",
+        "Stop, because the light is about to turn green",
+        "Stop, because the light is about to turn red"
+      ],
+      "answer": 2,
+      "explanation": "It carries the full force of the red light, and the amber only forewarns of the change, so the junction may not be entered yet.",
+      "topic": "lights",
+      "source": "appendix:11a:1vn8fdy"
+    },
+    {
+      "id": "appendix-a-20",
+      "question": "The main light is green and a separate left-arrow light stands beside it. When may you turn left?",
+      "options": [
+        "As soon as the main green light comes on",
+        "While the main light shows red and amber",
+        "Whenever there is no oncoming traffic",
+        "Only once the left arrow itself is lit"
+      ],
+      "answer": 3,
+      "explanation": "Where a directional arrow is provided, it governs that turn, so the green main light alone is not authority to make it.",
+      "topic": "lights",
+      "source": "appendix:11a:tsxzrs"
+    },
+    {
+      "id": "appendix-a-21",
+      "question": "Several pedestrian lights at one crossing face the same direction. Which one must a pedestrian obey?",
+      "options": [
+        "The one on the far side of the carriageway",
+        "The one mounted on the vehicle traffic light",
+        "The one standing closest to the pedestrian",
+        "Whichever of them is currently showing green"
+      ],
+      "answer": 2,
+      "explanation": "The nearest light governs the section of carriageway immediately in front of the pedestrian, so a further light may already be releasing a different stage.",
+      "topic": "vulnerable",
+      "source": "appendix:11a:6doh7a"
+    },
+    {
+      "id": "appendix-a-22",
+      "question": "A red light flashing on and off is mounted across a road section. What is required of you?",
+      "options": [
+        "Pass the signal with extra caution",
+        "Give way to traffic coming from the right",
+        "Stop only when an emergency vehicle is in sight",
+        "Stop before the stop line, or before the signal itself"
+      ],
+      "answer": 3,
+      "explanation": "The flashing red closes the section, for instance where emergency vehicles pull out or aircraft cross low. Only a driver already too close to halt safely should carry on past it.",
+      "topic": "lights",
+      "source": "appendix:11b:z2554p"
+    }
+  ]
+}

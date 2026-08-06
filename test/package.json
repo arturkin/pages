@@ -1,0 +1,25 @@
+{
+  "name": "iceland-driving-book",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "ocr": "./build/run-ocr.sh",
+    "figures": "./build/run-figures.sh",
+    "build:html": "tsx pipeline/src/build-html.ts",
+    "test:e2e": "tsx pipeline/src/e2e.ts",
+    "typecheck": "tsc --noEmit",
+    "all": "npm run ocr && npm run figures && npm run build:html && npm run dataset && npm run cards && npm run test:e2e && npm run test:app",
+    "dataset": "tsx pipeline/src/dataset.ts",
+    "qa:sheets": "tsx pipeline/src/qa-sheets.ts",
+    "packets": "tsx pipeline/src/packets.ts",
+    "cards": "tsx pipeline/src/cards.ts --strict",
+    "test:app": "tsx pipeline/src/e2e-app.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "playwright": "^1.49.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

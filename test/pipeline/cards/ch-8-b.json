@@ -1,0 +1,159 @@
+{
+ "packet": "ch-8-b",
+ "questions": [
+  {
+   "id": "ch-8-b-01",
+   "question": "At what frequency should rescue breaths be given during mouth to mouth resuscitation?",
+   "options": [
+    "Four to six times per minute",
+    "Twenty to twenty-five times per minute",
+    "Twelve to sixteen times per minute",
+    "Thirty to forty times per minute"
+   ],
+   "answer": 2,
+   "explanation": "The rescuer copies a normal resting breathing rhythm, which is twelve to sixteen breaths a minute; blowing far faster or slower does not ventilate the casualty properly.",
+   "topic": "accidents",
+   "source": "ch-8:7b:luiwap"
+  },
+  {
+   "id": "ch-8-b-02",
+   "question": "Why must the unconscious person's head be kept bent backwards throughout mouth to mouth resuscitation?",
+   "options": [
+    "It stops blood from running into the stomach",
+    "It makes the chest easier to watch",
+    "It keeps the trachea open and unblocked",
+    "It takes the strain off the neck vertebrae"
+   ],
+   "answer": 2,
+   "explanation": "With the head tilted back the airway stays clear, so the air you blow in actually reaches the lungs and can escape again.",
+   "topic": "accidents",
+   "source": "ch-8:7b:1zf1op"
+  },
+  {
+   "id": "ch-8-b-03",
+   "question": "The casualty starts breathing normally again before the ambulance arrives. What should you do?",
+   "options": [
+    "Leave the scene once other drivers are there",
+    "Sit the person upright and offer a warm drink",
+    "Keep monitoring the person until the ambulance comes",
+    "Continue rescue breaths at your own rhythm"
+   ],
+   "answer": 2,
+   "explanation": "Breathing can stop again at any moment, so the casualty must be watched continuously until professional help takes over.",
+   "topic": "accidents",
+   "source": "ch-8:7b:1rh2i56"
+  },
+  {
+   "id": "ch-8-b-05",
+   "question": "At what rate should chest compressions be delivered when performing CPR?",
+   "options": [
+    "At least 100 compressions per minute",
+    "At least 60 compressions per minute",
+    "About 40 compressions per minute",
+    "About 200 compressions per minute"
+   ],
+   "answer": 0,
+   "explanation": "Only fast, hard compressions keep blood moving to the brain; a slower rhythm does not maintain circulation.",
+   "topic": "accidents",
+   "source": "ch-8:8a:vfix8g"
+  },
+  {
+   "id": "ch-8-b-06",
+   "question": "How many chest compressions are given in a row before the two rescue breaths?",
+   "options": [
+    "Five compressions",
+    "Thirty compressions",
+    "Fifteen compressions",
+    "Sixty compressions"
+   ],
+   "answer": 1,
+   "explanation": "The recommended cycle for an unresponsive casualty with irregular breathing is thirty compressions followed by two rounds of mouth to mouth.",
+   "topic": "accidents",
+   "source": "ch-8:8a:1og966"
+  },
+  {
+   "id": "ch-8-b-07",
+   "question": "Who is allowed to use an automatic external defibrillator (AED) in an emergency?",
+   "options": [
+    "Anyone who is present at the scene",
+    "Only a doctor or a nurse",
+    "Only paramedics and police officers",
+    "Only someone with a first aid certificate"
+   ],
+   "answer": 0,
+   "explanation": "AEDs are placed in public buildings precisely so that any bystander may use one when an emergency occurs.",
+   "topic": "accidents",
+   "source": "ch-8:8b:hlxfe0"
+  },
+  {
+   "id": "ch-8-b-08",
+   "question": "What has to be done to the patient's chest before the AED electrodes are attached?",
+   "options": [
+    "It must be warmed up with a blanket",
+    "It must be dried of any sweat or moisture",
+    "It must be wiped over with a wet cloth",
+    "It must be covered with a thin dressing"
+   ],
+   "answer": 1,
+   "explanation": "Moisture stops the sticky pads from sitting properly on the skin and can let the shock spread across the chest instead of through the heart.",
+   "topic": "accidents",
+   "source": "ch-8:8b:1unbmpe"
+  },
+  {
+   "id": "ch-8-b-09",
+   "question": "The patient regains consciousness and starts breathing while an AED is connected. What should you do?",
+   "options": [
+    "Switch the AED off and remove the electrodes",
+    "Keep the AED on with the electrodes in place",
+    "Take the electrodes off but leave the AED on",
+    "Deliver one more shock before switching it off"
+   ],
+   "answer": 1,
+   "explanation": "The heart can fall back into an irregular rhythm, and the device can only react to that if it is still running and connected.",
+   "topic": "accidents",
+   "source": "ch-8:9a:gjzzw4"
+  },
+  {
+   "id": "ch-8-b-10",
+   "question": "How should severe bleeding from a wound be stopped?",
+   "options": [
+    "By tying a tight tourniquet around the limb",
+    "By pressing on the artery above the wound",
+    "By cooling the wound with ice or cold water",
+    "By pressing directly on the site of the wound"
+   ],
+   "answer": 3,
+   "explanation": "Direct pressure on the wound itself is what closes the severed vessel, and the casualty can often apply it himself while you prepare a dressing.",
+   "topic": "accidents",
+   "source": "ch-8:9a:93wnpf"
+  },
+  {
+   "id": "ch-8-b-11",
+   "question": "Blood is soaking through the bandage you have already applied to a wound. What should you do?",
+   "options": [
+    "Take it off and press with your fingers",
+    "Loosen it so that the blood can drain away",
+    "Replace it with a clean, dry bandage",
+    "Put further bandages on top of the old one"
+   ],
+   "answer": 3,
+   "explanation": "Taking the soaked bandage off releases the pressure that is holding the wound closed, so the bleeding gets worse instead of better.",
+   "topic": "accidents",
+   "source": "ch-8:9b:ogdeu9"
+  },
+  {
+   "id": "ch-8-b-12",
+   "question": "Above what speed at the moment of impact should you assume the people involved are probably injured?",
+   "options": [
+    "65 km/h",
+    "50 km/h",
+    "80 km/h",
+    "90 km/h"
+   ],
+   "answer": 0,
+   "explanation": "A crash above this speed, like a rollover or someone thrown from the car, means serious head, neck or back injuries must be assumed even if nothing is visible.",
+   "topic": "speed",
+   "source": "ch-8:10a:xn7q0"
+  }
+ ]
+}

@@ -1,0 +1,257 @@
+{
+  "packet": "ch-5-b",
+  "questions": [
+    {
+      "id": "ch-5-b-01",
+      "question": "Driving in the country at night, at roughly what gap does your main beam start to risk dazzling another driver?",
+      "options": [
+        "About 600 metres",
+        "About 300 metres",
+        "About 100 metres",
+        "About 50 metres"
+      ],
+      "answer": 1,
+      "explanation": "Below roughly 300 metres the beam reaches the other driver's eyes, so that is the point to dip. Further out the main beam should stay on, because it shows hazards the low beam never reaches.",
+      "topic": "lights",
+      "source": "ch-5:6b:qlfst5"
+    },
+    {
+      "id": "ch-5-b-02",
+      "question": "Two cars meet in the dark, both on low beam. How close is a person walking on the road before the drivers pick them out?",
+      "options": [
+        "Less than about 75 metres",
+        "Less than about 120 metres",
+        "Less than about 200 metres",
+        "Less than about 25 metres"
+      ],
+      "answer": 3,
+      "explanation": "Research puts the detection distance under 25 metres, which is shorter than the stopping distance at almost any open-road speed. That is why speed must come down when you are on low beam.",
+      "topic": "lights",
+      "source": "ch-5:6b:nlw87s"
+    },
+    {
+      "id": "ch-5-b-03",
+      "question": "How does wearing reflectors change the distance at which a low-beam driver spots a pedestrian?",
+      "options": [
+        "It increases it about twice",
+        "It increases it about ten times",
+        "It increases it four to five times",
+        "It makes no measurable difference"
+      ],
+      "answer": 2,
+      "explanation": "Reflective material throws the headlamp light straight back, lifting detection distance four- or fivefold. A good driver still assumes some pedestrians carry none.",
+      "topic": "vulnerable",
+      "source": "ch-5:6b:nlw87s"
+    },
+    {
+      "id": "ch-5-b-04",
+      "question": "A single light approaches you in the dark instead of a pair. What should you assume?",
+      "options": [
+        "It is certainly a motorcycle",
+        "It may be a car with one headlight out",
+        "It is certainly a bicycle",
+        "It is a vehicle running on fog lamps"
+      ],
+      "answer": 1,
+      "explanation": "You cannot judge the vehicle's width from one lamp, and a car with a failed headlight occupies far more of your side of the road than a motorcycle would.",
+      "topic": "lights",
+      "source": "ch-5:6b:myvve"
+    },
+    {
+      "id": "ch-5-b-05",
+      "question": "As you climb towards the crest of a blind summit at night, which lamp technique is recommended?",
+      "options": [
+        "Hold the main beam on the whole way up",
+        "Run on position lamps until over the crest",
+        "Alternate between main beam and low beam",
+        "Switch the hazard warning lights on"
+      ],
+      "answer": 2,
+      "explanation": "Flicking between the beams lets you catch the glow of a vehicle coming up the far side well before its car itself becomes visible over the crest.",
+      "topic": "lights",
+      "source": "ch-5:7a:kb8coa"
+    },
+    {
+      "id": "ch-5-b-06",
+      "question": "You are about to overtake at night. What do you do with your lamps as you close on the vehicle ahead?",
+      "options": [
+        "Dip to low beam until you draw level with it",
+        "Keep the main beam on so you are seen",
+        "Flash the main beam until the driver moves over",
+        "Switch on the front fog lamps instead"
+      ],
+      "answer": 0,
+      "explanation": "Main beam in the mirrors of the car ahead blinds that driver just when they need to see you. Once you are alongside, the mirrors no longer catch it and the main beam goes back on.",
+      "topic": "overtaking",
+      "source": "ch-5:7a:4xkwjc"
+    },
+    {
+      "id": "ch-5-b-07",
+      "question": "As a rule of thumb, how early should the directional signal go on before a turn?",
+      "options": [
+        "About two seconds before the turn",
+        "About five seconds before the turn",
+        "About ten seconds before the turn",
+        "Just as you begin to steer round"
+      ],
+      "answer": 1,
+      "explanation": "Five seconds gives other road users time to read the intention and plan around it. The matching distance grows with speed, so the rule is stated in time rather than metres.",
+      "topic": "signs",
+      "source": "ch-5:7b:3jo907"
+    },
+    {
+      "id": "ch-5-b-08",
+      "question": "You signal your intention clearly with the indicator and brake lights. What does that signal give you?",
+      "options": [
+        "Right of way over the traffic behind",
+        "Priority to enter the lane beside you",
+        "Relief from part of your responsibility",
+        "No formal right of any kind"
+      ],
+      "answer": 3,
+      "explanation": "A signal announces an intention; it does not create priority. You must still check that the manoeuvre is safe and yield wherever the rules require it.",
+      "topic": "rules",
+      "source": "ch-5:7b:1n49f8c"
+    },
+    {
+      "id": "ch-5-b-09",
+      "question": "When may the fog lamps fitted to a car be used?",
+      "options": [
+        "Whenever the driver is out after dark",
+        "Only in fog, mist or similar poor visibility",
+        "Whenever the road surface is wet",
+        "Only when a headlamp has failed"
+      ],
+      "answer": 1,
+      "explanation": "Fog lamps are for conditions that restrict visibility. In clear air the wide front beam and the high-intensity rear lamps simply dazzle and confuse other drivers.",
+      "topic": "weather",
+      "source": "ch-5:8a:bwbn13"
+    },
+    {
+      "id": "ch-5-b-10",
+      "question": "What do the hazard warning lights permit a driver to do?",
+      "options": [
+        "Stop briefly where parking is banned",
+        "Park on the pavement while loading",
+        "Leave the vehicle in a running traffic lane",
+        "Nothing that would otherwise be forbidden"
+      ],
+      "answer": 3,
+      "explanation": "They only warn others of a hazard. They create no parking right and do not reduce the duty to get the vehicle out of the traffic stream as fast as possible.",
+      "topic": "parking",
+      "source": "ch-5:8a:qes9a"
+    },
+    {
+      "id": "ch-5-b-11",
+      "question": "You are carrying cargo on the roof of the car. How often should the straps be checked?",
+      "options": [
+        "Only once before you set off",
+        "Once on each day of the trip",
+        "Every time you break the journey",
+        "Only if you hear something shift"
+      ],
+      "answer": 2,
+      "explanation": "Straps stretch and work loose from vibration and wind, so every stop is an opportunity to catch a load before it moves or falls into traffic.",
+      "topic": "occupants",
+      "source": "ch-5:8a:vyqmxr"
+    },
+    {
+      "id": "ch-5-b-12",
+      "question": "Why is a glance in the mirrors not enough before you change direction?",
+      "options": [
+        "Mirrors distort the speed of other traffic",
+        "Mirrors cannot show anything behind you",
+        "Mirrors become unreliable after dark",
+        "Mirrors leave blind spots beside the car"
+      ],
+      "answer": 3,
+      "explanation": "Every mirror has a limited field, and the areas to the side that none of them covers are exactly where an overtaking vehicle sits. Only turning your head clears them.",
+      "topic": "vehicle",
+      "source": "ch-5:8b:1l29l4"
+    },
+    {
+      "id": "ch-5-b-13",
+      "question": "Research on injuries that car drivers inflict on cyclists and motorcyclists points mainly to which cause?",
+      "options": [
+        "The driver breaks the duty to give way",
+        "The rider brakes far too late",
+        "The rider travels without any lights",
+        "The driver overtakes at too wide a gap"
+      ],
+      "answer": 0,
+      "explanation": "The driver typically fails to yield, either because the rider was outside the field of view or because the gap to a small vehicle was misjudged as larger than it was.",
+      "topic": "vulnerable",
+      "source": "ch-5:9a:135ktox"
+    },
+    {
+      "id": "ch-5-b-14",
+      "question": "In which surroundings must a driver be especially watchful for children?",
+      "options": [
+        "Near schools, playgrounds and shopping centres",
+        "Near hospitals, hotels and petrol stations",
+        "Near tunnels, bridges and bus lanes",
+        "Near roundabouts, junctions and slip roads"
+      ],
+      "answer": 0,
+      "explanation": "These are the places children gather, and a child whose attention is caught by something else stops taking any account of the traffic around them.",
+      "topic": "vulnerable",
+      "source": "ch-5:9a:cif4e1"
+    },
+    {
+      "id": "ch-5-b-15",
+      "question": "How does a person using a white cane show that they intend to cross the road?",
+      "options": [
+        "They lift the cane up above their head",
+        "They tap the cane three times on the kerb",
+        "They turn to face the road and aim the cane across it",
+        "They fold the cane and step onto the road"
+      ],
+      "answer": 2,
+      "explanation": "Turning square to the road and pointing the cane along the crossing line is the signal, and the cane is pushed further out as the first step is taken.",
+      "topic": "vulnerable",
+      "source": "ch-5:9b:1fxyq76"
+    },
+    {
+      "id": "ch-5-b-16",
+      "question": "Why should a motor vehicle never be parked on the pavement?",
+      "options": [
+        "Blind people navigate by the pavement edge",
+        "Pavements cannot carry the weight of a car",
+        "It hides the view of drivers turning in",
+        "It leaves the car outside its insurance cover"
+      ],
+      "answer": 0,
+      "explanation": "People who are blind or have impaired vision follow the kerb line to find their way, so a car across the pavement forces them out into unknown ground.",
+      "topic": "parking",
+      "source": "ch-5:9b:11qw4cr"
+    },
+    {
+      "id": "ch-5-b-17",
+      "question": "Which riders must wear a purpose-made helmet at all times?",
+      "options": [
+        "Tractor and working-machine operators",
+        "Snowmobile and motocross riders",
+        "Passengers riding in an open trailer",
+        "Anyone driving off the paved road"
+      ],
+      "answer": 1,
+      "explanation": "An ordinary car licence covers these machines, but they are ridden fast and off road, so the helmet requirement applies on every trip.",
+      "topic": "vehicle",
+      "source": "ch-5:10a:1tc55p0"
+    },
+    {
+      "id": "ch-5-b-18",
+      "question": "What may be carried on the shelf beneath the rear window?",
+      "options": [
+        "Nothing heavy, and never a pet",
+        "Light luggage and a small dog",
+        "Any item that fits under the glass",
+        "Only items held by a proper strap"
+      ],
+      "answer": 0,
+      "explanation": "In a sudden stop anything resting there is thrown forward into the heads of the driver and passengers, so heavy objects and animals are both ruled out.",
+      "topic": "occupants",
+      "source": "ch-5:10b:1nc6zaq"
+    }
+  ]
+}

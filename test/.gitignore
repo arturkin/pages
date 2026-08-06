@@ -1,0 +1,37 @@
+# Source documents — copyrighted textbook scans. Never publish.
+*.pdf
+
+# Practice papers — out of scope for this project, and the same copyright applies.
+practice/
+
+# Derived build state. Regenerate with `npm run all` (~8 min).
+build/work/
+build/qa-report.json
+
+# QA artefacts: contact sheets, mobile/design screenshots, audit evidence. Dev-only, 23 MB.
+build/qa/
+
+# The local reading edition, including site/scans/ — 188 full-page photographs of the
+# book (51 MB). Never published: it is the source text by another route, and it is only
+# a verification aid. The publishable tree is public/, built by `npm run publish`.
+site/
+
+# Belt and braces: the scans are the whole leak. These rules stand on their own, so
+# un-ignoring site/ (or building a publishable tree that carries scans across) still
+# cannot commit a page photograph. Do not narrow or remove them.
+scans/
+**/scans/
+site/scans/
+public/scans/
+*.scan.jpg
+
+# NOTE: build/tools/ binaries are deliberately checked in (see CLAUDE.md) — not ignored.
+
+# Dependencies
+node_modules/
+
+# Session scratch: SDD ledger, briefs, review packages, snapshots.
+.superpowers/
+
+# macOS
+.DS_Store

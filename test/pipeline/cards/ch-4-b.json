@@ -1,0 +1,271 @@
+{
+  "packet": "ch-4-b",
+  "questions": [
+    {
+      "id": "ch-4-b-01",
+      "question": "Where two driving lanes merge into one, what does the zipper merge method require?",
+      "options": [
+        "Cars from both lanes take turns entering the single lane",
+        "Cars already in the continuing lane always go first",
+        "Cars in the lane that ends must wait for a full gap",
+        "Cars must merge well before the lanes actually narrow"
+      ],
+      "answer": 0,
+      "explanation": "Alternating one car from each lane, like the teeth of a zipper, keeps both queues moving and is the recommended conduct at obstacles and at the end of acceleration lanes.",
+      "topic": "rules",
+      "source": "ch-4:8a:109cjjn"
+    },
+    {
+      "id": "ch-4-b-02",
+      "question": "How should you meet an oncoming vehicle on a narrow gravel road?",
+      "options": [
+        "Keep your speed and move slightly towards the right",
+        "Stay in the middle where the surface is most firm",
+        "Reduce speed well in advance and move far to the right",
+        "Stop completely and wait until the other car has passed"
+      ],
+      "answer": 2,
+      "explanation": "A large part of the Icelandic road network is gravel, and a timely, significant reduction in speed plus a position far right is what prevents loose stones and off-road wheels from causing a loss of control.",
+      "topic": "gravel",
+      "source": "ch-4:8a:14ej3br"
+    },
+    {
+      "id": "ch-4-b-03",
+      "question": "An oncoming car is driving straight towards you on your side of the road. What is the correct action?",
+      "options": [
+        "Move over into the left lane that the other car has left",
+        "Hold your lane and flash your headlights until it moves",
+        "Accelerate so you clear the stretch before it reaches you",
+        "Reduce speed, move far right, and stop if necessary"
+      ],
+      "answer": 3,
+      "explanation": "Drivers on the wrong side usually notice at the last moment and swerve back to their own side, so moving left would put you straight back in their path; signalling with headlights or the horn is an addition, not a substitute.",
+      "topic": "behaviour",
+      "source": "ch-4:8b:1u9afsh"
+    },
+    {
+      "id": "ch-4-b-04",
+      "question": "Overtaking must normally be done on the left. What is the single exception?",
+      "options": [
+        "The vehicle ahead is driving below the speed limit",
+        "The vehicle ahead is clearly about to turn left",
+        "The vehicle ahead has signalled you to come past",
+        "The road has two marked lanes in your direction"
+      ],
+      "answer": 1,
+      "explanation": "A vehicle that is turning left vacates the right-hand part of the carriageway, so passing it on the right is the only situation the book allows for right-sided overtaking.",
+      "topic": "overtaking",
+      "source": "ch-4:8b:v7oqng"
+    },
+    {
+      "id": "ch-4-b-06",
+      "question": "According to the main principle, when may you overtake at a road junction?",
+      "options": [
+        "Only when you are travelling on the road that has priority",
+        "Only when the junction carries no give way or stop sign",
+        "Only with full visibility and certainty that there is no danger",
+        "Only when the vehicle ahead is signalling a right turn"
+      ],
+      "answer": 2,
+      "explanation": "Junctions add vehicles entering and leaving the road plus the risk that the car ahead turns left, so the book demands absolute visibility before any overtaking there.",
+      "topic": "overtaking",
+      "source": "ch-4:9a:1kya7sd"
+    },
+    {
+      "id": "ch-4-b-07",
+      "question": "The driver ahead switches on the right indicator to tell you the road is clear to pass. How should you treat that signal?",
+      "options": [
+        "As a reliable confirmation that the road is clear",
+        "As a courtesy that must not be trusted blindly",
+        "As an instruction that you are obliged to overtake",
+        "As a warning that the driver is about to turn right"
+      ],
+      "answer": 1,
+      "explanation": "Responsibility for the manoeuvre stays entirely with the overtaking driver, who must judge the road himself; the other driver may have misjudged or may mean something else.",
+      "topic": "overtaking",
+      "source": "ch-4:9b:1jou55w"
+    },
+    {
+      "id": "ch-4-b-08",
+      "question": "A line of cars has built up behind a slow vehicle. Which driver should overtake first?",
+      "options": [
+        "The driver at the very back of the line of cars",
+        "The driver whose vehicle has the strongest engine",
+        "The driver immediately behind the slow vehicle",
+        "Whichever driver first finds a suitable gap ahead"
+      ],
+      "answer": 2,
+      "explanation": "Passing in order keeps the manoeuvre predictable; if that driver does not want to overtake he must leave a gap so the next one can pass the cars one step at a time.",
+      "topic": "overtaking",
+      "source": "ch-4:9b:522i9f"
+    },
+    {
+      "id": "ch-4-b-09",
+      "question": "How accurately can a driver judge the speed of a car about 300 metres away?",
+      "options": [
+        "It is practically impossible to tell 30 km/h from 70 km/h",
+        "Only speeds above roughly 90 km/h are hard to estimate",
+        "An experienced driver can estimate it within 5 km/h",
+        "Speeds can be judged reliably out to about 500 metres"
+      ],
+      "answer": 0,
+      "explanation": "An oncoming vehicle barely changes in apparent size at that range, which is why head-on collisions during overtaking are so often serious.",
+      "topic": "speed",
+      "source": "ch-4:10a:1n225sy"
+    },
+    {
+      "id": "ch-4-b-10",
+      "question": "Why must you leave plenty of space when overtaking a cyclist?",
+      "options": [
+        "Gravel thrown up by your tyres can strike the rider",
+        "The rider may swerve to avoid a pothole you cannot see",
+        "A cyclist must by law be given the whole driving lane",
+        "The draft behind your car can throw the rider off balance"
+      ],
+      "answer": 3,
+      "explanation": "A passing vehicle drags a strong gust of air in its wake, and the effect grows with both the size of the vehicle and its speed.",
+      "topic": "vulnerable",
+      "source": "ch-4:10a:zm3gev"
+    },
+    {
+      "id": "ch-4-b-11",
+      "question": "When may a driver make a U-turn or reverse on a road?",
+      "options": [
+        "Only where the posted speed limit is 50 km/h or lower",
+        "Only on roads with a single driving lane in each direction",
+        "Only when it causes no danger or inconvenience to others",
+        "Only when no other vehicle is within about 100 metres"
+      ],
+      "answer": 2,
+      "explanation": "The permission depends on the circumstances rather than on a fixed limit, and it is usually safer to drive on and turn around somewhere off the road.",
+      "topic": "rules",
+      "source": "ch-4:10b:88nwqt"
+    },
+    {
+      "id": "ch-4-b-12",
+      "question": "How should you control your speed when reversing down a slope?",
+      "options": [
+        "By adjusting the pressure on the clutch pedal",
+        "By pulling the handbrake in short, light pulls",
+        "By adjusting the pressure on the brake pedal",
+        "By selecting a lower gear before you set off"
+      ],
+      "answer": 2,
+      "explanation": "On level ground the clutch can meter the speed, but on a decline gravity is driving the car, so only the brake keeps it slow.",
+      "topic": "vehicle",
+      "source": "ch-4:11a:l4m4k6"
+    },
+    {
+      "id": "ch-4-b-13",
+      "question": "Two lanes narrow so that cars cannot pass side by side, and one car is clearly further ahead. Who has the right of way?",
+      "options": [
+        "The car in the lane that continues",
+        "The car that is further forward",
+        "The car that is on the right-hand side",
+        "The car that arrived at higher speed"
+      ],
+      "answer": 1,
+      "explanation": "The car behind slows and stops if needed; the right-hand car only gains priority in the different case where the two vehicles are level with each other.",
+      "topic": "right-of-way",
+      "source": "ch-4:11a:1di83or"
+    },
+    {
+      "id": "ch-4-b-14",
+      "question": "What is the maximum permitted speed in a pedestrianized residential street?",
+      "options": [
+        "15 km/h",
+        "10 km/h",
+        "20 km/h",
+        "30 km/h"
+      ],
+      "answer": 0,
+      "explanation": "These streets are shared by vehicles and pedestrians alike, and drivers must additionally give way to people on foot.",
+      "topic": "speed",
+      "source": "ch-4:11b:qji97h"
+    },
+    {
+      "id": "ch-4-b-15",
+      "question": "How is the three-second rule used to set your gap to the car ahead?",
+      "options": [
+        "Do not reach a fixed object until three seconds after the car ahead",
+        "Stay at least three car lengths behind the vehicle in front",
+        "Be able to brake your car to a standstill within three seconds",
+        "Wait three seconds after the car in front touches its brakes"
+      ],
+      "answer": 0,
+      "explanation": "Timing a lamp post or sign gives a gap that scales automatically with speed; the counting phrase \"one one-thousand, two one-thousand, three one-thousand\" approximates the interval.",
+      "topic": "speed",
+      "source": "ch-4:12a:9m0bnd"
+    },
+    {
+      "id": "ch-4-b-16",
+      "question": "The stopping distance of a vehicle is made up of which two parts?",
+      "options": [
+        "The braking distance and an extra safety margin",
+        "The reaction distance and the braking distance",
+        "The reaction distance and the following distance",
+        "The braking distance and the skidding distance"
+      ],
+      "answer": 1,
+      "explanation": "The car keeps travelling while the driver perceives the hazard and moves to the pedal, and only then does the braking begin; the sum of the two is the stopping distance.",
+      "topic": "speed",
+      "source": "ch-4:12a:x7cvze"
+    },
+    {
+      "id": "ch-4-b-17",
+      "question": "Which of these makes a driver's reaction distance longer?",
+      "options": [
+        "Driving on gravel instead of dry asphalt",
+        "Talking on a mobile phone while driving",
+        "Having worn tyres with very little tread",
+        "Braking while heading down a steep slope"
+      ],
+      "answer": 1,
+      "explanation": "Reaction distance depends on speed and on the driver's alertness, so fatigue, intoxication, phone use and distraction lengthen it; the other three affect the braking distance instead.",
+      "topic": "behaviour",
+      "source": "ch-4:12b:zp9enk"
+    },
+    {
+      "id": "ch-4-b-18",
+      "question": "If the speed of a car is doubled, what happens to its braking distance?",
+      "options": [
+        "It becomes roughly twice as long",
+        "It becomes roughly three times as long",
+        "It becomes roughly eight times as long",
+        "It becomes roughly four times as long"
+      ],
+      "answer": 3,
+      "explanation": "Braking distance follows the kinetic energy of the car, which rises with the square of the speed: double the speed and the braking distance is roughly four times as long.",
+      "topic": "speed",
+      "source": "ch-4:12b:1xkcp3x"
+    },
+    {
+      "id": "ch-4-b-19",
+      "question": "What is the basic requirement that visibility places on your choice of speed?",
+      "options": [
+        "You must be able to stop within twice the road you can see",
+        "You must be able to stop within three seconds of a hazard",
+        "You must keep the posted limit whatever the visibility",
+        "You must be able to stop within the road you can see"
+      ],
+      "answer": 3,
+      "explanation": "Controlling speed this way leaves room to stop for an unseen obstacle or for another driver who ignores a give way sign or a dangerous curve.",
+      "topic": "speed",
+      "source": "ch-4:13a:d7upcw"
+    },
+    {
+      "id": "ch-4-b-20",
+      "question": "In which of these situations does the book say a driver may drive faster?",
+      "options": [
+        "On a broad, dry asphalt road with light traffic",
+        "On a narrow, crooked road in fine, dry weather",
+        "In a residential area where children may be about",
+        "While towing a heavy trailer on a level main road"
+      ],
+      "answer": 0,
+      "explanation": "Speed must be chosen from the road, the visibility, the traffic, the vehicle and the driver together, and only a wide dry road with little traffic relaxes all of them at once.",
+      "topic": "speed",
+      "source": "ch-4:13b:1fabow5"
+    }
+  ]
+}

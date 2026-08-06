@@ -1,0 +1,271 @@
+{
+ "packet": "ch-8-a",
+ "questions": [
+  {
+   "id": "ch-8-a-01",
+   "question": "What is the rule about driving a motor vehicle outside official roads in Iceland?",
+   "options": [
+    "It is allowed for any four-wheel-drive vehicle",
+    "It is allowed everywhere outside the national parks",
+    "It is allowed within 100 metres of any road",
+    "It is prohibited, because the soil is easily damaged"
+   ],
+   "answer": 3,
+   "explanation": "Tracks cut into Iceland's fragile soil and vegetation can take years or decades to heal, so off-road driving is banned and drivers caught doing it face a heavy fine.",
+   "topic": "rules",
+   "source": "ch-8:1a:1d80o6p"
+  },
+  {
+   "id": "ch-8-a-02",
+   "question": "In which situation may a driver leave the official road without breaking the rule?",
+   "options": [
+    "When the ground is dry after a long warm spell",
+    "When a thick layer of snow covers the vegetation",
+    "When the official road is closed for repair work",
+    "When another vehicle has already left tracks there"
+   ],
+   "answer": 1,
+   "explanation": "The exception applies only when it is quite clear that the risk of damaging vegetation is negligible; deep winter snow cover is the example the book gives.",
+   "topic": "weather",
+   "source": "ch-8:1a:1tn7i8j"
+  },
+  {
+   "id": "ch-8-a-04",
+   "question": "Approximately how many traffic accidents happen in Iceland in an average year?",
+   "options": [
+    "About 1,350",
+    "About 7,500",
+    "About 900",
+    "About 15,000"
+   ],
+   "answer": 1,
+   "explanation": "Of roughly 7,500 accidents a year, around 900 involve injury, and in those about 1,350 people are hurt, so the smaller figures describe subsets, not the total.",
+   "topic": "general",
+   "source": "ch-8:1b:5cmy4s"
+  },
+  {
+   "id": "ch-8-a-05",
+   "question": "Which number do you dial for the emergency hot-line in Iceland?",
+   "options": [
+    "911",
+    "110",
+    "112",
+    "118"
+   ],
+   "answer": 2,
+   "explanation": "112 reaches the single Icelandic emergency line for police, ambulance and fire service; the other numbers are foreign or non-emergency services.",
+   "topic": "accidents",
+   "source": "ch-8:2a:exzjuq"
+  },
+  {
+   "id": "ch-8-a-06",
+   "question": "Nobody is injured in a minor collision. What must the parties involved do?",
+   "options": [
+    "Fill out a traffic accident report at the scene",
+    "Exchange phone numbers and then drive away",
+    "Report to the police within twenty-four hours",
+    "Photograph the cars and send the pictures later"
+   ],
+   "answer": 0,
+   "explanation": "The report must be completed on the scene no matter how insignificant the incident looks, and each party keeps one of its two copies for the insurance company.",
+   "topic": "documents",
+   "source": "ch-8:2a:tv9kv7"
+  },
+  {
+   "id": "ch-8-a-07",
+   "question": "Which circumstance means the police should be called to a collision?",
+   "options": [
+    "One of the drivers is a visitor from abroad",
+    "One of the vehicles must be towed from the scene",
+    "One of the drivers has no report form in the car",
+    "One of the drivers has no valid driving licence"
+   ],
+   "answer": 3,
+   "explanation": "The police must be involved when the parties disagree about the cause, when a driver is suspected of driving under the influence, or when a driver has no valid licence.",
+   "topic": "accidents",
+   "source": "ch-8:2a:v8gngc"
+  },
+  {
+   "id": "ch-8-a-08",
+   "question": "In mixed traffic of cars, cyclists and pedestrians, which group is most exposed?",
+   "options": [
+    "Car drivers and passengers",
+    "Drivers of small vehicles",
+    "Cyclists and pedestrians",
+    "Pedestrians who are crossing"
+   ],
+   "answer": 2,
+   "explanation": "Cyclists and pedestrians have no bodywork, belts or airbags around them, so both groups are far more vulnerable than anyone travelling inside a car.",
+   "topic": "vulnerable",
+   "source": "ch-8:2b:1dahtan"
+  },
+  {
+   "id": "ch-8-a-09",
+   "question": "Why should the hazard warning lights be switched on at the scene of an accident?",
+   "options": [
+    "To show the police which car caused it",
+    "To inform and warn the other road users",
+    "To indicate the road is closed to all traffic",
+    "To make the warning triangle unnecessary"
+   ],
+   "answer": 1,
+   "explanation": "The hazard signal makes the scene visible to approaching traffic; it warns others but does not replace the warning triangle, which is still needed.",
+   "topic": "signs",
+   "source": "ch-8:3a:witvl2"
+  },
+  {
+   "id": "ch-8-a-10",
+   "question": "When does traffic law require a road user to help at an accident with injured people or animals?",
+   "options": [
+    "Only when he was one of the parties involved",
+    "Only when the police have requested his assistance",
+    "Only when he has completed a first aid course",
+    "Whenever he can help, whether or not he was involved"
+   ],
+   "answer": 3,
+   "explanation": "The duty to give whatever assistance you can applies to every road user; it falls away only when enough people are already helping and more would just be in the way.",
+   "topic": "rules",
+   "source": "ch-8:3b:1fy8vix"
+  },
+  {
+   "id": "ch-8-a-11",
+   "question": "How is first aid defined in the book?",
+   "options": [
+    "Care given to preserve life until professionals arrive",
+    "Medical treatment given by a doctor at the scene",
+    "Transport of the injured to the nearest hospital",
+    "The examination paramedics make when they arrive"
+   ],
+   "answer": 0,
+   "explanation": "First aid is the help given to someone suddenly ill or injured to preserve life, stop the condition worsening and aid recovery while professional help is on its way.",
+   "topic": "accidents",
+   "source": "ch-8:4a:k3mu3r"
+  },
+  {
+   "id": "ch-8-a-12",
+   "question": "According to the Icelandic Red Cross, what is the first step at a serious accident?",
+   "options": [
+    "Call the emergency hot-line straight away",
+    "Assess the injuries of everyone involved",
+    "Secure the scene against any further accidents",
+    "Give first aid to the worst injured person"
+   ],
+   "answer": 2,
+   "explanation": "The order is secure the scene, assess injuries, call for help, then give first aid; securing comes first so that helpers and casualties are not hit by passing traffic.",
+   "topic": "accidents",
+   "source": "ch-8:4b:owqp55"
+  },
+  {
+   "id": "ch-8-a-13",
+   "question": "Whose safety must you attend to first when you reach an accident scene?",
+   "options": [
+    "That of the most seriously injured person",
+    "Your own safety, before that of anyone else",
+    "That of the other drivers who were involved",
+    "That of the traffic passing by the scene"
+   ],
+   "answer": 1,
+   "explanation": "A helper who is struck by an approaching vehicle becomes another casualty and helps nobody, so personal safety is checked before the safety of others.",
+   "topic": "accidents",
+   "source": "ch-8:4b:98caz3"
+  },
+  {
+   "id": "ch-8-a-14",
+   "question": "Where traffic is slow and road visibility is good, how far from the scene should the warning triangle stand?",
+   "options": [
+    "About 20 metres",
+    "About 100 metres",
+    "About 50 metres",
+    "About 150 metres"
+   ],
+   "answer": 2,
+   "explanation": "Roughly 50 metres is enough in slow traffic with clear sight lines; faster traffic or poor visibility calls for a considerably greater distance.",
+   "topic": "accidents",
+   "source": "ch-8:4b:63admq"
+  },
+  {
+   "id": "ch-8-a-15",
+   "question": "What should be done about the engine of a car that has been in an accident?",
+   "options": [
+    "Make sure it has stopped, or switch it off at once",
+    "Leave it idling so the hazard lights keep working",
+    "Leave it running to keep the injured people warm",
+    "Start it again to move the wreck off the road"
+   ],
+   "answer": 0,
+   "explanation": "A running engine and a damaged battery are ignition sources, and leaking petrol can be set alight by the smallest spark, so the engine is stopped immediately.",
+   "topic": "vehicle",
+   "source": "ch-8:5a:1l5xazw"
+  },
+  {
+   "id": "ch-8-a-16",
+   "question": "At roughly what speed does an airbag inflate?",
+   "options": [
+    "About 300 km/h",
+    "About 100 km/h",
+    "About 200 km/h",
+    "About 500 km/h"
+   ],
+   "answer": 0,
+   "explanation": "An airbag deploys at around 300 km/h, fast enough to seriously injure or kill a helper working close to it, which is why undeployed bags must be disabled first.",
+   "topic": "vehicle",
+   "source": "ch-8:5b:1udnxuy"
+  },
+  {
+   "id": "ch-8-a-17",
+   "question": "How should undeployed airbags be made safe before you help someone inside the car?",
+   "options": [
+    "Disconnect the battery and start helping at once",
+    "Disconnect the battery and wait about a minute",
+    "Switch off the ignition and take out the key",
+    "Cut the seat belts and pull out the airbag fuse"
+   ],
+   "answer": 1,
+   "explanation": "The waiting minute lets any residual charge drain from the system; without it the bag can still fire even though the battery is already disconnected.",
+   "topic": "vehicle",
+   "source": "ch-8:5b:1udnxuy"
+  },
+  {
+   "id": "ch-8-a-18",
+   "question": "Several people reach an accident scene at the same time. Who should take charge?",
+   "options": [
+    "The one with most first aid experience and knowledge",
+    "The person who arrived at the scene first",
+    "The oldest of the people who are present",
+    "The driver who was involved in the accident"
+   ],
+   "answer": 0,
+   "explanation": "One clear leader avoids duplicated and contradictory action, and the most experienced helper is best placed to divide tasks such as first aid and calling 112.",
+   "topic": "accidents",
+   "source": "ch-8:6a:wbhxpg"
+  },
+  {
+   "id": "ch-8-a-19",
+   "question": "After how long without breathing does incurable brain damage become likely?",
+   "options": [
+    "One to two minutes",
+    "Ten to twelve minutes",
+    "Three to five minutes",
+    "Fifteen minutes or more"
+   ],
+   "answer": 2,
+   "explanation": "Brain tissue starts dying within a few minutes without oxygen, which is why breathing is the very first thing checked on an injured person.",
+   "topic": "accidents",
+   "source": "ch-8:6b:1ydghcu"
+  },
+  {
+   "id": "ch-8-a-20",
+   "question": "An unconscious person is injured on one side only. On which side is he placed in the recovery position?",
+   "options": [
+    "On his injured side",
+    "On whichever side is easier to reach",
+    "On his back with the head turned aside",
+    "On his uninjured side"
+   ],
+   "answer": 3,
+   "explanation": "Lying on the sound side keeps weight off the injury; the exception is facial or lung wounds, where the person is turned onto the harmed side instead.",
+   "topic": "accidents",
+   "source": "ch-8:7a:uzg8mu"
+  }
+ ]
+}

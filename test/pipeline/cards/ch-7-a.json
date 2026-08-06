@@ -1,0 +1,327 @@
+{
+  "packet": "ch-7-a",
+  "questions": [
+    {
+      "id": "ch-7-a-01",
+      "question": "What is the longest prison sentence a traffic law infraction can lead to in Iceland?",
+      "options": [
+        "Three years",
+        "Six months",
+        "One year",
+        "Five years"
+      ],
+      "answer": 0,
+      "explanation": "Depending on how serious the infraction is, the punishment ranges from a fine through custody up to three years of imprisonment.",
+      "topic": "rules",
+      "source": "ch-7:1b:1l7nxro"
+    },
+    {
+      "id": "ch-7-a-02",
+      "question": "A person borrows a car in June and is stopped because it still has studded tires fitted. Who has to pay the fine?",
+      "options": [
+        "The person driving the borrowed car",
+        "The registered owner of the car",
+        "The insurance company of the car",
+        "The workshop that fitted the tires"
+      ],
+      "answer": 0,
+      "explanation": "The driver answers for the car being in a legal and working condition, even when he is neither the owner nor the registered possessor.",
+      "topic": "vehicle",
+      "source": "ch-7:2a:1ca7kcj"
+    },
+    {
+      "id": "ch-7-a-03",
+      "question": "When is a drunk person regarded as attempting to operate a vehicle, which the law also forbids?",
+      "options": [
+        "When he walks towards his parked car holding the keys",
+        "When he sits in the driving seat with the engine running",
+        "When he sits in the passenger seat holding the keys",
+        "When he sleeps in the back seat of the parked car"
+      ],
+      "answer": 1,
+      "explanation": "Article 45 bans the attempt as well as the act, and a driver in place behind a running engine already counts as an attempt.",
+      "topic": "alcohol",
+      "source": "ch-7:3a:1tn3tvf"
+    },
+    {
+      "id": "ch-7-a-04",
+      "question": "For how long can a drug such as cannabis stay in a person's system?",
+      "options": [
+        "Up to 12 hours",
+        "Up to 12 weeks",
+        "Up to 12 days",
+        "Up to 12 months"
+      ],
+      "answer": 1,
+      "explanation": "Unlike alcohol, which the liver clears within hours, cannabis can remain for weeks, so the impairment and the evidence long outlast the night of use.",
+      "topic": "alcohol",
+      "source": "ch-7:3b:g0mxwo"
+    },
+    {
+      "id": "ch-7-a-05",
+      "question": "What is the position of a person who hands alcohol to someone who is about to drive?",
+      "options": [
+        "He commits no offence unless he owns the vehicle",
+        "He can be found guilty as an accessory to DUI",
+        "He is punished only if an accident follows",
+        "He is liable only if the driver is a beginner"
+      ],
+      "answer": 1,
+      "explanation": "Responsibility does not stop at the driver: supplying the drink, or inviting a drunk person to drive, is itself punishable.",
+      "topic": "alcohol",
+      "source": "ch-7:4a:1fsmhhd"
+    },
+    {
+      "id": "ch-7-a-06",
+      "question": "Between which blood alcohol levels does the law treat a driver as unable to operate a vehicle safely?",
+      "options": [
+        "0,20 to 0,50 promille",
+        "0,80 to 1,50 promille",
+        "1,20 to 2,00 promille",
+        "0,50 to 1,20 promille"
+      ],
+      "answer": 3,
+      "explanation": "This band is what the legislator uses to grade the punishment for drunk driving, and it matches 0,25 to 0,60 milligrams of alcohol per litre of exhaled air.",
+      "topic": "alcohol",
+      "source": "ch-7:4a:adaln2"
+    },
+    {
+      "id": "ch-7-a-07",
+      "question": "A breath test shows more than 0,60 milligrams of alcohol per litre of exhaled air. What follows from that?",
+      "options": [
+        "The driver must be retested with a blood sample",
+        "The driver may drive if he feels completely sober",
+        "The driver is deemed unfit to operate a vehicle",
+        "The driver is given three penalty points"
+      ],
+      "answer": 2,
+      "explanation": "That reading matches 1,20 promille in the bloodstream, the level above which unfitness to drive is simply presumed rather than assessed.",
+      "topic": "alcohol",
+      "source": "ch-7:4a:5pd2n6"
+    },
+    {
+      "id": "ch-7-a-08",
+      "question": "Which of the following actually speeds up the rate at which the liver burns off alcohol?",
+      "options": [
+        "Drinking several cups of strong coffee",
+        "Going for a long run in fresh air",
+        "Taking a hot bath and then sleeping",
+        "Nothing, the burn rate cannot be raised"
+      ],
+      "answer": 3,
+      "explanation": "The liver works at roughly 20 millilitres of strong liquor per hour whatever you do, which is why alcohol can still be in the blood the next morning.",
+      "topic": "alcohol",
+      "source": "ch-7:4a:1xztm3q"
+    },
+    {
+      "id": "ch-7-a-09",
+      "question": "When is a police officer allowed to carry out an alcohol test on a driver?",
+      "options": [
+        "Only when the driver smells clearly of alcohol",
+        "Only when a court has issued a written warrant",
+        "During a routine check or after a traffic accident",
+        "Only when an accident has caused personal injury"
+      ],
+      "answer": 2,
+      "explanation": "No prior suspicion is required for the test, and the driver is obliged to comply with the officer's request.",
+      "topic": "alcohol",
+      "source": "ch-7:4b:p22g5p"
+    },
+    {
+      "id": "ch-7-a-10",
+      "question": "How much more likely is a very sleepy driver to have a traffic accident than a fresh one?",
+      "options": [
+        "About 1,5 to 2 times more likely",
+        "About 2 to 3 times more likely",
+        "About 8 to 10 times more likely",
+        "About 4 to 6 times more likely"
+      ],
+      "answer": 3,
+      "explanation": "Tiredness lengthens reaction time and narrows peripheral vision, so the risk multiplies well before the driver actually falls asleep.",
+      "topic": "behaviour",
+      "source": "ch-7:4b:1iym6fz"
+    },
+    {
+      "id": "ch-7-a-11",
+      "question": "A driver becomes very sleepy on a journey. How long a nap is already worth taking?",
+      "options": [
+        "Fifteen minutes",
+        "Five minutes",
+        "Forty-five minutes",
+        "Two hours"
+      ],
+      "answer": 0,
+      "explanation": "Research shows a short stop of about a quarter of an hour in a safe parking spot restores enough alertness to be worthwhile.",
+      "topic": "behaviour",
+      "source": "ch-7:5a:9sj37y"
+    },
+    {
+      "id": "ch-7-a-12",
+      "question": "How many penalty points does using a mobile phone without hands-free equipment carry?",
+      "options": [
+        "Two penalty points",
+        "One penalty point",
+        "Three penalty points",
+        "Four penalty points"
+      ],
+      "answer": 1,
+      "explanation": "It sits in the lowest band, together with an unfastened seat belt and driving the wrong way in a one-way street.",
+      "topic": "behaviour",
+      "source": "ch-7:5a:jqx5gn"
+    },
+    {
+      "id": "ch-7-a-13",
+      "question": "A medication box carries a red triangle on its label. What does that require of the person taking it?",
+      "options": [
+        "He must halve the dose on days he drives",
+        "He must wait 24 hours after the last dose",
+        "He must consult a doctor before he drives",
+        "He must keep the prescription in the car"
+      ],
+      "answer": 2,
+      "explanation": "The triangle marks side effects such as sleepiness, longer reaction time or reduced eyesight, so only a doctor can judge whether driving is safe.",
+      "topic": "general",
+      "source": "ch-7:5b:ub3d9s"
+    },
+    {
+      "id": "ch-7-a-14",
+      "question": "What is the highest fine that can be imposed for breaking the traffic law?",
+      "options": [
+        "100 thousand ISK",
+        "240 thousand ISK",
+        "300 thousand ISK",
+        "500 thousand ISK"
+      ],
+      "answer": 2,
+      "explanation": "240 thousand is only the quoted example for a repeated DUI offence; the ceiling set for traffic fines is higher than that.",
+      "topic": "rules",
+      "source": "ch-7:5b:1llepic"
+    },
+    {
+      "id": "ch-7-a-15",
+      "question": "What does a driver gain by paying his fine within 30 days of the date of issue?",
+      "options": [
+        "A discount of 25% off the original amount",
+        "A discount of 50% off the original amount",
+        "The cancellation of any penalty points given",
+        "The removal of the entry from his record"
+      ],
+      "answer": 0,
+      "explanation": "The discount only reduces the money owed; penalty points and the record of the infringement are unaffected by prompt payment.",
+      "topic": "rules",
+      "source": "ch-7:5b:1g54ski"
+    },
+    {
+      "id": "ch-7-a-16",
+      "question": "How does the penalty point system treat a driver who is caught driving under the influence?",
+      "options": [
+        "He is given three points and a formal warning",
+        "He is given twelve points in one go",
+        "He is given no points but loses his license",
+        "He is given points only from the second offence"
+      ],
+      "answer": 2,
+      "explanation": "The heavy fine together with the revocation is regarded as punishment enough, so DUI is kept outside the points system entirely.",
+      "topic": "alcohol",
+      "source": "ch-7:5b:19badsd"
+    },
+    {
+      "id": "ch-7-a-17",
+      "question": "How many penalty points does a driver receive for crossing a junction on a red light?",
+      "options": [
+        "Two penalty points",
+        "One penalty point",
+        "Three penalty points",
+        "Four penalty points"
+      ],
+      "answer": 0,
+      "explanation": "It falls in the middle band, alongside ignoring a stop sign, failing to give way under the right-hand rule and disobeying a police officer.",
+      "topic": "right-of-way",
+      "source": "ch-7:5b:j1ml4z"
+    },
+    {
+      "id": "ch-7-a-18",
+      "question": "How many accumulated penalty points cost the holder of a full driving license his license?",
+      "options": [
+        "12 points",
+        "6 points",
+        "8 points",
+        "16 points"
+      ],
+      "answer": 0,
+      "explanation": "Points are erased three years after they are given, so the total has to build up inside that window before revocation follows.",
+      "topic": "documents",
+      "source": "ch-7:6a:btm174"
+    },
+    {
+      "id": "ch-7-a-19",
+      "question": "A driver has reached the point limit and loses his license. How long does that revocation last?",
+      "options": [
+        "One month",
+        "Six months",
+        "Three months",
+        "Twelve months"
+      ],
+      "answer": 2,
+      "explanation": "Once the period is over the points that caused it are wiped immediately, so the driver can collect his license and start again with a clean slate.",
+      "topic": "documents",
+      "source": "ch-7:6a:akhan9"
+    },
+    {
+      "id": "ch-7-a-20",
+      "question": "A driver has been sentenced to lifetime revocation of his license. When may he apply for a new one?",
+      "options": [
+        "Never, the revocation is absolute",
+        "After five years have passed",
+        "After three years have passed",
+        "After ten years have passed"
+      ],
+      "answer": 1,
+      "explanation": "Lifetime means lifetime, but an application is allowed after five years, and an approved applicant must sit both the theory and the practical exam again.",
+      "topic": "documents",
+      "source": "ch-7:6a:f37lpw"
+    },
+    {
+      "id": "ch-7-a-21",
+      "question": "On a road where the limit is 30 km/h, exceeding it by more than 26 km/h carries how many points?",
+      "options": [
+        "One penalty point",
+        "Two penalty points",
+        "Four penalty points",
+        "Three penalty points"
+      ],
+      "answer": 3,
+      "explanation": "Gross speeding sits in the top band, the same as exceeding a 50 to 60 km/h limit by more than 36 km/h.",
+      "topic": "speed",
+      "source": "ch-7:6a:1bfkpsy"
+    },
+    {
+      "id": "ch-7-a-23",
+      "question": "How many penalty points cost the holder of a temporary driving license his license?",
+      "options": [
+        "2 or more points",
+        "4 or more points",
+        "6 or more points",
+        "12 or more points"
+      ],
+      "answer": 1,
+      "explanation": "Rookie drivers are held to a far stricter limit than experienced ones, and getting the license back requires a special course and both exams again.",
+      "topic": "documents",
+      "source": "ch-7:6b:ycse94"
+    },
+    {
+      "id": "ch-7-a-24",
+      "question": "What must the holder of a temporary driving license achieve before a permanent one can be issued?",
+      "options": [
+        "Twelve months of driving with an instructor present",
+        "Two years without receiving any traffic fine",
+        "Three years without causing a traffic accident",
+        "Twelve months in a row with no penalty points"
+      ],
+      "answer": 3,
+      "explanation": "A single penalty point during the qualifying period restarts the wait, and the driver must also pass a driving assessment before the permanent license is issued.",
+      "topic": "documents",
+      "source": "ch-7:7a:czewe7"
+    }
+  ]
+}

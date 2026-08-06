@@ -1,0 +1,285 @@
+{
+  "packet": "ch-4-c",
+  "questions": [
+    {
+      "id": "ch-4-c-01",
+      "question": "At about 70 km/h, how far to each side does the average driver's peripheral vision reach?",
+      "options": [
+        "About 30 degrees",
+        "About 90 degrees",
+        "About 60 degrees",
+        "About 120 degrees"
+      ],
+      "answer": 2,
+      "explanation": "The field of view narrows further as speed rises, so a faster driver takes in less of what is happening at the roadside.",
+      "topic": "speed",
+      "source": "ch-4:14a:1hltfhf"
+    },
+    {
+      "id": "ch-4-c-02",
+      "question": "On a carriageway with two lanes running in the same direction, which lane should you normally use?",
+      "options": [
+        "The right-hand lane",
+        "The left-hand lane",
+        "Whichever lane is emptier",
+        "Either lane, if you keep to the limit"
+      ],
+      "answer": 0,
+      "explanation": "The left lane is kept free for overtaking, for preparing a left turn, and for evening out heavy traffic loads.",
+      "topic": "rules",
+      "source": "ch-4:14a:rb229l"
+    },
+    {
+      "id": "ch-4-c-03",
+      "question": "What does the term speed blindness describe?",
+      "options": [
+        "Being dazzled by oncoming headlights at high speed",
+        "Failing to notice the speed limit signs along a route",
+        "Losing peripheral vision when driving very fast",
+        "Losing your sense of how fast you are actually driving"
+      ],
+      "answer": 3,
+      "explanation": "It creeps in after a long stretch on a good, quiet road and becomes dangerous when conditions worsen, for example where asphalt turns into gravel.",
+      "topic": "speed",
+      "source": "ch-4:14b:1tz3l87"
+    },
+    {
+      "id": "ch-4-c-04",
+      "question": "While you are driving, what is the only way to reduce your vehicle's kinetic energy?",
+      "options": [
+        "Reduce the load the vehicle is carrying",
+        "Change down into a lower gear",
+        "Increase the gap to the vehicle ahead",
+        "Reduce the speed of the vehicle"
+      ],
+      "answer": 3,
+      "explanation": "Many accidents happen because drivers underestimate this energy, and once you are on the move only lower speed brings it down.",
+      "topic": "speed",
+      "source": "ch-4:14b:lgkrth"
+    },
+    {
+      "id": "ch-4-c-05",
+      "question": "Under the traffic law, what does the posted maximum speed limit actually mean?",
+      "options": [
+        "The speed drivers are expected to keep on that road",
+        "The highest speed allowed when conditions are at their best",
+        "The safest speed for an ordinary car in rain",
+        "The highest speed allowed whatever the conditions"
+      ],
+      "answer": 1,
+      "explanation": "The driver must judge each situation and adjust to the road surface, traffic, visibility, weather and the vehicle, often driving well below the sign.",
+      "topic": "speed",
+      "source": "ch-4:15a:1o3j7y1"
+    },
+    {
+      "id": "ch-4-c-06",
+      "question": "What is the maximum speed limit on gravel roads outside urban areas?",
+      "options": [
+        "60 km/h",
+        "70 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": 2,
+      "explanation": "Asphalt roads outside urban areas allow 90 km/h; the lower gravel figure reflects the reduced grip of a loose surface.",
+      "topic": "gravel",
+      "source": "ch-4:15a:wy7w2n"
+    },
+    {
+      "id": "ch-4-c-07",
+      "question": "A car towing an unregistered trailer may not be driven faster than what speed?",
+      "options": [
+        "70 km/h",
+        "60 km/h",
+        "80 km/h",
+        "90 km/h"
+      ],
+      "answer": 1,
+      "explanation": "A registered trailer or comparable object allows up to 80 km/h, but an unregistered one is held to the lower figure.",
+      "topic": "vehicle",
+      "source": "ch-4:15a:1s2iohp"
+    },
+    {
+      "id": "ch-4-c-08",
+      "question": "What is the highest speed limit that can be posted anywhere in Iceland?",
+      "options": [
+        "90 km/h",
+        "80 km/h",
+        "100 km/h",
+        "110 km/h"
+      ],
+      "answer": 0,
+      "explanation": "Iceland has no freeways, so its limits never reach the levels found on motorways abroad.",
+      "topic": "speed",
+      "source": "ch-4:15b:4hoyr4"
+    },
+    {
+      "id": "ch-4-c-09",
+      "question": "You have entered a bend too fast and feel the centrifugal force building. What is the safest response?",
+      "options": [
+        "Brake hard to scrub off the excess speed",
+        "Steer sharply towards the inside of the bend",
+        "Stay calm and ease off the accelerator",
+        "Accelerate to pull the car through the bend"
+      ],
+      "answer": 2,
+      "explanation": "Stamping on the brakes can stop the wheels rolling; letting them keep turning preserves grip and steering control through the bend.",
+      "topic": "vehicle",
+      "source": "ch-4:16a:y80cg7"
+    },
+    {
+      "id": "ch-4-c-10",
+      "question": "What is meant by a blind summit?",
+      "options": [
+        "A crest where drivers on each side cannot see one another",
+        "A hill so steep that heavy vehicles have to stop",
+        "A crest where overtaking is allowed only downhill",
+        "A bend at the top of a hill without road markings"
+      ],
+      "answer": 0,
+      "explanation": "An oncoming vehicle can appear without warning, and low crests or crests inside a bend are especially deceptive because the danger looks smaller than it is.",
+      "topic": "rules",
+      "source": "ch-4:16a:ahp4hk"
+    },
+    {
+      "id": "ch-4-c-11",
+      "question": "Having stopped for a pedestrian crossing, how far back from it should your car normally be?",
+      "options": [
+        "At least 10 metres, about two to three car lengths",
+        "At least 3 metres, about half a car length",
+        "At least 5 metres, about one car length",
+        "At least 20 metres, about five car lengths"
+      ],
+      "answer": 0,
+      "explanation": "The gap gives a following driver who tries to overtake time and room to see the crossing; only in heavy slow traffic may it shrink, and never below about one car length.",
+      "topic": "vulnerable",
+      "source": "ch-4:16b:sdhskt"
+    },
+    {
+      "id": "ch-4-c-12",
+      "question": "When may you overtake another vehicle just before or on a pedestrian crossing?",
+      "options": [
+        "Only when no pedestrian is in sight",
+        "Only where the crossing has no traffic lights",
+        "Never, whether or not pedestrians are nearby",
+        "Only when traffic is heavy and moving slowly"
+      ],
+      "answer": 2,
+      "explanation": "Changing lanes or overtaking there is strictly forbidden, because the overtaken vehicle hides pedestrians from the driver coming past.",
+      "topic": "rules",
+      "source": "ch-4:16b:sdhskt"
+    },
+    {
+      "id": "ch-4-c-13",
+      "question": "A pedestrian at the roadside is carrying a white cane. What does this tell you?",
+      "options": [
+        "The person is elderly and moves slowly",
+        "The person is blind",
+        "The person has difficulty hearing traffic",
+        "The person has reduced mobility"
+      ],
+      "answer": 1,
+      "explanation": "Drive slowly and leave plenty of room, since a startled pedestrian in this group may react in a way you cannot foresee.",
+      "topic": "vulnerable",
+      "source": "ch-4:17a:molzxd"
+    },
+    {
+      "id": "ch-4-c-14",
+      "question": "When is the risk of meeting loose horses on the road at its greatest?",
+      "options": [
+        "On bright summer evenings",
+        "During the spring lambing season",
+        "In the darkness of autumn and winter",
+        "On calm mornings in early summer"
+      ],
+      "answer": 2,
+      "explanation": "Spring is the dangerous season for lambs rather than horses; loose horses are hardest to spot in the long darkness of autumn and winter.",
+      "topic": "animals",
+      "source": "ch-4:17b:10uptcl"
+    },
+    {
+      "id": "ch-4-c-15",
+      "question": "You reach the scene of a traffic accident and your assistance is clearly not needed. What should you do?",
+      "options": [
+        "Stop and wait until the police have arrived",
+        "Park nearby and offer to help anyway",
+        "Keep your normal speed to clear the area",
+        "Drive slowly past without stopping"
+      ],
+      "answer": 3,
+      "explanation": "Slowing down is required for safety, but stopping when you are not needed only obstructs traffic and the emergency vehicles.",
+      "topic": "accidents",
+      "source": "ch-4:17b:10uptcl"
+    },
+    {
+      "id": "ch-4-c-16",
+      "question": "In the sense used by the traffic law, when are you stopping the vehicle?",
+      "options": [
+        "When you halt because the traffic ahead has stopped",
+        "When you halt so that a passenger can get in or out",
+        "When you halt because a police officer orders it",
+        "When you halt for longer than unloading requires"
+      ],
+      "answer": 1,
+      "explanation": "Halting for traffic conditions or on police orders is not stopping in the legal sense, and halting longer than the errand needs counts as parking instead.",
+      "topic": "parking",
+      "source": "ch-4:18a:5l4ad7"
+    },
+    {
+      "id": "ch-4-c-17",
+      "question": "Where a road has no marked parking spaces, on which side must you leave the car?",
+      "options": [
+        "On the side with the wider verge",
+        "On the side facing oncoming traffic",
+        "On the left side of the road",
+        "On the right side of the road"
+      ],
+      "answer": 3,
+      "explanation": "Parking on the left is recommended only in certain one-way streets in urban areas; elsewhere the right side is the rule.",
+      "topic": "parking",
+      "source": "ch-4:18a:1slukdm"
+    },
+    {
+      "id": "ch-4-c-18",
+      "question": "May a driver who is not disabled halt briefly in a parking space reserved for disabled persons?",
+      "options": [
+        "Yes, provided the vehicle is not left unattended",
+        "Yes, for as long as loading or unloading takes",
+        "Yes, outside the business hours of the parking meter",
+        "No, neither stopping nor parking is allowed there"
+      ],
+      "answer": 3,
+      "explanation": "The restriction covers stopping as well as parking, so even a short halt in such a space is prohibited.",
+      "topic": "parking",
+      "source": "ch-4:18b:7j3zh7"
+    },
+    {
+      "id": "ch-4-c-19",
+      "question": "How close to a bus stop may a vehicle be stopped or parked?",
+      "options": [
+        "No closer than 5 metres",
+        "No closer than 15 metres",
+        "No closer than 10 metres",
+        "No closer than 25 metres"
+      ],
+      "answer": 1,
+      "explanation": "Both stopping and parking are banned inside that distance so that buses can pull in to the kerb and passengers can board safely.",
+      "topic": "parking",
+      "source": "ch-4:19a:1t6ltnc"
+    },
+    {
+      "id": "ch-4-c-20",
+      "question": "What must you do with the car before you walk away from a parking space?",
+      "options": [
+        "Lock it and take the keys away with you",
+        "Leave it unlocked in case it has to be moved",
+        "Leave the keys hidden somewhere inside it",
+        "Lock it but leave a window slightly open"
+      ],
+      "answer": 0,
+      "explanation": "It is prohibited to leave a vehicle in a condition where a stranger could easily drive it off, and visible valuables should not be left behind either.",
+      "topic": "parking",
+      "source": "ch-4:19b:1gdyxss"
+    }
+  ]
+}

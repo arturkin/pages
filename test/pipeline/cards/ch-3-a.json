@@ -1,0 +1,341 @@
+{
+  "packet": "ch-3-a",
+  "questions": [
+    {
+      "id": "ch-3-a-01",
+      "question": "In Iceland, who besides pedestrians may normally use a footpath?",
+      "options": [
+        "Nobody; footpaths are strictly for pedestrians",
+        "Cyclists, but only where a sign expressly allows it",
+        "Mopeds, as long as they travel at walking pace",
+        "Cyclists, unless a sign says otherwise"
+      ],
+      "answer": 3,
+      "explanation": "Bicycles are permitted on footpaths by default in Iceland, so a sign is needed to forbid them rather than to allow them. Motorised traffic stays off.",
+      "topic": "rules",
+      "source": "ch-3:1b:177g3ax"
+    },
+    {
+      "id": "ch-3-a-02",
+      "question": "Where are traffic signs normally placed relative to the direction you are driving?",
+      "options": [
+        "On the right-hand side of the road",
+        "On the left-hand side of the road",
+        "Suspended above the middle of the carriageway",
+        "Painted on the road surface itself"
+      ],
+      "answer": 0,
+      "explanation": "Signs face oncoming drivers from the right. Hazard, prohibitive and mandatory signs are sometimes repeated on the left or on a traffic island so they are easier to spot.",
+      "topic": "signs",
+      "source": "ch-3:1b:1eqhc1f"
+    },
+    {
+      "id": "ch-3-a-03",
+      "question": "You accidentally hit and damage a traffic sign. What are you required to do?",
+      "options": [
+        "Leave it in place and report it only if somebody was injured",
+        "Repair what you can and inform the local authorities at once",
+        "Stand the sign back up; no report is then necessary",
+        "Notify your insurance company within seven days"
+      ],
+      "answer": 1,
+      "explanation": "A missing or damaged sign endangers every following driver, so the law requires both repair as far as possible and immediate notification of the authorities.",
+      "topic": "signs",
+      "source": "ch-3:2b:pkqqxa"
+    },
+    {
+      "id": "ch-3-a-04",
+      "question": "What is the standard appearance of an Icelandic hazard sign?",
+      "options": [
+        "A round sign with a yellow face, red border and black symbol",
+        "A triangle with a white face, black border and red symbol",
+        "A rectangle with an orange face and black lettering",
+        "A triangle with a yellow face, red border and black symbol"
+      ],
+      "answer": 3,
+      "explanation": "Hazard signs are equilateral triangles with a yellow background and red border; the black symbol inside states what the danger is. Orange rectangles are temporary signs.",
+      "topic": "signs",
+      "source": "ch-3:2b:1upvw9"
+    },
+    {
+      "id": "ch-3-a-05",
+      "question": "Which traffic sign is the only one shaped as a triangle with a corner pointing downwards?",
+      "options": [
+        "The give way sign",
+        "The stop sign",
+        "The priority road sign",
+        "The dangerous junction sign"
+      ],
+      "answer": 0,
+      "explanation": "Its inverted triangle makes the give way sign recognisable even from behind, which no other sign allows. The stop sign is an octagon.",
+      "topic": "signs",
+      "source": "ch-3:2b:q031ta"
+    },
+    {
+      "id": "ch-3-a-06",
+      "question": "A hazard sign warns of a dangerous junction ahead. How does it change priority at that junction?",
+      "options": [
+        "It gives priority to traffic on the road you are travelling on",
+        "It obliges you to come to a full stop before entering",
+        "It does not change it; give way to traffic from the right",
+        "It obliges you to give way to all crossing traffic"
+      ],
+      "answer": 2,
+      "explanation": "The sign only warns of poor visibility and is used outside urban areas. Ordinary priority rules keep applying unless another sign states otherwise.",
+      "topic": "right-of-way",
+      "source": "ch-3:2b:1eeeo4v"
+    },
+    {
+      "id": "ch-3-a-07",
+      "question": "What does a typical prohibitive sign look like?",
+      "options": [
+        "Square, with a white face and a black border",
+        "Round, with a yellow face and a red border",
+        "Triangular, with a yellow face and a red border",
+        "Round, with a blue face and a white border"
+      ],
+      "answer": 1,
+      "explanation": "Most signs in this group are round with a yellow background and red border. Notable exceptions are the octagonal stop sign and the blue no-stopping and no-parking signs.",
+      "topic": "signs",
+      "source": "ch-3:3a:7i9o0f"
+    },
+    {
+      "id": "ch-3-a-08",
+      "question": "Which road user may still pass a \"no motor vehicles\" sign?",
+      "options": [
+        "A moped rider",
+        "A motorcyclist",
+        "A cyclist",
+        "A delivery van driver"
+      ],
+      "answer": 2,
+      "explanation": "The prohibition covers motorised vehicles only, so cycling remains permitted under the ordinary traffic regulations.",
+      "topic": "signs",
+      "source": "ch-3:3a:1aza8zi"
+    },
+    {
+      "id": "ch-3-a-09",
+      "question": "How far along the road does a \"no parking\" sign remain in force?",
+      "options": [
+        "For exactly 100 metres beyond the sign",
+        "Along the whole street, on both sides of the road",
+        "Until the next junction, or until a sign ends it sooner",
+        "Until the end of the current block of buildings"
+      ],
+      "answer": 2,
+      "explanation": "The ban runs on the signed side of the road up to the next junction. A sign carrying an arrow sub sign pointing back can end it earlier.",
+      "topic": "parking",
+      "source": "ch-3:3b:yo5te9"
+    },
+    {
+      "id": "ch-3-a-10",
+      "question": "What is the standard appearance of a mandatory sign?",
+      "options": [
+        "Rectangular, with white arrows on a blue background",
+        "Triangular, with a blue face and a white symbol",
+        "Round, with a yellow face and a red border",
+        "Round, with a blue face and a white symbol"
+      ],
+      "answer": 3,
+      "explanation": "Mandatory signs are circular with a blue background, white border and white symbol. Blue rectangles with white arrows are driving lane signs, a different group.",
+      "topic": "signs",
+      "source": "ch-3:3b:1v7g70f"
+    },
+    {
+      "id": "ch-3-a-11",
+      "question": "What does the priority road sign tell the driver who sees it?",
+      "options": [
+        "That the driver must give way to traffic joining from side roads",
+        "That the road ahead carries one-way traffic only",
+        "That traffic joining from side roads must give way to this road",
+        "That overtaking is permitted along this stretch of road"
+      ],
+      "answer": 2,
+      "explanation": "The sign marks where right of way begins on a main road, so vehicles coming from side roads or crossing roads must yield to it.",
+      "topic": "right-of-way",
+      "source": "ch-3:4a:6t5oow"
+    },
+    {
+      "id": "ch-3-a-12",
+      "question": "A sign shows your driving lane is about to end. Who has the legal duty to give way?",
+      "options": [
+        "Keep their speed and merge at the very last moment",
+        "Move over; traffic in the other lane has to make room",
+        "Move over and give way to traffic in the lane they enter",
+        "Stop at the end of the lane and wait for a gap"
+      ],
+      "answer": 2,
+      "explanation": "Ending your lane gives you no priority: you are the one changing lanes, so the duty to give way is yours. Taking turns with the continuing lane is the courteous way to do it, but it does not transfer the duty.",
+      "topic": "right-of-way",
+      "source": "ch-3:5a:1xnkdhf"
+    },
+    {
+      "id": "ch-3-a-13",
+      "question": "How can a temporary sign be recognised?",
+      "options": [
+        "A triangle with black text on an orange background",
+        "A rectangle with black text on an orange background",
+        "A rectangle with black text on a yellow background",
+        "A rectangle with white text on a blue background"
+      ],
+      "answer": 1,
+      "explanation": "Orange is reserved for temporary changes in the road system, which lets a driver tell them apart from the permanent yellow and blue signs at a glance.",
+      "topic": "signs",
+      "source": "ch-3:5a:tsmzzb"
+    },
+    {
+      "id": "ch-3-a-14",
+      "question": "How are the reflectors on delineator posts arranged along the edges of a road?",
+      "options": [
+        "One reflector on each edge of the road",
+        "Two reflectors on the right edge and one on the left",
+        "Two reflectors on each edge of the road",
+        "One reflector on the right edge and two on the left"
+      ],
+      "answer": 3,
+      "explanation": "The number of reflectors tells you in darkness which edge of the carriageway you are looking at. Taller snow posts carry double the reflectors.",
+      "topic": "signs",
+      "source": "ch-3:5b:1081o17"
+    },
+    {
+      "id": "ch-3-a-15",
+      "question": "What does a continuous centre line on the carriageway mean?",
+      "options": [
+        "It may not be driven on or crossed except in real urgency",
+        "It may be crossed with caution at any time",
+        "It may be crossed only when overtaking a slow vehicle",
+        "It may be crossed only in order to turn into a driveway"
+      ],
+      "answer": 0,
+      "explanation": "This is the \"do not cross\" line. Where there is more than one lane in each direction it is doubled, and overtaking is not an exemption.",
+      "topic": "signs",
+      "source": "ch-3:6a:1k5pbax"
+    },
+    {
+      "id": "ch-3-a-16",
+      "question": "A dashed line runs alongside a continuous line down the middle of the road. Which one applies to you?",
+      "options": [
+        "The continuous line, whichever side you are on",
+        "The dashed line, whichever side you are on",
+        "The line type on your own side of the marking",
+        "Neither; crossing is forbidden from both sides"
+      ],
+      "answer": 2,
+      "explanation": "You follow the line nearest to you. From the dashed side you may cross with full caution; from the continuous side crossing is both dangerous and prohibited.",
+      "topic": "rules",
+      "source": "ch-3:6b:2deaef"
+    },
+    {
+      "id": "ch-3-a-17",
+      "question": "How is a give way line painted on the road surface?",
+      "options": [
+        "As a single continuous line across the lane",
+        "As a row of painted triangles across the lane",
+        "As a row of broad white stripes across the lane",
+        "As a row of painted white squares across the lane"
+      ],
+      "answer": 1,
+      "explanation": "The triangles mark the point where the duty to give way begins. A continuous line across the lane is a stop line, and broad stripes are a pedestrian crossing.",
+      "topic": "right-of-way",
+      "source": "ch-3:7a:kfmsdh"
+    },
+    {
+      "id": "ch-3-a-18",
+      "question": "What does a yellow dashed line painted on or along the curb mean?",
+      "options": [
+        "Stopping is allowed but parking is forbidden",
+        "Parking is allowed but stopping is forbidden",
+        "Both stopping and parking are strictly forbidden",
+        "Both stopping and parking are allowed for 30 minutes"
+      ],
+      "answer": 0,
+      "explanation": "The dashed version only bans leaving the car standing; brief stops are still lawful. A continuous yellow curb line bans stopping as well.",
+      "topic": "parking",
+      "source": "ch-3:8a:1pzj0s2"
+    },
+    {
+      "id": "ch-3-a-19",
+      "question": "When their instructions conflict, what is the order of precedence from highest to lowest?",
+      "options": [
+        "A police officer, then traffic lights, then traffic signs",
+        "Traffic lights, then a police officer, then traffic signs",
+        "Traffic signs, then traffic lights, then a police officer",
+        "A police officer, then traffic signs, then traffic lights"
+      ],
+      "answer": 0,
+      "explanation": "An officer directing traffic overrides everything, including lights, signs and road markings, and the lights in turn override the signs.",
+      "topic": "rules",
+      "source": "ch-3:8b:11akcd6"
+    },
+    {
+      "id": "ch-3-a-20",
+      "question": "The red and amber lights come on together at a junction. What should you do?",
+      "options": [
+        "Move off at once, since green follows immediately",
+        "Wait; you may not move until the green light shows",
+        "Treat it as a blinking amber and proceed carefully",
+        "Cross only if the junction ahead is completely clear"
+      ],
+      "answer": 1,
+      "explanation": "The combination still counts as a red light and merely announces that green is coming. Crossing the stop line on red is never permitted.",
+      "topic": "rules",
+      "source": "ch-3:9a:33tjz2"
+    },
+    {
+      "id": "ch-3-a-21",
+      "question": "You have a green light and want to turn left at the junction. Who must you give way to?",
+      "options": [
+        "Nobody; a green light gives you priority to turn",
+        "Pedestrians crossing, but not to oncoming vehicles",
+        "Oncoming vehicles, but not to pedestrians crossing",
+        "Oncoming traffic and pedestrians crossing the road"
+      ],
+      "answer": 3,
+      "explanation": "A green light permits the turn but grants no priority over traffic coming the other way or over people crossing the road you turn into.",
+      "topic": "right-of-way",
+      "source": "ch-3:9a:4rbb4z"
+    },
+    {
+      "id": "ch-3-a-22",
+      "question": "The light turns amber just as you approach the junction. What is the correct action?",
+      "options": [
+        "Continue, because amber after green always means proceed",
+        "Stop in every case, however hard you have to brake",
+        "Stop only if there is no vehicle following close behind",
+        "Stop, unless you are too close to halt safely"
+      ],
+      "answer": 3,
+      "explanation": "Amber after green exists to clear the junction, so the rule is to stop at the stop line. Carrying on is advised only when braking would endanger you or others.",
+      "topic": "rules",
+      "source": "ch-3:9a:1quhluj"
+    },
+    {
+      "id": "ch-3-a-23",
+      "question": "The amber lights at a junction are blinking. How is priority decided?",
+      "options": [
+        "Every driver must come to a full stop before entering",
+        "By the traffic signs present, otherwise give way to the right",
+        "The wider of the two roads always has priority",
+        "The lights still apply exactly as they normally would"
+      ],
+      "answer": 1,
+      "explanation": "A blinking amber means the lights are not controlling the junction, so it is treated as if there were none. Extra caution is required either way.",
+      "topic": "right-of-way",
+      "source": "ch-3:10a:8d7o0f"
+    },
+    {
+      "id": "ch-3-a-24",
+      "question": "While a pedestrian light shows green, what do drivers on the crossing road see?",
+      "options": [
+        "A red light stopping them at the crossing",
+        "A green light, so they may proceed carefully",
+        "An amber light warning them of pedestrians",
+        "No light at all, as their signals are switched off"
+      ],
+      "answer": 0,
+      "explanation": "The two signals are linked, so a walking figure always coincides with red for the crossing traffic. An amber period often follows to let latecomers finish crossing.",
+      "topic": "vulnerable",
+      "source": "ch-3:10b:10uc6d9"
+    }
+  ]
+}

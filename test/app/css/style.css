@@ -1,0 +1,421 @@
+/* Iceland driving theory — study app.
+   Dark by default: the theme lives on <html data-theme>, set before first paint,
+   and light is opt-in rather than inherited from the OS.
+
+   Palette rules, both themes:
+   · nothing is pure black or pure white — the dark end is a warm low-chroma
+     neutral (hue ≈ 40°) and the light end is paper, so long sessions do not
+     halate;
+   · four surface steps (bg → 1 → 2 → 3) so a card reads as raised rather than
+     outlined on a void;
+   · every text/background pair in here is measured, not eyeballed. The lowest
+     body pair is 4.61:1 (light: --muted on --surface-3) and the lowest
+     meaningful non-text pair is 5.12:1, against WCAG AA floors of 4.5 and 3.
+   No webfonts and no network: the stacks below are faces already on macOS/iOS,
+   each ending in a generic family so they degrade elsewhere. */
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #191713;
+  --surface: #221f1a;
+  --surface-2: #2b2721;
+  --surface-3: #37322b;
+  --fg: #ece6dc;
+  --muted: #aaa29a;
+  --rule: #3a352e;
+  --edge: rgba(255, 255, 255, 0.045);
+
+  --accent: #8ec5ec;
+  --accent-fg: #101c26;
+  --ok: #74d3a0;
+  --ok-bg: #16281f;
+  --bad: #f39189;
+  --bad-bg: #2e1c1a;
+  --warn: #e0ab55;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 2px 6px rgba(0, 0, 0, 0.38), 0 12px 28px -14px rgba(0, 0, 0, 0.6);
+
+  /* Sign crops are printed on white; a plate keeps them from floating. */
+  --plate: #f7f5f1;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f4efe4;
+  --surface: #fdfaf3;
+  --surface-2: #eae4d6;
+  --surface-3: #e0d9c8;
+  --fg: #252118;
+  --muted: #655d51;
+  --rule: #d9d1c0;
+  --edge: rgba(255, 255, 255, 0.75);
+
+  --accent: #1b5d8c;
+  --accent-fg: #fdfaf3;
+  --ok: #186b41;
+  --ok-bg: #e2eee2;
+  --bad: #a32c22;
+  --bad-bg: #f6e3df;
+  /* Meter fill only, so the floor is 3:1 — 3.69 against the --surface-3 track. */
+  --warn: #96620a;
+
+  --shadow-1: 0 1px 2px rgba(60, 48, 28, 0.1);
+  --shadow-2: 0 1px 2px rgba(60, 48, 28, 0.09), 0 10px 24px -14px rgba(60, 48, 28, 0.3);
+
+  --plate: #ffffff;
+}
+
+:root {
+  /* One reading face, one UI face, one for figures that must not jitter. */
+  --font-read: "New York", "Iowan Old Style", Charter, "Charter BT", Palatino,
+               "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Avenir Next",
+             Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-num: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Spacing rhythm: everything is a step on this ladder. */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+
+  --r-sm: 0.45rem;
+  --r-md: 0.7rem;
+  --r-lg: 1.1rem;
+
+  --measure: 36rem;  /* ≈ 62 characters of the reading face */
+  --col: 40rem;
+  --top-h: 3.75rem;  /* the sticky header, so the run bar can sit under it */
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 16px/1.5 var(--font-ui);
+  letter-spacing: -0.005em;
+  padding-bottom: env(safe-area-inset-bottom);
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 var(--sp-4) 5.5rem; }
+
+/* Keyboard use has to be visible; the ring is the accent, which clears 3:1
+   against every surface in both themes. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+header.top {
+  position: sticky; top: 0; z-index: 20;
+  height: var(--top-h);
+  /* Sign crops are strongly coloured; saturate() smeared them into a rainbow
+     behind the title at 88% opacity. Blur only, and denser. */
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+.top-in {
+  max-width: var(--col); margin: 0 auto; height: 100%;
+  padding: 0 var(--sp-4);
+  display: flex; align-items: center; gap: var(--sp-3);
+}
+.brand { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.005em; }
+.brand span { color: var(--muted); font-weight: 400; }
+.spacer { margin-left: auto; }
+
+button {
+  font: 500 1rem/1.4 var(--font-ui); color: inherit; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--r-md); padding: 0.55rem 0.85rem;
+  box-shadow: inset 0 1px 0 var(--edge);
+  transition: background-color 0.14s ease, border-color 0.14s ease, transform 0.1s ease;
+}
+button:hover { background: var(--surface-2); border-color: color-mix(in srgb, var(--accent) 55%, var(--rule)); }
+button:active { transform: translateY(1px); }
+button:disabled { opacity: 0.45; cursor: default; transform: none; }
+button.primary {
+  background: var(--accent); color: var(--accent-fg); border-color: transparent;
+  font-weight: 650; box-shadow: var(--shadow-1);
+}
+button.primary:hover { background: color-mix(in srgb, var(--accent) 88%, var(--fg)); }
+button.ghost { background: transparent; box-shadow: none; }
+button.ghost:hover { background: var(--surface-2); }
+button.icon { padding: 0.4rem 0.55rem; line-height: 1; min-width: 2.75rem; min-height: 2.75rem; font-size: 1.05rem; }
+
+/* ── Nav ────────────────────────────────────────────────────────────────── */
+
+nav.tabs {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 15;
+  display: flex;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--rule);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+/* A class rule with `display` outranks the UA's [hidden] rule, so the nav has
+   to opt out explicitly — otherwise it stays on screen during an exam. */
+nav.tabs[hidden] { display: none; }
+nav.tabs button {
+  flex: 1; border: 0; border-radius: 0; background: transparent; box-shadow: none;
+  padding: 0.55rem 0.2rem 0.65rem; font-size: 0.7rem; font-weight: 500; color: var(--muted);
+  display: flex; flex-direction: column; align-items: center; gap: 0.2rem;
+}
+nav.tabs button:hover { background: transparent; color: var(--fg); }
+nav.tabs button .ic { font-size: 1.15rem; line-height: 1; }
+nav.tabs button[aria-current='page'] { color: var(--accent); font-weight: 650; }
+
+/* ── Blocks ─────────────────────────────────────────────────────────────── */
+
+h1 {
+  font-family: var(--font-read); font-weight: 600;
+  font-size: 1.55rem; line-height: 1.2; letter-spacing: -0.01em;
+  margin: var(--sp-5) 0 var(--sp-2);
+}
+h2 {
+  font-family: var(--font-ui); font-weight: 650;
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--muted); margin: var(--sp-6) 0 var(--sp-3);
+}
+p.lede {
+  font-family: var(--font-read); font-size: 1.02rem; line-height: 1.55;
+  color: var(--muted); margin: 0 0 var(--sp-4); max-width: var(--measure);
+}
+
+.card {
+  background: var(--surface); border: 1px solid var(--rule);
+  border-radius: var(--r-lg); padding: var(--sp-4);
+  margin-bottom: var(--sp-3);
+  box-shadow: inset 0 1px 0 var(--edge), var(--shadow-2);
+}
+
+/* 4.6rem so a phone fits four tiles on one row rather than three and a straggler. */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(4.6rem, 1fr)); gap: var(--sp-2); margin-bottom: var(--sp-4); }
+.tile {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r-md);
+  padding: 0.7rem 0.5rem; text-align: center;
+  box-shadow: inset 0 1px 0 var(--edge), var(--shadow-1);
+}
+.tile .n {
+  font-family: var(--font-num); font-size: 1.45rem; font-weight: 500;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.03em; line-height: 1.15;
+}
+.tile .k { font-size: 0.64rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem; }
+
+.actions { display: grid; gap: var(--sp-2); }
+.actions button { padding: 0.85rem var(--sp-4); text-align: left; display: flex; align-items: center; gap: 0.8rem; border-radius: var(--r-md); }
+.actions .ic { font-size: 1.25rem; flex: none; opacity: 0.9; }
+.actions .t { font-weight: 600; letter-spacing: -0.005em; }
+.actions .s { display: block; font-weight: 400; font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+/* On the accent fill, muted grey loses all contrast. */
+.actions button.primary .s { color: inherit; opacity: 0.82; }
+
+/* ── Question ───────────────────────────────────────────────────────────── */
+
+.qmeta { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; font-size: 0.66rem; font-weight: 600; color: var(--muted); margin-bottom: var(--sp-3); text-transform: uppercase; letter-spacing: 0.07em; }
+.qmeta .pill { background: var(--surface-2); border: 1px solid var(--rule); border-radius: 1rem; padding: 0.15rem 0.55rem; }
+
+/* The stem should read like a page of the book, not a form label. */
+.qtext {
+  font-family: var(--font-read); font-size: 1.2rem; font-weight: 400;
+  line-height: 1.5; letter-spacing: 0; margin: 0 0 var(--sp-4);
+  max-width: var(--measure); text-wrap: pretty;
+}
+.qtext .blank { color: var(--accent); font-weight: 600; letter-spacing: 0.05em; margin: 0 0.15em; }
+
+.signbox { text-align: center; margin: 0 0 var(--sp-4); }
+.signbox img {
+  max-height: 11rem; max-width: 100%;
+  background: var(--plate); border: 1px solid var(--rule);
+  border-radius: var(--r-md); padding: 0.5rem;
+}
+
+.opts { display: grid; gap: var(--sp-2); }
+.opt {
+  display: flex; flex-wrap: wrap; align-items: center; align-content: center;
+  gap: 0.65rem; width: 100%; min-width: 0; text-align: left;
+  padding: 0.7rem 0.85rem; background: var(--surface-2);
+  border: 1px solid var(--rule); border-radius: var(--r-md);
+  box-shadow: inset 0 1px 0 var(--edge);
+  font-size: 0.97rem; font-weight: 450; line-height: 1.4;
+}
+button.opt:hover { background: var(--surface-3); }
+.opt .key {
+  flex: none; width: 1.6rem; height: 1.6rem; border-radius: var(--r-sm);
+  background: var(--surface); border: 1px solid var(--rule);
+  display: grid; place-items: center;
+  font-family: var(--font-num); font-size: 0.74rem; font-weight: 500;
+}
+.opt > span:not(.key) { flex: 1 1 0; min-width: 0; }
+
+/* A fixed square keeps tall and wide crops at the same visual weight. Without a
+   max-width a 900x174 panel rendered 304px wide and pushed the page sideways;
+   without a min-height a 221x900 police-signal crop rendered 22px wide. */
+.opt img {
+  width: 5rem; height: 5rem; object-fit: contain; flex: none;
+  background: var(--plate); border-radius: var(--r-sm); padding: 0.2rem;
+}
+
+/* Picture options: two columns of large tiles rather than four thumbnails with
+   230px of dead space beside them. Service pictograms and route plates carry
+   place names and small legends that were unreadable at 80px. The columns are
+   `minmax(0, 1fr)` so the grid can never be pushed wider than the card. */
+.opts.pics { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-2); }
+.opts.pics .opt { padding: 0.5rem; justify-content: center; row-gap: 0.45rem; }
+.opts.pics .opt img {
+  order: -1; width: 100%; height: 7.5rem; padding: 0.3rem;
+  border: 1px solid var(--rule);
+}
+
+.opt.correct { border-color: var(--ok); background: var(--ok-bg); }
+.opt.wrong { border-color: var(--bad); background: var(--bad-bg); }
+.opt.correct .key { border-color: var(--ok); color: var(--ok); }
+.opt.wrong .key { border-color: var(--bad); color: var(--bad); }
+/* Never colour alone: a graded row also says which row it is. */
+.opt.correct::after, .opt.wrong::after {
+  flex: 0 0 100%; margin-left: 2.25rem;
+  font-family: var(--font-ui); font-size: 0.68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.09em;
+}
+.opt.correct::after { content: '✓ Correct answer'; color: var(--ok); }
+.opt.wrong::after { content: '✕ Your answer'; color: var(--bad); }
+/* Shorter wording in a tile: the full phrase all but fills a 133px column. */
+.opts.pics .opt.correct::after, .opts.pics .opt.wrong::after { flex: 0 0 auto; margin: 0; letter-spacing: 0.06em; }
+.opts.pics .opt.correct::after { content: '✓ Correct'; }
+.opts.pics .opt.wrong::after { content: '✕ Yours'; }
+
+.opts.locked .opt { cursor: default; }
+.opts.locked .opt:hover { background: var(--surface-2); }
+.opts.locked .opt.correct:hover { background: var(--ok-bg); }
+.opts.locked .opt.wrong:hover { background: var(--bad-bg); }
+/* Graded options must stay legible: the default disabled dimming washed out the
+   green "correct" row exactly when it is the thing to read. */
+.opts.locked .opt:disabled { opacity: 1; }
+
+input.opt { font: 400 1.05rem/1.4 var(--font-read); }
+input.opt::placeholder { color: var(--muted); }
+
+.feedback {
+  margin-top: var(--sp-4); padding: 0.85rem var(--sp-4);
+  border-radius: var(--r-md); border: 1px solid var(--rule);
+  border-left-width: 3px; background: var(--surface-2);
+  box-shadow: inset 0 1px 0 var(--edge);
+}
+.feedback.right { border-color: var(--ok); background: var(--ok-bg); }
+.feedback.wrong { border-color: var(--bad); background: var(--bad-bg); }
+/* The verdict is a word first and a colour second. */
+.feedback .verdict {
+  font-family: var(--font-ui); font-weight: 700; font-size: 0.78rem;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem;
+}
+.feedback.right .verdict { color: var(--ok); }
+.feedback.wrong .verdict { color: var(--bad); }
+.feedback .why {
+  font-family: var(--font-read); font-size: 1rem; line-height: 1.6;
+  max-width: var(--measure); margin-top: 0.2rem;
+}
+.feedback .src { display: inline-block; margin-top: 0.6rem; font-family: var(--font-ui); font-size: 0.8rem; font-weight: 500; }
+/* On the results screen the same panel is a plain answer card, not a verdict. */
+[data-missed] .feedback .verdict { font-family: var(--font-read); font-size: 1.05rem; text-transform: none; letter-spacing: 0; }
+
+/* ── Session chrome ─────────────────────────────────────────────────────── */
+
+/* The run bar and the progress bar travel together and stick under the header:
+   on an image question the clock used to scroll clean off the top of the page. */
+.runhead {
+  position: sticky; top: var(--top-h); z-index: 12;
+  margin: 0 calc(-1 * var(--sp-4)) var(--sp-3);
+  padding: 0.55rem var(--sp-4) 0.5rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+.runbar { display: flex; align-items: center; gap: var(--sp-2); min-height: 2rem; font-size: 0.78rem; font-weight: 500; color: var(--muted); }
+.runbar .timer { margin-left: auto; font-family: var(--font-num); font-size: 0.95rem; font-variant-numeric: tabular-nums; color: var(--fg); }
+.runbar .timer.low { color: var(--bad); font-weight: 600; }
+.runbar button.icon { min-height: 2rem; min-width: auto; padding: 0.2rem 0.6rem; font-size: 0.78rem; font-weight: 600; }
+
+.progress { height: 3px; background: var(--surface-3); border-radius: 2px; overflow: hidden; margin-top: 0.5rem; }
+.progress i { display: block; height: 100%; background: var(--accent); transition: width 0.25s ease; }
+
+/* Answering used to land the verdict and the Next button below the fold on a
+   667px phone. The primary action is now always within thumb reach; ui.js also
+   scrolls the panel itself into view. */
+.runfoot {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 18;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--rule);
+  padding: 0.6rem var(--sp-4) calc(0.6rem + env(safe-area-inset-bottom));
+}
+.runfoot .inner { max-width: var(--col); margin: 0 auto; display: flex; gap: var(--sp-2); }
+.runfoot button { flex: 1; padding: 0.8rem; font-size: 1rem; }
+
+/* ── Dashboard ──────────────────────────────────────────────────────────── */
+
+.bars { display: grid; gap: 0.55rem; }
+.bar { display: grid; grid-template-columns: minmax(6rem, 9.5rem) 1fr 4.4rem; align-items: center; gap: var(--sp-2); font-size: 0.85rem; }
+.bar .lab { color: var(--fg); line-height: 1.25; }
+.bar .track { height: 0.5rem; background: var(--surface-3); border-radius: 0.25rem; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--ok); border-radius: 0.25rem; }
+.bar .fill.mid { background: var(--warn); }
+.bar .fill.low { background: var(--bad); }
+.bar .val { text-align: right; font-family: var(--font-num); font-size: 0.78rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+.bar.faint .lab, .bar.faint .val { color: var(--muted); }
+.bar.faint .fill.thin, .bar .fill.thin { background: var(--muted); }
+
+table.hist { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+table.hist th, table.hist td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--rule); }
+table.hist tbody tr:last-child td { border-bottom: 0; }
+table.hist th { color: var(--muted); font-weight: 600; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; }
+table.hist td:nth-child(2), table.hist td:nth-child(3) { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+table.hist td.pass { color: var(--ok); font-weight: 600; }
+table.hist td.fail { color: var(--bad); font-weight: 600; }
+
+.empty { color: var(--muted); font-family: var(--font-read); text-align: center; padding: var(--sp-6) var(--sp-4); }
+.row { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.note { font-family: var(--font-read); font-size: 0.92rem; line-height: 1.55; color: var(--muted); max-width: var(--measure); }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+
+/* ── Wider than a phone ─────────────────────────────────────────────────── */
+
+@media (min-width: 46rem) {
+  body { font-size: 17px; }
+  .wrap { padding-bottom: var(--sp-6); }
+  nav.tabs {
+    position: static; border-top: 0; border-bottom: 1px solid var(--rule);
+    max-width: var(--col); margin: 0 auto; background: transparent; backdrop-filter: none;
+  }
+  nav.tabs button { flex-direction: row; gap: 0.45rem; font-size: 0.85rem; padding: 0.7rem; }
+  .qtext { font-size: 1.28rem; }
+  /* Room enough that the action does not need to be pinned. */
+  .runfoot {
+    position: static; background: none; backdrop-filter: none;
+    border-top: 0; padding: 0; margin-top: var(--sp-4);
+  }
+  .runfoot button { flex: 0 0 auto; min-width: 11rem; }
+  .opts.pics .opt img { height: 9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  button:active { transform: none; }
+}

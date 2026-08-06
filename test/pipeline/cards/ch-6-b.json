@@ -1,0 +1,285 @@
+{
+  "packet": "ch-6-b",
+  "questions": [
+    {
+      "id": "ch-6-b-01",
+      "question": "How far may the foot brake pedal travel down when you press it hard?",
+      "options": [
+        "No further than one half of the way to the floor",
+        "No further than two thirds of the way to the floor",
+        "No further than one third of the way to the floor",
+        "All the way down until it touches the floor"
+      ],
+      "answer": 1,
+      "explanation": "A pedal that sinks further than that shows the system has lost pressure or the pads are worn, so the brakes may fail without warning.",
+      "topic": "vehicle",
+      "source": "ch-6:7a:riwwlj"
+    },
+    {
+      "id": "ch-6-b-02",
+      "question": "The brake fluid level in the reservoir keeps falling. What does that indicate?",
+      "options": [
+        "The handbrake cables have stretched and need tightening",
+        "The system is leaking or the friction pads are worn out",
+        "The fluid has evaporated because the engine ran hot",
+        "The ABS unit has to be bled and recalibrated"
+      ],
+      "answer": 1,
+      "explanation": "Brake fluid is in a sealed circuit, so a falling level means fluid is escaping or the pads have worn thin; the car belongs at a service shop.",
+      "topic": "vehicle",
+      "source": "ch-6:7a:1ylmed8"
+    },
+    {
+      "id": "ch-6-b-03",
+      "question": "What does an ABS braking system do when you brake hard?",
+      "options": [
+        "It shortens the braking distance on every road surface",
+        "It stops the wheels locking so the car can still be steered",
+        "It applies the handbrake as well to help the car stop",
+        "It lowers the force you need to put on the brake pedal"
+      ],
+      "answer": 1,
+      "explanation": "Locked wheels lose tractive contact and the car skids out of control; ABS keeps the wheels turning so steering input still works.",
+      "topic": "vehicle",
+      "source": "ch-6:7b:156u6dx"
+    },
+    {
+      "id": "ch-6-b-04",
+      "question": "Under Icelandic traffic law, for which passengers is the driver responsible for seatbelt use?",
+      "options": [
+        "For every passenger younger than 15 years of age",
+        "For every passenger younger than 12 years of age",
+        "For every passenger younger than 18 years of age",
+        "For every passenger seated in the front of the car"
+      ],
+      "answer": 0,
+      "explanation": "The age of criminal responsibility in Iceland is 15, so from that age passengers answer for their own seatbelt.",
+      "topic": "occupants",
+      "source": "ch-6:8a:19rlm8q"
+    },
+    {
+      "id": "ch-6-b-05",
+      "question": "What fine can a driver expect for failing to belt a passenger under 15 years old?",
+      "options": [
+        "10 thousand ISK and one penalty point",
+        "15 thousand ISK and three penalty points",
+        "50 thousand ISK and no penalty points",
+        "15 thousand ISK and one penalty point"
+      ],
+      "answer": 3,
+      "explanation": "The unbelted passenger who is old enough to be criminally responsible is fined 10 thousand ISK instead; the higher amount falls on the driver of a child.",
+      "topic": "rules",
+      "source": "ch-6:8a:pup93c"
+    },
+    {
+      "id": "ch-6-b-06",
+      "question": "You are towing a wide mobile home behind your car. What does that require?",
+      "options": [
+        "An extended side mirror on the driver's side only",
+        "An extra interior mirror mounted above the windscreen",
+        "Extended side mirrors fitted on both sides of the car",
+        "A rear-facing camera fitted in place of the mirrors"
+      ],
+      "answer": 2,
+      "explanation": "A wide trailer hides the road behind the car on both flanks, so standard mirrors no longer give the driver a view to the rear.",
+      "topic": "vehicle",
+      "source": "ch-6:8a:zgtr0v"
+    },
+    {
+      "id": "ch-6-b-07",
+      "question": "What is the purpose of a properly adjusted head restraint?",
+      "options": [
+        "To cushion the head during a heavy frontal collision",
+        "To keep the occupant's head away from the side window",
+        "To limit rearward head movement and prevent whiplash",
+        "To hold the seatbelt at the correct height on the shoulder"
+      ],
+      "answer": 2,
+      "explanation": "It limits how far the head travels backwards relative to the torso, protecting the cervical vertebrae; at the wrong height the injury risk rises sharply.",
+      "topic": "occupants",
+      "source": "ch-6:8b:19t6x3f"
+    },
+    {
+      "id": "ch-6-b-08",
+      "question": "Where may a child shorter than 150 cm not be seated?",
+      "options": [
+        "In a front seat that has an active air bag",
+        "In any front seat of the vehicle at all",
+        "In the rear seat directly behind the driver",
+        "In a rear-facing seat in the back of the car"
+      ],
+      "answer": 0,
+      "explanation": "An air bag deploys with enough force to injure or kill a small child, so it must be switched off before such a seat is used.",
+      "topic": "occupants",
+      "source": "ch-6:8b:dnzu1p"
+    },
+    {
+      "id": "ch-6-b-09",
+      "question": "In which of these situations is wearing a seatbelt not mandatory?",
+      "options": [
+        "When driving at low speed on a gravel road",
+        "When driving a short errand in a residential street",
+        "When driving inside a parking garage",
+        "When the car is fitted with front and side air bags"
+      ],
+      "answer": 2,
+      "explanation": "The exemptions cover reversing and driving in parking garages, gas stations, service shops and similar places, where speeds are very low.",
+      "topic": "occupants",
+      "source": "ch-6:9a:1v56ub4"
+    },
+    {
+      "id": "ch-6-b-10",
+      "question": "Your car has taken a heavy blow in a collision. What should you consider doing about the seatbelts?",
+      "options": [
+        "Leave them alone, since belts are built to last the car's life",
+        "Loosen the reels so the belts run freely again",
+        "Replace them only if the air bags also deployed",
+        "Have them tested and replaced if the mechanism has gone"
+      ],
+      "answer": 3,
+      "explanation": "A belt that has absorbed a strong force can have a broken mechanism; pulling it sharply should make it lock suddenly, otherwise it must be renewed.",
+      "topic": "accidents",
+      "source": "ch-6:9a:1rzv9hs"
+    },
+    {
+      "id": "ch-6-b-11",
+      "question": "What is recommended before you close the deal on a used car?",
+      "options": [
+        "Get a written promise from the seller that it is roadworthy",
+        "Have it inspected by a mechanic or certified service station",
+        "Book it in for a mandatory inspection within the first month",
+        "Compare its asking price against similar cars on the market"
+      ],
+      "answer": 1,
+      "explanation": "An independent third party can spot wear and hidden faults that the buyer's own look over the car will miss.",
+      "topic": "vehicle",
+      "source": "ch-6:9b:15pok58"
+    },
+    {
+      "id": "ch-6-b-12",
+      "question": "What is the first step for a car that has just been imported into Iceland?",
+      "options": [
+        "It is inspected to verify it meets Icelandic requirements",
+        "It is registered and fitted with an Icelandic licence plate",
+        "It is insured with a licensed Icelandic insurance company",
+        "The import fees and taxes on the vehicle are settled"
+      ],
+      "answer": 0,
+      "explanation": "Fees, insurance, registration and the plate all follow only once the car has been shown to satisfy Icelandic traffic law.",
+      "topic": "documents",
+      "source": "ch-6:10a:tuvoe0"
+    },
+    {
+      "id": "ch-6-b-13",
+      "question": "Within what time must the transfer of a vehicle's ownership be notified?",
+      "options": [
+        "Within 7 days from the date of purchase",
+        "Within 14 days from the date of purchase",
+        "Within 30 days from the date of purchase",
+        "Before the car's next mandatory inspection"
+      ],
+      "answer": 0,
+      "explanation": "The register must show the real owner quickly, because insurance and inspection duties follow the registered owner.",
+      "topic": "documents",
+      "source": "ch-6:12b:12tj40p"
+    },
+    {
+      "id": "ch-6-b-14",
+      "question": "What does the mandatory liability insurance on a vehicle cover?",
+      "options": [
+        "Losses that other people suffer in a collision you caused",
+        "Damage to your own vehicle in a collision you caused",
+        "Injury to the driver of the insured vehicle only",
+        "Damage to the windshield caused by flying stones"
+      ],
+      "answer": 0,
+      "explanation": "Liability cover pays third parties for both property damage, such as another car or a lamp post, and personal injury.",
+      "topic": "documents",
+      "source": "ch-6:10b:hxx1aw"
+    },
+    {
+      "id": "ch-6-b-15",
+      "question": "Which statement about windshield insurance in Iceland is correct?",
+      "options": [
+        "It is mandatory and covers the whole cost of the repair",
+        "It is voluntary and always covers the whole cost of repair",
+        "It is mandatory for every vehicle that must be registered",
+        "It is voluntary and the owner usually pays part of the cost"
+      ],
+      "answer": 3,
+      "explanation": "Only liability and accident insurance are compulsory; on a windshield claim the owner typically carries about 15 percent or a fixed extra fee.",
+      "topic": "documents",
+      "source": "ch-6:10b:16b2h8q"
+    },
+    {
+      "id": "ch-6-b-16",
+      "question": "An insurer has paid out compensation. What is the commonest reason for it to reclaim that money from the driver?",
+      "options": [
+        "The driver held no valid driving licence at the time",
+        "The driver had been racing against another vehicle",
+        "The driver caused the damage deliberately and knowingly",
+        "The driver was under the influence of alcohol or drugs"
+      ],
+      "answer": 3,
+      "explanation": "All of these are grounds for a reservation of rights letter, but intoxication is by far the most frequent one, and the sums reclaimed can run to millions of ISK.",
+      "topic": "alcohol",
+      "source": "ch-6:11a:1f420ss"
+    },
+    {
+      "id": "ch-6-b-17",
+      "question": "A car's licence plate ends with the digit 0. When must it be brought for inspection?",
+      "options": [
+        "In October, and at the very latest by the end of November",
+        "In December, and at the very latest by the end of February",
+        "In October, and at the very latest by the end of December",
+        "In October, with no extension of the deadline permitted"
+      ],
+      "answer": 2,
+      "explanation": "The last digit names the month, and up to two further months are tolerated; the car may also be presented as early as six months ahead within the same year.",
+      "topic": "documents",
+      "source": "ch-6:11b:ll0v90"
+    },
+    {
+      "id": "ch-6-b-18",
+      "question": "When must a car carrying a private licence number be brought for inspection?",
+      "options": [
+        "In May, in every case and without any exception",
+        "In January, unless the number ends with a numerical digit",
+        "In the month in which the car was first registered",
+        "In May, unless the number ends with a numerical digit"
+      ],
+      "answer": 3,
+      "explanation": "Private plates have no digit to name a month, so May is the default; where such a plate does end in a digit, the ordinary rule applies again.",
+      "topic": "documents",
+      "source": "ch-6:11b:1kqmu4d"
+    },
+    {
+      "id": "ch-6-b-19",
+      "question": "Which piece of equipment is it mandatory to keep stored in the vehicle?",
+      "options": [
+        "A small fire extinguisher",
+        "A set of snow chains",
+        "A warning triangle",
+        "A pocket flashlight"
+      ],
+      "answer": 2,
+      "explanation": "A spare tyre, jack and hand tools are merely essential in practice and the winter kit is advice, but the triangle is required by law.",
+      "topic": "vehicle",
+      "source": "ch-6:11b:j1r7ez"
+    },
+    {
+      "id": "ch-6-b-20",
+      "question": "Where should a fire extinguisher be kept in a private car?",
+      "options": [
+        "Locked in the boot beside the spare tyre and jack",
+        "Secured, but within easy reach of the driving seat",
+        "Loose on the floor behind one of the front seats",
+        "In the engine compartment, close to the battery"
+      ],
+      "answer": 1,
+      "explanation": "It has to stay put while driving yet be grabbed instantly in an emergency, which rules out both loose stowage and a locked compartment.",
+      "topic": "accidents",
+      "source": "ch-6:12a:134h1ax"
+    }
+  ]
+}

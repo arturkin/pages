@@ -1,0 +1,271 @@
+{
+  "packet": "ch-5-a",
+  "questions": [
+    {
+      "id": "ch-5-a-01",
+      "question": "What is the most effective way to clear haze from the inside of the windows?",
+      "options": [
+        "Switch on the air conditioning system",
+        "Wipe the glass with a dry cloth while driving",
+        "Turn the ventilation fan off completely",
+        "Switch on the hazard warning lights"
+      ],
+      "answer": 0,
+      "explanation": "Air conditioning dries the air in the cabin, so the moisture condensing on the glass is removed at its source; rear window and mirror heating help as well.",
+      "topic": "weather",
+      "source": "ch-5:1a:1wt1b4d"
+    },
+    {
+      "id": "ch-5-a-02",
+      "question": "Why must you be especially careful around pedestrians and cyclists in bad weather?",
+      "options": [
+        "They hear and see about as well as in good weather",
+        "They are easier to notice because of their rain gear",
+        "They hear and see worse than in good weather",
+        "They usually keep further away from the roadway"
+      ],
+      "answer": 2,
+      "explanation": "Wind, rain and hoods cut down their hearing and vision, and children often shield their faces with their hands, so they may not notice an approaching car.",
+      "topic": "vulnerable",
+      "source": "ch-5:1a:1t4nukb"
+    },
+    {
+      "id": "ch-5-a-03",
+      "question": "Where does strong wind pose the greatest danger to a car on the road?",
+      "options": [
+        "Where the wind blows steadily across a flat open plain",
+        "Where the road runs between tall buildings in a town",
+        "Where the road follows the shore of a sheltered bay",
+        "Where the wind strength varies, such as along a mountain ridge"
+      ],
+      "answer": 3,
+      "explanation": "A sudden change in wind strength shoves the car sideways without warning, and the higher your speed the more violent that effect becomes.",
+      "topic": "weather",
+      "source": "ch-5:1a:otu5zo"
+    },
+    {
+      "id": "ch-5-a-04",
+      "question": "What is the safest thing to do when a sand storm is blowing?",
+      "options": [
+        "Drive on slowly with the hazard lights switched on",
+        "Wait in shelter until the storm has passed",
+        "Drive through it as quickly as you safely can",
+        "Follow closely behind a larger vehicle for cover"
+      ],
+      "answer": 1,
+      "explanation": "Blown sand can ruin the windscreen and strip the paint coating, so staying off the carriageway until it passes is better than driving through it.",
+      "topic": "weather",
+      "source": "ch-5:1b:m179o9"
+    },
+    {
+      "id": "ch-5-a-05",
+      "question": "Your right-hand wheels drop off the asphalt onto the gravel shoulder. What should you do?",
+      "options": [
+        "Brake hard at once and steer straight back onto the asphalt",
+        "Accelerate so the wheels climb the edge more easily",
+        "Keep your speed and turn the wheel sharply back to the left",
+        "Hold a steady course, slow down, then ease back onto the road"
+      ],
+      "answer": 3,
+      "explanation": "A steep edge between asphalt and gravel grabs the tire; any sudden steering or braking at speed can flip the car back across the road out of control.",
+      "topic": "gravel",
+      "source": "ch-5:1b:opflcz"
+    },
+    {
+      "id": "ch-5-a-06",
+      "question": "At roughly what temperature is a road covered with ice or snow usually most slippery?",
+      "options": [
+        "Around minus 10 °C",
+        "Around 0 °C",
+        "Around minus 20 °C",
+        "Below minus 25 °C"
+      ],
+      "answer": 1,
+      "explanation": "Near freezing point a film of water forms on top of the ice, and hidden slippery patches build up in ruts as the temperature crosses zero.",
+      "topic": "weather",
+      "source": "ch-5:1b:17u2wp1"
+    },
+    {
+      "id": "ch-5-a-07",
+      "question": "If your wheels spin as you try to move off on snow, what should you do?",
+      "options": [
+        "Press harder on the gas until the tires bite through",
+        "Let the car roll back a little, then accelerate gently again",
+        "Hold the brake and the gas pedal down at the same time",
+        "Release the clutch quickly while revving the engine"
+      ],
+      "answer": 1,
+      "explanation": "Spinning a wheel is useless and can damage the car or the tires; rolling back onto fresh ground, or laying a rug under the tire, lets it find grip.",
+      "topic": "vehicle",
+      "source": "ch-5:2a:i42omf"
+    },
+    {
+      "id": "ch-5-a-08",
+      "question": "Which of these is listed as a common reason a car starts to slide on a slippery road?",
+      "options": [
+        "Running the tires at too low a pressure",
+        "Carrying too heavy a load in the boot",
+        "Giving the car too much gas",
+        "Keeping too long a following distance"
+      ],
+      "answer": 2,
+      "explanation": "Sliding comes from how the car is handled: excessive speed, too much acceleration, braking too hard, or steering more than the grip allows.",
+      "topic": "weather",
+      "source": "ch-5:2a:i42omf"
+    },
+    {
+      "id": "ch-5-a-10",
+      "question": "You have to leave the car parked on a slippery slope. What is good practice?",
+      "options": [
+        "Leave the car in neutral with the handbrake released",
+        "Point the front wheels straight along the slope",
+        "Wedge the front wheels against a fixed edge such as a kerb",
+        "Park with the rear wheels resting on loose snow"
+      ],
+      "answer": 2,
+      "explanation": "The handbrake alone may not hold on ice, so a physical block against the wheels keeps the car from sliding away once you have left it.",
+      "topic": "parking",
+      "source": "ch-5:3a:xm8jfx"
+    },
+    {
+      "id": "ch-5-a-11",
+      "question": "During which period is the use of studded tires prohibited?",
+      "options": [
+        "15 April to 31 October",
+        "1 April to 1 November",
+        "15 March to 30 September",
+        "1 May to 15 October"
+      ],
+      "answer": 0,
+      "explanation": "Studs are only allowed through the winter season because they wear the road surface far faster than unstudded tires, unless circumstances state otherwise.",
+      "topic": "rules",
+      "source": "ch-5:3a:sal8tj"
+    },
+    {
+      "id": "ch-5-a-12",
+      "question": "Dust thrown up by the vehicle ahead is cutting your visibility. What should you do?",
+      "options": [
+        "Increase the gap and make sure the headlights are on",
+        "Close the gap so you can keep the vehicle in sight",
+        "Switch to parking lights and hold your speed",
+        "Overtake at once to get clear of the dust"
+      ],
+      "answer": 0,
+      "explanation": "More distance buys you time to see through the dust cloud, and headlights make your own car visible to anyone coming the other way.",
+      "topic": "gravel",
+      "source": "ch-5:3b:1cfvdn6"
+    },
+    {
+      "id": "ch-5-a-13",
+      "question": "There are pools of water beside the pavement where pedestrians are walking. What should you do?",
+      "options": [
+        "Slow down enough that the car does not splash them",
+        "Swerve out around the pools to keep clear of them",
+        "Hold your speed and steer through the middle of them",
+        "Switch on the hazard lights while you pass them"
+      ],
+      "answer": 0,
+      "explanation": "Soaking pedestrians is avoidable simply by easing off; swerving is a separate hazard because another vehicle may be alongside you or in your blind spot.",
+      "topic": "vulnerable",
+      "source": "ch-5:3b:19kosdo"
+    },
+    {
+      "id": "ch-5-a-14",
+      "question": "Driving at 90 km/h on a wet road gives roughly the same grip as driving on ice at what speed?",
+      "options": [
+        "30 km/h",
+        "45 km/h",
+        "60 km/h",
+        "75 km/h"
+      ],
+      "answer": 1,
+      "explanation": "Grip on a wet surface falls away as speed rises, until the tires float on the water; the comparison shows how little margin is left at summer speeds.",
+      "topic": "speed",
+      "source": "ch-5:4a:fh2c4m"
+    },
+    {
+      "id": "ch-5-a-15",
+      "question": "Your car has gone into deep water and the doors will not open. What should you do?",
+      "options": [
+        "Open a window to let water in and equalise the pressure",
+        "Push the door open hard before the water rises further",
+        "Break the windscreen out before the water reaches it",
+        "Wait on the bottom and then push a door open"
+      ],
+      "answer": 0,
+      "explanation": "Outside water pressure holds the doors shut until the pressure inside matches it, so letting water in through a window is what makes an exit possible.",
+      "topic": "accidents",
+      "source": "ch-5:4a:1edw0hq"
+    },
+    {
+      "id": "ch-5-a-16",
+      "question": "Why is off-road driving so damaging in the Icelandic highlands?",
+      "options": [
+        "It packs the gravel so hard that plants grow back too thickly",
+        "It drives farm animals away from their grazing grounds",
+        "A wheel track lets water in and can grow into a lasting scar",
+        "It leaves oil in the soil that poisons the vegetation"
+      ],
+      "answer": 2,
+      "explanation": "Vegetation gets more fragile with elevation, and a broken surface erodes in later rains, so an innocent-looking track becomes a wound that heals very slowly.",
+      "topic": "rules",
+      "source": "ch-5:4b:13rpbh"
+    },
+    {
+      "id": "ch-5-a-17",
+      "question": "What trailer may the holder of a category B licence tow?",
+      "options": [
+        "Up to 750 kg only, whatever the weight of the towing car",
+        "Up to 1,000 kg, or heavier if the total stays within 3,500 kg",
+        "Any weight, provided the trailer has brakes of its own",
+        "Up to 750 kg, or heavier if car and trailer stay within 3,500 kg"
+      ],
+      "answer": 3,
+      "explanation": "The 750 kg figure is the free allowance; above it the combined weight limit applies, and the trailer may never exceed the figure in the car's registration.",
+      "topic": "documents",
+      "source": "ch-5:5a:1gbhwxn"
+    },
+    {
+      "id": "ch-5-a-18",
+      "question": "Compared with driving in daylight, how much greater is the risk of a traffic accident in the dark?",
+      "options": [
+        "About twice as great",
+        "About five times as great",
+        "About the same as in daylight",
+        "About three times as great"
+      ],
+      "answer": 3,
+      "explanation": "Drivers tend not to reduce speed enough for the shorter distance the headlights actually reveal, which is what drives the risk up in darkness.",
+      "topic": "accidents",
+      "source": "ch-5:5b:sdira"
+    },
+    {
+      "id": "ch-5-a-19",
+      "question": "When is it appropriate to use the main beam (high beam)?",
+      "options": [
+        "In the dark on lit streets inside built-up areas",
+        "In the dark out in the country where traffic is light",
+        "In heavy rain at any time of day or night",
+        "When following close behind another vehicle"
+      ],
+      "answer": 1,
+      "explanation": "Main beam reaches 100 metres or more but has no glare control, so it may only be used where there is nobody ahead to be dazzled by it.",
+      "topic": "lights",
+      "source": "ch-5:5b:x2c0us"
+    },
+    {
+      "id": "ch-5-a-20",
+      "question": "Where should you place your car when meeting another vehicle in the dark on a road with lane markings?",
+      "options": [
+        "As close to the centre dividing line as you can",
+        "As close to the right-hand edge of the road as you can",
+        "As close to the centre of your own lane as you can",
+        "Just outside the right-hand edge line of your lane"
+      ],
+      "answer": 2,
+      "explanation": "Too near the dividing line and your lights dazzle the oncoming driver; too near the edge and you risk hitting a pedestrian, cyclist or parked vehicle.",
+      "topic": "behaviour",
+      "source": "ch-5:6a:1tbjkpc"
+    }
+  ]
+}

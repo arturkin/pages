@@ -1,0 +1,243 @@
+{
+ "packet": "ch-4-a",
+ "questions": [
+  {
+   "id": "ch-4-a-01",
+   "question": "Where on the carriageway should you normally position your car on a two-way road in Iceland?",
+   "options": [
+    "In the exact middle of your own driving lane at all times",
+    "Slightly left of centre so you can see further ahead",
+    "As far left as possible to keep clear of the road edge",
+    "As far to the right as possible without obstructing cyclists or pedestrians"
+   ],
+   "answer": 3,
+   "explanation": "Iceland has right-hand traffic, so keeping right is the default, and it matters most on rises, in blind bends and wherever visibility is short. Road users near the edge must still be given room.",
+   "topic": "rules",
+   "source": "ch-4:1a:sn4lsj"
+  },
+  {
+   "id": "ch-4-a-02",
+   "question": "You need to drive noticeably slower than the surrounding traffic. What does the law require of you?",
+   "options": [
+    "Switch on hazard lights and keep your normal lane position",
+    "Stay in the left lane so faster traffic can pass you on the right",
+    "Stop at the first junction and let the whole queue overtake",
+    "Keep well right and use a pullout on narrow roads to let others pass"
+   ],
+   "answer": 3,
+   "explanation": "Obstructing traffic without good reason is prohibited. A slow driver must stay on the rightmost lane and actively help others get past, because unusually slow driving raises accident risk.",
+   "topic": "speed",
+   "source": "ch-4:1b:1nkeeet"
+  },
+  {
+   "id": "ch-4-a-03",
+   "question": "What penalty can a driver expect for failing to give way to a pedestrian at a pedestrian crossing?",
+   "options": [
+    "A written warning on the first offence only",
+    "A fine and four penalty points",
+    "A fine and two penalty points",
+    "Immediate suspension of the driving licence"
+   ],
+   "answer": 2,
+   "explanation": "Giving way to pedestrians who intend to cross is unconditional, and the book states the sanction as a fine plus two penalty points on the driving record.",
+   "topic": "vulnerable",
+   "source": "ch-4:2a:7plt4u"
+  },
+  {
+   "id": "ch-4-a-04",
+   "question": "When is an ambulance or police car allowed to depart from the general traffic rules?",
+   "options": [
+    "Whenever the driver judges the trip to be urgent",
+    "Only when a second officer is travelling in the vehicle",
+    "At any time, since emergency services are always exempt",
+    "Only when responding with emergency lights and/or sirens switched on"
+   ],
+   "answer": 3,
+   "explanation": "The exemption is tied to a signalled emergency run: the vehicle must be showing its emergency light system and/or sounding its siren, so other road users can recognise it.",
+   "topic": "accidents",
+   "source": "ch-4:2a:6j1agz"
+  },
+  {
+   "id": "ch-4-a-05",
+   "question": "An emergency vehicle approaches from behind on a road with two lanes in your direction. What should you do?",
+   "options": [
+    "Brake hard immediately wherever you happen to be",
+    "Signal right, move into the right lane and let it pass",
+    "Signal left and pull over onto the left-hand side",
+    "Speed up until you reach the next side road"
+   ],
+   "answer": 1,
+   "explanation": "Emergency vehicles normally use the leftmost lane, so clearing that lane to the right is what helps. Sudden manoeuvres are to be avoided while doing it.",
+   "topic": "right-of-way",
+   "source": "ch-4:2a:rgx35o"
+  },
+  {
+   "id": "ch-4-a-06",
+   "question": "At a junction with no traffic lights, stop sign or give way sign, who has priority?",
+   "options": [
+    "The driver already travelling on the wider road",
+    "The driver approaching from your right",
+    "The driver approaching from your left",
+    "The driver who arrived at the junction first"
+   ],
+   "answer": 1,
+   "explanation": "This is the right hand rule: you yield to traffic coming from your right and have priority over traffic from your left. Both drivers must still approach with care.",
+   "topic": "right-of-way",
+   "source": "ch-4:2b:1woox5k"
+  },
+  {
+   "id": "ch-4-a-07",
+   "question": "In which situation does the right hand rule stop applying at a junction?",
+   "options": [
+    "When the junction lies inside an urban area",
+    "When your road is wider than the crossing road",
+    "When lights, a stop sign or a give way sign controls it",
+    "When you are already travelling straight ahead"
+   ],
+   "answer": 2,
+   "explanation": "Working traffic lights, stop signs and give way signs set the priority themselves and override the right hand rule, as does an officer directing traffic.",
+   "topic": "signs",
+   "source": "ch-4:2b:4t3x5j"
+  },
+  {
+   "id": "ch-4-a-08",
+   "question": "Two cars meet while manoeuvring inside a car park. How is priority decided?",
+   "options": [
+    "The right hand rule does not apply off the public road",
+    "The car that is reversing has priority",
+    "The car nearer the exit has priority",
+    "The right hand rule applies"
+   ],
+   "answer": 3,
+   "explanation": "The right hand rule extends to open areas such as parking lots, so a driver crossing your path from the right must be let through.",
+   "topic": "parking",
+   "source": "ch-4:2b:1v5dr88"
+  },
+  {
+   "id": "ch-4-a-10",
+   "question": "You reach a junction with a give way sign facing you. What must you do?",
+   "options": [
+    "Give way only to traffic coming from your right",
+    "Stop completely at the line in every case",
+    "Give way to traffic from both the right and the left",
+    "Continue if you can cross without touching the other lane"
+   ],
+   "answer": 2,
+   "explanation": "A give way sign removes your priority against all traffic on the crossing road, from either side. Slow down early and stop if the situation requires it.",
+   "topic": "signs",
+   "source": "ch-4:3a:145dcxj"
+  },
+  {
+   "id": "ch-4-a-11",
+   "question": "At a stop sign, when may a driver roll through the junction without halting?",
+   "options": [
+    "When no other traffic is anywhere near the junction",
+    "Never, the car must always come to a complete stop",
+    "When visibility along the crossing road is clear and long",
+    "When the car is already moving very slowly"
+   ],
+   "answer": 1,
+   "explanation": "A stop sign demands a full stop regardless of whether any other traffic is present, and the front wheels should stay behind the stop line.",
+   "topic": "signs",
+   "source": "ch-4:3a:ianfa8"
+  },
+  {
+   "id": "ch-4-a-13",
+   "question": "Traffic beyond a light-controlled junction is queued solid. What should you do on the green light?",
+   "options": [
+    "Wait before the junction until you can clear it fully",
+    "Enter and stop inside the junction to hold your place",
+    "Enter slowly and edge forward with the queue",
+    "Enter and then reverse back if the queue does not move"
+   ],
+   "answer": 0,
+   "explanation": "You should not enter a junction unless you can drive out of it again; stopping inside blocks the crossing traffic when their signal changes.",
+   "topic": "right-of-way",
+   "source": "ch-4:4a:1we6nho"
+  },
+  {
+   "id": "ch-4-a-14",
+   "question": "As you approach a road junction, which direction should you check first?",
+   "options": [
+    "To the left, because that traffic reaches you sooner",
+    "The rear mirror, before anything outside the car",
+    "Straight ahead, since that is where you are going",
+    "To the right, because that traffic has priority"
+   ],
+   "answer": 0,
+   "explanation": "Vehicles coming from the left cross your path earlier than those from the right, so they are checked first. You then look repeatedly in both directions.",
+   "topic": "right-of-way",
+   "source": "ch-4:4b:1l6dp5q"
+  },
+  {
+   "id": "ch-4-a-15",
+   "question": "Why is it dangerous to be on the inside of a long vehicle that is turning the same way as you?",
+   "options": [
+    "The trailer's rear end swings into the inner lane",
+    "Long vehicles are allowed to take priority in turns",
+    "The long vehicle must brake sharply mid-turn",
+    "Your own rear wheels are pushed towards the kerb"
+   ],
+   "answer": 0,
+   "explanation": "Because of its length, the back of a trailer drifts across into the inner lane during a tight turn, so leave the long vehicle enough room.",
+   "topic": "vehicle",
+   "source": "ch-4:5a:149orcf"
+  },
+  {
+   "id": "ch-4-a-17",
+   "question": "What should you do with your speed just before you change lanes?",
+   "options": [
+    "Slow down noticeably so you can slot in behind traffic",
+    "Accelerate hard so the gap opens up in front of you",
+    "Adjust it to match the speed of the lane you are entering",
+    "Hold the exact speed you had before checking the mirrors"
+   ],
+   "answer": 2,
+   "explanation": "Matching the target lane's speed first lets you cross the line steadily and without forcing other drivers to react. Lanes divided by a continuous line may not be crossed at all.",
+   "topic": "rules",
+   "source": "ch-4:6a:1yyexqi"
+  },
+  {
+   "id": "ch-4-a-18",
+   "question": "You are turning right at a junction on a carriageway with several lanes in your direction. Which lane do you use?",
+   "options": [
+    "The rightmost lane before the junction and after it",
+    "Any lane, provided you signal early enough",
+    "A middle lane, then move right after the turn",
+    "The rightmost lane before the junction only"
+   ],
+   "answer": 0,
+   "explanation": "A right turn is set up from the rightmost lane and completed into the rightmost lane of the road being entered, which keeps the turn tight and predictable.",
+   "topic": "rules",
+   "source": "ch-4:6b:ljwgx1"
+  },
+  {
+   "id": "ch-4-a-19",
+   "question": "Who has the right of way between a car already circulating in a roundabout and one about to enter?",
+   "options": [
+    "The car already driving inside the roundabout",
+    "The entering car, so the roundabout does not fill up",
+    "Whichever car is larger or heavier",
+    "The entering car if it is signalling right"
+   ],
+   "answer": 0,
+   "explanation": "Traffic circulating in the roundabout keeps priority over traffic entering it, and road markings may add further guidance at individual roundabouts.",
+   "topic": "roundabout",
+   "source": "ch-4:7a:11gktnr"
+  },
+  {
+   "id": "ch-4-a-20",
+   "question": "Which of these is required of a driver inside a roundabout?",
+   "options": [
+    "Changing to the outer lane one exit in advance",
+    "Signalling right before leaving the roundabout",
+    "Signalling left throughout the whole time inside",
+    "Choosing the inner lane whenever traffic is heavy"
+   ],
+   "answer": 1,
+   "explanation": "The right indicator when exiting is mandatory. Changing lanes inside a roundabout is prohibited, and the first exit is always taken from the rightmost lane.",
+   "topic": "roundabout",
+   "source": "ch-4:7a:2axdlg"
+  }
+ ]
+}
