@@ -212,20 +212,6 @@
       "source": "ch-5:4b:13rpbh"
     },
     {
-      "id": "ch-5-a-17",
-      "question": "What trailer may the holder of a category B licence tow?",
-      "options": [
-        "Up to 750 kg only, whatever the weight of the towing car",
-        "Up to 1,000 kg, or heavier if the total stays within 3,500 kg",
-        "Any weight, provided the trailer has brakes of its own",
-        "Up to 750 kg, or heavier if car and trailer stay within 3,500 kg"
-      ],
-      "answer": 3,
-      "explanation": "The 750 kg figure is the free allowance; above it the combined weight limit applies, and the trailer may never exceed the figure in the car's registration.",
-      "topic": "documents",
-      "source": "ch-5:5a:1gbhwxn"
-    },
-    {
       "id": "ch-5-a-18",
       "question": "Compared with driving in daylight, how much greater is the risk of a traffic accident in the dark?",
       "options": [

@@ -634,6 +634,15 @@ pass over adjacent chunks in `dataset.ts` fixes the class rather than each case.
 **44 citations were read against the source and all 44 are correct. Zero wrong
 answers were found anywhere in the corpus** — this is a precision problem in where
 "See it in the book" lands, not a correctness problem.
+
+**Full sweep 2026-08-06, all 247 authored cards** — the class `cards --strict`
+structurally cannot see: a card citing an existing-but-wrong chunk. Result: **234
+SUPPORTED, 13 SUPPORTED-but-fragmented (this class, tolerated), 0 PARTIAL, 0
+UNSUPPORTED.** `ch-7-a-21` (B16) was the only real defect found and is now fixed.
+The 13 fragmented, left as-is: `ch-1-2-a-20`, `ch-4-b-07`, `ch-4-b-15`,
+`ch-4-c-09`, `ch-5-a-11`, `ch-5-b-08`, `ch-5-b-14`, `ch-7-a-12`, `ch-7-a-13`,
+`ch-7-a-17`, `ch-8-a-12`, `ch-8-b-11`, `ch-7-a-21` (the last, its fixed citation,
+lands on a `list`-kind chunk — still fragmented by this class, but supported).
 *Files:* `pipeline/src/dataset.ts`.
 
 ### B9 · ✅ DONE · Four semantic duplicates
@@ -1367,22 +1376,34 @@ RECOVERY BELOW" with the reasoning; original note kept; the two sign files
 deliberately disagree, same convention as `p010full-s007`.
 *Files:* `pipeline/cards/sign-exclusions.json`, `sign-label-corrections.json`.
 
-### B16 · S3 · `ch-7-a-21` cites an existing chunk that is the wrong one
-It cites a table-header fragment (`"#The following are examples of penalty points.
-3 Penalty"`); the real text is in uncited `ch-7:6a:1v9m2dq`. **Not fixed.**
-Structural point worth keeping: `cards --strict` only fails when a cited chunk
-*vanishes* — a card citing an existing-but-wrong chunk is invisible to it, unlike
-the citation-repair work in C12 above where the chunk had actually disappeared.
-*Files:* `pipeline/cards/ch-7-a.json` or `pipeline/src/dataset.ts`.
+### B16 · ✅ DONE · `ch-7-a-21` cited an existing chunk that was the wrong one
+Fixed 2026-08-06. It cited a table-header fragment (`"#The following are examples
+of penalty points. 3 Penalty"`, missing even the word "points"). Re-pointed to
+`ch-7:6a:1i6tc4p` (kind `list`, conf 0.5), which states the 26 km/h-over-a-30-limit
+condition verbatim and also backs the card's explanation. Structural point worth
+keeping: `cards --strict` only fails when a cited chunk *vanishes* — a card citing
+an existing-but-wrong chunk is invisible to it, unlike the citation-repair work in
+C12 above where the chunk had actually disappeared. **Trap:** an earlier report of
+this project cited the successor as `ch-7:6a:1v9m2dq` — that id does not exist in
+`dataset.json`, a hallucination. An id quoted in a report is not evidence the id
+exists; verify against the dataset before trusting it.
+*Files:* `pipeline/cards/ch-7-a.json`.
 
-### B17 · S3 · `ch-6-b-05`'s explanation borrows a fact from an uncited neighbour
-The explanation asserts a fact that lives in an adjacent chunk the card does not
-cite. Not fixed.
+### B17 · ✅ DONE · `ch-6-b-05`'s explanation no longer borrows from an uncited neighbour
+Fixed 2026-08-06. `cards.ts` defines `source: string` — a single citation, no
+array — so citing both chunks was never possible. The explanation's second clause
+(the 10,000 ISK passenger fine) came from uncited `ch-6:8b:kd8eja` and was removed;
+the replacement stays within the cited `ch-6:8a:pup93c`.
 *Files:* `pipeline/cards/ch-6-b.json`.
 
-### B18 · S4 · Duplicate pair `ch-1-2-a-11` / `ch-5-a-17`
-Same trailer-towing rule, tested twice. Not fixed.
-*Files:* `pipeline/cards/ch-1-2-a.json`, `ch-5-a.json`.
+### B18 · ✅ DONE · Duplicate pair `ch-1-2-a-11` / `ch-5-a-17` — resolved, `ch-5-a-17` RETIRED
+Fixed 2026-08-06. Both cited independent passages stating the identical
+category-B trailer rule. `ch-5-a-17` was retired rather than `ch-1-2-a-11`:
+beyond the duplication, its explanation asserted "the trailer may never exceed the
+figure in the car's registration", which its cited chunk does not support. Id
+recorded in `README.md`'s retired-ids table and must never be reused, joining
+`appendix-a-09`, `appendix-a-10`.
+*Files:* `pipeline/cards/ch-1-2-a.json`, `ch-5-a.json`, `README.md`.
 
 ### B10-correction · sheep, reindeer, crosswind — the record was wrong about "crosswind"
 B10 above lists "sheep", "reindeer" and "crosswind" as zero-coverage gaps. Re-checked
@@ -1391,16 +1412,86 @@ nowhere in the source, so no card can cite it. Sheep and reindeer remain genuine
 zero-card gaps; the sheep passage sits in `ch-4:17b:10uptcl`, a chunk already cited
 twice for other facts and ready to author against.
 
-### C13 · S2 · Missing figures on ch-6 pp.98, 106, 111 — whole diagrams absent
-Captions survive as orphaned text; the diagrams themselves are not in the edition.
+**✅ DONE, 2026-08-06 — sheep and reindeer closed.** `animals` topic went from 1
+card to 4. New: `ch-4-c-21` (which loose-sheep situation the book calls most
+dangerous — the ewe/lamb split; rewritten after review to test the stated fact
+rather than an inferred reason), `ch-4-c-22` (duty to try to contact the owner
+after hitting a farm animal — `ch-4:17b:vxwk3p` is truncated mid-sentence, so only
+the legible "try to contact the owner" clause was used and the "report to whom"
+fact was deliberately skipped), `appendix-a-23` (the reindeer warning sign).
+"Crosswind" remains a book gap, unclosable.
+*Files:* `pipeline/cards/ch-4-c.json`, `appendix-a.json`.
+
+### C13 · S2 · Missing figure on ch-6 p.106 — whole diagram absent
+Captions survive as orphaned text; the diagram itself is not in the edition.
 Consequence for a known imperfection: p.106's reversed tread labels (`Worn Tread` /
 `New Tread`, `Unstudded` / `Studded`, see `HANDOVER.md` "Known imperfections") cannot
 assert anything backwards *because* the diagram that would label them is absent.
-Related, recorded not investigated: 43 `ok`-graded entries in `figures.json` have no
-file in `site/figures/`, and the 4 figures known to have vanished during the OCR
-stages were never identified (no pre-session `figures.json` baseline exists, and the
-oldest surviving one predates a filename convention change).
+(Its captions now publish per C14's overrides list, below — the diagram is still
+missing.) The 4 figures known to have vanished during the OCR stages were never
+identified (no pre-session `figures.json` baseline exists, and the oldest surviving
+one predates a filename convention change) and were not re-investigated this
+session.
+
+**Two corrections to this entry, measured 2026-08-06 — do not re-cite the old
+claims:**
+- **ch-6 p.98's figure was never missing.** Figure 6.2 is present with all eight
+  labels baked in as pixels. What is actually missing is the OCR *text* of the
+  right-hand labels (Air Filter, Fuse box, Battery) — a separate, pre-existing OCR
+  gap, likely mis-oriented/curved text. Recorded, not fixed. **Struck from this
+  entry's title and scope.**
+- **ch-6 p.111 was not a missing-figure case at all — it was the figure-cropper
+  merge bug.** See C15: figures 6.16/6.17/6.18 were bridged into one blob by a
+  bleed-through-ink sliver, not absent from the source. Fixed, and struck from
+  this entry.
+- **The "43 `ok`-graded `figures.json` entries with no file in `site/figures/`" was
+  not a defect.** 203 unfiled manifest entries = 119 (Appendix 78 +
+  `umferdarmerki_enska` 41, which read imagery from `signManifest` by design —
+  verified in `build-html.ts`, not assumed) + 84, and all 84 are caught by the
+  existing `isRule()` page-furniture filter. Replicating that test independently
+  matched **43 of 43**. Struck from this entry.
 *Files:* `pipeline/src/layout.ts`, `build/tools/*.swift` figure cropping.
+
+### C14 · S2 · `checkcrops.swift` misgrades line art as text-only — systemic, worked around, not fixed
+Its "many small blobs, no dominant shape, no colour → caption" rule is tuned for
+signs and misfires on diagrams made of thin disconnected strokes. Auditing ~20
+text-only crops found a jump-start diagram, a clutch mechanism, CPR panels, a
+child-distraction illustration and road-sign chevrons all being silently dropped.
+
+No univariate geometric threshold separated the ~3 genuine caption fragments from
+the misjudged diagrams, so a corpus-wide retune was **rejected as unverifiable
+within budget** (precedent: two earlier guesses regressed the build — see
+"Measured and rejected" in `HANDOVER.md`).
+
+**Workaround shipped:** a new `pipeline/figure-grade-overrides.json`, a
+hand-reviewed exception list of 12 crops each opened and confirmed against the
+scan, consumed by both `build-html.ts` and `e2e.ts` — the "no text-only crop
+published" check was updated in lockstep so it stays meaningful rather than being
+weakened. ch-6 p.106's figures 6.10/6.11 now publish.
+
+**The underlying weakness is open: an unknown number of misgraded crops remain
+beyond the 12 verified.** Do not close this until the geometric rule itself is
+fixed or replaced.
+*Files:* `build/tools/checkcrops.swift`, `pipeline/figure-grade-overrides.json`,
+`pipeline/src/build-html.ts`, `pipeline/src/e2e.ts`.
+
+### C15 · ✅ DONE · S1 · Figure cropper merge bug — bleed-through ink bridged figures into one blob, 34 figures recovered
+`build/tools/figures.swift`'s merge loop is transitive and filters by size only
+**after** merging. On ch-6 p.111 a 53×537px sliver of bleed-through ink from the
+facing page hugged the left margin and bridged figures 6.16/6.17 to 6.18 plus all
+intervening body text into one page-spanning blob carrying 6.18's caption.
+
+Diagnosed by reimplementing the ink-mask/dilate/connected-components/merge
+algorithm in Python to inspect pre-merge regions. Swept 47 pages plus all 24 ch-6
+pages for the signature (edge-touching, aspect ≥ 3, width < 15%·W): exactly 3
+slivers, all confirmed bleed/shadow, none real content.
+
+**Fix:** drop such regions before the merge loop runs, not after — measurement
+recorded in-comment beside the rule. Manifest 377 → 411.
+*Files:* `build/tools/figures.swift` (recompile: `swiftc -O figures.swift -o
+figures`, then `npm run figures`).
+*Check:* ch-6 p.111's figures 6.16–6.18 crop separately; the 3-sliver signature
+sweep matches 3 of 3.
 
 ### A14 · ✅ DONE · S1 · The "one direction per sign per session" promise was broken
 `viewSigns()`'s per-category buttons called `Engine.shuffled(list).slice(0,20)` and
@@ -1487,8 +1578,16 @@ Worth recording so the sweep does not go looking for problems that are not there
    browser, 121 sign images opened, ch-6 read against the scans, 54 authored
    questions reviewed. Found and fixed a published FALSE (C12), five wrong sign
    images and one over-exclusion (B13/B14), and two app bugs (A14/A15) — none
-   visible to the 197+97 checks that stayed green throughout. New open items:
-   B16–B18, C13. See `HANDOVER.md` for the full account.
+   visible to the 197+97 checks that stayed green throughout. New open items at
+   the time: B16–B18, C13. See `HANDOVER.md` for the full account.
+8. ✅ **A final fix round.** B16, B17 and B18 all fixed; a real figure-cropper
+   merge bug found and fixed (C15, ch-6 p.111); a full 247-card citation sweep run
+   (B8, 0 unsupported, 13 tolerated-fragmented, `ch-7-a-21` was the one real
+   defect); the animal-hazard gap closed (B10-correction, sheep + reindeer); and
+   two of the previous round's own findings (ch-6 p.98's figure, the 43 orphaned
+   `figures.json` entries) were re-checked and found wrong — see C13 for the
+   correction. `checkcrops.swift`'s line-art misgrading (C14) was found but only
+   worked around, not fixed.
 
 What is actually left, ranked:
 
@@ -1499,21 +1598,26 @@ What is actually left, ranked:
    two measured counter-examples (`p005full-s006`, `p008full-s062`) are named in the
    entry, and seven of B12's corrections exist only to strip an on-face legend, which
    is the symptom.
-3. **B8/B10/B11 — authoring.** B8 is citation precision (15.9% of citations land
-   mid-sentence, no wrong answers found). B10/B11 are the coverage rebalance: 62
-   prioritised targets are documented in `questions.md` §4, and "sheep",
-   "reindeer" and "crosswind" appear **zero times** across all 247 authored
-   questions — for a test given in Iceland, the most consequential gap on this
-   list.
+3. **B10/B11 — authoring, still unbounded but smaller.** 59 of the 62 targets
+   remain (3 animal cards shipped this round). "Sheep" and "reindeer" are no
+   longer at zero; "crosswind" stays a book gap, unclosable.
 4. **The four C5 residuals** (`C5-r1`–`C5-r4`), each with its own *Done when* under
    the C5 entry above — `CROSS_MAX` on appendix p.165 chief among them.
-5. **The publishable `public/` tree** does not exist yet, and nothing in this
+5. **C14** — `checkcrops.swift`'s line-art misgrading, worked around with a
+   12-entry hand-reviewed exception list, not fixed at the mechanism. An unknown
+   number of misgraded crops remain beyond the 12 verified.
+6. **C13** — ch-6 p.106's diagram is still absent (only its captions now publish).
+   ch-6 p.98's right-margin OCR text gap (a distinct, smaller defect) is unfixed.
+   The 4 figures that vanished during the OCR stages remain unidentified.
+7. **The 13 B8-class fragmented citations** (listed under B8 above) — tolerated,
+   not defects, but still imprecise.
+8. **The publishable `public/` tree** does not exist yet, and nothing in this
    project has ever been committed or pushed — see `HANDOVER.md` "Publishing".
-6. **B16–B18, C13** — this session's leftovers: two mis-pointed/borrowed citations,
-   one duplicate pair, and three missing ch-6 figures. None teaches something false.
+   GitHub Pages deployments are also currently failing server-side
+   (`deployment_in_progress` → timeout), independent of repo readiness.
 
-**B2 and B3/B4/B5, once the two things worth pulling ahead of this order, have
-both shipped** (see their entries above) — nothing here still depends on doing
+**B2, B3/B4/B5, and B16–B18, once things worth pulling ahead of this order, have
+all shipped** (see their entries above) — nothing here still depends on doing
 them first.
 
 ## The five things that matter most, if the sweep gets cut short

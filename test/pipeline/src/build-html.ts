@@ -105,8 +105,30 @@ function loadPages(): { byDoc: Map<string, PageDoc[]>; cutCrops: Set<string> } {
   const cropQa: CropGrade[] = existsSync(path.join(WORK, 'crop-qa.json'))
     ? JSON.parse(readFileSync(path.join(WORK, 'crop-qa.json'), 'utf8'))
     : [];
+  // checkcrops' text-only rule ("many small blobs, no dominant shape, no colour")
+  // was measured against signs, where it holds — a correctly framed sign is one
+  // dominant shape. It misfires on this book's line-art figures: a diagram made
+  // of thin disconnected strokes (tire tread, cable diagrams, sign chevrons,
+  // outline cartoons) trips the same signature as scattered caption text, because
+  // neither has one big filled blob. A width/aspect/footprint split was tried
+  // against a sample of confirmed real diagrams vs. confirmed genuine caption
+  // fragments and none separated them — the false-positive rate on figure crops
+  // is high enough (most of a 20-crop visual sample) that a corpus-wide numeric
+  // retuning risks trading known-good caption drops for unreviewed figure
+  // regressions. Each entry below was instead opened and confirmed by eye against
+  // its source scan; see pipeline/figure-grade-overrides.json for the reasons.
+  // Not exhaustive — more misgraded figures likely remain unreviewed corpus-wide.
+  const gradeOverrides = new Set<string>(
+    existsSync(path.join(ROOT, 'pipeline/figure-grade-overrides.json'))
+      ? (JSON.parse(readFileSync(path.join(ROOT, 'pipeline/figure-grade-overrides.json'), 'utf8')) as {
+          file: string;
+        }[]).map((o) => o.file)
+      : [],
+  );
   const rejected = new Set(
-    cropQa.filter((c) => c.verdict === 'text-only' || c.verdict === 'blank' || isRule(c)).map((c) => c.file),
+    cropQa
+      .filter((c) => (c.verdict === 'text-only' || c.verdict === 'blank' || isRule(c)) && !gradeOverrides.has(c.file))
+      .map((c) => c.file),
   );
   const cutCrops = new Set(cropQa.filter((c) => c.verdict === 'cut').map((c) => c.file));
   const chroma = new Map(cropQa.map((c) => [c.file, c.meanChroma]));

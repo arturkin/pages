@@ -1,0 +1,50 @@
+[
+  {
+    "file": "figures/Ch. 6-p006a-f02.png",
+    "reason": "Figure 6.10 (tire-wear tread diagram). checkcrops graded it text-only (largestCompFrac 0.034 < 0.055, compCount 4, meanChroma 0) because line-art diagrams made of thin disconnected strokes trip the same 'many small blobs, no dominant shape' signature as a caption. Opened the crop and the source scan (Ch. 6-p006a / book p.106): it is the real diagram, correctly framed, not a caption."
+  },
+  {
+    "file": "figures/Ch. 6-p006a-f03.png",
+    "reason": "Figure 6.11 (four tire-type photos: Summer/Particle tread/Unstudded winter/Studded winter). Same text-only misgrading as f02 above (largestCompFrac 0.026, compCount 5). Opened the crop and the source scan (Ch. 6-p006a / book p.106): it is the real photo grid, not a caption. Carries a sliver of the adjacent text column at its right edge (figures.swift merge bleed), harmless — the diagram itself is intact and correctly framed."
+  },
+  {
+    "file": "figures/Ch. 6-p003a-f02.png",
+    "reason": "Jump-start cable diagram (book p.101/102 area). Text-only misgrade for the same line-art reason (largestCompFrac 0.054, just under the 0.055 cutoff). Opened the crop: it is the real diagram."
+  },
+  {
+    "file": "figures/Ch. 6-p005a-f02.png",
+    "reason": "Figure 6.9 (three tire outline drawings: correct/too little/too much air pressure). Text-only misgrade, same line-art cause. Opened the crop: it is the real diagram."
+  },
+  {
+    "file": "figures/Ch. 6-p001b-f03.png",
+    "reason": "Dashboard warning-icon legend for Figure 6.1 (brake/battery/oil/check-engine/ABS icons paired with their labels). Text-only misgrade, same line-art cause. Opened the crop: these are the real icon pictures, not a bare caption."
+  },
+  {
+    "file": "figures/Ch. 4-p019a-f03.png",
+    "reason": "Clutch-pedal mechanism diagram (Depressing/Releasing/Stepping off the clutch, three panels). Text-only misgrade, same line-art cause (largestCompFrac 0.044). Opened the crop: it is the real diagram."
+  },
+  {
+    "file": "figures/Ch. 1–2-p006b-f01.png",
+    "reason": "Figure 2.2 (child chasing a ball into the road, distraction illustration). Text-only misgrade, just over the cutoff (largestCompFrac 0.055). Opened the crop: it is the real illustration."
+  },
+  {
+    "file": "figures/Ch. 3-p004a-f01.png",
+    "reason": "Three blue circular mandatory-direction road signs (arrow variants). Text-only misgrade, same line-art/low-chroma cause. Opened the crop: these are the real sign graphics."
+  },
+  {
+    "file": "figures/Ch. 8-p007b-f01.png",
+    "reason": "Three-panel CPR hand-position diagram (book p.147, panels A/B/C). Text-only misgrade, same line-art cause. Opened the crop: it is the real instructional diagram — one of the highest-stakes illustrations in the book."
+  },
+  {
+    "file": "figures/Appendix-p009a-f01.png",
+    "reason": "Warning-post and chevron direction-arrow road markers with their caption text. Text-only misgrade, same line-art cause. Opened the crop: the marker graphics are real, not caption-only."
+  },
+  {
+    "file": "figures/Appendix-p009a-f03.png",
+    "reason": "Chevron direction-arrow road marker row. Text-only misgrade despite being a real sign graphic (largestCompFrac 0.040, compCount 7 — chevrons render as several disconnected triangles, same signature as scattered text). Opened the crop: it is the real marker."
+  },
+  {
+    "file": "figures/Appendix-p001a-f03.png",
+    "reason": "Column of triangular hazard road signs (bend/junction/roundabout icons). Text-only misgrade, same line-art cause. Opened the crop: these are real sign graphics."
+  }
+]

@@ -47,16 +47,18 @@ ids are unique among the questions *currently* authored; it cannot see the ones 
 have gone.
 
 So: when a question is removed, its id is spent. Take the next unused number for the
-packet and leave the gap. Retired ids so far, both dropped in 2026-08-05's frame fix
-because their facts survive only as figure captions and no chunk supports them:
+packet and leave the gap. Retired ids so far, the first two dropped in 2026-08-05's
+frame fix because their facts survive only as figure captions and no chunk supports
+them:
 
 | Retired id | The fact it tested |
 | --- | --- |
 | `appendix-a-09` | The single-lane paved-surface sign applies at a width of ≤ 5 m. |
 | `appendix-a-10` | A supplementary speed plate gives the *recommended* speed, not the legal maximum. |
+| `ch-5-a-17` | Category B trailer allowance: 750 kg free, or heavier if car+trailer ≤ 3,500 kg. Retired 2026-08-06 as a content duplicate of `ch-1-2-a-11`, which tests the identical rule from a second, near-identical passage (`ch-1-2:4b:1adwq61` vs `ch-5:5a:1gbhwxn`) — kept the chapter-1-2 card since its explanation didn't overreach its citation. |
 
-Both facts are still true and still worth a card. Re-author them under fresh ids
-once a chunk carries them — not under these.
+The first two facts are still true and still worth a card. Re-author them under
+fresh ids once a chunk carries them — not under these.
 
 ## Topic ids
 

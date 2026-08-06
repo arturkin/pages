@@ -361,15 +361,29 @@ const reflow = (s: string) => s.replace(/\s+/g, ' ').trim();
 
 /**
  * Crops build-html refuses to publish: the verdict filter and aspect test of its
- * `isRule`. Repeated rather than imported: loading build-html rebuilds site/ as a
- * side effect, and this suite is serving that directory.
+ * `isRule`, minus the hand-reviewed grade overrides (pipeline/figure-grade-overrides.json)
+ * that build-html also honours — each entry there was opened and confirmed by eye
+ * to be a real illustration checkcrops' text-only heuristic misjudged. Repeated
+ * rather than imported: loading build-html rebuilds site/ as a side effect, and
+ * this suite is serving that directory.
  */
 function rejectedCropFiles(work: string): Set<string> {
   const crops: CropRow[] = JSON.parse(readFileSync(path.join(work, 'crop-qa.json'), 'utf8'));
+  const overridesPath = path.join(ROOT, 'pipeline/figure-grade-overrides.json');
+  const overrides = new Set<string>(
+    existsSync(overridesPath)
+      ? (JSON.parse(readFileSync(overridesPath, 'utf8')) as { file: string }[]).map((o) => o.file)
+      : [],
+  );
   return new Set(
     crops
-      .filter((c) => c.verdict === 'text-only' || c.verdict === 'blank'
-        || (Math.max(c.w / c.h, c.h / c.w) >= 6 && c.contentFrac < 0.12))
+      .filter(
+        (c) =>
+          !overrides.has(c.file) &&
+          (c.verdict === 'text-only' ||
+            c.verdict === 'blank' ||
+            (Math.max(c.w / c.h, c.h / c.w) >= 6 && c.contentFrac < 0.12)),
+      )
       .map((c) => c.file),
   );
 }
@@ -1090,6 +1104,17 @@ async function run() {
     const slugify = (t: string) =>
       t.toLowerCase().replace(/[–—]/g, '-').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     const verdictOf = new Map(crops.map((c) => [slugify(path.basename(c.file, '.png')), c.verdict]));
+    // Hand-reviewed exceptions to checkcrops' text-only call (see
+    // rejectedCropFiles above) are not "non-pictures" for this check either —
+    // each was opened and confirmed by eye to be a real illustration.
+    const overridesPath = path.join(ROOT, 'pipeline/figure-grade-overrides.json');
+    const overriddenStems = new Set<string>(
+      existsSync(overridesPath)
+        ? (JSON.parse(readFileSync(overridesPath, 'utf8')) as { file: string }[]).map((o) =>
+            slugify(path.basename(o.file, '.png')),
+          )
+        : [],
+    );
     let published = 0;
     let badPublished: string[] = [];
     let flaggedCut = 0;
@@ -1102,7 +1127,7 @@ async function run() {
         const v = verdictOf.get(slugify(stem));
         if (v === undefined) continue;
         published++;
-        if (v === 'text-only' || v === 'blank') badPublished.push(stem);
+        if ((v === 'text-only' || v === 'blank') && !overriddenStems.has(slugify(stem))) badPublished.push(stem);
         if (v === 'cut') {
           flaggedCut++;
           if (!cls.includes('cropwarn')) unflaggedCut++;

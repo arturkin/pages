@@ -280,6 +280,34 @@
       "explanation": "It is prohibited to leave a vehicle in a condition where a stranger could easily drive it off, and visible valuables should not be left behind either.",
       "topic": "parking",
       "source": "ch-4:19b:1gdyxss"
+    },
+    {
+      "id": "ch-4-c-21",
+      "question": "Which loose-sheep situation does the book single out as the most dangerous?",
+      "options": [
+        "A ewe on one side of the road and her lamb on the other",
+        "A single ram standing still in the middle of the road",
+        "A flock grazing behind a fence beside the road",
+        "Sheep following a farm vehicle along the verge"
+      ],
+      "answer": 0,
+      "explanation": "Sheep running loose can cross suddenly at any time, which applies particularly to young lambs in springtime; the book names a ewe and her offspring separated by the road as the most dangerous case of all.",
+      "topic": "animals",
+      "source": "ch-4:17b:10uptcl"
+    },
+    {
+      "id": "ch-4-c-22",
+      "question": "If you accidentally hit a farm animal on the road, what must you do?",
+      "options": [
+        "Try to contact the animal's owner",
+        "Continue on your way if the animal runs off",
+        "Wait at the scene only if another vehicle is damaged",
+        "Leave a note only if the animal is visibly injured"
+      ],
+      "answer": 0,
+      "explanation": "The duty to try to reach the owner applies regardless of whether the animal appears hurt or bolts away afterward.",
+      "topic": "animals",
+      "source": "ch-4:17b:vxwk3p"
     }
   ]
 }

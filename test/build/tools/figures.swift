@@ -147,6 +147,25 @@ for name in jsons {
         regions.append((minX, minY, maxX, maxY, area))
     }
 
+    // Drop bleed-through slivers from the facing page / binding shadow at the
+    // outer margins before merging, so they can't bridge two unrelated figures
+    // into one blob. Measured on a 47/188-page corpus sample plus all 24 Ch. 6
+    // pages: exactly 3 regions are a thin (h/w ≥ 3), narrow (w < 15% of page)
+    // strip touching the left or right edge within 3% of page width, all
+    // confirmed against the source scan as bleed/shadow, none a real
+    // illustration. One of them (Ch. 6-p008b) was the bridge that fused
+    // Figures 6.16/6.17 and 6.18 plus the intervening body text into a single
+    // page-spanning "figure". No sampled real illustration is this narrow while
+    // also touching the outer edge, so the filter has no observed false-positive.
+    let marginZone = Int(Double(W) * 0.03)
+    regions = regions.filter { rg in
+        let w = rg.x1 - rg.x0 + 1, h = rg.y1 - rg.y0 + 1
+        let touchesOuterEdge = rg.x0 <= marginZone || rg.x1 >= W - 1 - marginZone
+        guard touchesOuterEdge else { return true }
+        let aspect = Double(h) / Double(max(1, w))
+        return !(aspect >= 3 && w < Int(0.15 * Double(W)))
+    }
+
     // Merge blobs that belong to one illustration. A photograph with light
     // regions breaks into several components, which would otherwise be published
     // as separate captionless fragments of the same picture.

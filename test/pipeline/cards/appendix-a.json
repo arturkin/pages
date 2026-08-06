@@ -238,6 +238,20 @@
       "explanation": "The flashing red closes the section, for instance where emergency vehicles pull out or aircraft cross low. Only a driver already too close to halt safely should carry on past it.",
       "topic": "lights",
       "source": "appendix:11b:z2554p"
+    },
+    {
+      "id": "appendix-a-23",
+      "question": "What does the reindeer warning sign indicate to drivers?",
+      "options": [
+        "Reindeer can be found crossing the road or close to it",
+        "Reindeer fencing runs alongside the road here",
+        "A reindeer feeding station lies ahead",
+        "Reindeer hunting is permitted in this area"
+      ],
+      "answer": 0,
+      "explanation": "Like the nearby sheep sign, it is a running hazard warning: the animals may be on the road itself or right beside it, not fenced off.",
+      "topic": "animals",
+      "source": "appendix:1b:b4l182"
     }
   ]
 }
