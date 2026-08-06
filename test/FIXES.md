@@ -1469,9 +1469,30 @@ scan, consumed by both `build-html.ts` and `e2e.ts` — the "no text-only crop
 published" check was updated in lockstep so it stays meaningful rather than being
 weakened. ch-6 p.106's figures 6.10/6.11 now publish.
 
+**Follow-up session, driven by a "Figure N.M" cross-reference oracle** (every
+figure number the book's own prose cites, checked against what publishes —
+see C16 below for the permanent form of that oracle): swept the 20 numbered
+figures it found missing. 14 were the same misgrading and got the same
+treatment — 1.1, 3.7, 3.30, 3.32, 3.36, 4.2, 4.14, 4.17, 4.19, 4.31, 4.40, 5.11,
+6.7, 8.3 — bringing the override list to 26. **Six were refused, not rescued**,
+because rescuing them would publish something wrong rather than nothing:
+- `Ch. 3-p003b-f01.png` (figures 3.8 *and* 3.9) is one crop region spanning
+  both a single prohibition sign and an unrelated 8-sign arrow grid plus a full
+  paragraph of body text — two distinct figure numbers merged into one region
+  by `figures.swift`, not a grading error `checkcrops` could have caught.
+- `Ch. 3-p008a-f01.png` (figures 3.33 *and* 3.34) is the same failure mode: two
+  numbered figures' artwork merged into one region, and the merge cuts off
+  the second figure's own caption at the crop's bottom edge.
+- `Ch. 3-p008b-f01.png` (figure 3.35) is a single region spanning nearly the
+  whole page — the numbered illustration plus two more unrelated, unnumbered
+  illustrations plus a full rules callout box, all merged together.
+- Figure 4.42 has no crop region at all — a detection miss, not a grading
+  miss; see C16.
+
 **The underlying weakness is open: an unknown number of misgraded crops remain
-beyond the 12 verified.** Do not close this until the geometric rule itself is
-fixed or replaced.
+beyond the 26 verified**, and the merge-bleeds-two-figures-together failure
+mode above (distinct from text-only misgrading) has not been swept at all.
+Do not close this until the geometric rule itself is fixed or replaced.
 *Files:* `build/tools/checkcrops.swift`, `pipeline/figure-grade-overrides.json`,
 `pipeline/src/build-html.ts`, `pipeline/src/e2e.ts`.
 
@@ -1492,6 +1513,80 @@ recorded in-comment beside the rule. Manifest 377 → 411.
 figures`, then `npm run figures`).
 *Check:* ch-6 p.111's figures 6.16–6.18 crop separately; the 3-sliver signature
 sweep matches 3 of 3.
+
+### C16 · ✅ DONE · S1 · A permanent check: every "Figure N.M" the book cites must have a published crop
+A one-off phase-1 script found the check's own reason for existing: 20 numbered
+figures the book's prose references were not publishing (see C14's follow-up
+above for the sweep of those 20). Ported the script's method into
+`pipeline/src/e2e.ts` (`figureNumberCoverage`) as a standing check rather than a
+one-time audit, with its three hard-won corrections carried over: match a
+caption to a crop by *vertical containment* (position on the page) not by
+counting figures per page; exclude `isRule` crops (header rule, gutter
+slivers) from the candidate pool entirely, never counted as a hit or a miss;
+and treat every `figure-grade-overrides.json` entry as published ground truth
+regardless of `checkcrops`' verdict. A fourth case the one-off script had to
+hand-patch — Figure 6.1's caption prints well above its actual crop on the
+page, so strict containment alone misses it — is handled generally: an
+unmatched caption falls back to the nearest still-unclaimed region on its own
+page, which only fires when nothing satisfies containment, so it cannot steal
+a region another caption already claimed by position.
+
+Measured today: **122 of 131** distinct figure numbers published. 6 genuinely
+missing (the two merged multi-figure crops from C14's follow-up, plus 4.42 —
+see C16-r1 below). 3 are allowlisted `AMBIGUOUS` — referenced in running text
+but never once printed in caption position on any page (3.1, 3.2, 7.4) — with
+a staleness assertion so a future fix that resolves one of them is forced to
+remove it from the allowlist rather than leave it exempted quietly. Floor set
+at 121 (1 below measured, per project convention): fails on any further
+regression, does not demand the pre-existing 6-figure gap close.
+
+**Blind spot, stated in the check's own comment so a green result cannot be
+misread as full coverage:** this oracle only recognises "Figure N.M"-style
+captions, which the Appendix and `umferdarmerki_enska` documents never use —
+despite those two holding 52% of all figure-style crop regions in the corpus.
+78 further unnumbered crop regions elsewhere (8 graded text-only) are equally
+invisible to it.
+*Files:* `pipeline/src/e2e.ts`.
+*Check:* `npm run test:e2e` — "numbered-figure coverage" section.
+
+#### C16-r1 · open · figure 4.42 (ch-4 p.72) — no crop region was ever cut; root cause found, fix not attempted
+Not a `checkcrops` misgrade like C14 — `build/work/figures.json` has **zero**
+regions for `Ch. 4-p018a` (book p.72) at all, upstream of grading entirely. The
+page's illustration (a driver checking the rear mirror) is real, present in the
+scan, and its ink is not masked out by the OCR text boxes.
+
+Reimplemented `figures.swift`'s ink-mask → dilate → connected-components →
+merge pipeline in Python against this page to see the pre-filter state. Small
+residual ink specks survive OCR-box masking all over the page — the running
+head, a margin rule, and (mainly) sub-pixel edges of body-text glyphs the
+OCR box's fixed pad (`0.012`/`0.010` of page width/height) doesn't fully cover.
+On most pages these specks are isolated and each too small to pass the
+minimum-size filter, so they vanish harmlessly. On this page they chain
+together — `figures.swift`'s merge step joins any two regions whose
+*bounding boxes* are within `mergeGap` (2.5% of W) on **both** axes, which
+also fires when two boxes already overlap on one axis, so a chain of specks
+can walk down the full page height even though no two are close by true
+pixel distance. The illustration gets swallowed into one page-spanning blob
+together with all that speck-noise; the blob's ink density then averages
+below the 0.02 cutoff (my Python repro measured it at 0.0206, right at the
+edge — small antialiasing differences from Swift's `CGContext` resize would
+easily push it under), so the *whole* blob — illustration included — is
+dropped, leaving zero regions.
+
+This is a bounding-box-gap merge bug, not a threshold that's merely wrong —
+the same class of defect C15 fixed for one specific manifestation (edge-
+hugging bleed slivers). Here the trigger is different (ordinary OCR-mask
+residue, not facing-page bleed-through) and the failure mode is the opposite
+of C15's (the merge produces nothing publishable at all, rather than one
+wrong page-spanning "figure"). **No fix attempted**: a safe fix needs either
+(a) replacing bbox-gap merging with true nearest-pixel-distance merging, or
+(b) tightening the OCR-mask pad to stop leaving residue — both are corpus-wide
+algorithm changes, and this project has already regressed the build twice from
+guessed thresholds. Doing either safely means re-measuring residual-speck
+density and merge-chain length across all 188 pages first, which is out of
+this session's budget. Recorded here rather than guessed at.
+*Files:* `build/tools/figures.swift` (not touched).
+*Check:* none yet — 4.42 shows in C16's missing list until this lands.
 
 ### A14 · ✅ DONE · S1 · The "one direction per sign per session" promise was broken
 `viewSigns()`'s per-category buttons called `Engine.shuffled(list).slice(0,20)` and

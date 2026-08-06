@@ -46,5 +46,61 @@
   {
     "file": "figures/Appendix-p001a-f03.png",
     "reason": "Column of triangular hazard road signs (bend/junction/roundabout icons). Text-only misgrade, same line-art cause. Opened the crop: these are real sign graphics."
+  },
+  {
+    "file": "figures/Ch. 1–2-p003a-f01.png",
+    "reason": "Figure 1.1 (front and back of an Icelandic driving licence, with the numbered field key alongside it in body text). Text-only misgrade, same line-art/low-chroma cause (largestCompFrac 0.043, compCount 7 — the card's printed fields break into several disconnected blobs). Opened the crop and the source scan (Ch. 1–2-p003a / book p.8): it is the real licence photo, cleanly framed, nothing else in the box."
+  },
+  {
+    "file": "figures/Ch. 3-p003a-f03.png",
+    "reason": "Figure 3.7 (No motor vehicles — motorcycle+car prohibition sign). Text-only misgrade, same line-art cause (largestCompFrac 0.044, compCount 4). Opened the crop and the source scan (Ch. 3-p003a / book p.22): it is the real sign, correctly framed and separate from the Figure 3.5/3.6 crops on the same page."
+  },
+  {
+    "file": "figures/Ch. 3-p006b-f02.png",
+    "reason": "Figure 3.30 (road-marking diagram: semi-dashed line, continuous 'do not cross' line, dashed/continuous edge line, double center line, with two cars). Text-only misgrade, same line-art cause (largestCompFrac 0.025). Opened the crop and the source scan (Ch. 3-p006b / book p.29): it is the real diagram inside its own border box, caption and body text outside the crop."
+  },
+  {
+    "file": "figures/Ch. 3-p007b-f01.png",
+    "reason": "Figure 3.32 (junction diagram: give-way line, stop line, guidance line, prohibited area, with an inset callout of a 'very important' lane sign). Text-only misgrade, same line-art cause (largestCompFrac 0.019, compCount 6). Opened the crop and the source scan (Ch. 3-p007b / book p.31): it is the real diagram; the inset is part of the same illustration, not a second figure."
+  },
+  {
+    "file": "figures/Ch. 3-p009a-f01.png",
+    "reason": "Figure 3.36 (four traffic-light photos: red / red+amber / green / amber). Text-only misgrade, same line-art cause (largestCompFrac 0.017, compCount 5 — each lamp head is its own blob). Opened the crop and the source scan (Ch. 3-p009a / book p.34): it is the real photo row, cleanly framed with its caption inside the box."
+  },
+  {
+    "file": "figures/Ch. 4-p001b-f01.png",
+    "reason": "Figure 4.2 (two intersection diagrams showing recommended vs. discouraged lane paths). Text-only misgrade, same line-art cause (largestCompFrac 0.033, compCount 7). Opened the crop and the source scan (Ch. 4-p001b / book p.39): it is the real diagram; carries a one-line sliver of the paragraph above at the very top edge (figures.swift merge bleed), harmless — same as the precedent in the Ch. 6 tire crops above."
+  },
+  {
+    "file": "figures/Ch. 4-p006a-f02.png",
+    "reason": "Figure 4.14 (three cars driving a slalom-like S-curve, captioned 'strongly discouraged'). Text-only misgrade, same line-art cause (largestCompFrac 0.044, compCount 4). Opened the crop and the source scan (Ch. 4-p006a / book p.48): it is the real diagram, caption included inside the box."
+  },
+  {
+    "file": "figures/Ch. 4-p007b-f01.png",
+    "reason": "Figure 4.17 (acceleration/deceleration lane diagram with directional arrows). Text-only misgrade, same line-art cause (largestCompFrac 0.016, compCount 4). Opened the crop and the source scan (Ch. 4-p007b / book p.51): it is the real diagram, cleanly boxed, no adjacent text pulled in."
+  },
+  {
+    "file": "figures/Ch. 4-p008a-f01.png",
+    "reason": "Figure 4.19 (zipper-merge diagram: converging lanes with a cogwheel icon). Text-only misgrade, same line-art cause (largestCompFrac 0.025, compCount 4). Opened the crop and the source scan (Ch. 4-p008a / book p.52): it is the real diagram, cleanly boxed."
+  },
+  {
+    "file": "figures/Ch. 4-p013a-f01.png",
+    "reason": "Figure 4.31 (stopping-distance bar chart at 20/40/60/80 km/h, reaction vs. braking distance). Text-only misgrade — the bars and numerals read as disconnected blobs (largestCompFrac 0.023, compCount 6). Opened the crop and the source scan (Ch. 4-p013a / book p.62): it is the real chart, cleanly boxed."
+  },
+  {
+    "file": "figures/Ch. 4-p017a-f01.png",
+    "reason": "Figure 4.40 (a school bus letting a child off, with a pedestrian-crossing inset sign and a following car). Text-only misgrade, same line-art cause (largestCompFrac 0.032, compCount 5). Opened the crop and the source scan (Ch. 4-p017a / book p.70): it is the real illustration, caption included inside the box."
+  },
+  {
+    "file": "figures/Ch. 5-p008b-f01.png",
+    "reason": "Figure 5.11 (mirror blind-spot diagram: three car top-views with dashed sightlines and impact bursts). Text-only misgrade, same line-art cause (largestCompFrac 0.01, compCount 5). Opened the crop and the source scan (Ch. 5-p008b / book p.91): it is the real diagram, cleanly boxed."
+  },
+  {
+    "file": "figures/Ch. 6-p004b-f02.png",
+    "reason": "Figure 6.7 (catalytic-converter cutaway with a car-outline locator inset and three numbered callouts). Text-only misgrade, just at the cutoff (largestCompFrac 0.055). Opened the crop and the source scan (Ch. 6-p004b / book p.103): it is the real cutaway diagram, cleanly boxed."
+  },
+  {
+    "file": "figures/Ch. 8-p007a-f01.png",
+    "reason": "Figure 8.3 (the recovery position for an unconscious casualty). Text-only misgrade, same line-art cause (largestCompFrac 0.047, compCount 5). Opened the crop and the source scan (Ch. 8-p007a / book p.146): it is the real first-aid diagram, cleanly boxed — one of the highest-stakes illustrations in the book."
   }
 ]

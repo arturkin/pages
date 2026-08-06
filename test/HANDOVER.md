@@ -19,16 +19,33 @@ before you change that — there is a leak to avoid.
 | Book pages | 188, mean OCR confidence 97.5% |
 | Word accuracy | 96.6–99.4% chapters, 94.6% sign sheet |
 | Study cards | **769** — 249 authored MCQ, 6 cloze, 514 sign, 27 exclusions |
-| Dataset | 91 sections · 1,938 chunks · 357 signs |
-| `npm run test:e2e` | **197 green** |
+| Dataset | 92 sections · 1,940 chunks · 357 signs |
+| `npm run test:e2e` | **199 green** |
 | `npm run test:app` | **99 green** (was 97 — two regression tests added) |
 | `npm run cards -- --strict` | exit 0 |
 | `npm run typecheck` | clean |
-| `site/figures/` | 978 files |
+| `site/figures/` | 992 files |
 
-All independently re-verified green this session. **No floor was ever lowered.** 1 check
-was added this session (196 → 197: the tail-omission allowlist assertion); the running
-total across all sessions is 20.
+All independently re-verified green this session. **No floor was ever lowered.** 2 checks
+were added this session (197 → 199: numbered-figure coverage, and its allowlist
+staleness assertion — see `FIXES.md` C16); the running total across all sessions is 22.
+
+## What landed this session — a "Figure N.M" cross-reference oracle, 14 more misgraded figures rescued, and a permanent check
+
+A one-off script enumerated every "Figure N.M" the book's own prose cites and checked it
+against what actually publishes: 108 of 131 were already fine, 20 were missing, 3 were
+genuinely ambiguous (referenced in text but never printed in caption position on any
+page — 3.1, 3.2, 7.4). Every one of the 20 was opened by eye against its source scan
+before any action — see `FIXES.md` C14's follow-up for what each crop showed. 14 were
+the same `checkcrops` line-art misgrading C14 already had a workaround for, and got the
+same treatment (`pipeline/figure-grade-overrides.json` 12 → 26 entries). 6 were refused
+rather than rescued: two crops each merge two distinct numbered figures (plus, in one
+case, a full paragraph of body text) into a single region, which is a cropper defect
+`checkcrops` could not have caught and no override can honestly fix; the sixth, figure
+4.42, has no crop region at all — see `FIXES.md` C16-r1 for why, and why no fix was
+attempted this session. The oracle itself was ported into `pipeline/src/e2e.ts` as a
+permanent check (`FIXES.md` C16) rather than staying a one-off audit, floored at 121 of
+131 published (1 below the 122 measured after this session's rescues).
 
 Rebuild from clean with `npm install && npm run all` (~8 min; OCR is the slow part).
 

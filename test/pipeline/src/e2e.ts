@@ -389,6 +389,228 @@ function rejectedCropFiles(work: string): Set<string> {
 }
 
 /**
+ * Every "Figure N.M" the book's own prose refers to must have a published crop
+ * somewhere on its page. This is the permanent form of the phase-1 oracle that
+ * found the 20 rescued/missing figures fixed alongside this check — same three
+ * hard-won corrections, re-derived here rather than copied so the check runs
+ * off the live build:
+ *
+ *  1. Match by *vertical containment* (a caption's y-position must fall inside
+ *     a candidate region's y..y+h band, ±MARGIN), not by counting figures per
+ *     page — page-counting is what let Figure 6.16/6.17 (real, adjacent
+ *     figures) get misclassified in an earlier pass of this same investigation.
+ *  2. Exclude `isRule` crops (the decorative header rule / gutter slivers,
+ *     see build-html's `isRule`) from the candidate pool entirely — they are
+ *     page furniture, never a figure, and must not absorb a caption as either
+ *     a hit or a miss.
+ *  3. Treat every `pipeline/figure-grade-overrides.json` entry as published
+ *     ground truth, regardless of checkcrops' verdict — `rejectedCropFiles`
+ *     already encodes this.
+ *
+ * A caption's own y is sometimes printed well away from its image (Figure 6.1's
+ * caption sits at the top of Ch. 6 p.101 while its icon-legend crop is two
+ * paragraphs lower — both hand-confirmed real). Strict containment alone
+ * misses that case, so unresolved captions fall back to the nearest
+ * still-unclaimed region on the same page: this only fires when nothing on the
+ * page satisfies strict containment, so it cannot steal a region that some
+ * other caption already legitimately claimed by position.
+ *
+ * BLIND SPOT — this oracle sees only "Figure N.M"-style captions, which appear
+ * solely in the numbered chapters (Ch. 1–2 … Ch. 8). The Appendix and
+ * umferdarmerki_enska documents caption nothing this way despite holding 52%
+ * of all figure-style crop regions in the corpus, and 78 unnumbered crop
+ * regions elsewhere (8 of them graded text-only) are equally invisible to it.
+ * A green result here is not a coverage guarantee for those documents.
+ */
+interface FigureOccurrence {
+  doc: string;
+  scan: string;
+  n: number;
+  m: number;
+  lineIdx: number;
+  lineText: string;
+  y: number;
+  isCaption: boolean;
+}
+
+/** "Figure 3.38A" must match with the number, tolerating a trailing sub-panel
+ *  letter — a plain trailing `\b` fails between two \w chars ("7" then "A"),
+ *  which silently dropped Figure 3.38 out of the caption pool in an earlier
+ *  pass. A negative digit lookahead instead of `\b` reproduces, on the current
+ *  corpus, the exact same 131 distinct figure numbers as the phase-1 oracle's
+ *  strict+fuzzy combination did — so the fuzzy OCR-confusable pass it also ran
+ *  isn't needed for a deterministic regression check. */
+const FIGURE_REF = /\bFig(?:ure)?\.?\s*(\d{1,2})\s*[.,]\s*(\d{1,3})(?!\d)/gi;
+
+function figureNumberCoverage(): {
+  published: number;
+  missing: number;
+  ambiguous: number;
+  total: number;
+  missingLabels: string[];
+  ambiguousLabels: string[];
+  staleAllowlist: string[];
+} {
+  const WORK = path.join(ROOT, 'build/work');
+  const OCR = path.join(WORK, 'ocr');
+  const figManifest: Record<string, FigureRegion[]> = JSON.parse(
+    readFileSync(path.join(WORK, 'figures.json'), 'utf8'),
+  );
+  const cropQa: CropRow[] = JSON.parse(readFileSync(path.join(WORK, 'crop-qa.json'), 'utf8'));
+  const qaByFile = new Map(cropQa.map((c) => [c.file, c]));
+  const overridesPath = path.join(ROOT, 'pipeline/figure-grade-overrides.json');
+  const overrideFiles = new Set<string>(
+    existsSync(overridesPath)
+      ? (JSON.parse(readFileSync(overridesPath, 'utf8')) as { file: string }[]).map((o) => o.file)
+      : [],
+  );
+  const isRuleCrop = (c: CropRow) => Math.max(c.w / c.h, c.h / c.w) >= 6 && c.contentFrac < 0.12;
+  /** true = confirmed non-picture, false = published (incl. override), undefined = no qa row. */
+  const rejectedStatus = (file: string): boolean | undefined => {
+    const qa = qaByFile.get(file);
+    if (!qa) return undefined;
+    if (overrideFiles.has(file)) return false;
+    return qa.verdict === 'text-only' || qa.verdict === 'blank';
+  };
+
+  // `doc` here is the OCR page's own `.doc` field, which is already the file-stem
+  // base ("Ch. 6"), not the site docid ("ch-6") — no OCR_BASE lookup needed.
+  const ocrLines = new Map<string, OcrLine[]>();
+  const linesFor = (doc: string, scan: string): OcrLine[] => {
+    const key = `${doc}/${scan}`;
+    if (ocrLines.has(key)) return ocrLines.get(key)!;
+    const m = /^(\d+)([ab])$/.exec(scan);
+    let lines: OcrLine[] = [];
+    if (m) {
+      const file = path.join(OCR, `${doc}-p${m[1]!.padStart(3, '0')}${m[2]}.json`);
+      if (existsSync(file)) lines = (JSON.parse(readFileSync(file, 'utf8')) as OcrPage).lines;
+    }
+    ocrLines.set(key, lines);
+    return lines;
+  };
+
+  const isContinuation = (o: FigureOccurrence): boolean => {
+    const lines = linesFor(o.doc, o.scan);
+    if (o.lineIdx <= 0 || o.lineIdx - 1 >= lines.length) return false;
+    const prev = lines[o.lineIdx - 1]!.text.trim().toLowerCase();
+    return prev.endsWith('(see') || prev.endsWith('(');
+  };
+
+  const occurrences: FigureOccurrence[] = [];
+  for (const f of readdirSync(OCR).filter((n) => n.endsWith('.json'))) {
+    const page: OcrPage = JSON.parse(readFileSync(path.join(OCR, f), 'utf8'));
+    const scan = `${page.pdfPage}${page.side}`;
+    page.lines.forEach((line, lineIdx) => {
+      for (const m of line.text.matchAll(FIGURE_REF)) {
+        occurrences.push({
+          doc: page.doc, scan, n: Number(m[1]), m: Number(m[2]),
+          lineIdx, lineText: line.text, y: line.y, isCaption: false,
+        });
+      }
+    });
+  }
+  for (const o of occurrences) {
+    const lt = o.lineText.trim();
+    const idx = lt.toLowerCase().indexOf('figure') === -1 ? lt.toLowerCase().indexOf('fig.') : lt.toLowerCase().indexOf('figure');
+    o.isCaption =
+      !isContinuation(o) &&
+      idx >= 0 &&
+      idx <= 2 &&
+      !lt.toLowerCase().startsWith('(see') &&
+      !lt.toLowerCase().slice(0, 20).includes('see figure');
+  }
+
+  const MARGIN = 0.12;
+  type Status = 'PUBLISHED' | 'MISSING' | 'AMBIGUOUS';
+  const results = new Map<string, { doc: string; scan: string; status: Status }>();
+
+  const byPage = new Map<string, Map<string, { n: number; m: number; y: number }>>();
+  for (const o of occurrences) {
+    if (!o.isCaption) continue;
+    const pageKey = `${o.doc}/${o.scan}`;
+    const numKey = `${o.n}.${o.m}`;
+    const bucket = byPage.get(pageKey) ?? new Map();
+    byPage.set(pageKey, bucket);
+    const existing = bucket.get(numKey);
+    if (!existing || o.y < existing.y) bucket.set(numKey, { n: o.n, m: o.m, y: o.y });
+  }
+  const refPages = new Map<string, Set<string>>();
+  for (const o of occurrences) {
+    if (o.isCaption) continue;
+    const numKey = `${o.n}.${o.m}`;
+    const set = refPages.get(numKey) ?? new Set<string>();
+    set.add(`${o.doc}/${o.scan}`);
+    refPages.set(numKey, set);
+  }
+
+  for (const [pageKey, nums] of byPage) {
+    const [doc, scan] = pageKey.split('/') as [string, string];
+    const m = /^(\d+)([ab])$/.exec(scan)!;
+    const figKey = `${doc}-p${m[1]!.padStart(3, '0')}${m[2]}`;
+    const regions = (figManifest[figKey] ?? []).filter((r) => {
+      const qa = qaByFile.get(r.file);
+      return !(qa && isRuleCrop(qa));
+    });
+    const regInfo = regions.map((r) => ({ file: r.file, y: r.y, h: r.h, rejected: rejectedStatus(r.file) }));
+
+    const sorted = [...nums.values()].sort((a, b) => a.y - b.y);
+    const everClaimed = new Set<string>();
+    const rows: { key: string; y: number; status: Status | null }[] = [];
+    for (const num of sorted) {
+      const key = `${num.n}.${num.m}`;
+      const containing = regInfo.filter((r) => r.y - MARGIN <= num.y && num.y <= r.y + r.h + MARGIN);
+      const survivor = containing.find((r) => r.rejected === false);
+      const rejectHit = containing.find((r) => r.rejected === true);
+      const unknownHit = containing.find((r) => r.rejected === undefined);
+      let status: Status | null = null;
+      if (survivor) { status = 'PUBLISHED'; everClaimed.add(survivor.file); }
+      else if (rejectHit) { status = 'MISSING'; everClaimed.add(rejectHit.file); }
+      else if (unknownHit) { status = 'AMBIGUOUS'; everClaimed.add(unknownHit.file); }
+      rows.push({ key, y: num.y, status });
+    }
+    const unclaimed = regInfo.filter((r) => !everClaimed.has(r.file));
+    for (const row of rows) {
+      if (row.status !== null) continue;
+      const cand = [...unclaimed].sort((a, b) => Math.abs(a.y - row.y) - Math.abs(b.y - row.y));
+      const pub = cand.find((r) => r.rejected === false);
+      const rej = cand.find((r) => r.rejected === true);
+      const unk = cand.find((r) => r.rejected === undefined);
+      if (pub) { row.status = 'PUBLISHED'; unclaimed.splice(unclaimed.indexOf(pub), 1); }
+      else if (rej) { row.status = 'MISSING'; unclaimed.splice(unclaimed.indexOf(rej), 1); }
+      else if (unk) { row.status = 'AMBIGUOUS'; unclaimed.splice(unclaimed.indexOf(unk), 1); }
+      else row.status = 'MISSING';
+    }
+    for (const row of rows) results.set(row.key, { doc, scan, status: row.status! });
+  }
+  for (const [key, pages] of refPages) {
+    if (!results.has(key)) {
+      const [doc, scan] = [...pages][0]!.split('/') as [string, string];
+      results.set(key, { doc, scan, status: 'AMBIGUOUS' });
+    }
+  }
+
+  // Referenced-but-never-captioned figures this oracle cannot adjudicate
+  // without opening the scan by hand (see the task write-up for 3.1/3.2/7.4):
+  // allowlisted explicitly rather than silently excluded from the denominator.
+  const AMBIGUOUS_ALLOWLIST = new Set(['3.1', '3.2', '7.4']);
+  const staleAllowlist = [...AMBIGUOUS_ALLOWLIST].filter((label) => results.get(label)?.status !== 'AMBIGUOUS');
+
+  const missingLabels = [...results].filter(([, r]) => r.status === 'MISSING').map(([k]) => k);
+  const ambiguousLabels = [...results].filter(([, r]) => r.status === 'AMBIGUOUS').map(([k]) => k);
+  const published = [...results.values()].filter((r) => r.status === 'PUBLISHED').length;
+
+  return {
+    published,
+    missing: missingLabels.length,
+    ambiguous: ambiguousLabels.length,
+    total: results.size,
+    missingLabels: missingLabels.sort((a, b) => a.localeCompare(b, undefined, { numeric: true })),
+    ambiguousLabels: ambiguousLabels.sort((a, b) => a.localeCompare(b, undefined, { numeric: true })),
+    staleAllowlist,
+  };
+}
+
+/**
  * Does any published chunk mix text from two different frames of its page?
  *
  * Frames come from `frameCut` over the same line set `buildPage` feeds
@@ -1145,6 +1367,37 @@ async function run() {
     check('clipped crops stay under 10% of published pictures', cutShare < 0.10, `${(cutShare * 100).toFixed(1)}%`);
     console.log(`  ${published} graded pictures published, ${badPublished.length} non-pictures, ${flaggedCut} clipped (${(cutShare * 100).toFixed(1)}%) all marked`);
   }
+
+  // Numbered-figure coverage: every "Figure N.M" the book's own prose cites must
+  // have a published crop. See figureNumberCoverage()'s doc comment for the
+  // method, its three corrections, and the blind spot (Appendix and
+  // umferdarmerki_enska caption nothing this way, so a green result here says
+  // nothing about their coverage).
+  console.log('\n— numbered-figure coverage —');
+  const figCov = figureNumberCoverage();
+  console.log(
+    `  ${figCov.published}/${figCov.total} figure numbers published, ${figCov.missing} missing, ${figCov.ambiguous} ambiguous`,
+  );
+  if (figCov.missingLabels.length) console.log(`      missing: ${figCov.missingLabels.join(', ')}`);
+  // Measured today: 122 published of 131 total (3 allowlisted ambiguous, 6
+  // genuinely missing — 2 merged multi-figure crops (3.8/3.9, 3.33/3.34/3.35)
+  // this project refused to rescue rather than publish a wrong crop, plus 4.42,
+  // whose page has no crop region at all — see HANDOVER.md). Floor sits 1 below
+  // the measured count per project convention, so it fails on any further
+  // regression but doesn't demand the pre-existing gaps close.
+  check(
+    'every numbered figure the book cites has a published crop (≥ 121 of 131, ambiguous excluded)',
+    figCov.published >= 121,
+    `${figCov.published}/${figCov.total} published, missing: ${figCov.missingLabels.join(', ')}`,
+  );
+  // A silent allowlist is worse than no allowlist — assert every entry still
+  // needs it, so a future fix that resolves one of these three is forced to
+  // remove it rather than leave a stale exemption logging quietly.
+  check(
+    'ambiguous-figure allowlist has no stale entries',
+    figCov.staleAllowlist.length === 0,
+    figCov.staleAllowlist.join(', '),
+  );
 
   // Every figure referenced by the HTML must exist on disk.
   let refs = 0;
