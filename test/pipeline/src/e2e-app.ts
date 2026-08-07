@@ -587,13 +587,22 @@ async function run() {
       const c = (window as any).CARDS.cards.find((x: any) => x.type === 'meaning-to-sign');
       (window as any).UI.startSession('practice', [c]);
     });
-    await page.evaluate(() => {
+    const picked = await page.evaluate(() => {
       const s = (window as any).UI.session();
-      (window as any).UI.answerCurrent((s.current.answer + 1) % 4);
+      const wrong = (s.current.answer + 1) % 4;
+      (window as any).UI.answerCurrent(wrong);
+      return s.current.options[wrong];
     });
     await page.locator('[data-act="next"]').click();
     check('a missed meaning-to-sign review shows the sign',
-      (await page.locator('[data-missed] .signbox img').count()) === 1);
+      (await page.locator('[data-missed] .feedback.right .signbox img').count()) === 1);
+    // The shuffle that produced `picked` is gone by now, so this also proves the
+    // answer given is carried through the session rather than re-derived.
+    check('a missed review names the answer that was given',
+      (await page.locator('[data-missed] .feedback.wrong').getAttribute('data-given')) === picked,
+      String(picked));
+    check('a missed review shows the picture that was picked',
+      (await page.locator('[data-missed] .feedback.wrong .signbox img').count()) === 1);
 
     // Wide picture options used to push the page sideways.
     const widest = data.cards

@@ -106,10 +106,8 @@ function probeBook() {
 /** The citation: a link when the book is there, plain text with a reason when not. */
 function sourceLink(card) {
   if (bookReachable === false) {
-    return el('span', {
-      class: 'src', 'data-src': 'unreachable',
-      title: `The HTML edition would be at ../site/${card.href}, and it is not next to this copy of the app.`,
-    }, `In the book: ${DOC_LABEL.get(card.doc) || card.doc} — the site/ folder is not next to this app`);
+    return el('span', { class: 'src', 'data-src': 'unreachable' },
+      `In the book: ${DOC_LABEL.get(card.doc) || card.doc}`);
   }
   return el('a', { class: 'src', href: `../site/${card.href}`, target: '_blank', rel: 'noreferrer' },
     'See it in the book →');
@@ -160,6 +158,8 @@ function snapshot() {
       ms: a.ms,
       choice: a.choice ?? null,
       typed: a.typed ?? null,
+      given: a.given ?? null,
+      givenImg: a.givenImg ?? null,
     })),
     deadline: session.deadline,
     startedAt: session.startedAt,
@@ -183,7 +183,10 @@ function resumable() {
   if (cards.some((c) => !c)) return null;
   const answers = s.answers
     .filter((a) => byId.has(a.id))
-    .map((a) => ({ card: byId.get(a.id), correct: !!a.correct, ms: a.ms, choice: a.choice, typed: a.typed }));
+    .map((a) => ({
+      card: byId.get(a.id), correct: !!a.correct, ms: a.ms,
+      choice: a.choice, typed: a.typed, given: a.given, givenImg: a.givenImg,
+    }));
   if (answers.length !== s.answers.length) return null;
   // A locked practice card has been answered but not advanced past; picking up at
   // the next unanswered card is the only place that cannot double-count.
@@ -254,7 +257,15 @@ function answerCurrent(choice, typed) {
   const correct =
     card.type === 'cloze' ? clozeCorrect(card, typed ?? '') : choice === session.current.answer;
 
-  session.answers.push({ card, correct, ms, choice, typed });
+  // `choice` indexes the *shuffled* options, and the shuffle is thrown away when
+  // the card advances — so the answer given is kept as its own text and picture,
+  // or the exam summary cannot say what was actually picked.
+  const cur = session.current;
+  session.answers.push({
+    card, correct, ms, choice, typed,
+    given: card.type === 'cloze' ? (typed ?? '') : cur.options[choice],
+    givenImg: cur.optionImgs ? cur.optionImgs[choice] : null,
+  });
 
   if (session.mode === 'exam') {
     // A mock's answers stay in the paper until it is submitted. Logging them as
@@ -570,7 +581,7 @@ function viewExam() {
 }
 
 /** One "here is what you should have known" card, used for every missed item. */
-function missedCard(card, unanswered) {
+function missedCard(card, unanswered, given, givenImg) {
   // Any sign card carries its picture, in both directions. Showing it only for
   // sign-to-meaning left "Which sign means X?" reviews with no sign at all —
   // just the question, then the same phrase twice.
@@ -579,9 +590,14 @@ function missedCard(card, unanswered) {
   return el('div', { class: 'card', 'data-missed': card.id },
     el('p', { class: 'qtext' }, card.type === 'cloze' ? card.text : card.question),
     unanswered ? el('p', { class: 'note' }, 'Not answered — you ran out of time.') : null,
+    // A blank typed answer still gets a row: "you left it empty" is a different
+    // lesson from "you picked the wrong one", and silence reads as a bug.
+    unanswered ? null : el('div', { class: 'feedback wrong', 'data-given': given ?? '' },
+      givenImg ? signbox(givenImg, given) : null,
+      el('div', { class: 'verdict' }, `You answered: ${given || '(left blank)'}`)),
     el('div', { class: 'feedback right' },
       isSign ? signbox(card.img, answerText) : null,
-      el('div', { class: 'verdict' }, answerText),
+      el('div', { class: 'verdict' }, `Correct answer: ${answerText}`),
       // For meaning-to-sign the generated explanation just repeats the stem.
       card.explanation && !card.question.includes(answerText)
         ? el('div', { class: 'why' }, card.explanation) : null,
@@ -601,8 +617,9 @@ function viewDone() {
   const passed = right >= window.Engine.EXAM.passMark;
   const skipped = isExam ? s.cards.slice(s.answers.length) : [];
   const missed = [
-    ...s.answers.filter((a) => !a.correct).map((a) => ({ card: a.card, unanswered: false })),
-    ...skipped.map((card) => ({ card, unanswered: true })),
+    ...s.answers.filter((a) => !a.correct)
+      .map((a) => ({ card: a.card, unanswered: false, given: a.given, givenImg: a.givenImg })),
+    ...skipped.map((card) => ({ card, unanswered: true, given: null, givenImg: null })),
   ];
 
   return [
@@ -615,7 +632,7 @@ function viewDone() {
           `Time ran out with ${skipped.length} question${skipped.length === 1 ? '' : 's'} unanswered; they count as wrong.`)
       : null,
     missed.length ? el('h2', {}, `Review ${missed.length} you missed`) : null,
-    ...missed.map((m) => missedCard(m.card, m.unanswered)),
+    ...missed.map((m) => missedCard(m.card, m.unanswered, m.given, m.givenImg)),
     el('div', { class: 'row', style: 'margin-top:1rem' },
       el('button', { class: 'primary', 'data-act': 'home', onclick: () => { session = null; route('home'); } }, 'Done')),
   ];
