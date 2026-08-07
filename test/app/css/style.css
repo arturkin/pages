@@ -129,6 +129,11 @@
 
   --measure: 36rem;  /* ≈ 62 characters of the reading face */
   --col: 40rem;
+
+  /* The page gutter, deliberately not a step on the ladder above: the run bar
+     full-bleeds by negating it, so the two must always move together. At the
+     ladder's 1rem the cards read as edge-to-edge on a phone. */
+  --gut: 1.25rem;
   --top-h: 3.75rem;  /* the sticky header, so the run bar can sit under it */
 }
 
@@ -145,9 +150,14 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
   overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
+  /* Answering is a lot of tapping in one spot, and iOS read the second tap as
+     double-tap-to-zoom. `manipulation` drops that gesture and keeps pinch, so
+     a sign can still be zoomed deliberately. No form field is under 16px, so
+     focus-zoom never fires either. */
+  touch-action: manipulation;
 }
 
-.wrap { max-width: var(--col); margin: 0 auto; padding: 0 var(--sp-4) 5.5rem; }
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 var(--gut) 5.5rem; }
 
 /* Keyboard use has to be visible; the ring is the accent, which clears 3:1
    against every surface in both themes. */
@@ -170,7 +180,7 @@ header.top {
 }
 .top-in {
   max-width: var(--col); margin: 0 auto; height: 100%;
-  padding: 0 var(--sp-4);
+  padding: 0 var(--gut);
   display: flex; align-items: center; gap: var(--sp-3);
 }
 .brand { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.005em; }
@@ -273,7 +283,9 @@ p.lede {
 .duechip.warn { background: var(--caution); color: var(--caution-fg); box-shadow: var(--shadow-1); }
 .duechip.calm { background: var(--surface-2); color: var(--muted); border: 1px solid var(--rule); }
 
-.actions { display: grid; gap: var(--sp-2); }
+/* The gap is internal, so anything following the block — the last-mock card on
+   the dashboard — sat flush against the final button. */
+.actions { display: grid; gap: var(--sp-2); margin-bottom: var(--sp-3); }
 .actions button { padding: 0.85rem var(--sp-4); text-align: left; display: flex; align-items: center; gap: 0.8rem; border-radius: var(--r-md); }
 .actions .ic { font-size: 1.25rem; flex: none; opacity: 0.9; }
 .actions .t { font-weight: 600; letter-spacing: -0.005em; }
@@ -421,8 +433,8 @@ input.opt::placeholder { color: var(--muted); }
    on an image question the clock used to scroll clean off the top of the page. */
 .runhead {
   position: sticky; top: var(--top-h); z-index: 12;
-  margin: 0 calc(-1 * var(--sp-4)) var(--sp-3);
-  padding: 0.55rem var(--sp-4) 0.5rem;
+  margin: 0 calc(-1 * var(--gut)) var(--sp-3);
+  padding: 0.55rem var(--gut) 0.5rem;
   background: var(--bg);
   border-bottom: 1px solid var(--rule);
 }
@@ -442,7 +454,7 @@ input.opt::placeholder { color: var(--muted); }
   background: color-mix(in srgb, var(--bg) 90%, transparent);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--rule);
-  padding: 0.6rem var(--sp-4) calc(0.6rem + env(safe-area-inset-bottom));
+  padding: 0.6rem var(--gut) calc(0.6rem + env(safe-area-inset-bottom));
 }
 .runfoot .inner { max-width: var(--col); margin: 0 auto; display: flex; gap: var(--sp-2); }
 .runfoot button { flex: 1; padding: 0.8rem; font-size: 1rem; }
