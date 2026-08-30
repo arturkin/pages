@@ -110,7 +110,9 @@
     var photos = b.coord
       ? '<a class="book photos" href="#" ' + photoAttrs(b.name, b.coord) + '>📷 Photos</a>'
       : '';
-    var right = (photos || book || tag) ? '<span class="bandright">' + photos + book + tag + '</span>' : '';
+    var nav = navChips(b.coord, "book");
+    var right = (photos || nav || book || tag)
+      ? '<span class="bandright">' + photos + nav + book + tag + '</span>' : '';
     var metaBits = [stay, nights, esc(b.dates)].filter(Boolean).join(" · ");
     var card = document.createElement("div");
     card.className = "basecard";
@@ -393,6 +395,21 @@
 
   /* ---------- photo browser (in-page modal, images from Wikimedia Commons) --- */
   // trigger markup: a link carrying the place name + coord; clicks are delegated.
+  // driving links for any place carrying a coordinate (band chips + photo modal)
+  function navUrls(coord) {
+    var lat = coord && coord[0], lon = coord && coord[1];
+    if (lat == null || lon == null || isNaN(lat) || isNaN(lon)) return null;
+    return {
+      gmaps: "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lon,
+      waze:  "https://waze.com/ul?ll=" + lat + "," + lon + "&navigate=yes"
+    };
+  }
+  function navChips(coord, cls) {
+    var u = navUrls(coord);
+    if (!u) return "";
+    return '<a class="' + cls + ' nav gmaps" href="' + u.gmaps + '" target="_blank" rel="noopener">\u{1F5FA}\uFE0F Maps</a>' +
+           '<a class="' + cls + ' nav waze" href="' + u.waze + '" target="_blank" rel="noopener">\u{1F697} Waze</a>';
+  }
   function photoAttrs(name, coord) {
     var lat = coord ? coord[0] : "", lon = coord ? coord[1] : "";
     return 'data-photos="1" data-name="' + esc(name) + '" data-lat="' + lat + '" data-lon="' + lon + '"';
@@ -498,9 +515,9 @@
 
     // driving links — only when the place carries a coordinate
     var gm = modal.querySelector(".pm-gmaps"), wz = modal.querySelector(".pm-waze");
-    if (!isNaN(lat) && !isNaN(lon)) {
-      gm.href = "https://www.google.com/maps/dir/?api=1&destination=" + lat + "," + lon;
-      wz.href = "https://waze.com/ul?ll=" + lat + "," + lon + "&navigate=yes";
+    var nav = navUrls([lat, lon]);
+    if (nav) {
+      gm.href = nav.gmaps; wz.href = nav.waze;
       gm.removeAttribute("hidden"); wz.removeAttribute("hidden");
     } else { gm.setAttribute("hidden", ""); wz.setAttribute("hidden", ""); }
     var body = modal.querySelector(".pm-body");

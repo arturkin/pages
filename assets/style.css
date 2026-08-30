@@ -100,6 +100,8 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .baseband .book.airbnb{color:#c1395b}
 .baseband .book.booking{color:#1a4a8a}
 .baseband .book.hotel{color:#7a5c1a}
+.baseband .book.nav.gmaps{color:#1a6b4a}
+.baseband .book.nav.waze{color:#1c5fa8}
 .days{border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:var(--card);overflow:hidden}
 .day{padding:13px 15px;border-top:1px dashed var(--line)}
 .day:first-child{border-top:none}
