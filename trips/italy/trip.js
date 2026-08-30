@@ -4,7 +4,7 @@ window.TRIP = {
   "meta": {
     "title": "ITALY — TWO WEEKS: TUSCANY",
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 14 nights",
-    "route": "Florence → Argentario (Maremma) → Crete Senesi (Asciano) → Val d'Orcia (Montalcino) → Florence",
+    "route": "Florence → Argentario (Porto Santo Stefano) → Chianti Classico (Gaiole) → Val d'Orcia (Castiglione d'Orcia) → Florence",
     "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
     "flyBack": "MXP 07:00 → KEF at dawn",
     "start": "2026-10-03"
@@ -60,7 +60,8 @@ window.TRIP = {
           "items": [
             "09:00 KEF → 15:10 MXP; Malpensa Express to Milano Centrale (~50 min)",
             "Frecciarossa Milan → Florence (~2 h, direct; book in advance). Arrive ~19:30",
-            "Check in near Santa Maria Novella; easy dinner, early night"
+            "Check in near Santa Maria Novella; easy dinner, early night",
+            "Sleep near the station OR near the tram T2 line — tomorrow's car pickup is at the airport"
           ]
         }
       ]
@@ -69,27 +70,27 @@ window.TRIP = {
       "key": "argentario",
       "pin": 2,
       "emoji": "🏖️",
-      "name": "Argentario / Maremma",
-      "stay": "coast hotel",
+      "name": "Argentario · Porto Santo Stefano",
+      "stay": "house at Poggio Calvello, Porto Santo Stefano",
       "nights": 4,
       "dates": "Sun 4 – Thu 8 Oct",
       "color": "#2f8f8a",
       "coord": [
-        42.3924,
-        11.2064
+        42.43726,
+        11.13755
       ],
       "carFree": false,
-      "book": [
-        {
-          "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Monte-Argentario--Tuscany--Italy/homes?checkin=2026-10-04&checkout=2026-10-08&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
-        },
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Monte+Argentario%2C+Italy&checkin=2026-10-04&checkout=2026-10-08&group_adults=2&no_rooms=1&group_children=0"
-        }
-      ],
+      "book": [],
       "highlights": [
+        {
+          "name": "Porto Santo Stefano",
+          "type": "town",
+          "coord": [
+            42.4356,
+            11.1178
+          ],
+          "note": "the harbour below the house — groceries, seafood, Spanish Fortress views"
+        },
         {
           "name": "Spiaggia della Feniglia",
           "type": "beach",
@@ -97,7 +98,7 @@ window.TRIP = {
             42.408,
             11.185
           ],
-          "note": "pine-backed sandy beach + dune reserve"
+          "note": "pine-backed sandy beach + dune reserve (~25 min)"
         },
         {
           "name": "Parco della Maremma",
@@ -106,7 +107,7 @@ window.TRIP = {
             42.6558,
             11.1053
           ],
-          "note": "wild coastal park, trails, cattle"
+          "note": "wild coastal park, trails, cattle (~45 min)"
         },
         {
           "name": "Orbetello lagoon",
@@ -154,15 +155,6 @@ window.TRIP = {
           "note": "cypress avenue + Super Tuscan wine (Day-2 coast drive down)"
         },
         {
-          "name": "Porto Santo Stefano",
-          "type": "town",
-          "coord": [
-            42.4356,
-            11.1178
-          ],
-          "note": "harbour town, Spanish Fortress views"
-        },
-        {
           "name": "Isola del Giglio",
           "type": "beach",
           "coord": [
@@ -197,15 +189,16 @@ window.TRIP = {
           "title": "Pick up the car, the long coast road south",
           "arrive": true,
           "items": [
-            "Collect the rental at Firenze SMN; follow the signed ZTL exit route, do NOT drive into the centre",
-            "Confirm the drop is back at FLORENCE on the contract (round-trip, no one-way fee)",
+            "Collect the rental ~09:00 (Florence airport FLR is the safe Sunday desk — tram T2 from SMN, ~20 min — and it keeps you out of the ZTL entirely)",
+            "Confirm the drop is back at the SAME location on the contract (round-trip, no one-way fee)",
             "Take the scenic way down the SS1 Aurelia: Bolgheri — the cypress avenue (Viale dei Cipressi) and a Super Tuscan stop (Sassicaia / Ornellaia country; you're driving — taste light or just buy)",
             "Late lunch at Castiglione della Pescaia (medieval seaside town)",
-            "On to Porto Ercole; check in, first beach evening, seafood in the harbour"
+            "Groceries in Porto Santo Stefano before you climb to the house — it's self-catering",
+            "Check in at Poggio Calvello; first evening on the terrace, seafood down in the harbour (the trip's longest day — if the pickup runs late, skip Bolgheri and go direct, ~2 h 50)"
           ],
           "leg": {
             "mode": "car",
-            "text": "Florence → Bolgheri → Castiglione della Pescaia → Porto Ercole · ~3 h 15 driving + stops (the trip's longest drive)"
+            "text": "Florence → Bolgheri → Castiglione della Pescaia → Porto Santo Stefano · ~4 h 15 driving + stops"
           }
         },
         {
@@ -213,9 +206,9 @@ window.TRIP = {
           "date": "Mon 5 Oct",
           "title": "Feniglia beach + the Tarocchi",
           "items": [
-            "Spiaggia della Feniglia: long pine-backed beach; walk or bike the Duna Feniglia reserve",
+            "Spiaggia della Feniglia (~25 min): long pine-backed beach; walk or bike the Duna Feniglia reserve",
             "Giardino dei Tarocchi at Capalbio (Niki de Saint Phalle's mosaic park) — afternoons only; the season runs to 15 Oct, so early October is comfortably inside it",
-            "Aperitivo on the Argentario"
+            "Aperitivo back on the Argentario — Bar Il Buco over the harbour"
           ]
         },
         {
@@ -223,8 +216,8 @@ window.TRIP = {
           "date": "Tue 6 Oct",
           "title": "Parco della Maremma",
           "items": [
-            "Parco della Maremma (Alberese): coastal trails to the towers and the wild beach, Maremmana cattle",
-            "Lagoon seafood and Orbetello bottarga for dinner"
+            "Parco della Maremma (Alberese, ~45 min): coastal trails to the towers and the wild beach, Maremmana cattle",
+            "Lagoon seafood and Orbetello bottarga for dinner (L'Oste Dispensa on the Giannella spit)"
           ]
         },
         {
@@ -233,55 +226,123 @@ window.TRIP = {
           "title": "Boat, coves, or the lagoon",
           "items": [
             "Boat around the Argentario coves, or the footpath down to Cala del Gesso",
-            "OR Orbetello lagoon WWF reserve (flamingos) + the Spanish Fortress viewpoint at Porto Santo Stefano",
+            "OR Orbetello lagoon WWF reserve (flamingos) + the Spanish Fortress viewpoint right above you in Porto Santo Stefano",
             "OR go inland (~1 h) to Massa Marittima: an underrated medieval town in the Colline Metallifere, dramatic cathedral, few tourists",
-            "Last Maremma swim; pack (into the hills tomorrow)"
+            "Last Maremma swim; eat down the fridge; pack (into the hills tomorrow)"
           ]
         }
       ]
     },
     {
-      "key": "cretesenesi",
+      "key": "chianti",
       "pin": 3,
-      "emoji": "🌾",
-      "name": "Crete Senesi",
-      "stay": "isolated farmhouse (Airbnb)",
-      "nights": 5,
-      "dates": "Thu 8 – Tue 13 Oct",
-      "color": "#b07a33",
+      "emoji": "🍇",
+      "name": "Chianti Classico · Montelodoli Capanna",
+      "stay": "Montelodoli Capanna, Monti in Chianti",
+      "nights": 6,
+      "dates": "Thu 8 – Wed 14 Oct",
+      "color": "#7d1f3c",
       "coord": [
-        43.234,
-        11.5606
+        43.41452,
+        11.44093
       ],
       "carFree": false,
       "book": [
         {
-          "site": "airbnb",
-          "url": "https://www.airbnb.com/s/Asciano--Tuscany--Italy/homes?checkin=2026-10-08&checkout=2026-10-13&adults=2&room_types%5B%5D=Entire%20home%2Fapt&amenities%5B%5D=7"
-        },
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Asciano%2C+Tuscany%2C+Italy&checkin=2026-10-08&checkout=2026-10-13&group_adults=2&no_rooms=1&group_children=0"
+          "site": "hotel",
+          "url": "https://www.to-tuscany.com/montelodolicapanna/"
         }
       ],
       "highlights": [
         {
-          "name": "San Gimignano",
-          "type": "town",
+          "name": "Castello di Brolio",
+          "type": "wine",
           "coord": [
-            43.4677,
-            11.0431
+            43.4135,
+            11.4639
           ],
-          "note": "the towers — Day-10 day-trip (~1 h 15)"
+          "note": "2 km — the Ricasoli castle, gardens + Brunello-of-Chianti tastings"
         },
         {
-          "name": "Monte Oliveto Maggiore",
-          "type": "church",
+          "name": "Monti in Chianti",
+          "type": "town",
           "coord": [
-            43.1719,
-            11.5478
+            43.4019,
+            11.4255
           ],
-          "note": "great abbey in a cypress wood"
+          "note": "the hamlet at your gate (2 km)"
+        },
+        {
+          "name": "Gaiole in Chianti",
+          "type": "town",
+          "coord": [
+            43.4683,
+            11.4342
+          ],
+          "note": "the market town — COOP supermarket, cafés (11 km / 12 min)"
+        },
+        {
+          "name": "Castello di Meleto",
+          "type": "wine",
+          "coord": [
+            43.45,
+            11.4244
+          ],
+          "note": "frescoed castle + cellar tastings (10 min)"
+        },
+        {
+          "name": "Badia a Coltibuono",
+          "type": "wine",
+          "coord": [
+            43.4942,
+            11.4502
+          ],
+          "note": "abbey turned wine estate, garden + restaurant (17 min)"
+        },
+        {
+          "name": "Radda in Chianti",
+          "type": "town",
+          "coord": [
+            43.4871,
+            11.3747
+          ],
+          "note": "walled hill town, the ring-road walk (20 min)"
+        },
+        {
+          "name": "Volpaia",
+          "type": "wine",
+          "coord": [
+            43.5168,
+            11.381
+          ],
+          "note": "a whole medieval village that is one winery (27 min)"
+        },
+        {
+          "name": "Panzano in Chianti",
+          "type": "town",
+          "coord": [
+            43.5449,
+            11.3159
+          ],
+          "note": "Dario Cecchini's butcher-theatre on the Chiantigiana (35 min)"
+        },
+        {
+          "name": "Greve in Chianti",
+          "type": "town",
+          "coord": [
+            43.6069,
+            11.332
+          ],
+          "note": "the arcaded triangular square, top of the SR222 (44 min)"
+        },
+        {
+          "name": "San Gusmè",
+          "type": "town",
+          "coord": [
+            43.3879,
+            11.4983
+          ],
+          "note": "tiny walled hamlet just south (15 min)"
         },
         {
           "name": "Siena",
@@ -290,25 +351,7 @@ window.TRIP = {
             43.3188,
             11.3308
           ],
-          "note": "Piazza del Campo, Duomo — ~35 min"
-        },
-        {
-          "name": "Buonconvento",
-          "type": "town",
-          "coord": [
-            43.1381,
-            11.4817
-          ],
-          "note": "walled town, good market"
-        },
-        {
-          "name": "Trequanda",
-          "type": "town",
-          "coord": [
-            43.1817,
-            11.6486
-          ],
-          "note": "quiet Crete hilltop village"
+          "note": "Piazza del Campo, Duomo — 28 min"
         },
         {
           "name": "Monteriggioni",
@@ -317,34 +360,16 @@ window.TRIP = {
             43.3906,
             11.2231
           ],
-          "note": "circular walled castle-village"
+          "note": "circular walled castle-village (41 min)"
         },
         {
-          "name": "Montisi",
+          "name": "San Gimignano",
           "type": "town",
           "coord": [
-            43.1607,
-            11.6318
+            43.4677,
+            11.0431
           ],
-          "note": "tiny Crete hamlet, medieval feel"
-        },
-        {
-          "name": "Asciano",
-          "type": "town",
-          "coord": [
-            43.234,
-            11.5606
-          ],
-          "note": "market town, Museo Cassioli"
-        },
-        {
-          "name": "Le Biancane",
-          "type": "nature",
-          "coord": [
-            43.1526,
-            10.8536
-          ],
-          "note": "geothermal 'Devil's Valley', free fumarole trail — far-west day-trip (~2 h)"
+          "note": "the towers — Day-10 day-trip (~1 h 10)"
         },
         {
           "name": "Abbazia di San Galgano",
@@ -369,38 +394,41 @@ window.TRIP = {
         {
           "d": 6,
           "date": "Thu 8 Oct",
-          "title": "Argentario → Crete Senesi, through the wild interior",
+          "title": "Argentario → Chianti, through the wild interior",
           "arrive": true,
           "items": [
-            "Take the scenic inland route up and cut through the middle of the loop:",
-            "Bagni di Petriolo: a soak in the wild free sulphur springs in the river gorge under the old bridge (no facilities — bring water shoes; skip it if you'd rather push on to the hills)",
+            "Take the inland route up rather than the motorway — the direct run is only ~2 h 10, so there's room for two good stops",
+            "Bagni di Petriolo (~1 h 20): a soak in the wild free sulphur springs in the river gorge under the old bridge (no facilities — bring water shoes; skip it if you'd rather push on)",
             "Abbazia di San Galgano: the roofless Gothic abbey open to the sky, + the sword in the stone up at the Montesiepi chapel (abbey ~€6, open ~09:00–19:00; the chapel is free)",
-            "On to the isolated farmhouse near Asciano; groceries in Asciano or Buonconvento",
-            "Settle in: the clay-hill silence, big skies, sunset over the crete"
+            "Groceries: the COOP in Gaiole in Chianti (11 km) — or a bigger shop in Siena as you pass",
+            "Check in at Montelodoli Capanna; the infinity pool, vines to the horizon, first quiet night"
           ],
           "leg": {
             "mode": "car",
-            "text": "Porto Ercole → Petriolo → San Galgano → Crete Senesi · ~3 h driving + stops (a full scenic day)"
+            "text": "Porto Santo Stefano → Petriolo → San Galgano → Monti in Chianti · ~3 h driving + stops"
           }
         },
         {
           "d": 7,
           "date": "Fri 9 Oct",
-          "title": "Asciano & Monte Oliveto Maggiore",
+          "title": "Castello di Brolio, on your doorstep",
           "items": [
-            "Slow morning at the farmhouse, then the classic crete drive on the back-roads (the biancane badlands)",
-            "Monte Oliveto Maggiore: the great abbey in its cypress wood, Signorelli & Sodoma frescoes",
-            "Asciano: the Museo Cassioli, a quiet lunch; home for sunset over the clay"
+            "Slow first morning at the house: the 16 m infinity pool, the Chianti hills",
+            "Castello di Brolio (2 km — a 10-min drive, or walk it): the Ricasoli castle where the Chianti recipe was written. Gardens, cellar tour + tasting, and the Osteria del Castello for lunch",
+            "The two hamlets at your gate: San Regolo and Monti in Chianti",
+            "Mid-October is the tail of the VENDEMMIA — cellars are working and the whole valley smells of must. Book every tasting ahead; a few estates close to visitors during picking"
           ]
         },
         {
           "d": 8,
           "date": "Sat 10 Oct",
-          "title": "Truffle villages & Buonconvento",
+          "title": "Gaiole, Coltibuono & Radda",
           "items": [
-            "The tiny Crete hilltops: Trequanda, Montisi, Castelmuzio, Petroio — Etruscan-quiet, almost empty",
-            "Buonconvento (little walled town, good market): produce, pecorino, new-harvest oil; white-truffle fairs if they're on",
-            "Aperitivo back at the farmhouse"
+            "Gaiole in Chianti (12 min): Saturday morning in the little market town, the COOP, cafés",
+            "Castello di Meleto (10 min): another Ricasoli-era castle, cellar + frescoed rooms",
+            "Badia a Coltibuono (17 min): 11th-c. abbey turned wine estate — monastic garden, cellar tasting, one of Chianti's best-known restaurants (book)",
+            "Radda in Chianti (20 min): the ring-road walk around the walls, Casa Chianti Classico",
+            "Home for sunset and the pool"
           ]
         },
         {
@@ -408,19 +436,30 @@ window.TRIP = {
           "date": "Sun 11 Oct",
           "title": "Siena",
           "items": [
-            "Into Siena (~35 min): Piazza del Campo, the Duomo, the contrade lanes — a city, but a glorious walkable one",
-            "Early evening back to the quiet; aperitivo at the farmhouse",
+            "Into Siena (~28 min): Piazza del Campo, the Duomo, the contrade lanes — a city, but a glorious walkable one. Park OUTSIDE the walls (Santa Caterina / Il Campo garages)",
+            "Lunch at Enoteca I Terzi, just off the Campo",
+            "Early evening back to the quiet; aperitivo at the house",
             "(Skip it entirely if you'd rather just do nothing in the hills — no obligation)"
           ]
         },
         {
           "d": 10,
           "date": "Mon 12 Oct",
-          "title": "San Gimignano day-trip",
+          "title": "San Gimignano & Monteriggioni",
           "items": [
-            "Out west (~1 h 15) to San Gimignano (park outside the walls): the towers, a Vernaccia, lunch",
-            "Monteriggioni on the way back if you're in no hurry — the circular walled castle-village",
-            "Last farmhouse dinner; pack for the move to the vineyard"
+            "Out west (~1 h 10) to San Gimignano (park outside the walls): the towers, a Vernaccia, lunch",
+            "Monteriggioni on the way back (~40 min from home) — the circular walled castle-village, aperitivo in the garden at Antico Travaglio",
+            "Quiet night in"
+          ]
+        },
+        {
+          "d": 11,
+          "date": "Tue 13 Oct",
+          "title": "The Chiantigiana north, or nothing at all",
+          "items": [
+            "Option A — the SR222 loop: Castello di Volpaia (27 min, a whole wine village), Panzano for Dario Cecchini's Antica Macelleria, Greve in Chianti's arcaded square (44 min)",
+            "Option B — do nothing. The pool, a book, an aperitivo on the terrace. This is what six nights in one house is for",
+            "Last Chianti dinner; pack for the move south"
           ]
         }
       ]
@@ -429,71 +468,49 @@ window.TRIP = {
       "key": "valdorcia",
       "pin": 4,
       "emoji": "🍷",
-      "name": "Val d'Orcia",
-      "stay": "vineyard hotel (Podere Brizio)",
-      "nights": 4,
-      "dates": "Tue 13 – Sat 17 Oct",
+      "name": "Val d'Orcia · Locanda in Tuscany",
+      "stay": "Locanda in Tuscany, Castiglione d'Orcia",
+      "nights": 3,
+      "dates": "Wed 14 – Sat 17 Oct",
       "color": "#8e3b46",
       "coord": [
-        43.0272,
-        11.4506
+        43.00459,
+        11.69611
       ],
       "carFree": false,
       "book": [
         {
           "site": "hotel",
-          "url": "https://poderebrizio.it/en/"
-        },
-        {
-          "site": "booking",
-          "url": "https://www.booking.com/searchresults.html?ss=Montalcino%2C+Italy&checkin=2026-10-13&checkout=2026-10-17&group_adults=2&no_rooms=1&group_children=0"
+          "url": "https://www.locandaintuscany.it/"
         }
       ],
       "highlights": [
         {
-          "name": "Montalcino",
-          "type": "wine",
-          "coord": [
-            43.057,
-            11.489
-          ],
-          "note": "Brunello town, Fortezza, enoteca"
-        },
-        {
-          "name": "Pienza",
+          "name": "Castiglione d'Orcia",
           "type": "town",
           "coord": [
-            43.0766,
-            11.6787
+            43.0071,
+            11.6155
           ],
-          "note": "pecorino, the 'ideal city'"
+          "note": "your comune — stone hill town (10 min)"
         },
         {
-          "name": "Montepulciano",
-          "type": "wine",
+          "name": "Rocca d'Orcia",
+          "type": "town",
           "coord": [
-            43.0989,
-            11.7869
+            43.0096,
+            11.6142
           ],
-          "note": "Vino Nobile cellars under the town"
+          "note": "the Rocca di Tentennano tower over the valley (10 min)"
         },
         {
           "name": "Bagno Vignoni",
           "type": "thermal",
           "coord": [
-            43.028,
-            11.617
+            43.0281,
+            11.6187
           ],
-          "note": "thermal square + free pools"
-        },
-        {
-          "name": "Abbey of Sant'Antimo",
-          "type": "church",
-          "coord": [
-            43.017,
-            11.512
-          ],
-          "note": "Romanesque abbey"
+          "note": "thermal square + the free Parco dei Mulini pools (17 min)"
         },
         {
           "name": "Bagni San Filippo",
@@ -502,7 +519,61 @@ window.TRIP = {
             42.926,
             11.618
           ],
-          "note": "white travertine hot springs"
+          "note": "white travertine hot springs, 'Fosso Bianco' (25 min)"
+        },
+        {
+          "name": "Pienza",
+          "type": "town",
+          "coord": [
+            43.0766,
+            11.6787
+          ],
+          "note": "pecorino, the 'ideal city' (30 min)"
+        },
+        {
+          "name": "Pieve di Corsignano",
+          "type": "church",
+          "coord": [
+            43.077,
+            11.6714
+          ],
+          "note": "Romanesque parish church below Pienza's walls"
+        },
+        {
+          "name": "Montepulciano",
+          "type": "wine",
+          "coord": [
+            43.0989,
+            11.7869
+          ],
+          "note": "Vino Nobile cellars under the town (38 min)"
+        },
+        {
+          "name": "Monticchiello",
+          "type": "town",
+          "coord": [
+            43.0699,
+            11.7007
+          ],
+          "note": "quiet walled hilltop village, sunset terraces"
+        },
+        {
+          "name": "Montalcino",
+          "type": "wine",
+          "coord": [
+            43.057,
+            11.489
+          ],
+          "note": "Brunello town, Fortezza, enoteca — FRIDAY market (40 min)"
+        },
+        {
+          "name": "Abbey of Sant'Antimo",
+          "type": "church",
+          "coord": [
+            43.017,
+            11.512
+          ],
+          "note": "Romanesque abbey below Montalcino"
         },
         {
           "name": "San Quirico d'Orcia",
@@ -511,7 +582,7 @@ window.TRIP = {
             43.0592,
             11.6039
           ],
-          "note": "Horti Leonini gardens, walled town"
+          "note": "Horti Leonini gardens, walled town (15 min)"
         },
         {
           "name": "Cappella di Vitaleta",
@@ -523,60 +594,90 @@ window.TRIP = {
           "note": "the iconic cypress-framed chapel"
         },
         {
-          "name": "Monticchiello",
+          "name": "Podere Belvedere",
+          "type": "nature",
+          "coord": [
+            43.0621,
+            11.6205
+          ],
+          "note": "the most photographed farmhouse in the Val d'Orcia"
+        },
+        {
+          "name": "Asciano",
           "type": "town",
           "coord": [
-            43.0699,
-            11.7007
+            43.234,
+            11.5606
           ],
-          "note": "quiet walled hilltop village"
+          "note": "Crete Senesi market town — on the Day-12 drive down"
+        },
+        {
+          "name": "Monte Oliveto Maggiore",
+          "type": "church",
+          "coord": [
+            43.1719,
+            11.5478
+          ],
+          "note": "great abbey in a cypress wood, Signorelli & Sodoma — on the Day-12 drive down"
+        },
+        {
+          "name": "Buonconvento",
+          "type": "town",
+          "coord": [
+            43.1382,
+            11.4821
+          ],
+          "note": "walled town, good market — on the Day-12 drive down"
+        },
+        {
+          "name": "Trequanda",
+          "type": "town",
+          "coord": [
+            43.1817,
+            11.6486
+          ],
+          "note": "quiet Crete hilltop village (35 min)"
         }
       ],
       "days": [
         {
-          "d": 11,
-          "date": "Tue 13 Oct",
-          "title": "Crete Senesi → Val d'Orcia",
+          "d": 12,
+          "date": "Wed 14 Oct",
+          "title": "Chianti → Val d'Orcia, across the Crete Senesi",
           "arrive": true,
           "items": [
-            "~40 min south to Montalcino; check in at Podere Brizio (pool, vineyard, on-site restaurant)",
-            "Settle in: pool, sunset over the Val d'Orcia; first dinner at the estate or in Montalcino town",
-            "Pre-book a Brunello tasting (the estate's own cellar, or a town enoteca)"
+            "Drop south past Siena into the clay hills — the biancane badlands, big empty skies",
+            "Asciano (~45 min), then Monte Oliveto Maggiore (15 min more): the great abbey in its cypress wood, Signorelli & Sodoma frescoes",
+            "Buonconvento: little walled town, good market — produce, pecorino, new-harvest oil",
+            "On to Locanda in Tuscany at Gallina; check in, the 20 m pool, sunset over the Val d'Orcia",
+            "Dinner at the Taverna di Mozart, the hotel's own restaurant in the old stable"
           ],
           "leg": {
             "mode": "car",
-            "text": "Crete Senesi → Montalcino · ~40 min / 35 km"
+            "text": "Monti in Chianti → Asciano → Monte Oliveto → Buonconvento → Castiglione d'Orcia · ~2 h driving + stops"
           }
-        },
-        {
-          "d": 12,
-          "date": "Wed 14 Oct",
-          "title": "Pienza & the pecorino",
-          "items": [
-            "Pienza (~30 min): cheese shops, the \"ideal city\" streets, Piccolomini palace",
-            "Cypress viewpoints en route (Cappella di Vitaleta, the \"Gladiator\" road) at late light",
-            "Bagno Vignoni thermal square + free Parco dei Mulini pools"
-          ]
         },
         {
           "d": 13,
           "date": "Thu 15 Oct",
-          "title": "Montepulciano (Vino Nobile)",
+          "title": "Pienza & Montepulciano (Vino Nobile)",
           "items": [
-            "Montepulciano (~45 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi",
-            "Lunch in town; wine shopping",
-            "Dinner back at the estate"
+            "Pienza (~30 min): cheese shops, the \"ideal city\" streets, Piccolomini palace, and the Romanesque Pieve di Corsignano just below the walls",
+            "Montepulciano (~40 min): Piazza Grande; Vino Nobile cellars carved under the town-centre palazzi",
+            "Cypress viewpoints on the way back at late light: Cappella di Vitaleta, Podere Belvedere, the \"Gladiator\" road",
+            "Dinner at Osteria La Porta in Monticchiello (book the sunset terrace), or back at the Locanda"
           ]
         },
         {
           "d": 14,
           "date": "Fri 16 Oct",
-          "title": "Montalcino, market day + Sant'Antimo",
+          "title": "Montalcino market day, Sant'Antimo & the hot springs",
           "items": [
-            "Slow estate morning: pool, spa, the vineyard",
-            "Into Montalcino (~10 min): the Friday market (produce, cheese, new-harvest oil), Fortezza, town enoteca for a Brunello flight",
-            "Afternoon: the Romanesque Abbey of Sant'Antimo + the Bagni San Filippo white travertine springs (\"Fosso Bianco\")",
-            "Last countryside dinner; buy/ship wine + oil TODAY (you fly at dawn on Sunday); pack"
+            "Montalcino (~40 min): the FRIDAY market (produce, cheese, new-harvest oil), the Fortezza, a Brunello flight at Enoteca Osticcio's panoramic terrace",
+            "The Romanesque Abbey of Sant'Antimo just below the town",
+            "On the way back: Bagni San Filippo's white travertine \"Fosso Bianco\" (~25 min), or the free Parco dei Mulini pools under Bagno Vignoni (~17 min)",
+            "Rocca d'Orcia + Castiglione d'Orcia (10 min from the hotel) at last light",
+            "Buy/ship wine + oil TODAY (you fly at dawn on Sunday); last countryside dinner; pack"
           ]
         }
       ]
@@ -656,17 +757,17 @@ window.TRIP = {
         {
           "d": 15,
           "date": "Sat 17 Oct",
-          "title": "Montalcino → Florence, shopping, night run to Malpensa",
+          "title": "Val d'Orcia → Florence, shopping, night run to Malpensa",
           "items": [
-            "Leave after breakfast (~1 h 50 to Florence); drop the rental at Firenze SMN (round-trip, no one-way fee); leave the bags at the station deposit",
+            "Leave after breakfast (~2 h to Florence); drop the rental back where you picked it up, then tram T2 into town if you returned it at the airport. Bags into the SMN station deposit",
             "Shopping: San Lorenzo Market + the leather quarter, Ponte Vecchio goldsmiths, Oltrarno artisans",
-            "Evening passeggiata + an early last big dinner",
+            "Evening passeggiata + an early last big dinner (Il Santo Bevitore in the Oltrarno)",
             "Frecciarossa Firenze SMN → Milano Centrale (~20:30–21:30 departure, ~2 h)",
             "Late Malpensa Express / night bus Milano Centrale → MXP; NO hotel — overnight in the terminal"
           ],
           "leg": {
             "mode": "car",
-            "text": "Montalcino → Florence · ~1 h 50 / 110 km (then the evening train north)"
+            "text": "Castiglione d'Orcia → Florence · ~2 h / 148 km (then the evening train north)"
           }
         }
       ]
@@ -790,6 +891,69 @@ window.TRIP = {
           ],
           "rating": 4.6,
           "note": "Monteriggioni · osteria-bar on the walled square, garden aperitivo"
+        },
+        {
+          "name": "Castello di Brolio",
+          "cat": "winery",
+          "coord": [
+            43.4135,
+            11.4639
+          ],
+          "note": "Gaiole · the Ricasoli castle where the Chianti recipe was written — gardens, cellar tour, tastings (2 km from the house)"
+        },
+        {
+          "name": "Osteria del Castello di Brolio",
+          "cat": "restaurant",
+          "coord": [
+            43.4157,
+            11.4606
+          ],
+          "note": "Brolio · the castle's own osteria, terrace over the vines — book"
+        },
+        {
+          "name": "Badia a Coltibuono",
+          "cat": "winery",
+          "coord": [
+            43.4942,
+            11.4502
+          ],
+          "note": "Gaiole · 11th-c. abbey turned wine estate — monastic garden, cellar tasting, Rinuccio 1180 restaurant with the view"
+        },
+        {
+          "name": "Castello di Meleto",
+          "cat": "winery",
+          "coord": [
+            43.45,
+            11.4244
+          ],
+          "note": "Gaiole · frescoed castle + cellar, tastings and a tiny theatre"
+        },
+        {
+          "name": "Castello di Volpaia",
+          "cat": "winery",
+          "coord": [
+            43.5168,
+            11.381
+          ],
+          "note": "Radda · the winery IS the village — cellars threaded through medieval houses"
+        },
+        {
+          "name": "Bar Ucci",
+          "cat": "bar",
+          "coord": [
+            43.5167,
+            11.3812
+          ],
+          "note": "Volpaia · the village bar on the square, crostini + a glass of Volpaia"
+        },
+        {
+          "name": "Antica Macelleria Cecchini",
+          "cat": "restaurant",
+          "coord": [
+            43.5445,
+            11.3164
+          ],
+          "note": "Panzano · Dario Cecchini's butcher-theatre, the Chiantigiana institution — book the set meals"
         },
         {
           "name": "Casato Prime Donne",

@@ -12,20 +12,24 @@ def route(a,b):
     except Exception as e:
         print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], 0, False
 
-# (lon,lat)
+# (lon,lat) — the three countryside stays are the real booked addresses
 MXP=(8.723,45.630);MIL=(9.204,45.487);FLO=(11.248,43.776)
-CRE=(11.5606,43.2340);MON=(11.4506,43.0272);PE=(11.2064,42.3924);BOL=(10.6018,43.2287)
-CDP=(10.8760,42.7620)                        # Castiglione della Pescaia (Day-2 coast stop)
+PSS=(11.13755,42.43726)                      # the house at Poggio Calvello, Porto Santo Stefano
+CHI=(11.44093,43.41452)                      # Montelodoli Capanna, Monti in Chianti
+LOC=(11.69611,43.00459)                      # Locanda in Tuscany, Gallina (Castiglione d'Orcia)
+BOL=(10.6018,43.2287);CDP=(10.8760,42.7620)  # Bolgheri, Castiglione della Pescaia (Day-2 coast stops)
 SG=(11.1553,43.1494);PET=(11.2995,43.0803)   # San Galgano, Bagni di Petriolo (Day-6 interior stops)
+ASC=(11.5606,43.2340);MOM=(11.5478,43.1719)  # Asciano, Monte Oliveto Maggiore (Day-12 crete stops)
+BUO=(11.4821,43.1382)                        # Buonconvento (Day-12)
 
 # each leg: (day, mode, from, to). Train legs use the road corridor as an
 # approximation of the rail line. Day 15 = drive to Florence + evening train north.
 legs=[
- (1,"train",MXP,MIL),(1,"train",MIL,FLO),                     # Day 1: arrive, train to Florence
- (2,"car",FLO,BOL),(2,"car",BOL,CDP),(2,"car",CDP,PE),        # Day 2: coast road south (longest drive)
- (6,"car",PE,PET),(6,"car",PET,SG),(6,"car",SG,CRE),          # Day 6: wild interior up to the Crete
- (11,"car",CRE,MON),                                          # Day 11: short hop to the vineyard
- (15,"car",MON,FLO),(15,"train",FLO,MIL),(15,"train",MIL,MXP),# Day 15: Florence + night run to MXP
+ (1,"train",MXP,MIL),(1,"train",MIL,FLO),                      # Day 1: arrive, train to Florence
+ (2,"car",FLO,BOL),(2,"car",BOL,CDP),(2,"car",CDP,PSS),        # Day 2: coast road south (longest drive)
+ (6,"car",PSS,PET),(6,"car",PET,SG),(6,"car",SG,CHI),          # Day 6: wild interior up to Chianti
+ (12,"car",CHI,ASC),(12,"car",ASC,MOM),(12,"car",MOM,BUO),(12,"car",BUO,LOC),  # Day 12: across the Crete Senesi
+ (15,"car",LOC,FLO),(15,"train",FLO,MIL),(15,"train",MIL,MXP), # Day 15: Florence + night run to MXP
 ]
 out=[]
 for i,(day,mode,a,b) in enumerate(legs,1):
