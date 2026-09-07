@@ -356,9 +356,20 @@ async function send(action, btn) {
     if (!res.ok) throw new Error(`ntfy returned HTTP ${res.status}`);
     log(`Sent ${action}. The reply lands in your ntfy alert feed, silently.`, 'ok');
   } catch (err) {
-    // A failure here is this phone's network or a wrong topic. It is NOT
-    // evidence the server is down — the server never answers on this topic.
-    log(`Could not send ${action}: ${err.message}\nThat is this phone's connection, not the server.`, 'bad');
+    // This failure is between THIS PAGE and ntfy.sh. The server is not involved
+    // and is not implicated -- it never answers on the command topic, so a
+    // publish failure says nothing about whether the box is up.
+    //
+    // "Failed to fetch" with no status is almost always the page's own origin
+    // blocking the request rather than a network fault. A Content-Security-
+    // Policy that omits ntfy.sh will do it silently; the claude.ai artifact
+    // sandbox is one such host, which is why this card is served from GitHub
+    // Pages instead.
+    log(`Could not reach ntfy: ${err.message}\n\n`
+      + `This is between this page and ntfy.sh — it says nothing about whether `
+      + `the server is up.\n\nCheck, in order: this device's connection, the `
+      + `topic name in settings, and whether the host serving this page blocks `
+      + `outbound requests.`, 'bad');
   } finally {
     btn.disabled = false;
     btn.classList.remove('busy');
