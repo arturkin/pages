@@ -8,9 +8,9 @@ def route(a,b):
     try:
         r=json.loads(subprocess.run(["curl","-s","--max-time","30",url],capture_output=True,text=True).stdout)['routes'][0]
         g=r['geometry']['coordinates']
-        return [[round(c[1],5),round(c[0],5)] for c in g], round(r.get('distance',0)/1000), True
+        return [[round(c[1],5),round(c[0],5)] for c in g], round(r.get('distance',0)/1000), round(r.get('duration',0)/60), True
     except Exception as e:
-        print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], 0, False
+        print("  fallback:",e); return [[a[1],a[0]],[b[1],b[0]]], 0, None, False
 
 # (lon,lat) — the three countryside stays are the real booked addresses
 MXP=(8.723,45.630);MIL=(9.204,45.487);FLO=(11.248,43.776)
@@ -30,6 +30,12 @@ SIE=(11.3308,43.3188);MRG=(11.2238,43.3897)  # Siena, Monteriggioni (Day-10)
 SAT=(11.5155,42.9995);MTC=(11.4868,43.0588);SQO=(11.6039,43.0592)  # Sant'Antimo, Montalcino, San Quirico (Day-14/15)
 PIE=(11.6781,43.0770);VIT=(11.6344,43.0709);MCH=(11.7246,43.0681)  # Pienza, Vitaleta, Monticchiello (Day-14)
 
+NAMES={MXP:"Malpensa",MIL:"Milano",FLO:"Florence",PSS:"Porto Santo Stefano",CHI:"Monti in Chianti",LOC:"Castiglione d'Orcia",
+ BOL:"Bolgheri",CDP:"Castiglione della Pescaia",SG:"San Galgano",PET:"Petriolo",ASC:"Asciano",MOM:"Monte Oliveto",BUO:"Buonconvento",
+ ALB:"Albinia",GRO:"Grosseto",CBE:"Castelnuovo Berardenga",SAN:"Sant'Anna",ORB:"Orbetello",FEN:"Feniglia",TAR:"Tarocchi",
+ GRE:"Greve",PAN:"Panzano",VOL:"Volpaia",RAD:"Radda",SIE:"Siena",MRG:"Monteriggioni",SAT:"Sant'Antimo",MTC:"Montalcino",
+ SQO:"San Quirico",PIE:"Pienza",VIT:"Vitaleta",MCH:"Monticchiello"}
+
 # each leg: (day, mode, from, to). Train legs use the road corridor as an
 # approximation of the rail line. Day 15 = drive to Florence + evening train north.
 # Days 4/8/10/14 are day-trip loops from the base; 3/5/7/9/11/13 are car-free.
@@ -46,8 +52,8 @@ legs=[
 ]
 out=[]
 for i,(day,mode,a,b) in enumerate(legs,1):
-    coords,km,ok=route(a,b); print(f"leg {i} day{day} {mode}: {len(coords)} pts {km} km {'OSRM' if ok else 'STRAIGHT'}")
-    out.append({"mode":mode,"day":day,"km":km,"coords":coords})
+    coords,km,mins,ok=route(a,b); print(f"leg {i} day{day} {mode}: {len(coords)} pts {km} km {mins} min {'OSRM' if ok else 'STRAIGHT'}")
+    out.append({"mode":mode,"day":day,"km":km,"min":mins,"from":NAMES[a],"to":NAMES[b],"coords":coords})
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"routes.js")
 open(OUT,"w").write("// Auto-generated route geometry (OSRM driving), tagged by day. coords=[lat,lon]. Regenerate with routes.py.\nwindow.ROUTES = "+json.dumps(out,separators=(',',':'))+";\n")
 print("wrote "+OUT)

@@ -152,9 +152,22 @@
     }).join("");
     return '<div class="variants" data-vg="' + g + '"><div class="vchips">' + chips + '</div>' + panes + '</div>';
   }
+  function fmtMin(m) {
+    m = Math.max(5, Math.round(m / 5) * 5);
+    return m < 60 ? m + ' min' : Math.floor(m / 60) + ' h' + (m % 60 ? ' ' + (m % 60 < 10 ? '0' : '') + m % 60 : '');
+  }
+  // chain of stops with drive time between them, from routes.js legs carrying from/to/min
+  function hopsHTML(d) {
+    var ls = ROUTES.filter(function (l) { return l.day === d && l.mode === "car" && l.from && l.min != null; });
+    if (!ls.length) return '';
+    return '<div class="hops">' + ls.map(function (l, i) {
+      return (i ? '' : '<span class="hstop">' + esc(l.from) + '</span>') +
+        '<span class="htime">' + fmtMin(l.min) + '</span><span class="hstop">' + esc(l.to) + '</span>';
+    }).join("") + '</div>';
+  }
   function dayHTML(day, color) {
     var leg = day.leg
-      ? '<div class="leg"><span class="mode ' + day.leg.mode + '">' + day.leg.mode + '</span> ' + esc(day.leg.text) + '</div>'
+      ? '<div class="leg"><span class="mode ' + day.leg.mode + '">' + day.leg.mode + '</span> ' + esc(day.leg.text) + '</div>' + hopsHTML(day.d)
       : '';
     var arrive = day.arrive ? ' <span class="arrivetag">›› arrive &amp; check in</span>' : '';
     var wx = day.weather ? '<div class="wx">' + esc(day.weather) + '</div>' : '';
