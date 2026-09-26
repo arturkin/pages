@@ -311,6 +311,19 @@
   });
 
   // POI layers (food/pools/chargers/tips…) — populate each toggleable group
+  // points whose note starts "Day 6 ·" / "Days 2–5 ·" / "Days 6/10 ·" are tagged so a day focus can filter them
+  var dayMarkers = [];
+  function dayTags(note) {
+    var mt = /^Days?\s+([\d\s,\/–-]+)/.exec(note || "");
+    if (!mt) return null;
+    var out = [];
+    mt[1].split(/[,\/]/).forEach(function (part) {
+      var r = part.trim().split(/[–-]/).map(Number);
+      if (!r[0]) return;
+      for (var d = r[0]; d <= (r[1] || r[0]); d++) out.push(d);
+    });
+    return out.length ? out : null;
+  }
   LAYERS.forEach(function (layer, li) {
     var cats = layer.cats || {};
     (layer.points || []).forEach(function (p) {
@@ -323,8 +336,10 @@
         (p.url ? '<br><a href="' + esc(p.url) + '" target="_blank" rel="noopener">Open ↗</a>' : "") +
         (p.coord ? '<br><span class="popnav">' + navChips(p.coord, "popchip") + '</span>' : "") +
         (showPhotos ? popupPhotos(p.name, p.coord) : "");
-      L.marker(p.coord, { icon: divIcon('<div class="poipin">' + (ct.icon || layer.icon || "📍") + "</div>", 22, 22, 11, 11) })
+      var m = L.marker(p.coord, { icon: divIcon('<div class="poipin">' + (ct.icon || layer.icon || "📍") + "</div>", 22, 22, 11, 11) })
         .bindPopup(pop).addTo(layerGroups[li]);
+      var days = dayTags(p.note);
+      if (days) dayMarkers.push({ m: m, li: li, days: days, coord: p.coord });
       bounds.push(p.coord);
     });
   });
@@ -337,33 +352,46 @@
   TRIP.bases.forEach(function (b) {
     b.days.forEach(function (d) { dayById[d.d] = d; baseOfDay[d.d] = b; });
   });
-  function setRouteDim(focus) {
-    routeDays.forEach(function (d) {
-      routeGroups[d].eachLayer(function (pl) {
-        if (pl._op == null) pl._op = pl.options.opacity;
-        pl.setStyle({ opacity: focus == null || d === focus ? pl._op : 0.15 });
-      });
-    });
+  // day focus: only that day's route and its day-tagged markers; untagged markers stay
+  var savedRoutes = null;   // legend route-checkbox state from before the focus
+  function routeCb(d) { return document.querySelector('.routeToggle[data-day="' + d + '"]'); }
+  function showRoute(d, on) {
+    var cb = routeCb(d);
+    if (cb) cb.checked = on;
+    if (on) routeGroups[d].addTo(map); else map.removeLayer(routeGroups[d]);
   }
-  function clearDayFocus() { setRouteDim(null); dayChip.setAttribute("hidden", ""); }
+  function clearDayFocus() {
+    if (savedRoutes) routeDays.forEach(function (d) { showRoute(d, savedRoutes[d]); });
+    savedRoutes = null;
+    dayMarkers.forEach(function (t) { t.m.addTo(layerGroups[t.li]); });
+    dayChip.setAttribute("hidden", "");
+  }
   function focusDay(n) {
     var day = dayById[n], pts = [];
     if (!day) return;
-    if (routeGroups[n]) {
-      if (!map.hasLayer(routeGroups[n])) {
-        routeGroups[n].addTo(map);
-        var cb = document.querySelector('.routeToggle[data-day="' + n + '"]');
-        if (cb) cb.checked = true;
-      }
-      ROUTES.forEach(function (l) { if (l.day === n) pts = pts.concat(l.coords); });
+    if (!savedRoutes) {
+      savedRoutes = {};
+      routeDays.forEach(function (d) { var cb = routeCb(d); savedRoutes[d] = !cb || cb.checked; });
     }
-    setRouteDim(routeGroups[n] ? n : null);
+    routeDays.forEach(function (d) { showRoute(d, d === n); });
+    ROUTES.forEach(function (l) { if (l.day === n) pts = pts.concat(l.coords); });
+    var hasRoute = pts.length > 0;
+    dayMarkers.forEach(function (t) {
+      if (t.days.indexOf(n) < 0) { layerGroups[t.li].removeLayer(t.m); return; }
+      t.m.addTo(layerGroups[t.li]);
+      var cb = document.querySelector('.layerToggle[data-li="' + t.li + '"]');
+      if (cb && !cb.checked) { cb.checked = true; cb.dispatchEvent(new Event("change")); }
+      pts.push(t.coord);
+    });
     dayChip.innerHTML = '<b>Day ' + n + '</b> <span>' + esc(day.title) + '</span>' +
       '<button type="button" class="dc-x" aria-label="Show whole trip">×</button>';
     dayChip.removeAttribute("hidden");
     var go = function () {
       var base = baseOfDay[n];
-      if (pts.length) map.fitBounds(L.latLngBounds(pts), { padding: [40, 40] });
+      // keep the route clear of the day chip (top) and, in full screen, the legend (bottom)
+      var lg = isFs() ? document.getElementById("legend").offsetHeight : 0;
+      var fit = { paddingTopLeft: [30, 70], paddingBottomRight: [30, lg + 30], maxZoom: 14 };
+      if (hasRoute || pts.length > 1) map.fitBounds(L.latLngBounds(pts), fit);
       else if (base && base.coord) map.setView(base.coord, 12);   // off day: stay near the house
       else fitAll();
     };
