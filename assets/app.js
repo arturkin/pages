@@ -276,7 +276,7 @@
   document.querySelector(".mapwrap").appendChild(dayChip);
   L.DomEvent.disableClickPropagation(dayChip);
   dayChip.addEventListener("click", function (e) {
-    if (e.target.closest(".dc-x")) { clearDayFocus(); fitAll(); }
+    if (e.target.closest(".dc-x")) { clearDayFocus(); if (bounds.length) map.flyToBounds(L.latLngBounds(bounds).pad(0.12), { duration: 0.6 }); }
   });
 
   var bounds = [];
@@ -404,13 +404,47 @@
     var cb = layerCb(li);
     if (cb && cb.checked !== on) { cb.checked = on; cb.dispatchEvent(new Event("change")); }
   }
+  // keep a fitted route clear of the day chip (top) and, when open in full screen, the legend (bottom)
+  function fitOpts() {
+    var lg = isFs() ? document.getElementById("legend").offsetHeight : 0;
+    return { paddingTopLeft: [30, 70], paddingBottomRight: [30, lg + 30], maxZoom: 14, duration: 0.6 };
+  }
+  // km from a point to the nearest segment of any polyline (equirectangular — fine at trip scale)
+  function kmToLines(c, lines) {
+    var best = Infinity, k = Math.cos(c[0] * Math.PI / 180), R = 111.32;
+    lines.forEach(function (ln) {
+      for (var i = 0; i < ln.length; i++) {
+        var a = ln[i], b = ln[i + 1] || a;
+        var ax = (a[1] - c[1]) * k, ay = a[0] - c[0], bx = (b[1] - c[1]) * k, by = b[0] - c[0];
+        var dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy;
+        var t = L2 ? Math.max(0, Math.min(1, -(ax * dx + ay * dy) / L2)) : 0;
+        var px = ax + t * dx, py = ay + t * dy;
+        best = Math.min(best, Math.sqrt(px * px + py * py) * R);
+      }
+    });
+    return best;
+  }
+  function dayLines(days) {
+    return ROUTES.filter(function (l) { return days.indexOf(l.day) >= 0; }).map(function (l) { return l.coords; });
+  }
+  // legend route toggles: with only some days on, show just the points near those days' driving
+  function filterNearRoutes() {
+    var on = routeDays.filter(function (d) { var cb = routeCb(d); return cb && cb.checked; });
+    var lines = on.length && on.length < routeDays.length ? dayLines(on) : null;
+    var near = function (c) { return !lines || kmToLines(c, lines) <= NEAR_KM; };
+    pinMarkers.forEach(function (t) {
+      var ll = t.m.getLatLng();
+      if (near([ll.lat, ll.lng])) t.m.addTo(map); else map.removeLayer(t.m);
+    });
+    layerMarkers.forEach(function (t) { if (near(t.coord)) t.m.addTo(layerGroups[t.li]); else layerGroups[t.li].removeLayer(t.m); });
+  }
+  var NEAR_KM = 10;
   function clearDayFocus() {
     if (savedRoutes) routeDays.forEach(function (d) { showRoute(d, savedRoutes[d]); });
     savedRoutes = null;
     if (savedLayers) LAYERS.forEach(function (l, li) { setLayer(li, savedLayers[li]); });
     savedLayers = null;
-    layerMarkers.forEach(function (t) { t.m.addTo(layerGroups[t.li]); });
-    pinMarkers.forEach(function (t) { t.m.addTo(map); });
+    filterNearRoutes();
     dayChip.setAttribute("hidden", "");
   }
   function focusDay(n) {
@@ -432,12 +466,18 @@
     var named = function (nm) { return !!nm && text.indexOf(nm.toLowerCase()) >= 0; };
     var bi = TRIP.bases.indexOf(baseOfDay[n]), dayBases = [baseOfDay[n]];
     if (bi > 0 && baseOfDay[n].days[0] === day) dayBases.push(TRIP.bases[bi - 1]);
+    // ...and nothing far from where the day actually goes (its driving, else its stay)
+    var lines = dayLines([n]);
+    dayBases.forEach(function (b) { if (b.coord) lines.push([b.coord]); });
+    var reach = hasRoute ? NEAR_KM : 15;
+    var near = function (c) { return !lines.length || kmToLines(c, lines) <= reach; };
     pinMarkers.forEach(function (t) {
-      var on = t.base ? dayBases.indexOf(t.base) >= 0 : named(t.name);
+      var ll = t.m.getLatLng();
+      var on = t.base ? dayBases.indexOf(t.base) >= 0 : named(t.name) && near([ll.lat, ll.lng]);
       if (on) t.m.addTo(map); else map.removeLayer(t.m);
     });
     layerMarkers.forEach(function (t) {
-      if (t.days ? t.days.indexOf(n) < 0 : !named(t.name)) { layerGroups[t.li].removeLayer(t.m); return; }
+      if ((t.days ? t.days.indexOf(n) < 0 : !named(t.name)) || !near(t.coord)) { layerGroups[t.li].removeLayer(t.m); return; }
       t.m.addTo(layerGroups[t.li]);
       setLayer(t.li, true);
       pts.push(t.coord);
@@ -447,10 +487,7 @@
     dayChip.removeAttribute("hidden");
     var go = function () {
       var base = baseOfDay[n];
-      // keep the route clear of the day chip (top) and, in full screen, the legend (bottom)
-      var lg = isFs() ? document.getElementById("legend").offsetHeight : 0;
-      var fit = { paddingTopLeft: [30, 70], paddingBottomRight: [30, lg + 30], maxZoom: 14 };
-      if (hasRoute || pts.length > 1) map.fitBounds(L.latLngBounds(pts), fit);
+      if (hasRoute || pts.length > 1) map.flyToBounds(L.latLngBounds(pts), fitOpts());
       else if (base && base.coord) map.setView(base.coord, 12);   // off day: stay near the house
       else fitAll();
     };
@@ -578,6 +615,13 @@
       var d = this.getAttribute("data-day");
       if (this.checked) routeGroups[d].addTo(map);
       else map.removeLayer(routeGroups[d]);
+      filterNearRoutes();
+      // pan to what changed: the day just shown, or whatever days are still on
+      var show = this.checked ? [+d] : routeDays.filter(function (x) { var cb = routeCb(x); return cb && cb.checked; });
+      var pts = [];
+      ROUTES.forEach(function (l) { if (show.indexOf(l.day) >= 0) pts = pts.concat(l.coords); });
+      if (pts.length) map.flyToBounds(L.latLngBounds(pts), fitOpts());
+      else fitAll();
     });
   });
 
