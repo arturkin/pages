@@ -220,7 +220,8 @@ body.pm-open{overflow:hidden}
 @media (hover:none){.pm-nav{background:none;opacity:.55}}
 /* phone: full-screen sheet, edge-to-edge 3-up grid, photos run to the screen edges */
 @media (max-width:640px){
-  .photomodal{padding:0}
+  /* same iOS 26 floating-URL-bar workaround as the full-screen map: pin top, size to lvh */
+  .photomodal{padding:0;bottom:auto;height:100vh;height:100lvh;align-items:stretch}
   .pm-backdrop{display:none}
   .pm-panel{width:100%;height:100%;max-height:none;border-radius:0;box-shadow:none}
   .pm-head{padding:calc(8px + env(safe-area-inset-top)) 8px 10px 16px;gap:6px 8px}
@@ -229,11 +230,13 @@ body.pm-open{overflow:hidden}
   .pm-links{order:3;width:100%;margin-left:0;gap:8px}
   .pm-map{font-size:13px;padding:6px 12px}
   .pm-ext{margin-left:auto;font-size:13px}
-  .pm-body{padding:2px 0 calc(12px + env(safe-area-inset-bottom))}
+  .pm-body{padding:2px 0 calc(12px + env(safe-area-inset-bottom) + (100lvh - 100dvh))}
   .pm-grid{grid-template-columns:repeat(3,1fr);gap:2px}
   .pm-thumb{border-radius:0}
   .pm-src{display:none}
-  .pm-slide{padding:calc(64px + env(safe-area-inset-top)) 0 calc(56px + env(safe-area-inset-bottom))}
+  .pm-slide{padding:calc(64px + env(safe-area-inset-top)) 0 calc(56px + env(safe-area-inset-bottom) + (100lvh - 100dvh))}
+  .pm-light{bottom:auto;height:100vh;height:100lvh}
+  .pm-count{bottom:calc(16px + env(safe-area-inset-bottom) + (100lvh - 100dvh))}
   .pm-slide img{border-radius:0;box-shadow:none}
 }
 
