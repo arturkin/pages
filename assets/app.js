@@ -185,7 +185,7 @@
     var shared = (day.items && day.items.length) ? liList(day.items, hopItems(day.d, day.items)) : '';
     var variants = (day.variants && day.variants.length) ? variantsHTML(day) : '';
     var off = /^off\b/i.test(day.title);
-    return '<div class="day' + (off ? ' off' : '') + '" style="--dot:' + color + '">' +
+    return '<div class="day' + (off ? ' off' : '') + '" id="day-' + day.d + '" style="--dot:' + color + '">' +
       '<div class="dhead" role="button" tabindex="0" data-day="' + day.d + '" title="Show on map">' +
         '<span class="dno" style="color:' + color + '">' + day.d + '</span>' +
         '<span class="ddate">Day ' + day.d + ' · ' + esc(day.date) + '</span>' +
@@ -385,6 +385,33 @@
     };
     if (mobileQ.matches) setFs(true, go); else go();
   }
+  /* ---------- today: mark the current day and scroll to it ---------- */
+  (function () {
+    var MON = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+    var ym = /(\d{4})/.exec((TRIP.meta && TRIP.meta.dates) || "");
+    if (!ym) return;
+    var now = new Date(), year = +ym[1], parsed = [], hit = null;
+    Object.keys(dayById).forEach(function (k) {
+      var mt = /(\d{1,2})\s+([A-Za-z]{3})/.exec(dayById[k].date || "");
+      var m = mt && MON[mt[2].toLowerCase()];
+      if (m != null) parsed.push({ k: k, d: +mt[1], m: m });
+    });
+    if (!parsed.length) return;
+    var lastMon = parsed[parsed.length - 1].m;
+    parsed.forEach(function (p) {
+      var y = p.m > lastMon ? year - 1 : year;   // header year is the END year (Dec→Jan trips)
+      if (y === now.getFullYear() && p.m === now.getMonth() && p.d === now.getDate()) hit = p.k;
+    });
+    if (!hit) return;
+    var el = document.getElementById("day-" + hit);
+    if (!el) return;
+    el.classList.add("today");
+    el.querySelector(".ddate").insertAdjacentHTML("beforeend", ' <span class="todaytag">Today</span>');
+    if (location.hash) return;
+    var go = function () { el.scrollIntoView({ block: "start" }); };
+    if (document.readyState === "complete") setTimeout(go, 50); else window.addEventListener("load", function () { setTimeout(go, 50); });
+  })();
+
   function onDayHead(e) {
     var h = e.target.closest ? e.target.closest(".dhead[data-day]") : null;
     if (!h || e.target.closest("a")) return;
