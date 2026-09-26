@@ -318,39 +318,40 @@
   if (routeHasDays) routeDays.forEach(function (d) { routeGroups[d].addTo(map); });
 
   // hubs (Milan / airport)
+  var pinMarkers = [];   // hubs/waypoints/stays/highlights — hidden during a day focus unless relevant
   (TRIP.hubs || []).forEach(function (h) {
-    marker(h.coord, divIcon('<div class="pin hub"></div>', 16, 16, 8, 8),
-      "<b>" + esc(h.name) + "</b><br>" + esc(h.note || ""));
+    pinMarkers.push({ name: h.name, m: marker(h.coord, divIcon('<div class="pin hub"></div>', 16, 16, 8, 8),
+      "<b>" + esc(h.name) + "</b><br>" + esc(h.note || "")) });
   });
 
   // waypoints (car drop, etc.)
   (TRIP.waypoints || []).forEach(function (w) {
-    marker(w.coord, divIcon('<div class="pin way"></div>', 14, 14, 7, 7),
-      "<b>" + esc(w.name) + "</b><br>" + esc(w.note || ""));
+    pinMarkers.push({ name: w.name, m: marker(w.coord, divIcon('<div class="pin way"></div>', 14, 14, 7, 7),
+      "<b>" + esc(w.name) + "</b><br>" + esc(w.note || "")) });
   });
 
   // per-base: numbered stay pin + highlight stars
   TRIP.bases.forEach(function (b) {
     if (b.coord) {
-      marker(b.coord,
+      pinMarkers.push({ name: b.name, base: b, m: marker(b.coord,
         divIcon('<div class="pin" style="background:' + b.color + '"><span>' + b.pin + '</span></div>', 26, 26, 13, 26, [0, -24]),
         "<b>" + b.emoji + " " + esc(b.name) + "</b><br>" + (b.stay ? esc(b.stay) + "<br>" : "") +
         (b.nights ? b.nights + " night" + (b.nights > 1 ? "s" : "") + " · " : "") + esc(b.dates) +
-        popupPhotos(b.name, b.coord));
+        popupPhotos(b.name, b.coord)) });
       bounds.push(b.coord);
     }
     (b.highlights || []).forEach(function (hl) {
-      marker(hl.coord, divIcon('<div class="hl">' + typeIcon(hl.type) + '</div>', 20, 20, 10, 10),
+      pinMarkers.push({ name: hl.name, m: marker(hl.coord, divIcon('<div class="hl">' + typeIcon(hl.type) + '</div>', 20, 20, 10, 10),
         "<b>" + esc(hl.name) + "</b>" + (hl.note ? "<br>" + esc(hl.note) : "") +
         '<br><span style="color:#7a7167">near ' + esc(b.name) + "</span>" +
-        popupPhotos(hl.name, hl.coord));
+        popupPhotos(hl.name, hl.coord)) });
       bounds.push(hl.coord);
     });
   });
 
   // POI layers (food/pools/chargers/tips…) — populate each toggleable group
   // points whose note starts "Day 6 ·" / "Days 2–5 ·" / "Days 6/10 ·" are tagged so a day focus can filter them
-  var dayMarkers = [];
+  var layerMarkers = [];
   function dayTags(note) {
     var mt = /^Days?\s+([\d\s,\/–-]+)/.exec(note || "");
     if (!mt) return null;
@@ -376,8 +377,7 @@
         (showPhotos ? popupPhotos(p.name, p.coord) : "");
       var m = L.marker(p.coord, { icon: divIcon('<div class="poipin">' + (ct.icon || layer.icon || "📍") + "</div>", 22, 22, 11, 11) })
         .bindPopup(pop).addTo(layerGroups[li]);
-      var days = dayTags(p.note);
-      if (days) dayMarkers.push({ m: m, li: li, days: days, coord: p.coord });
+      layerMarkers.push({ m: m, li: li, days: dayTags(p.note), name: p.name, coord: p.coord });
       bounds.push(p.coord);
     });
   });
@@ -398,10 +398,19 @@
     if (cb) cb.checked = on;
     if (on) routeGroups[d].addTo(map); else map.removeLayer(routeGroups[d]);
   }
+  var savedLayers = null;   // POI-layer checkbox state from before the focus (a focus may switch layers on)
+  function layerCb(li) { return document.querySelector('.layerToggle[data-li="' + li + '"]'); }
+  function setLayer(li, on) {
+    var cb = layerCb(li);
+    if (cb && cb.checked !== on) { cb.checked = on; cb.dispatchEvent(new Event("change")); }
+  }
   function clearDayFocus() {
     if (savedRoutes) routeDays.forEach(function (d) { showRoute(d, savedRoutes[d]); });
     savedRoutes = null;
-    dayMarkers.forEach(function (t) { t.m.addTo(layerGroups[t.li]); });
+    if (savedLayers) LAYERS.forEach(function (l, li) { setLayer(li, savedLayers[li]); });
+    savedLayers = null;
+    layerMarkers.forEach(function (t) { t.m.addTo(layerGroups[t.li]); });
+    pinMarkers.forEach(function (t) { t.m.addTo(map); });
     dayChip.setAttribute("hidden", "");
   }
   function focusDay(n) {
@@ -411,14 +420,26 @@
       savedRoutes = {};
       routeDays.forEach(function (d) { var cb = routeCb(d); savedRoutes[d] = !cb || cb.checked; });
     }
+    if (!savedLayers) savedLayers = LAYERS.map(function (l, li) { var cb = layerCb(li); return cb ? cb.checked : !!l.on; });
     routeDays.forEach(function (d) { showRoute(d, d === n); });
     ROUTES.forEach(function (l) { if (l.day === n) pts = pts.concat(l.coords); });
     var hasRoute = pts.length > 0;
-    dayMarkers.forEach(function (t) {
-      if (t.days.indexOf(n) < 0) { layerGroups[t.li].removeLayer(t.m); return; }
+    // keep only what the day touches: its day-tagged layer points, places named in its text, and its
+    // stay — plus the previous stay on a transfer day (first day at a new base)
+    var text = [day.title, day.leg && day.leg.text].concat(day.items || [],
+      [].concat.apply([], (day.variants || []).map(function (v) { return [v.note].concat(v.items || []); })))
+      .join(" \n ").toLowerCase();
+    var named = function (nm) { return !!nm && text.indexOf(nm.toLowerCase()) >= 0; };
+    var bi = TRIP.bases.indexOf(baseOfDay[n]), dayBases = [baseOfDay[n]];
+    if (bi > 0 && baseOfDay[n].days[0] === day) dayBases.push(TRIP.bases[bi - 1]);
+    pinMarkers.forEach(function (t) {
+      var on = t.base ? dayBases.indexOf(t.base) >= 0 : named(t.name);
+      if (on) t.m.addTo(map); else map.removeLayer(t.m);
+    });
+    layerMarkers.forEach(function (t) {
+      if (t.days ? t.days.indexOf(n) < 0 : !named(t.name)) { layerGroups[t.li].removeLayer(t.m); return; }
       t.m.addTo(layerGroups[t.li]);
-      var cb = document.querySelector('.layerToggle[data-li="' + t.li + '"]');
-      if (cb && !cb.checked) { cb.checked = true; cb.dispatchEvent(new Event("change")); }
+      setLayer(t.li, true);
       pts.push(t.coord);
     });
     dayChip.innerHTML = '<b>Day ' + n + '</b> <span>' + esc(day.title) + '</span>' +
