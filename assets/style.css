@@ -38,6 +38,15 @@ header.top .fly b{color:var(--ink);font-weight:600;font-size:12px;letter-spacing
   bottom:calc(12px + env(safe-area-inset-bottom) + (100lvh - 100dvh));margin:0;
   max-width:250px;max-height:60%;box-shadow:var(--shadow)}
 body.fs-lock{overflow:hidden;position:fixed;width:100%}
+.lg-btn{display:none}
+.mapwrap.fs-on .lg-btn{display:block;position:absolute;z-index:1001;left:calc(12px + env(safe-area-inset-left));
+  bottom:calc(16px + env(safe-area-inset-bottom) + (100lvh - 100dvh));border:none;border-radius:999px;padding:11px 16px;
+  font:600 15px/1 var(--font);color:var(--ink);background:#fff;box-shadow:0 6px 20px rgba(30,22,14,.25);cursor:pointer}
+.mapwrap.fs-on:not(.lg-open) .legend{display:none}
+.mapwrap.fs-on.lg-open .legend{right:calc(12px + env(safe-area-inset-right));max-width:none;max-height:55%;overflow:auto;
+  bottom:calc(70px + env(safe-area-inset-bottom) + (100lvh - 100dvh))}
+.mapwrap.fs-on .legend .rlist{display:grid;grid-template-columns:repeat(3,auto);gap:0 12px;justify-content:start}
+.mapwrap.fs-on .legend .rkm{display:none}
 @media (max-width:900px){
   .mapwrap{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line)}
   #map{height:56vh}

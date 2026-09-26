@@ -210,7 +210,7 @@
     // freeze the page behind the map so iOS can't scroll/bounce it (restore position on exit)
     if (on) { fsScroll = window.scrollY; document.body.style.top = -fsScroll + "px"; }
     document.body.classList.toggle("fs-lock", on);
-    if (!on) { document.body.style.top = ""; window.scrollTo(0, fsScroll); clearDayFocus(); }
+    if (!on) { document.body.style.top = ""; window.scrollTo(0, fsScroll); clearDayFocus(); setLegendOpen(false); }
     fab.innerHTML = on ? "✕ Close map" : "🗺️ Map";
     setTimeout(function () { map.invalidateSize(); if (then) then(); }, 150);
   }
@@ -219,6 +219,20 @@
   fab.type = "button"; fab.className = "mapfab"; fab.innerHTML = "🗺️ Map";
   fab.addEventListener("click", function () { setFs(!isFs()); });
   document.body.appendChild(fab);
+
+  // full-screen phone map: the legend folds behind a "Layers" button so it doesn't cover the map
+  var lgBtn = document.createElement("button");
+  lgBtn.type = "button"; lgBtn.className = "lg-btn";
+  function setLegendOpen(on) {
+    document.querySelector(".mapwrap").classList.toggle("lg-open", on);
+    lgBtn.innerHTML = on ? "✕ Layers" : "☰ Layers";
+  }
+  setLegendOpen(false);
+  lgBtn.addEventListener("click", function () {
+    setLegendOpen(!document.querySelector(".mapwrap").classList.contains("lg-open"));
+  });
+  document.querySelector(".mapwrap").appendChild(lgBtn);
+  map.on("click", function () { setLegendOpen(false); });
 
   // "Day N" chip shown while the map is focused on one day
   var dayChip = L.DomUtil.create("div", "daychip");
@@ -478,7 +492,7 @@
 
   document.getElementById("legend").innerHTML =
     '<div class="lg-cols">' +
-      '<div class="lg-left"><div class="ltitle">' + (routeHasDays ? 'Driving — by day' : 'Route') + '</div>' + drivingRows + '</div>' +
+      '<div class="lg-left"><div class="ltitle">' + (routeHasDays ? 'Driving — by day' : 'Route') + '</div><div class="rlist">' + drivingRows + '</div></div>' +
       '<div class="lg-right">' + mapKeySection + layerSections + '</div>' +
     '</div>';
 
