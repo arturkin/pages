@@ -93,7 +93,8 @@ trips/<slug>/meta.js ──────┘
 
 ### Route geometry (`routes.py` → `routes.js`)
 Each leg is `{ mode, coords, day?, km?, min?, from?, to? }`. Car legs with `from`/`to`/`min`
-(OSRM drive minutes) render as a subtle stop → time → stop chain under that day's `>>` line. If legs carry a `day`, the app groups them
+(OSRM drive minutes) render as a subtle "N min drive · Stop" row slotted before the day bullet
+containing `match` (defaults to `to`); legs hitting the same bullet merge, unmatched ones trail. If legs carry a `day`, the app groups them
 into **per-day driving routes** — one coloured, toggleable layer per day in the legend
 (all on by default), each labelled with its OSRM road distance (`km`). Without `day`
 tags the whole route draws as one line (Italy). To split a trip's driving by day, tag

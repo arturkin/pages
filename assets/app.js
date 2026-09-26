@@ -135,8 +135,11 @@
   });
 
   var vgroup = 0;   // unique id per variant block, for wiring the toggle chips
-  function liList(items) {
-    return '<ul>' + (items || []).map(function (i) { return '<li>' + linkifyItem(i) + '</li>'; }).join("") + '</ul>';
+  function liList(items, slots) {
+    items = items || []; slots = slots || {};
+    return '<ul>' + items.map(function (i, n) {
+      return (slots[n] ? hopLi(slots[n]) : '') + '<li>' + linkifyItem(i) + '</li>';
+    }).join("") + (slots[items.length] ? hopLi(slots[items.length]) : '') + '</ul>';
   }
   function variantsHTML(day) {
     var vs = day.variants;
@@ -156,22 +159,30 @@
     m = Math.max(5, Math.round(m / 5) * 5);
     return m < 60 ? m + ' min' : Math.floor(m / 60) + ' h' + (m % 60 ? ' ' + (m % 60 < 10 ? '0' : '') + m % 60 : '');
   }
-  // chain of stops with drive time between them, from routes.js legs carrying from/to/min
-  function hopsHTML(d) {
-    var ls = ROUTES.filter(function (l) { return l.day === d && l.mode === "car" && l.from && l.min != null; });
-    if (!ls.length) return '';
-    return '<div class="hops">' + ls.map(function (l, i) {
-      return (i ? '' : '<span class="hstop">' + esc(l.from) + '</span>') +
-        '<span class="htime">' + fmtMin(l.min) + '</span><span class="hstop">' + esc(l.to) + '</span>';
-    }).join("") + '</div>';
+  // drive-time rows slotted before the bullet each car leg leads to (routes.js from/to/min/match);
+  // consecutive legs landing on the same bullet are merged, unmatched ones trail the list
+  function hopItems(d, items) {
+    var ls = ROUTES.filter(function (l) { return l.day === d && l.mode === "car" && l.to && l.min != null; });
+    var slots = {}, cur = 0;
+    ls.forEach(function (l) {
+      var key = (l.match || l.to).toLowerCase(), at = items.length;
+      for (var i = cur; i < items.length; i++) if (items[i].toLowerCase().indexOf(key) >= 0) { at = i; break; }
+      if (at < items.length) cur = at;
+      var s = slots[at];
+      if (s) { s.min += l.min; s.to = l.to; } else slots[at] = { min: l.min, to: l.to };
+    });
+    return slots;
+  }
+  function hopLi(h) {
+    return '<li class="hop"><span>' + fmtMin(h.min) + ' drive · ' + esc(h.to) + '</span></li>';
   }
   function dayHTML(day, color) {
     var leg = day.leg
-      ? '<div class="leg"><span class="mode ' + day.leg.mode + '">' + day.leg.mode + '</span> ' + esc(day.leg.text) + '</div>' + hopsHTML(day.d)
+      ? '<div class="leg"><span class="mode ' + day.leg.mode + '">' + day.leg.mode + '</span> ' + esc(day.leg.text) + '</div>'
       : '';
     var arrive = day.arrive ? ' <span class="arrivetag">›› arrive &amp; check in</span>' : '';
     var wx = day.weather ? '<div class="wx">' + esc(day.weather) + '</div>' : '';
-    var shared = (day.items && day.items.length) ? liList(day.items) : '';
+    var shared = (day.items && day.items.length) ? liList(day.items, hopItems(day.d, day.items)) : '';
     var variants = (day.variants && day.variants.length) ? variantsHTML(day) : '';
     var off = /^off\b/i.test(day.title);
     return '<div class="day' + (off ? ' off' : '') + '" style="--dot:' + color + '">' +

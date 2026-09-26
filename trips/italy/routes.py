@@ -36,24 +36,25 @@ NAMES={MXP:"Malpensa",MIL:"Milano",FLO:"Florence",PSS:"Porto Santo Stefano",CHI:
  GRE:"Greve",PAN:"Panzano",VOL:"Volpaia",RAD:"Radda",SIE:"Siena",MRG:"Monteriggioni",SAT:"Sant'Antimo",MTC:"Montalcino",
  SQO:"San Quirico",PIE:"Pienza",VIT:"Vitaleta",MCH:"Monticchiello"}
 
-# each leg: (day, mode, from, to). Train legs use the road corridor as an
+# each leg: (day, mode, from, to[, match]). `match` = text of the day bullet the hop
+# precedes (defaults to the destination's name; unmatched hops go after the last bullet). Train legs use the road corridor as an
 # approximation of the rail line. Day 15 = drive to Florence + evening train north.
 # Days 4/8/10/14 are day-trip loops from the base; 3/5/7/9/11/13 are car-free.
 legs=[
  (1,"train",MXP,MIL),(1,"train",MIL,FLO),                      # Day 1: arrive, train to Florence
- (2,"car",FLO,BOL),(2,"car",BOL,CDP),(2,"car",CDP,ALB),(2,"car",ALB,PSS),  # Day 2: coast road south (longest drive)
- (4,"car",PSS,ORB),(4,"car",ORB,FEN),(4,"car",FEN,TAR),(4,"car",TAR,PSS),  # Day 4: lagoon, Feniglia, Tarocchi
- (6,"car",PSS,GRO),(6,"car",GRO,PET),(6,"car",PET,SG),(6,"car",SG,SAN),(6,"car",SAN,CBE),(6,"car",CBE,CHI),  # Day 6: up to Chianti
+ (2,"car",FLO,BOL),(2,"car",BOL,CDP),(2,"car",CDP,ALB),(2,"car",ALB,PSS,"L'Oste"),  # Day 2: coast road south (longest drive)
+ (4,"car",PSS,ORB),(4,"car",ORB,FEN),(4,"car",FEN,TAR),(4,"car",TAR,PSS,"Bar Il Buco"),  # Day 4: lagoon, Feniglia, Tarocchi
+ (6,"car",PSS,GRO),(6,"car",GRO,PET),(6,"car",PET,SG),(6,"car",SG,SAN),(6,"car",SAN,CBE,"Castelnuovo"),(6,"car",CBE,CHI),  # Day 6: up to Chianti
  (8,"car",CHI,GRE),(8,"car",GRE,PAN),(8,"car",PAN,VOL),(8,"car",VOL,RAD),(8,"car",RAD,CHI),  # Day 8: the Chiantigiana
- (10,"car",CHI,SIE),(10,"car",SIE,MRG),(10,"car",MRG,CHI),     # Day 10: Siena + Monteriggioni
- (12,"car",CHI,MOM),(12,"car",MOM,ASC),(12,"car",ASC,BUO),(12,"car",BUO,LOC),  # Day 12: across the Crete Senesi
- (14,"car",LOC,SAT),(14,"car",SAT,MTC),(14,"car",MTC,SQO),(14,"car",SQO,PIE),(14,"car",PIE,VIT),(14,"car",VIT,MCH),(14,"car",MCH,LOC),  # Day 14: Montalcino + Pienza loop
- (15,"car",LOC,SQO),(15,"car",SQO,FLO),(15,"train",FLO,MIL),(15,"train",MIL,MXP), # Day 15: Florence + night run to MXP
+ (10,"car",CHI,SIE,"Park outside"),(10,"car",SIE,MRG),(10,"car",MRG,CHI),     # Day 10: Siena + Monteriggioni
+ (12,"car",CHI,MOM),(12,"car",MOM,ASC),(12,"car",ASC,BUO),(12,"car",BUO,LOC,"Locanda"),  # Day 12: across the Crete Senesi
+ (14,"car",LOC,SAT),(14,"car",SAT,MTC),(14,"car",MTC,SQO,"Pienza"),(14,"car",SQO,PIE),(14,"car",PIE,VIT),(14,"car",VIT,MCH),(14,"car",MCH,LOC),  # Day 14: Montalcino + Pienza loop
+ (15,"car",LOC,SQO,"Caselli"),(15,"car",SQO,FLO,"Sixt"),(15,"train",FLO,MIL),(15,"train",MIL,MXP), # Day 15: Florence + night run to MXP
 ]
 out=[]
-for i,(day,mode,a,b) in enumerate(legs,1):
+for i,(day,mode,a,b,*m) in enumerate(legs,1):
     coords,km,mins,ok=route(a,b); print(f"leg {i} day{day} {mode}: {len(coords)} pts {km} km {mins} min {'OSRM' if ok else 'STRAIGHT'}")
-    out.append({"mode":mode,"day":day,"km":km,"min":mins,"from":NAMES[a],"to":NAMES[b],"coords":coords})
+    out.append({"mode":mode,"day":day,"km":km,"min":mins,"from":NAMES[a],"to":NAMES[b],"match":m[0] if m else NAMES[b],"coords":coords})
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)),"routes.js")
 open(OUT,"w").write("// Auto-generated route geometry (OSRM driving), tagged by day. coords=[lat,lon]. Regenerate with routes.py.\nwindow.ROUTES = "+json.dumps(out,separators=(',',':'))+";\n")
 print("wrote "+OUT)
