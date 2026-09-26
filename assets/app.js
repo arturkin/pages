@@ -196,8 +196,44 @@
 
   /* ---------- map ---------- */
   var map = L.map("map", { scrollWheelZoom: true });
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
+  // basemap: OpenFreeMap "positron" vector tiles, recoloured warm and quiet so pins and routes stand out;
+  // raw OSM raster if MapLibre/WebGL isn't available
+  var BASE_PAINT = {
+    background: { "background-color": "#f3eee4" },
+    boundary_3: { "line-opacity": 0 },
+    park: { "fill-color": "#e4e8d4" },
+    water: { "fill-color": "#c6d9df" },
+    waterway: { "line-color": "#bcd2d9" },
+    landuse_residential: { "fill-color": "#ebe4d6" },
+    landcover_wood: { "fill-color": "#dfe5d0" },
+    building: { "fill-color": "#e6dfd0", "fill-outline-color": "#dcd3c2" },
+    highway_minor: { "line-color": "#e6dfd2" },
+    highway_major_casing: { "line-color": "#ddd3c3" },
+    highway_motorway_casing: { "line-color": "#dccbb0" },
+    highway_motorway_inner: { "line-color": "#fbf6ec" },
+    water_name_point_label: { "text-color": "#5b7e8a" },
+    water_name_line_label: { "text-color": "#5b7e8a" },
+    label_village: { "text-color": "#8f8478", "text-halo-color": "#f7f3ec" },
+    label_town: { "text-color": "#6b6158", "text-halo-color": "#f7f3ec" },
+    label_city: { "text-color": "#463d35", "text-halo-color": "#f7f3ec" },
+    label_other: { "text-color": "#7a7066", "text-halo-color": "#f7f3ec" }
+  };
+  function osmTiles() {
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
+  }
+  if (window.maplibregl && L.maplibreGL) {
+    fetch("https://tiles.openfreemap.org/styles/positron").then(function (r) { return r.json(); })
+      .then(function (style) {
+        style.layers.forEach(function (l) {
+          var p = BASE_PAINT[l.id];
+          if (p) l.paint = Object.assign(l.paint || {}, p);
+        });
+        L.maplibreGL({ style: style,
+          attribution: '<a href="https://openfreemap.org" target="_blank">OpenFreeMap</a> © OpenStreetMap' }).addTo(map);
+      })
+      .catch(osmTiles);
+  } else osmTiles();
 
   // full-screen toggle (mobile; CSS pseudo-fullscreen so it works everywhere incl. iOS)
   var fsScroll = 0;

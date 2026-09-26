@@ -102,6 +102,10 @@ each leg with its day number in `routes.py` (see `trips/westfjords/routes.py`); 
 comes straight from the OSRM response. Loop/day-trip legs (not just base-to-base) can be
 included so a day's real driving shows on the map.
 
+The basemap is OpenFreeMap's `positron` vector style (no key) via MapLibre, recoloured in
+`BASE_PAINT` in `app.js`; it falls back to OSM raster tiles if MapLibre/WebGL fails. CARTO tiles now
+need an API key — don't switch back to them.
+
 The photo modal also offers **🗺️ Maps / 🚗 Waze** navigation links for any place with a
 coordinate — engine-level, so every trip gets them for free.
 
