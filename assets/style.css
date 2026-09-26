@@ -1,19 +1,24 @@
 :root{
-  --paper:#f6f1e7; --ink:#2b2622; --muted:#7a7167; --line:#e0d7c6;
-  --card:#fffdf8; --shadow:0 1px 2px rgba(60,50,40,.06),0 6px 20px rgba(60,50,40,.06);
-  --car:#c07a2b; --train:#2b5f8c; --hub:#9a9186;
+  --paper:#f7f3ec; --ink:#231f1b; --muted:#80766a; --line:#e4dccd;
+  --card:#fffdf9; --shadow:0 1px 2px rgba(60,50,40,.06),0 6px 20px rgba(60,50,40,.06);
+  --car:#b8702a; --train:#2b5f8c; --hub:#9a9186;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  --serif:"Iowan Old Style",Palatino,"Palatino Linotype","Book Antiqua",Georgia,serif;
+  --serif:"Newsreader","Iowan Old Style",Palatino,Georgia,serif;
+  --gut:22px;
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased}
+html{background:var(--paper);-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-optical-sizing:auto;
+  line-height:1.45;-webkit-font-smoothing:antialiased}
 
-header.top{padding:26px 24px 18px;border-bottom:1px solid var(--line);background:var(--card)}
-header.top h1{font-family:var(--serif);font-weight:600;font-size:clamp(22px,3.4vw,32px);margin:0;letter-spacing:.2px}
-header.top .sub{color:var(--muted);margin-top:6px;font-size:15px}
-header.top .fly{margin-top:10px;font-size:13px;color:var(--muted)}
-header.top .fly b{color:var(--ink);font-weight:600}
+header.top{padding:28px calc(var(--gut) + env(safe-area-inset-right)) 20px calc(var(--gut) + env(safe-area-inset-left));
+  border-bottom:1px solid var(--line)}
+header.top h1{font-weight:500;font-size:clamp(30px,4.2vw,44px);line-height:1.05;margin:0;letter-spacing:-.01em}
+header.top .sub{color:var(--muted);margin-top:8px;font-size:16px;font-style:italic}
+header.top .fly{margin-top:8px;font-size:14px;color:var(--muted);display:flex;flex-wrap:wrap;gap:2px 16px}
+header.top .fly .ficon{flex:0 0 auto;width:18px;font-family:var(--font)}
+header.top .fly b{color:var(--ink);font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-right:3px}
 
 .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 @media (max-width:900px){.layout{grid-template-columns:1fr}}
@@ -22,10 +27,17 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .mapwrap{position:sticky;top:0;height:100vh;border-right:1px solid var(--line)}
 #map{width:100%;height:100%;background:#dfe6e8}
 /* pseudo-fullscreen (works on iOS too, unlike the Fullscreen API on a div) */
-.mapwrap.fs-on{position:fixed;inset:0;width:100vw;height:100vh;z-index:1500;border:none}
+/* iOS 26+: fixed + bottom:0 stops above the floating URL bar, so pin the top and size to the
+   LARGE viewport (lvh) — the map then runs under the toolbar; keep the legend clear of it. */
+.mapwrap.fs-on{position:fixed;top:0;left:0;right:0;bottom:auto;width:100%;height:100vh;height:100lvh;
+  z-index:1500;border:none}
 .mapwrap.fs-on #map{height:100%}
-.mapwrap.fs-on .legend{position:absolute;left:12px;bottom:12px;margin:0;
-  max-width:250px;max-height:calc(100% - 24px);box-shadow:var(--shadow)}
+.mapwrap.fs-on .leaflet-top{top:env(safe-area-inset-top)}
+.mapwrap.fs-on .leaflet-left{left:env(safe-area-inset-left)}
+.mapwrap.fs-on .legend{position:absolute;left:calc(12px + env(safe-area-inset-left));
+  bottom:calc(12px + env(safe-area-inset-bottom) + (100lvh - 100dvh));margin:0;
+  max-width:250px;max-height:60%;box-shadow:var(--shadow)}
+body.fs-lock{overflow:hidden;position:fixed;width:100%}
 @media (max-width:900px){
   .mapwrap{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line)}
   #map{height:56vh}
@@ -37,7 +49,7 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .fs-ctrl a.fs-btn{display:block;width:30px;height:30px;font:400 18px/30px var(--font);
   text-align:center;color:#333;background:#fff;text-decoration:none}
 @media (min-width:901px){.fs-ctrl{display:none}}
-.legend{position:absolute;z-index:1000;left:12px;bottom:12px;
+.legend{position:absolute;z-index:1000;left:12px;bottom:12px;font-family:var(--font);
   background:rgba(255,253,248,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
   border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);
   font-size:12px;max-width:440px;max-height:calc(100% - 24px);overflow:auto}
@@ -87,39 +99,43 @@ header.top .fly b{color:var(--ink);font-weight:600}
   background:#fffdf8;border:1.5px solid rgba(60,50,40,.35);border-radius:50%;box-shadow:0 1px 3px rgba(0,0,0,.3)}
 
 /* ITINERARY */
-.itin{padding:8px 22px 60px}
-.basecard{margin:26px 0 8px}
-.baseband{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;padding:12px 14px;border-radius:14px 14px 0 0;color:#fff;font-family:var(--serif)}
-.baseband .name{font-size:19px;font-weight:600}
-.baseband .meta{font-size:13px;opacity:.92;font-family:var(--font)}
-.baseband .bandright{margin-left:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--font)}
-.baseband .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 8px;border-radius:999px}
+.itin{padding:6px calc(var(--gut) + env(safe-area-inset-right)) 60px calc(var(--gut) + env(safe-area-inset-left))}
+.basecard{margin:28px 0 8px}
+.baseband{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding:14px 16px 12px;border-radius:6px 6px 0 0;color:#fff}
+.baseband .name{font-size:22px;font-weight:500;line-height:1.15;letter-spacing:-.005em}
+.baseband .meta{font-size:15px;opacity:.9;font-style:italic}
+.baseband .bandright{flex-basis:100%;display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:var(--font);margin-top:4px}
+.baseband .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.22);padding:3px 8px;border-radius:4px}
 .baseband .book{font-size:12px;font-weight:600;text-decoration:none;color:#3a322c;background:rgba(255,255,255,.9);
-  padding:4px 10px;border-radius:999px;white-space:nowrap;transition:background .12s}
+  padding:4px 9px;border-radius:4px;white-space:nowrap;transition:background .12s}
 .baseband .book:hover{background:#fff}
 .baseband .book.airbnb{color:#c1395b}
 .baseband .book.booking{color:#1a4a8a}
 .baseband .book.hotel{color:#7a5c1a}
 .baseband .book.nav.gmaps{color:#1a6b4a}
 .baseband .book.nav.waze{color:#1c5fa8}
-.days{border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:var(--card);overflow:hidden}
-.day{padding:13px 15px;border-top:1px dashed var(--line)}
+.days{border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;background:var(--card);overflow:hidden}
+.day{padding:16px 18px 15px;border-top:1px solid var(--line)}
 .day:first-child{border-top:none}
-.day .dhead{display:flex;gap:10px;align-items:baseline;margin-bottom:5px;flex-wrap:wrap}
-.day .dno{flex:0 0 auto;font-weight:700;font-size:11px;color:#fff;padding:2px 7px;border-radius:6px}
-.day .ddate{font-size:12px;color:var(--muted)}
-.day .dtitle{font-weight:600;font-size:14.5px}
-.day .arrivetag{font-weight:600;font-size:11px;color:var(--muted);letter-spacing:.03em}
-.day ul{margin:4px 0 0;padding-left:18px}
-.day li{font-size:13.5px;color:#3f382f;margin:2px 0}
-.day li .pl{color:inherit;text-decoration:underline;text-decoration-color:var(--line);
-  text-decoration-thickness:1.5px;text-underline-offset:2px;cursor:pointer}
+.day .dhead{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:baseline;margin-bottom:6px}
+.day .dno{grid-row:1 / span 2;font-size:30px;font-weight:500;line-height:.9;font-variant-numeric:lining-nums;min-width:1.1em}
+.day .dno::before{content:none}
+.day .ddate{font-size:13px;color:var(--muted);font-style:italic}
+.day .dtitle{grid-column:2;font-weight:600;font-size:18px;line-height:1.25}
+.day .arrivetag{display:inline-block;font-family:var(--font);font-weight:600;font-size:10.5px;color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-left:6px;vertical-align:2px}
+.day.off .dtitle{font-weight:500;font-style:italic;color:#5a5047}
+.day ul{margin:6px 0 0;padding:0;list-style:none}
+.day li{position:relative;font-size:16.5px;line-height:1.4;color:#352f29;margin:5px 0;padding-left:16px}
+.day li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--dot,#b9ad9b)}
+.day li .pl{color:inherit;text-decoration:underline;text-decoration-color:rgba(120,100,80,.35);
+  text-decoration-thickness:1px;text-underline-offset:3px;cursor:pointer}
 .day li .pl:hover{text-decoration-color:var(--car)}
-.day li .pl::after{content:" 📷";font-size:10px;opacity:.55}
-.leg{margin-top:7px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:7px}
-.leg .mode{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;color:#fff}
-.leg .mode.car{background:var(--car)}
-.leg .mode.train{background:var(--train)}
+.leg{margin-top:10px;font-size:14px;color:var(--muted);font-style:italic;display:flex;align-items:baseline;gap:7px}
+.leg .mode{font-style:normal;font-size:0;flex:0 0 auto}
+.leg .mode::before{font-size:13px}
+.leg .mode.car::before{content:"🚗"}
+.leg .mode.train::before{content:"🚆"}
 /* weather badge + weather-dependent day variants */
 .day .wx{font-size:12px;color:var(--muted);margin:2px 0 6px;padding:3px 9px;border-radius:999px;
   background:rgba(60,50,40,.06);display:inline-block}
@@ -131,8 +147,9 @@ header.top .fly b{color:var(--ink);font-weight:600}
 .vchip.active{background:var(--car);border-color:var(--car);color:#fff}
 .vpane.off{display:none}
 .vpane .vnote{font-size:12.5px;color:var(--muted);font-style:italic;margin:4px 0 0}
-.foot{color:var(--muted);font-size:12px;text-align:center;padding:22px}
+.foot{color:var(--muted);font-size:13px;font-style:italic;text-align:center;padding:22px}
 .leaflet-popup-content{font-family:var(--font);font-size:13px;line-height:1.4}
+.leaflet-popup-content b{font-family:var(--serif);font-size:15px;font-weight:600}
 .leaflet-popup-content .popup-photos{display:inline-block;margin-top:6px;font-weight:600;color:#8a5a1a;text-decoration:none}
 .leaflet-popup-content .popup-photos:hover{text-decoration:underline}
 
@@ -177,24 +194,22 @@ body.pm-open{overflow:hidden}
   font-size:13px;background:rgba(0,0,0,.4);padding:3px 10px;border-radius:999px}
 @media (max-width:640px){.pm-nav{width:40px;height:52px;font-size:30px}.pm-prev{left:6px}.pm-next{right:6px}}
 
-/* mobile: smaller, aligned gutters across header / legend / itinerary cards (14px).
-   Placed last so these win over the base rules (media queries add no specificity). */
+/* mobile: tight gutters so the text gets the width. Placed last so these win over the base rules. */
 @media (max-width:900px){
-  header.top{padding:18px 14px 13px}
-  header.top .sub{font-size:14px}
-  .itin{padding:4px 14px 44px}
-  .basecard{margin:14px 0 8px}
-  .baseband{padding:11px 13px}
-  .baseband .name{font-size:18px}
-  .day{padding:12px 13px}
-  .day ul{padding-left:17px}
+  :root{--gut:0px}
+  header.top{padding:22px calc(16px + env(safe-area-inset-right)) 16px calc(16px + env(safe-area-inset-left))}
+  .itin{padding-bottom:40px}
+  .basecard{margin:0}
+  .baseband{border-radius:0;padding:18px 14px 12px}
+  .days{border-left:none;border-right:none;border-radius:0}
+  .day{padding:15px 14px 14px}
   .foot{padding:18px 14px}
   /* legend stacks on mobile: driving on top, sections below (no vertical divider) */
   .legend .lg-cols{grid-template-columns:1fr;gap:0}
   .legend .lg-right{border-left:none;padding-left:0}
   .legend .lg-right .lsec:first-child{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
 }
-.day li .plmap{text-decoration:none;font-size:.85em;margin-left:2px}
+.day li .plmap{text-decoration:none;font-size:.72em;margin-left:1px;vertical-align:1px;opacity:.85}
 .popnav .popchip{display:inline-block;margin:4px 6px 0 0;text-decoration:none;font-weight:600}
 .popnav .popchip.gmaps{color:#1a6b4a}
 .popnav .popchip.waze{color:#1c5fa8}

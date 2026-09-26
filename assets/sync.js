@@ -74,16 +74,18 @@ function parseMd(text) {
     title: (lines[0] || "").trim(),
     dates: (head.find(l => /\d+\s+nights?/.test(l)) || "").trim(),
     route: (head.find(l => /^Route:/.test(l.trim())) || "").replace(/^\s*Route:\s*/, "").trim(),
-    flyOut: "", flyBack: ""
+    flyOut: "", flyBack: "", trainOut: "", trainBack: ""
   };
   meta.start = parseStartDate(meta.dates);
-  const fly = head.find(l => /^Fly:/.test(l.trim()));
-  if (fly) {
-    fly.replace(/^\s*Fly:\s*/, "").split(" · ").forEach(seg => {
-      if (/\(out\)/.test(seg))  meta.flyOut  = seg.replace(/\s*\(out\)\s*/, "").trim();
-      if (/\(back\)/.test(seg)) meta.flyBack = seg.replace(/\s*\(back\)\s*/, "").trim();
+  // "Fly:" / "Train:" header lines: "… (out) · … (back)"
+  [["Fly", "fly"], ["Train", "train"]].forEach(([label, key]) => {
+    const ln = head.find(l => new RegExp("^" + label + ":").test(l.trim()));
+    if (!ln) return;
+    ln.replace(new RegExp("^\\s*" + label + ":\\s*"), "").split(" · ").forEach(seg => {
+      if (/\(out\)/.test(seg))  meta[key + "Out"]  = seg.replace(/\s*\(out\)\s*/, "").trim();
+      if (/\(back\)/.test(seg)) meta[key + "Back"] = seg.replace(/\s*\(back\)\s*/, "").trim();
     });
-  }
+  });
 
   const bases = [];
   let cur = null, day = null, prevBar = false, curItems = null;

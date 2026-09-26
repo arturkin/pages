@@ -2,11 +2,13 @@
 // Edit the trip in trips/italy/itinerary.md; map-only metadata lives in trips/italy/meta.js.
 window.TRIP = {
   "meta": {
-    "title": "ITALY — TWO WEEKS: TUSCANY",
+    "title": "Two weeks in Tuscany",
     "dates": "Sat 3 Oct – Sun 18 Oct 2026 · 14 nights",
-    "route": "Florence → Argentario (Porto Santo Stefano) → Chianti Classico (Gaiole) → Val d'Orcia (Castiglione d'Orcia) → Florence",
-    "flyOut": "Icelandair KEF 09:00 → MXP 15:10",
-    "flyBack": "MXP 07:00 → KEF at dawn",
+    "route": "Florence → Argentario → Chianti → Val d'Orcia → Florence",
+    "flyOut": "KEF 09:00 → MXP 15:10, Sat 3 Oct",
+    "flyBack": "MXP 07:00 → KEF, Sun 18 Oct",
+    "trainOut": "FR 9567, Milano C.le 20:10 → Firenze SMN 22:04, coach 4 seats 7D/8D, Sat 3 Oct",
+    "trainBack": "FR 9560, Firenze SMN 20:55 → Milano C.le 22:50, coach 3 seats 1D/2D, Sat 17 Oct",
     "start": "2026-10-03"
   },
   "map": {
@@ -56,12 +58,12 @@ window.TRIP = {
         {
           "d": 1,
           "date": "Sat 3 Oct",
-          "title": "Fly in, train to Florence",
+          "title": "Land in Milan, evening train to Florence",
           "items": [
-            "09:00 KEF → 15:10 MXP; Malpensa Express to Milano Centrale (~50 min)",
-            "Frecciarossa Milan → Florence (~2 h, direct; book in advance). Arrive ~19:30",
-            "Check in near Santa Maria Novella; easy dinner, early night",
-            "Sleep near the station OR near the tram T2 line — tomorrow's car pickup is at the airport"
+            "Land 15:10 → Malpensa Express to Milano Centrale (~50 min)",
+            "Three free hours: leave bags at the Centrale deposit, metro M3 to the Duomo, aperitivo in the Galleria",
+            "Frecciarossa 9567 · 20:10 → 22:04 · coach 4, seats 7D + 8D",
+            "Sleep near Santa Maria Novella — walk from the platform to bed"
           ]
         }
       ]
@@ -186,59 +188,56 @@ window.TRIP = {
         {
           "d": 2,
           "date": "Sun 4 Oct",
-          "title": "ON · Pick up the car, the coast road south, stock the house",
+          "title": "Pick up the car, coast road south",
           "arrive": true,
           "items": [
-            "Collect the rental ~09:00 at Florence airport (FLR — tram T2 from SMN, ~20 min; the Sunday-safe desk, and it keeps you out of the ZTL). Confirm the drop is the SAME location (round-trip)",
-            "Bolgheri: the Viale dei Cipressi, then Piccolo Frantoio di Bolgheri — a tiny family olive mill (Sun 09:00–12:30 · 14:00–18:00, single-variety oils). Wine: Terre del Marchesato (daily 11:30–17:30, book the tasting) — you're driving, so buy rather than taste",
-            "Lunch at Castiglione della Pescaia, or at Gastronomia Agricola Pavone just outside it — the farm's own deli + table (Sun 09:00–22:00): their preserved artichokes, passata, aglione, oil",
-            "STOCK THE HOUSE ON THE WAY IN — Porto Santo Stefano's shops mostly shut Sunday afternoon. In order along the road: Antica Fattoria La Parrina (organic estate shop: cheese, wine, oil, veg — Sun 09:30–17:00 safe, call to confirm later), Azienda Agricola Romualdi (farm stand on the Giannella road, 08:00–13:00 · 15:00–19:30), Famila Albinia for the rest (Sun 08:00–20:00)",
-            "Fallback in town: Conad City Porto Santo Stefano (Sun 17:00–20:00 — afternoon not confirmed)",
-            "Check in at Poggio Calvello. Dinner: L'Oste Dispensa on the Giannella (open Sun; book)",
-            "The trip's longest day — if the pickup runs late, skip Bolgheri and go direct (~2 h 50)"
+            "09:00 Sixt at Florence airport — tram T2 from SMN (20 min), then the free rental shuttle (every 15 min) to the car hub",
+            "Bolgheri: the cypress avenue, olive oil at Piccolo Frantoio di Bolgheri",
+            "Lunch at Gastronomia Agricola Pavone, outside Castiglione della Pescaia",
+            "Shop on the way in — town is shut Sunday afternoon: Antica Fattoria La Parrina (till ~17:00), Azienda Agricola Romualdi, or Famila Albinia (till 20:00)",
+            "Dinner at L'Oste Dispensa — book",
+            "Longest drive of the trip. Running late? Skip Bolgheri"
           ],
           "leg": {
             "mode": "car",
-            "text": "Florence → Bolgheri → Castiglione della Pescaia → Albinia → Porto Santo Stefano · ~4 h 15 driving + stops"
+            "text": "Florence → Bolgheri → Castiglione della Pescaia → Porto Santo Stefano · ~4 h 15 with stops"
           }
         },
         {
           "d": 3,
           "date": "Mon 5 Oct",
-          "title": "OFF · The house and the bay below it",
+          "title": "Off: the house and the bay",
           "items": [
-            "No car. Coffee on the terrace; walk down to Spiaggia del Pozzarello (the house's own bay), and along to La Soda",
-            "Bread from Alocci (open daily 06:00–19:30) if you do nip into town; Pescheria Da Roberto is CLOSED Mondays, and so is Bar Il Buco",
-            "Dinner at the house with yesterday's shopping — or L'Oste Dispensa, 5 min down (dinner only Mon)"
+            "Coffee on the terrace, swim at Spiaggia del Pozzarello below the house",
+            "Walk along to La Soda",
+            "Cook at home (the fishmonger and Bar Il Buco are shut Mondays)"
           ]
         },
         {
           "d": 4,
           "date": "Tue 6 Oct",
-          "title": "ON · Lagoon, Feniglia & the Tarocchi",
+          "title": "Lagoon, beach & the Tarocchi",
           "items": [
-            "Morning: the Porto Santo Stefano Tuesday market (general market, some fruit & veg) on the way out",
-            "Orbetello: I Pescatori di Orbetello — the lagoon fishermen's co-op shop, their own bottarga, smoked mullet and eel (Tue 08:30–13:00, so go first). Fresh pici from La Casareccia (09:00–13:00 · 16:45–19:30)",
-            "Spiaggia della Feniglia (~15 min on): the long pine-backed beach; walk or bike the dune reserve; picnic lunch",
-            "Giardino dei Tarocchi at Capalbio — Niki de Saint Phalle's mosaic park, 14:30–19:30 daily until 15 Oct, €15. BUY ONLINE (ticketlandia) — numbers are capped. Allow 1.5 h",
-            "Az. Agricola Il Raggio, 2 km from the garden: organic oil at the farm (16:00–19:00)",
-            "Optional cheese detour (+25 min inland): Caseificio Sociale Manciano, Pecorino Toscano DOP (open straight through, 07:00–19:30)",
-            "Aperitivo back on the Argentario at Bar Il Buco over the harbour (open Tue)",
-            "SWAP OPTION: north instead of south — Parco della Maremma at Alberese (~45 min). Heads-up: since 21 Sep the Perazzeta bridge on the Strada del Mare is closed; trails A1–A4 now start at Pratini"
+            "Orbetello first: bottarga at I Pescatori di Orbetello (till 13:00), fresh pici at La Casareccia",
+            "Beach and picnic at Spiaggia della Feniglia",
+            "Giardino dei Tarocchi from 14:30 — tickets online only",
+            "Olive oil at Il Raggio on the way back (16:00–19:00)",
+            "Sunset drink at Bar Il Buco",
+            "Bonus: Porto Santo Stefano Tuesday market, or a cheese detour to Caseificio Sociale Manciano"
           ],
           "leg": {
             "mode": "car",
-            "text": "Porto Santo Stefano → Orbetello → Feniglia → Capalbio (Tarocchi) → Porto Santo Stefano · ~1 h 30 driving in total"
+            "text": "Porto Santo Stefano → Orbetello → Feniglia → Capalbio → back · ~1 h 30 driving"
           }
         },
         {
           "d": 5,
           "date": "Wed 7 Oct",
-          "title": "OFF · Lazy last Maremma day",
+          "title": "Off: lazy last beach day",
           "items": [
-            "Pool-less but sea-full: Spiaggia della Bionda or back to Pozzarello; a book on the terrace",
-            "If you go down to the harbour (5 min): Pescheria Da Roberto (Wed 08:00–19:00) for tonight's fish, Panificio Dalmazzi for bread (07:15–13:15 · 17:00–20:00), the Lungomare dei Navigatori walk",
-            "Cook at home — L'Oste Dispensa is CLOSED Wednesdays. Eat down the fridge; pack"
+            "Spiaggia della Bionda, a book, a nap",
+            "Fish for dinner from Pescheria Da Roberto (5 min down)",
+            "Cook in — L'Oste is closed Wednesdays. Pack"
           ]
         }
       ]
@@ -404,82 +403,80 @@ window.TRIP = {
         {
           "d": 6,
           "date": "Thu 8 Oct",
-          "title": "ON · Argentario → Chianti: a farmers market, hot springs, the roofless abbey",
+          "title": "Up to Chianti: market, hot springs, roofless abbey",
           "arrive": true,
           "items": [
-            "Leave by ~08:15. Agrimercato Campagna Amica Grosseto (~45 min): the Thursday farmers-only market, 08:00–13:00 — Maremma cheese, meat, bread, veg, straight from the growers",
-            "Bagni di Petriolo (~50 min on): the free hot pools on the Farma river under the old bridge — open 24 h, no facilities (bring water shoes + a towel)",
-            "Abbazia di San Galgano (~30 min): the roofless Gothic abbey, 09:00–19:00, abbey + museum €8; then walk up to Montesiepi for the sword in the stone",
-            "Cheese on the way past Siena: Caseificio Podere Sant'Anna, a farm dairy making its own pecorino (Thu 10:00–13:00 · 17:00–20:00)",
-            "Stock the house: there is NO shop in Monti yet (the new Coop there opens \"in winter\"). Best stop is Macelleria Minucci — the butcher counter inside the A&O at Castelnuovo Berardenga, 15 min from the house (07:30–13:00 · 15:30–19:30). Or Gaiole: Macelleria Chini (Cinta Senese; 08:00–13:00 · 16:30–19:30) next to the Coop Gaiole (to 19:30)",
-            "Check in at Montelodoli Capanna; the infinity pool, vines to the horizon"
+            "Leave 08:15 for the Agrimercato Campagna Amica Grosseto — farmers only, till 13:00",
+            "Soak in the free pools at Bagni di Petriolo (bring water shoes)",
+            "Abbazia di San Galgano and the sword in the stone (€8)",
+            "Pecorino at Caseificio Podere Sant'Anna (from 17:00)",
+            "Stock up — Monti has no shop: Macelleria Minucci in Castelnuovo, or Macelleria Chini + Coop Gaiole (all till 19:30)"
           ],
           "leg": {
             "mode": "car",
-            "text": "Porto Santo Stefano → Grosseto → Petriolo → San Galgano → Castelnuovo Berardenga → Monti in Chianti · ~3 h 30 driving + stops"
+            "text": "Porto Santo Stefano → Grosseto → Petriolo → San Galgano → Monti in Chianti · ~3 h 30 with stops"
           }
         },
         {
           "d": 7,
           "date": "Fri 9 Oct",
-          "title": "OFF · The pool, and a walk to Brolio",
+          "title": "Off: pool, and a walk to Brolio",
           "items": [
-            "Slow morning: the 16 m infinity pool, the Chianti hills",
-            "If you feel like moving: walk the ~2 km through the Ricasoli vineyards to Castello di Brolio (gardens 10:00–19:00; the 10:30 garden + cellar tour with tasting is €55, book), via San Regolo",
-            "Lunch at the Osteria del Castello di Brolio (open Fri; it's CLOSED Wed + Thu)",
-            "Dinner up the lane: Locanda del Tartufaio in Monti (1.8 km — truffle + game, open 7 days; book by WhatsApp +39 347 676 3249, phone signal is weak there)",
-            "Mid-October is the tail of the VENDEMMIA — cellars are working; book every tasting ahead"
+            "Slow morning by the infinity pool",
+            "Walk 2 km through the vines to Castello di Brolio (garden tour 10:30, book)",
+            "Lunch at the Osteria del Castello di Brolio",
+            "Dinner up the lane at Locanda del Tartufaio — book by WhatsApp"
           ]
         },
         {
           "d": 8,
           "date": "Sat 10 Oct",
-          "title": "ON · The Chiantigiana: Greve market, Panzano, Volpaia",
+          "title": "The Chiantigiana",
           "items": [
-            "Early to Greve in Chianti (~45 min): the Saturday market that's run since the 1700s — the FOOD stalls are in Piazza della Resistenza, morning only. Greve Saturday market, then under the arcades: Antica Macelleria Falorni (Cinta Senese salumi, cheese cave; 09:00–19:30) and the Frantoio del Grevepesa oil shop (10:00–18:00)",
-            "Panzano (10 min): Antica Macelleria Cecchini — Dario's butcher-theatre (daily 09:00–16:00); lunch at his Solociccia / Officina next door (book)",
-            "Castello di Volpaia (~25 min): the wine village; enoteca 11:00–18:00, tours by reservation (~€40)",
-            "Radda in Chianti on the way home; Casa Chianti Classico does an aperitivo Fri–Sat 18:00–20:00",
-            "ALTERNATIVE to Volpaia: lunch at Badia a Coltibuono (abbey restaurant 12:00–14:30, closed Tue; visit + tasting from €30, book at shop.coltibuono.com)"
+            "Greve Saturday market — food stalls, mornings only",
+            "Salumi at Antica Macelleria Falorni, oil at Frantoio del Grevepesa",
+            "Panzano: Antica Macelleria Cecchini, lunch next door at Solociccia (book)",
+            "Castello di Volpaia — wine tour (book)",
+            "Home via Radda in Chianti"
           ],
           "leg": {
             "mode": "car",
-            "text": "Monti in Chianti → Greve → Panzano → Volpaia → Radda → Monti in Chianti · ~2 h driving in total"
+            "text": "Monti in Chianti → Greve → Panzano → Volpaia → Radda → home · ~2 h driving"
           }
         },
         {
           "d": 9,
           "date": "Sun 11 Oct",
-          "title": "OFF · Nothing at all",
+          "title": "Off: nothing at all",
           "items": [
-            "The pool, a book, the terrace. This is what six nights in one house is for",
-            "Sunday lunch at the Osteria del Castello di Brolio (Sun lunch only), or dinner at Ristorante Enoteca Villa di Sotto in Villa a Sesta (5 km, open Sun) / Locanda del Tartufaio"
+            "Pool, book, terrace",
+            "Sunday lunch at the Osteria di Brolio, or dinner at Villa di Sotto (5 km)"
           ]
         },
         {
           "d": 10,
           "date": "Mon 12 Oct",
-          "title": "ON · Siena & Monteriggioni",
+          "title": "Siena & Monteriggioni",
           "items": [
-            "Into Siena (~30 min). Park OUTSIDE the walls (Santa Caterina / Il Campo garages)",
-            "Buy the Torre del Mangia ticket FIRST (same-day only, 25 per slot); Museo Civico 10:00–19:00. The Duomo's inlaid marble FLOOR is uncovered this autumn (to 31 Oct) — the OPA SI pass is €16. Nothing closes on Mondays here",
-            "Food Siena: Pizzicheria de' Miccoli for Cinta Senese salumi (daily 10:00–20:00), Panificio Il Magnifico for ricciarelli + panforte (08:00–19:30), and the Consorzio Agrario di Siena — the farmers' co-op food hall (08:30–20:00)",
-            "Lunch at Enoteca I Terzi, just off the Campo (open Mon, 12:30–14:30)",
-            "Monteriggioni on the way back (~20 min) — the circular walled village; aperitivo at Antico Travaglio (Monday opening not confirmed — call +39 0577 892308)",
-            "Passing Gaiole? The Gaiole monthly market is on the 2nd Monday (14:00–20:00, a general market — not confirmed by the comune)"
+            "Park outside the walls. Torre del Mangia tickets first — same-day only",
+            "The Duomo floor is uncovered this month (OPA SI pass, €16)",
+            "Food stops: Pizzicheria de' Miccoli, Panificio Il Magnifico, Consorzio Agrario di Siena",
+            "Lunch at Enoteca I Terzi",
+            "Aperitivo inside the walls of Monteriggioni",
+            "Maybe: the Gaiole monthly market on the way home (from 14:00)"
           ],
           "leg": {
             "mode": "car",
-            "text": "Monti in Chianti → Siena → Monteriggioni → Monti in Chianti · ~1 h 30 driving in total"
+            "text": "Monti in Chianti → Siena → Monteriggioni → home · ~1 h 30 driving"
           }
         },
         {
           "d": 11,
           "date": "Tue 13 Oct",
-          "title": "OFF · Last Chianti day at the house",
+          "title": "Off: last day at the house",
           "items": [
-            "Pool, long lunch at home, sunset on the terrace. Pack for the move south",
-            "Dinner nearby: Osteria alla Villa in Villa a Sesta (5 km, open Tue, 4.9★) — Coltibuono and Malborghetto are closed on Tuesdays"
+            "Pool, long lunch, sunset. Pack",
+            "Dinner at Osteria alla Villa, Villa a Sesta (open Tuesdays)"
           ]
         }
       ]
@@ -663,49 +660,44 @@ window.TRIP = {
         {
           "d": 12,
           "date": "Wed 14 Oct",
-          "title": "ON · Chianti → Val d'Orcia, across the Crete Senesi",
+          "title": "South across the Crete Senesi",
           "arrive": true,
           "items": [
-            "Leave ~09:30 south through the clay hills — the biancane badlands, big empty skies",
-            "Asciano (~45 min): walk the Corso; La Botteghina di Luisa for Crete pecorino + Cinta Senese (opens 12:30 on Wed — call +39 0577 718175 if you're earlier)",
-            "Monte Oliveto Maggiore (15 min): the great abbey in its cypress wood, Signorelli & Sodoma frescoes — 09:30–12:40 (last entry 12:20), then 14:30–18:00; €4 midweek. Arrive by ~11:00. The monks' own shop, Agricola Monte Oliveto: wine, oil, saffron, truffles (10:00–13:00 · 14:30–18:30)",
-            "Buonconvento: lunch, then Bottega delle Carni Orlandi — a fourth-generation butcher, own finocchiona + sausages (08:00–13:00 · 16:00–19:30)",
-            "(Siena's Wednesday market is clothes + household, not food — not worth the detour)",
-            "On to Locanda in Tuscany at Gallina; the pool, sunset over the Val d'Orcia",
-            "Dinner at the Taverna di Mozart, the hotel's own restaurant (opening days not published — call ahead: +39 0577 170 0221)"
+            "Monte Oliveto Maggiore at 10:30 — closes 12:40–14:30. The monks' shop is Agricola Monte Oliveto",
+            "Back up to Asciano for lunch: cheese and salumi boards at La Botteghina di Luisa (opens 12:30)",
+            "Buonconvento in the afternoon: Bottega delle Carni Orlandi (reopens 16:00)",
+            "Pool and sunset at the Locanda; dinner at the Taverna di Mozart (call to book)"
           ],
           "leg": {
             "mode": "car",
-            "text": "Monti in Chianti → Asciano → Monte Oliveto → Buonconvento → Castiglione d'Orcia · ~2 h driving + stops"
+            "text": "Monti in Chianti → Monte Oliveto → Asciano → Buonconvento → Castiglione d'Orcia · ~2 h with stops"
           }
         },
         {
           "d": 13,
           "date": "Thu 15 Oct",
-          "title": "OFF · The Locanda",
+          "title": "Off: the Locanda",
           "items": [
-            "The 20 m pool, the view, lunch at the hotel. Nothing to drive to",
-            "Only if you get restless, two things ≤15 min away: Fattoria Pianporcino — they breed the sheep and make Pecorino di Pienza on the farm (Thu 09:00–13:00 · 15:00–19:00, book a tasting) — and an evening soak in the free Parco dei Mulini pools under Bagno Vignoni",
-            "Dinner at the Taverna di Mozart"
+            "Pool, view, lunch at the hotel",
+            "Restless? Fattoria Pianporcino for cheese (13 min), or an evening soak at Bagno Vignoni"
           ]
         },
         {
           "d": 14,
           "date": "Fri 16 Oct",
-          "title": "ON · Montalcino market, Sant'Antimo, Pienza, the Vitaleta sunset",
+          "title": "Montalcino market, Pienza, the Vitaleta sunset",
           "items": [
-            "09:15 leave. Abbey of Sant'Antimo (~45 min): the Romanesque abbey in its olive grove, 10:00–18:00 (no daily Gregorian chant any more — the monks left in 2015)",
-            "Montalcino (15 min): the Montalcino Friday market (08:00–13:00 — produce, porchetta), bread at Forno Valdorcia, salumi + cheese at Da Rizieri on the piazza, the Fortezza",
-            "Buy/SHIP your wine today (you fly at dawn Sunday): Enoteca Bruno Dalmazio — deep Brunello stock, ships abroad (09:00–20:00)",
-            "Lunch: a Brunello flight at Enoteca Osticcio's panoramic terrace (open Fri 12:30–15:00)",
-            "San Quirico d'Orcia: the Horti Leonini garden (short stop)",
-            "Pienza: the \"ideal city\" streets + pecorino — Marusco e Maria since 1974, own ageing cave (09:30–13:00 · 14:30–19:00). Optional: Caseificio Cugusi, family dairy since 1962, on the Montepulciano road (open to ~19:30, call)",
-            "Sunset (~18:30): Podere Belvedere from the roadside, and the 1 km walk to the Cappella di Vitaleta",
-            "Dinner at Osteria La Porta in Monticchiello, 15 min on (open daily; book the terrace)"
+            "09:15 leave. Abbey of Sant'Antimo, opens 10:00",
+            "Montalcino Friday market (till 13:00); bread at Forno Valdorcia, salumi at Da Rizieri",
+            "Ship wine home from Enoteca Bruno Dalmazio",
+            "Brunello and lunch at Enoteca Osticcio",
+            "Pienza: pecorino at Marusco e Maria",
+            "Sunset at Podere Belvedere and the Cappella di Vitaleta (~18:30)",
+            "Dinner at Osteria La Porta, Monticchiello — book the terrace"
           ],
           "leg": {
             "mode": "car",
-            "text": "Castiglione d'Orcia → Sant'Antimo → Montalcino → San Quirico → Pienza → Vitaleta → Monticchiello → Castiglione d'Orcia · ~2 h 30 driving in total"
+            "text": "Castiglione d'Orcia → Sant'Antimo → Montalcino → Pienza → Monticchiello → back · ~2 h 30 driving"
           }
         }
       ]
@@ -785,20 +777,19 @@ window.TRIP = {
         {
           "d": 15,
           "date": "Sat 17 Oct",
-          "title": "ON · Val d'Orcia → Florence, markets & shopping, night run to Malpensa",
+          "title": "Florence, then the night train north",
           "items": [
-            "Leave ~07:00: sunrise over Podere Belvedere from the Cassia (~07:25), then warm bread at Panificio Caselli in San Quirico (from 05:30)",
-            "Drop the rental at FLR ~10:30 (book the 14th day), tram T2 into town, bags into the SMN deposit",
-            "Markets before they close: Mercato di Sant'Ambrogio (07:00–14:00, the locals' one), Mercato Centrale ground floor (07:00–17:00), or Campagna Amica San Frediano in the Oltrarno — a covered farmers' market, ~50 producers (08:30–14:00)",
-            "Take-home food: Pegna by the Duomo (vacuum-packed pecorino, oil; 10:00–19:00), Procacci on Via Tornabuoni for truffle (10:00–21:00)",
-            "Shopping: San Lorenzo leather, Ponte Vecchio goldsmiths, Oltrarno artisans",
-            "Last big meal: LUNCH at Il Santo Bevitore in the Oltrarno (Sat 12:30–14:00) — it keeps the evening free for the train",
-            "Frecciarossa Firenze SMN → Milano Centrale (~20:30–21:30 departure, ~2 h)",
-            "Late Malpensa Express / night bus Milano Centrale → MXP; NO hotel — overnight in the terminal"
+            "07:00 leave: sunrise at Podere Belvedere, warm bread at Panificio Caselli",
+            "Car back to Sixt at the airport car hub ~10:30, shuttle + tram T2 into town, bags into the SMN deposit",
+            "Markets: Mercato di Sant'Ambrogio (till 14:00) or Campagna Amica San Frediano",
+            "Take-home pecorino and oil from Pegna; truffle from Procacci",
+            "Lunch at Il Santo Bevitore, then leather, Ponte Vecchio, the Oltrarno",
+            "Frecciarossa 9560 · 20:55 → 22:50 · coach 3, seats 1D + 2D",
+            "Malpensa Express to the airport; overnight in the terminal"
           ],
           "leg": {
             "mode": "car",
-            "text": "Castiglione d'Orcia → San Quirico → Florence · ~2 h 15 / 150 km (then the evening train north)"
+            "text": "Castiglione d'Orcia → Florence · ~2 h 15, then the evening train"
           }
         }
       ]
@@ -822,8 +813,7 @@ window.TRIP = {
           "date": "Sun 18 Oct",
           "title": "Fly home at dawn",
           "items": [
-            "07:00 MXP → KEF; you're already at the terminal — bag drop by ~05:30",
-            "Land in Reykjavik with the whole day ahead"
+            "Bag drop by 05:30, 07:00 to Keflavík"
           ]
         }
       ]
@@ -1185,7 +1175,7 @@ window.TRIP = {
             11.5607
           ],
           "url": "https://www.google.com/maps/search/?api=1&query=La%20Botteghina%20di%20Luisa%20Asciano",
-          "note": "Day 12 · Wed from 12:30 (call +39 0577 718175) · Crete pecorino, Cinta Senese"
+          "note": "Day 12 · Wed from 12:30 — lunch stop (call +39 0577 718175) · Crete pecorino, Cinta Senese boards"
         },
         {
           "name": "Agricola Monte Oliveto",

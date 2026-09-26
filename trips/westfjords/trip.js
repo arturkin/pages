@@ -7,6 +7,8 @@ window.TRIP = {
     "route": "Reykjavík → Snæfellsnes → Birkimelur (Barðaströnd) → Bolungarvík (Ísafjörður) → Strandir → Reykjavík",
     "flyOut": "",
     "flyBack": "",
+    "trainOut": "",
+    "trainBack": "",
     "start": "2026-07-15"
   },
   "map": {

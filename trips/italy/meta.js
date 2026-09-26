@@ -103,7 +103,7 @@ const PRODUCE = [
   { name: "Consorzio Agrario di Siena", cat: "deli", coord: [43.3212, 11.3301], rating: 4.5, url: gm("Consorzio Agrario Siena Via Pianigiani"), note: "Days 6/10 · 08:30–20:00 · the farmers' co-op food hall: pecorino, salumi, oil, wine" },
   { name: "Gaiole monthly market", cat: "market", coord: [43.4682, 11.4340], url: gm("Piazza Ricasoli Gaiole in Chianti"), note: "Day 10 · 2nd Monday 14:00–20:00 (not confirmed by the comune) · general market" },
   // — Day 12 · Wed 14 Oct · Crete Senesi —
-  { name: "La Botteghina di Luisa", cat: "deli", coord: [43.2341, 11.5607], url: gm("La Botteghina di Luisa Asciano"), note: "Day 12 · Wed from 12:30 (call +39 0577 718175) · Crete pecorino, Cinta Senese" },
+  { name: "La Botteghina di Luisa", cat: "deli", coord: [43.2341, 11.5607], url: gm("La Botteghina di Luisa Asciano"), note: "Day 12 · Wed from 12:30 — lunch stop (call +39 0577 718175) · Crete pecorino, Cinta Senese boards" },
   { name: "Agricola Monte Oliveto", cat: "wine", coord: [43.1747, 11.5447], url: gm("Agricola Monte Oliveto Maggiore cantina"), note: "Day 12 · 10:00–13:00, 14:30–18:30 · the monks' wine, oil, saffron, truffles" },
   { name: "Bottega delle Carni Orlandi", cat: "butcher", coord: [43.1372, 11.4820], url: gm("Bottega delle Carni Orlandi Buonconvento"), note: "Day 12 · Wed 08:00–13:00, 16:00–19:30 · 4th-generation butcher, own finocchiona" },
   // — Day 13 · Thu 15 Oct (off, optional) —

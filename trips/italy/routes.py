@@ -40,7 +40,7 @@ legs=[
  (6,"car",PSS,GRO),(6,"car",GRO,PET),(6,"car",PET,SG),(6,"car",SG,SAN),(6,"car",SAN,CBE),(6,"car",CBE,CHI),  # Day 6: up to Chianti
  (8,"car",CHI,GRE),(8,"car",GRE,PAN),(8,"car",PAN,VOL),(8,"car",VOL,RAD),(8,"car",RAD,CHI),  # Day 8: the Chiantigiana
  (10,"car",CHI,SIE),(10,"car",SIE,MRG),(10,"car",MRG,CHI),     # Day 10: Siena + Monteriggioni
- (12,"car",CHI,ASC),(12,"car",ASC,MOM),(12,"car",MOM,BUO),(12,"car",BUO,LOC),  # Day 12: across the Crete Senesi
+ (12,"car",CHI,MOM),(12,"car",MOM,ASC),(12,"car",ASC,BUO),(12,"car",BUO,LOC),  # Day 12: across the Crete Senesi
  (14,"car",LOC,SAT),(14,"car",SAT,MTC),(14,"car",MTC,SQO),(14,"car",SQO,PIE),(14,"car",PIE,VIT),(14,"car",VIT,MCH),(14,"car",MCH,LOC),  # Day 14: Montalcino + Pienza loop
  (15,"car",LOC,SQO),(15,"car",SQO,FLO),(15,"train",FLO,MIL),(15,"train",MIL,MXP), # Day 15: Florence + night run to MXP
 ]

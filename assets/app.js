@@ -94,10 +94,12 @@
   /* ---------- header ---------- */
   var m = TRIP.meta;
   var sub = esc(m.dates) + (m.route ? ' · ' + esc(m.route) : '');
-  var flyHTML = (m.flyOut || m.flyBack)
-    ? '<div class="fly">✈︎ <b>Out:</b> ' + esc(m.flyOut) +
-        ' &nbsp;·&nbsp; <b>Back:</b> ' + esc(m.flyBack) + '</div>'
-    : '';
+  function travelRow(icon, out, back) {
+    if (!out && !back) return '';
+    return '<div class="fly"><span class="ficon">' + icon + '</span><span><b>Out</b> ' + esc(out) +
+      '</span><span><b>Back</b> ' + esc(back) + '</span></div>';
+  }
+  var flyHTML = travelRow("✈︎", m.flyOut, m.flyBack) + travelRow("🚆", m.trainOut, m.trainBack);
   document.getElementById("top").innerHTML =
     '<h1>' + esc(m.title) + '</h1>' +
     '<div class="sub">' + sub + '</div>' + flyHTML;
@@ -158,10 +160,11 @@
     var wx = day.weather ? '<div class="wx">' + esc(day.weather) + '</div>' : '';
     var shared = (day.items && day.items.length) ? liList(day.items) : '';
     var variants = (day.variants && day.variants.length) ? variantsHTML(day) : '';
-    return '<div class="day">' +
+    var off = /^off\b/i.test(day.title);
+    return '<div class="day' + (off ? ' off' : '') + '" style="--dot:' + color + '">' +
       '<div class="dhead">' +
-        '<span class="dno" style="background:' + color + '">DAY ' + day.d + '</span>' +
-        '<span class="ddate">' + esc(day.date) + '</span>' +
+        '<span class="dno" style="color:' + color + '">' + day.d + '</span>' +
+        '<span class="ddate">Day ' + day.d + ' · ' + esc(day.date) + '</span>' +
         '<span class="dtitle">' + esc(day.title) + arrive + '</span>' +
       '</div>' +
       wx + shared + variants + leg + '</div>';
@@ -173,6 +176,7 @@
     { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
 
   // full-screen toggle (mobile; CSS pseudo-fullscreen so it works everywhere incl. iOS)
+  var fsScroll = 0;
   var FsCtrl = L.Control.extend({
     options: { position: "topleft" },
     onAdd: function () {
@@ -183,6 +187,10 @@
         L.DomEvent.stop(e);
         var el = document.querySelector(".mapwrap");
         var on = el.classList.toggle("fs-on");
+        // freeze the page behind the map so iOS can't scroll/bounce it (restore position on exit)
+        if (on) { fsScroll = window.scrollY; document.body.style.top = -fsScroll + "px"; }
+        document.body.classList.toggle("fs-lock", on);
+        if (!on) { document.body.style.top = ""; window.scrollTo(0, fsScroll); }
         a.innerHTML = on ? "✕" : "⛶";
         a.title = on ? "Exit full screen" : "Full screen";
         setTimeout(function () { map.invalidateSize(); }, 150);

@@ -43,6 +43,8 @@ trips/<slug>/meta.js ──────┘
 - Header (first ~8 lines): title (line 1), a `… N nights` line (the **start date** is parsed
   from it — needs a `D Mon … YYYY`), an optional `Route:` line, an optional `Fly:` line
   (`… (out) · … (back)`; omit for a domestic trip — the header hides the flight row).
+  An optional `Train:` line in the same `(out) · (back)` shape adds a 🚆 row — don't use ` · `
+  inside a segment. Keep booking refs/ticket codes/names out: the site and repo are public.
 - Each base: a `━━━` rule then a banner line `emoji Name · Stay · N nights · dates`.
 - Each day: `DAY N · date — title` (append ` ›› arrive & check in` to flag a check-in day),
   then indented lines:
