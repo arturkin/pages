@@ -49,6 +49,18 @@ body.fs-lock{overflow:hidden;position:fixed;width:100%}
 .fs-ctrl a.fs-btn{display:block;width:30px;height:30px;font:400 18px/30px var(--font);
   text-align:center;color:#333;background:#fff;text-decoration:none}
 @media (min-width:901px){.fs-ctrl{display:none}}
+.mapfab{position:fixed;z-index:1400;right:calc(14px + env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));
+  border:none;border-radius:999px;padding:11px 18px;font:600 15px/1 var(--font);color:#fff;background:var(--ink);
+  box-shadow:0 6px 20px rgba(30,22,14,.3);cursor:pointer}
+body.fs-lock .mapfab,body.pm-open .mapfab{display:none}
+@media (min-width:901px){.mapfab{display:none}}
+.daychip{position:absolute;z-index:1000;top:calc(10px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);
+  max-width:calc(100% - 120px);display:flex;align-items:center;gap:6px;padding:5px 6px 5px 12px;border-radius:999px;
+  background:rgba(255,255,255,.95);box-shadow:0 2px 10px rgba(0,0,0,.18);font-size:13px;color:var(--ink);white-space:nowrap}
+.daychip[hidden]{display:none}
+.daychip span{overflow:hidden;text-overflow:ellipsis;color:var(--muted)}
+.daychip .dc-x{flex:0 0 auto;border:none;background:var(--paper);border-radius:50%;width:24px;height:24px;
+  font-size:17px;line-height:1;color:var(--muted);cursor:pointer}
 .legend{position:absolute;z-index:1000;left:12px;bottom:12px;font-family:var(--font);
   background:rgba(255,253,248,.82);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
   border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow);
@@ -117,7 +129,7 @@ body.fs-lock{overflow:hidden;position:fixed;width:100%}
 .days{border:1px solid var(--line);border-top:none;border-radius:0 0 6px 6px;background:var(--card);overflow:hidden}
 .day{padding:16px 18px 15px;border-top:1px solid var(--line)}
 .day:first-child{border-top:none}
-.day .dhead{display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:baseline;margin-bottom:6px}
+.day .dhead{cursor:pointer;display:grid;grid-template-columns:auto 1fr;column-gap:10px;align-items:baseline;margin-bottom:6px}
 .day .dno{grid-row:1 / span 2;font-size:30px;font-weight:500;line-height:.9;font-variant-numeric:lining-nums;min-width:1.1em}
 .day .dno::before{content:none}
 .day .ddate{font-size:13px;color:var(--muted);font-style:italic}
@@ -137,6 +149,9 @@ body.fs-lock{overflow:hidden;position:fixed;width:100%}
 .leg .mode{font-style:normal;font-size:0;flex:0 0 auto}
 .leg .mode::before{font-size:13px}
 .leg .mode.car::before{content:"🚗"}
+.dmap{margin-left:8px;font:italic 400 12px/1 var(--serif);color:var(--muted);opacity:.6;white-space:nowrap}
+.dmap::before{content:"↗ "}
+.dhead:hover .dmap{opacity:1}
 .leg .mode.train::before{content:"🚆"}
 /* weather badge + weather-dependent day variants */
 .day .wx{font-size:12px;color:var(--muted);margin:2px 0 6px;padding:3px 9px;border-radius:999px;
@@ -184,17 +199,43 @@ body.pm-open{overflow:hidden}
 .pm-src{position:absolute;left:6px;bottom:6px;font-size:10px;line-height:1;color:#fff;
   background:rgba(0,0,0,.55);padding:3px 6px;border-radius:6px;letter-spacing:.02em;pointer-events:none}
 .pm-light[hidden]{display:none}
-.pm-light{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;
-  background:rgba(20,14,8,.92);cursor:zoom-out;padding:24px}
-.pm-light img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.5);cursor:pointer}
+.pm-light{position:fixed;inset:0;z-index:1;background:rgba(14,10,6,.97)}
+.pm-track{position:absolute;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  overscroll-behavior:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.pm-track::-webkit-scrollbar{display:none}
+.pm-slide{flex:0 0 100%;box-sizing:border-box;scroll-snap-align:center;scroll-snap-stop:always;display:flex;
+  align-items:center;justify-content:center;padding:56px 76px;cursor:zoom-out}
+.pm-slide img{max-width:100%;max-height:100%;border-radius:6px;box-shadow:0 8px 40px rgba(0,0,0,.5);cursor:default;
+  -webkit-user-drag:none;user-select:none}
 .pm-nav{position:absolute;top:50%;transform:translateY(-50%);border:none;cursor:pointer;
-  width:48px;height:64px;font-size:38px;line-height:1;color:#fff;background:rgba(0,0,0,.28);
+  width:48px;height:64px;font-size:38px;line-height:1;color:#fff;background:rgba(255,255,255,.08);
   border-radius:10px;display:flex;align-items:center;justify-content:center;transition:background .12s}
-.pm-nav:hover{background:rgba(0,0,0,.55)}
+.pm-nav:hover{background:rgba(255,255,255,.2)}
 .pm-prev{left:16px}.pm-next{right:16px}
-.pm-count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:#fff;
-  font-size:13px;background:rgba(0,0,0,.4);padding:3px 10px;border-radius:999px}
-@media (max-width:640px){.pm-nav{width:40px;height:52px;font-size:30px}.pm-prev{left:6px}.pm-next{right:6px}}
+.pm-lclose{position:absolute;top:calc(10px + env(safe-area-inset-top));right:12px;width:44px;height:44px;border:none;
+  border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.pm-count{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);color:#fff;
+  font-size:13px;font-variant-numeric:tabular-nums;background:rgba(255,255,255,.1);padding:4px 12px;border-radius:999px;
+  white-space:nowrap;pointer-events:none}
+@media (hover:none){.pm-nav{background:none;opacity:.55}}
+/* phone: full-screen sheet, edge-to-edge 3-up grid, photos run to the screen edges */
+@media (max-width:640px){
+  .photomodal{padding:0}
+  .pm-backdrop{display:none}
+  .pm-panel{width:100%;height:100%;max-height:none;border-radius:0;box-shadow:none}
+  .pm-head{padding:calc(8px + env(safe-area-inset-top)) 8px 10px 16px;gap:6px 8px}
+  .pm-title{order:1;flex:1;font-size:20px}
+  .pm-close{order:2;width:44px;height:44px;font-size:30px}
+  .pm-links{order:3;width:100%;margin-left:0;gap:8px}
+  .pm-map{font-size:13px;padding:6px 12px}
+  .pm-ext{margin-left:auto;font-size:13px}
+  .pm-body{padding:2px 0 calc(12px + env(safe-area-inset-bottom))}
+  .pm-grid{grid-template-columns:repeat(3,1fr);gap:2px}
+  .pm-thumb{border-radius:0}
+  .pm-src{display:none}
+  .pm-slide{padding:calc(64px + env(safe-area-inset-top)) 0 calc(56px + env(safe-area-inset-bottom))}
+  .pm-slide img{border-radius:0;box-shadow:none}
+}
 
 /* mobile: tight gutters so the text gets the width. Placed last so these win over the base rules. */
 @media (max-width:900px){

@@ -186,10 +186,10 @@
     var variants = (day.variants && day.variants.length) ? variantsHTML(day) : '';
     var off = /^off\b/i.test(day.title);
     return '<div class="day' + (off ? ' off' : '') + '" style="--dot:' + color + '">' +
-      '<div class="dhead">' +
+      '<div class="dhead" role="button" tabindex="0" data-day="' + day.d + '" title="Show on map">' +
         '<span class="dno" style="color:' + color + '">' + day.d + '</span>' +
         '<span class="ddate">Day ' + day.d + ' · ' + esc(day.date) + '</span>' +
-        '<span class="dtitle">' + esc(day.title) + arrive + '</span>' +
+        '<span class="dtitle">' + esc(day.title) + arrive + '<span class="dmap" aria-hidden="true">map</span></span>' +
       '</div>' +
       wx + shared + variants + leg + '</div>';
   }
@@ -200,29 +200,46 @@
     { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
 
   // full-screen toggle (mobile; CSS pseudo-fullscreen so it works everywhere incl. iOS)
-  var fsScroll = 0;
+  var fsScroll = 0, fsBtn = null;
+  var mobileQ = window.matchMedia("(max-width:900px)");
+  function isFs() { return document.querySelector(".mapwrap").classList.contains("fs-on"); }
+  function setFs(on, then) {
+    var el = document.querySelector(".mapwrap");
+    if (on === isFs()) { if (then) then(); return; }
+    el.classList.toggle("fs-on", on);
+    // freeze the page behind the map so iOS can't scroll/bounce it (restore position on exit)
+    if (on) { fsScroll = window.scrollY; document.body.style.top = -fsScroll + "px"; }
+    document.body.classList.toggle("fs-lock", on);
+    if (!on) { document.body.style.top = ""; window.scrollTo(0, fsScroll); clearDayFocus(); }
+    if (fsBtn) { fsBtn.innerHTML = on ? "✕" : "⛶"; fsBtn.title = on ? "Exit full screen" : "Full screen"; }
+    setTimeout(function () { map.invalidateSize(); if (then) then(); }, 150);
+  }
   var FsCtrl = L.Control.extend({
     options: { position: "topleft" },
     onAdd: function () {
       var c = L.DomUtil.create("div", "leaflet-bar fs-ctrl");
-      var a = L.DomUtil.create("a", "fs-btn", c);
+      var a = fsBtn = L.DomUtil.create("a", "fs-btn", c);
       a.href = "#"; a.title = "Full screen"; a.setAttribute("role", "button"); a.innerHTML = "⛶";
-      L.DomEvent.on(a, "click", function (e) {
-        L.DomEvent.stop(e);
-        var el = document.querySelector(".mapwrap");
-        var on = el.classList.toggle("fs-on");
-        // freeze the page behind the map so iOS can't scroll/bounce it (restore position on exit)
-        if (on) { fsScroll = window.scrollY; document.body.style.top = -fsScroll + "px"; }
-        document.body.classList.toggle("fs-lock", on);
-        if (!on) { document.body.style.top = ""; window.scrollTo(0, fsScroll); }
-        a.innerHTML = on ? "✕" : "⛶";
-        a.title = on ? "Exit full screen" : "Full screen";
-        setTimeout(function () { map.invalidateSize(); }, 150);
-      });
+      L.DomEvent.on(a, "click", function (e) { L.DomEvent.stop(e); setFs(!isFs()); });
       return c;
     }
   });
   map.addControl(new FsCtrl());
+
+  // floating "Map" button (phones: the map scrolls away above the itinerary)
+  var fab = document.createElement("button");
+  fab.type = "button"; fab.className = "mapfab"; fab.innerHTML = "🗺️ Map";
+  fab.addEventListener("click", function () { setFs(true); });
+  document.body.appendChild(fab);
+
+  // "Day N" chip shown while the map is focused on one day
+  var dayChip = L.DomUtil.create("div", "daychip");
+  dayChip.setAttribute("hidden", "");
+  document.querySelector(".mapwrap").appendChild(dayChip);
+  L.DomEvent.disableClickPropagation(dayChip);
+  dayChip.addEventListener("click", function (e) {
+    if (e.target.closest(".dc-x")) { clearDayFocus(); fitAll(); }
+  });
 
   var bounds = [];
   // toggleable POI layers (food/pools/chargers/tips…) — one Leaflet group each
@@ -312,7 +329,55 @@
     });
   });
 
-  if (bounds.length) map.fitBounds(L.latLngBounds(bounds).pad(0.12));
+  function fitAll() { if (bounds.length) map.fitBounds(L.latLngBounds(bounds).pad(0.12)); }
+  fitAll();
+
+  /* ---------- focus the map on one day (day-title click) ---------- */
+  var dayById = {}, baseOfDay = {};
+  TRIP.bases.forEach(function (b) {
+    b.days.forEach(function (d) { dayById[d.d] = d; baseOfDay[d.d] = b; });
+  });
+  function setRouteDim(focus) {
+    routeDays.forEach(function (d) {
+      routeGroups[d].eachLayer(function (pl) {
+        if (pl._op == null) pl._op = pl.options.opacity;
+        pl.setStyle({ opacity: focus == null || d === focus ? pl._op : 0.15 });
+      });
+    });
+  }
+  function clearDayFocus() { setRouteDim(null); dayChip.setAttribute("hidden", ""); }
+  function focusDay(n) {
+    var day = dayById[n], pts = [];
+    if (!day) return;
+    if (routeGroups[n]) {
+      if (!map.hasLayer(routeGroups[n])) {
+        routeGroups[n].addTo(map);
+        var cb = document.querySelector('.routeToggle[data-day="' + n + '"]');
+        if (cb) cb.checked = true;
+      }
+      ROUTES.forEach(function (l) { if (l.day === n) pts = pts.concat(l.coords); });
+    }
+    setRouteDim(routeGroups[n] ? n : null);
+    dayChip.innerHTML = '<b>Day ' + n + '</b> <span>' + esc(day.title) + '</span>' +
+      '<button type="button" class="dc-x" aria-label="Show whole trip">×</button>';
+    dayChip.removeAttribute("hidden");
+    var go = function () {
+      var base = baseOfDay[n];
+      if (pts.length) map.fitBounds(L.latLngBounds(pts), { padding: [40, 40] });
+      else if (base && base.coord) map.setView(base.coord, 12);   // off day: stay near the house
+      else fitAll();
+    };
+    if (mobileQ.matches) setFs(true, go); else go();
+  }
+  function onDayHead(e) {
+    var h = e.target.closest ? e.target.closest(".dhead[data-day]") : null;
+    if (!h || e.target.closest("a")) return;
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return;
+    e.preventDefault();
+    focusDay(+h.getAttribute("data-day"));
+  }
+  document.addEventListener("click", onDayHead);
+  document.addEventListener("keydown", onDayHead);
 
   /* ---------- legend (built from what's in the data) ---------- */
   var modes = {};
@@ -494,21 +559,38 @@
         '<div class="pm-body"></div>' +
       '</div>' +
       '<div class="pm-light" hidden>' +
+        '<div class="pm-track"></div>' +
         '<button type="button" class="pm-nav pm-prev" aria-label="Previous photo">‹</button>' +
-        '<img alt="">' +
         '<button type="button" class="pm-nav pm-next" aria-label="Next photo">›</button>' +
+        '<button type="button" class="pm-lclose" aria-label="Back to grid">×</button>' +
         '<span class="pm-count"></span>' +
       '</div>';
     document.body.appendChild(el);
     el.querySelector(".pm-backdrop").addEventListener("click", closePhotos);
     el.querySelector(".pm-close").addEventListener("click", closePhotos);
-    // click the dark area (not the image or arrows) closes the lightbox
+    // tap the dark area around the photo closes the lightbox
     el.querySelector(".pm-light").addEventListener("click", function (e) {
-      if (e.target === this) hideLight();
+      if (e.target === this || e.target.classList.contains("pm-slide")) hideLight();
     });
+    el.querySelector(".pm-lclose").addEventListener("click", hideLight);
     el.querySelector(".pm-prev").addEventListener("click", function (e) { e.stopPropagation(); stepLight(-1); });
     el.querySelector(".pm-next").addEventListener("click", function (e) { e.stopPropagation(); stepLight(1); });
-    el.querySelector(".pm-light img").addEventListener("click", function (e) { e.stopPropagation(); stepLight(1); });
+    // the track is a native scroll-snap carousel: swipe moves between photos
+    var track = el.querySelector(".pm-track"), sy = null, sx = 0;
+    track.addEventListener("scroll", function () {
+      var i = Math.round(track.scrollLeft / (track.clientWidth || 1));
+      if (i !== lightIdx && gallery[i]) { lightIdx = i; syncLight(); }
+    }, { passive: true });
+    // swipe down to go back to the grid
+    track.addEventListener("touchstart", function (e) {
+      if (e.touches.length === 1) { sy = e.touches[0].clientY; sx = e.touches[0].clientX; }
+    }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (sy == null) return;
+      var t = e.changedTouches[0], dy = t.clientY - sy, dx = Math.abs(t.clientX - sx);
+      sy = null;
+      if (dy > 90 && dx < 50) hideLight();
+    }, { passive: true });
     el.querySelector(".pm-body").addEventListener("click", function (e) {
       var th = e.target.closest ? e.target.closest(".pm-thumb") : null;
       if (!th) return;
@@ -517,34 +599,46 @@
     return el;
   }
 
-  var preloaded = {};
-  function preload(i) {
-    if (!gallery.length) return;
-    var u = gallery[(i + gallery.length) % gallery.length].url;
-    if (preloaded[u]) return;
-    preloaded[u] = true;
-    var im = new Image(); im.src = u;
+  function buildTrack() {
+    modal.querySelector(".pm-track").innerHTML = gallery.map(function (g) {
+      return '<div class="pm-slide"><img alt="' + esc(g.title || "") + '" decoding="async" data-src="' + esc(g.url) + '"></div>';
+    }).join("");
+  }
+  function loadAround(i) {   // current photo + neighbours, so a swipe never lands on a blank
+    var imgs = modal.querySelectorAll(".pm-slide img");
+    for (var j = i - 1; j <= i + 1; j++) {
+      var im = imgs[j];
+      if (im && !im.getAttribute("src")) im.src = im.getAttribute("data-src");
+    }
+  }
+  function syncLight() {
+    var src = gallery[lightIdx] && gallery[lightIdx].source;
+    modal.querySelector(".pm-count").textContent =
+      (lightIdx + 1) + " / " + gallery.length + (src ? " · " + src : "");
+    loadAround(lightIdx);
   }
   function showLight(i) {
     if (!gallery.length) return;
-    lightIdx = (i + gallery.length) % gallery.length;
-    var light = modal.querySelector(".pm-light");
-    light.querySelector("img").src = gallery[lightIdx].url;
-    var src = gallery[lightIdx].source;
-    light.querySelector(".pm-count").textContent =
-      (lightIdx + 1) + " / " + gallery.length + (src ? " · " + src : "");
+    lightIdx = Math.max(0, Math.min(gallery.length - 1, i));
+    var light = modal.querySelector(".pm-light"), track = light.querySelector(".pm-track");
     var multi = gallery.length > 1;
     light.querySelector(".pm-prev").style.display = multi ? "" : "none";
     light.querySelector(".pm-next").style.display = multi ? "" : "none";
     light.removeAttribute("hidden");
-    preload(lightIdx + 1); preload(lightIdx - 1);   // neighbours ready before you click
+    track.scrollTo({ left: lightIdx * track.clientWidth, behavior: "instant" });
+    syncLight();
   }
-  function stepLight(delta) { showLight(lightIdx + delta); }
+  function stepLight(delta) {
+    if (!gallery.length) return;
+    var n = gallery.length, i = lightIdx + delta, track = modal.querySelector(".pm-track");
+    if (i < 0 || i >= n) return showLight((i + n) % n);   // wrap without a long scroll
+    track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });
+  }
   function hideLight() { modal.querySelector(".pm-light").setAttribute("hidden", ""); }
 
   function openPhotos(name, lat, lon) {
     var id = ++reqId;
-    gallery = []; preloaded = {};
+    gallery = [];
     modal.removeAttribute("hidden");
     modal.querySelector(".pm-light").setAttribute("hidden", "");
     document.body.classList.add("pm-open");
@@ -561,6 +655,7 @@
     } else { gm.setAttribute("hidden", ""); wz.setAttribute("hidden", ""); }
     var body = modal.querySelector(".pm-body");
     body.innerHTML = '<div class="pm-note">Loading photos…</div>';
+    modal.querySelector(".pm-track").innerHTML = "";
 
     // Pull from several sources in parallel: Openverse (Flickr/museums/Wikimedia,
     // searched by name → scenic) + Wikimedia Commons geosearch (on-location shots).
@@ -579,7 +674,8 @@
           });
         });
         if (!imgs.length) { body.innerHTML = fallbackHTML(name); return; }
-        gallery = imgs.map(function (im) { return { url: im.large, source: im.source }; });
+        gallery = imgs.map(function (im) { return { url: im.large, source: im.source, title: im.title }; });
+        buildTrack();
         body.innerHTML = '<div class="pm-grid">' + imgs.map(function (im, i) {
           return '<button type="button" class="pm-thumb" data-idx="' + i +
             '" title="' + esc(im.title || "") + '">' +
