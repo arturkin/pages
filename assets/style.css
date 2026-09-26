@@ -194,3 +194,7 @@ body.pm-open{overflow:hidden}
   .legend .lg-right{border-left:none;padding-left:0}
   .legend .lg-right .lsec:first-child{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
 }
+.day li .plmap{text-decoration:none;font-size:.85em;margin-left:2px}
+.popnav .popchip{display:inline-block;margin:4px 6px 0 0;text-decoration:none;font-weight:600}
+.popnav .popchip.gmaps{color:#1a6b4a}
+.popnav .popchip.waze{color:#1c5fa8}

@@ -53,11 +53,11 @@
   // becomes a clickable photo trigger wherever it appears in a day bullet.
   var PLACES = (function () {
     var out = [], seen = {};
-    function add(name, coord) {
+    function add(name, coord, pin) {
       if (!name || !coord) return;
       var k = name.toLowerCase();
       if (seen[k]) return; seen[k] = 1;
-      out.push({ name: name, coord: coord });
+      out.push({ name: name, coord: coord, pin: pin });
     }
     (TRIP.bases || []).forEach(function (b) {
       add(b.name, b.coord);
@@ -65,11 +65,15 @@
     });
     (TRIP.waypoints || []).forEach(function (w) { add(w.name, w.coord); });
     (TRIP.hubs || []).forEach(function (h) { add(h.name, h.coord); });
+    // layers with `linkify:true` (e.g. markets) also link their names in day text, with a 📍 maps link
+    LAYERS.forEach(function (l) {
+      if (l.linkify) (l.points || []).forEach(function (p) { add(p.name, p.coord, true); });
+    });
     out.sort(function (a, b) { return b.name.length - a.name.length; }); // longest-match first
     return out;
   })();
   var placeByName = {};
-  PLACES.forEach(function (p) { placeByName[p.name.toLowerCase()] = p.coord; });
+  PLACES.forEach(function (p) { placeByName[p.name.toLowerCase()] = p; });
   var placeRe = PLACES.length
     ? new RegExp("\\b(" + PLACES.map(function (p) { return reEsc(esc(p.name)); }).join("|") + ")\\b", "gi")
     : null;
@@ -78,9 +82,11 @@
     var s = esc(text);
     if (!placeRe) return s;
     return s.replace(placeRe, function (match) {
-      var coord = placeByName[match.toLowerCase()];
-      if (!coord) return match;
-      return '<a class="pl" href="#" ' + photoAttrs(match, coord) + '>' + match + '</a>';
+      var p = placeByName[match.toLowerCase()];
+      if (!p) return match;
+      var u = p.pin && navUrls(p.coord);
+      return '<a class="pl" href="#" ' + photoAttrs(match, p.coord) + '>' + match + '</a>' +
+        (u ? '<a class="plmap" href="' + u.gmaps + '" target="_blank" rel="noopener" title="Directions in Google Maps">📍</a>' : '');
     });
   }
   function reEsc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
@@ -266,6 +272,7 @@
           (p.rating ? " · ★ " + esc(String(p.rating)) : "") + "</span>" +
         (p.note ? "<br>" + esc(p.note) : "") +
         (p.url ? '<br><a href="' + esc(p.url) + '" target="_blank" rel="noopener">Open ↗</a>' : "") +
+        (p.coord ? '<br><span class="popnav">' + navChips(p.coord, "popchip") + '</span>' : "") +
         (showPhotos ? popupPhotos(p.name, p.coord) : "");
       L.marker(p.coord, { icon: divIcon('<div class="poipin">' + (ct.icon || layer.icon || "📍") + "</div>", 22, 22, 11, 11) })
         .bindPopup(pop).addTo(layerGroups[li]);
