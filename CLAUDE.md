@@ -11,7 +11,6 @@ Currently: **westfjords** (Iceland, 15–19 Jul 2026) and **italy** (3–18 Oct 
 /
 ├── index.html            GENERATED — redirects to the nearest-by-date trip (sync.js owns it)
 ├── <slug>.html           one thin page shell per trip (e.g. italy.html, westfjords.html)
-├── rock5.html            NOT a trip. Home-server control card — see "rock5.html" below.
 ├── assets/               SHARED engine — trip-agnostic, touched rarely
 │   ├── app.js            renders header + day cards + Leaflet map from window.TRIP / window.ROUTES
 │   ├── style.css         styling
@@ -166,25 +165,6 @@ Never rewrite a Commons thumbnail URL to a different width — unrendered sizes 
 **Any new place MUST carry a `coord: [lat, lon]`** or it gets no map pin and no gallery entry point.
 Day-text names auto-link only for bases/highlights/waypoints/hubs (not layer points).
 No `assets/app.js` change is needed to make a new place browsable — it's driven by name + coord in `meta.js`.
-
-## rock5.html — the one non-trip page
-
-A phone control card for a home NAS, hosted here only because it needs an HTTPS
-origin (`window.crypto.subtle` does not exist over `file://`). It is unrelated
-to trips and `assets/sync.js` ignores it.
-
-**Do not hand-edit it.** It is generated from the `homeserver` repo:
-
-```bash
-~/homeserver/scripts/build-command-card.sh ~/path/to/pages/rock5.html
-```
-
-The source of truth is `tools/ntfy-command-card.html` there. Editing the copy
-here means the page's signing code drifts from the server that validates it,
-and the symptom is every command being silently rejected.
-
-It contains no secrets — the signing key is typed in by the user and stays in
-that browser's `localStorage`.
 
 ## Conventions
 - **Commit directly to `main`** — no feature branches for this project.
