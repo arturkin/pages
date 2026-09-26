@@ -200,7 +200,7 @@
     { maxZoom: 18, attribution: "© OpenStreetMap" }).addTo(map);
 
   // full-screen toggle (mobile; CSS pseudo-fullscreen so it works everywhere incl. iOS)
-  var fsScroll = 0, fsBtn = null;
+  var fsScroll = 0;
   var mobileQ = window.matchMedia("(max-width:900px)");
   function isFs() { return document.querySelector(".mapwrap").classList.contains("fs-on"); }
   function setFs(on, then) {
@@ -211,25 +211,13 @@
     if (on) { fsScroll = window.scrollY; document.body.style.top = -fsScroll + "px"; }
     document.body.classList.toggle("fs-lock", on);
     if (!on) { document.body.style.top = ""; window.scrollTo(0, fsScroll); clearDayFocus(); }
-    if (fsBtn) { fsBtn.innerHTML = on ? "✕" : "⛶"; fsBtn.title = on ? "Exit full screen" : "Full screen"; }
+    fab.innerHTML = on ? "✕ Close map" : "🗺️ Map";
     setTimeout(function () { map.invalidateSize(); if (then) then(); }, 150);
   }
-  var FsCtrl = L.Control.extend({
-    options: { position: "topleft" },
-    onAdd: function () {
-      var c = L.DomUtil.create("div", "leaflet-bar fs-ctrl");
-      var a = fsBtn = L.DomUtil.create("a", "fs-btn", c);
-      a.href = "#"; a.title = "Full screen"; a.setAttribute("role", "button"); a.innerHTML = "⛶";
-      L.DomEvent.on(a, "click", function (e) { L.DomEvent.stop(e); setFs(!isFs()); });
-      return c;
-    }
-  });
-  map.addControl(new FsCtrl());
-
-  // floating "Map" button (phones: the map scrolls away above the itinerary)
+  // floating "Map" button (phones: the map scrolls away above the itinerary); closes it again in full screen
   var fab = document.createElement("button");
   fab.type = "button"; fab.className = "mapfab"; fab.innerHTML = "🗺️ Map";
-  fab.addEventListener("click", function () { setFs(true); });
+  fab.addEventListener("click", function () { setFs(!isFs()); });
   document.body.appendChild(fab);
 
   // "Day N" chip shown while the map is focused on one day
